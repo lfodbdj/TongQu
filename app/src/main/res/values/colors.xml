@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- V2.0 童趣 child-friendly palette: warm orange + sky blue -->
+    <color name="primary">#FF7043</color>
+    <color name="primary_dark">#F4511E</color>
+    <color name="primary_light">#FFE0B2</color>
+    <color name="accent">#039BE5</color>
+    <color name="error">#E53935</color>
+    <color name="warning">#FFC107</color>
+    <color name="success">#43A047</color>
+    <color name="background">#FFF8E1</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_background">#37474F</color>
+    <color name="on_surface">#37474F</color>
+    <color name="text_secondary">#78909C</color>
+    <color name="locked_background">#263238</color>
+    <color name="locked_text">#FFFFFF</color>
+    <color name="overlay_dim">#E6000000</color>
+    <color name="correct_bg">#C8E6C9</color>
+    <color name="wrong_bg">#FFCDD2</color>
+</resources>

@@ -1,0 +1,9 @@
+# Keep the Gradle wrapper script executable on Unix-like checkouts.
+gradlew text eol=lf
+*.sh text eol=lf
+*.bat text eol=crlf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.jpg binary
+*.jar binary

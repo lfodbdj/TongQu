@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <!-- V2.0 (requirement 2026-11-10): WAKE_LOCK removed — the app must not
+         keep the device awake, and no code path ever held a wakelock.
+         FLAG_KEEP_SCREEN_ON is likewise no longer used anywhere. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!-- Signature|privileged permission; only AppOps MODE_ALLOWED matters at runtime.
+         Needed for the parent console "exempt apps" foreground detection (2-c). -->
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Enumerate ALL installed packages in the parent console app list
+         (getInstalledApplications). Required for full visibility on API 30+;
+         on the API 29 test device it is a harmless no-op. This app is
+         sideloaded (not distributed via Play), so the sensitive permission
+         is acceptable here. -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!-- Package visibility (API 30+): resolve launcher apps. Kept for any
+         launcher-based lookups; QUERY_ALL_PACKAGES above makes it redundant
+         but harmless. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".AntiAddictionApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AntiAddiction"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".ui.QuizActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AntiAddiction.Quiz"
+            android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize|uiMode|fontScale|density"
+            tools:ignore="ConfigChanges" />
+
+        <!-- V2.0 童趣 growth screen (child-facing, read-only). Not exported. -->
+        <activity
+            android:name=".ui.GrowthActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AntiAddiction" />
+
+        <!-- V2.1 主动答题: voluntary practice, decoupled from the forced-quiz
+             pipeline (no service state, no media mute, no lock task). -->
+        <activity
+            android:name=".ui.PracticeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AntiAddiction" />
+
+        <!-- Parent console: no intent-filter and NOT exported. Every onResume
+             re-runs the parent password gate (batch 2-c). -->
+        <activity
+            android:name=".ui.ConsoleActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AntiAddiction" />
+
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AntiAddiction">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Device administration receiver for the "real lock screen" feature (B10).
+             The BIND_DEVICE_ADMIN permission is granted by the system when the user
+             activates this admin via ACTION_ADD_DEVICE_ADMIN; it must NOT be declared
+             as a normal <uses-permission>. -->
+        <receiver
+            android:name=".AntiAddictionDeviceAdmin"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_policies" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".ScreenMonitorService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Screen monitoring for parental control anti-addiction" />
+        </service>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="com.antidip.AppInitializer"
+                android:value="androidx.startup" />
+        </provider>
+
+    </application>
+</manifest>

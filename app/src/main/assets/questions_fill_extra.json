@@ -1,0 +1,1730 @@
+[
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "床前明月光，______。",
+    "options": [],
+    "answer": "疑是地上霜",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，疑是地上霜。",
+    "options": [],
+    "answer": "床前明月光",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "举头望明月，______。",
+    "options": [],
+    "answer": "低头思故乡",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，低头思故乡。",
+    "options": [],
+    "answer": "举头望明月",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "春眠不觉晓，______。",
+    "options": [],
+    "answer": "处处闻啼鸟",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，花落知多少。",
+    "options": [],
+    "answer": "夜来风雨声",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "白毛浮绿水，______。",
+    "options": [],
+    "answer": "红掌拨清波",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，红掌拨清波。",
+    "options": [],
+    "answer": "白毛浮绿水",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "锄禾日当午，______。",
+    "options": [],
+    "answer": "汗滴禾下土",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，粒粒皆辛苦。",
+    "options": [],
+    "answer": "谁知盘中餐",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "白日依山尽，______。",
+    "options": [],
+    "answer": "黄河入海流",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，更上一层楼。",
+    "options": [],
+    "answer": "欲穷千里目",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "小荷才露尖尖角，______。",
+    "options": [],
+    "answer": "早有蜻蜓立上头",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，早有蜻蜓立上头。",
+    "options": [],
+    "answer": "小荷才露尖尖角",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "儿童散学归来早，______。",
+    "options": [],
+    "answer": "忙趁东风放纸鸢",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，忙趁东风放纸鸢。",
+    "options": [],
+    "answer": "儿童散学归来早",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "小娃撑小艇，______。",
+    "options": [],
+    "answer": "偷采白莲回",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，浮萍一道开。",
+    "options": [],
+    "answer": "不解藏踪迹",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "牧童骑黄牛，______。",
+    "options": [],
+    "answer": "歌声振林樾",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，歌声振林樾。",
+    "options": [],
+    "answer": "牧童骑黄牛",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "小时不识月，______。",
+    "options": [],
+    "answer": "呼作白玉盘",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，呼作白玉盘。",
+    "options": [],
+    "answer": "小时不识月",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "解落三秋叶，______。",
+    "options": [],
+    "answer": "能开二月花",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "江南可采莲，______。",
+    "options": [],
+    "answer": "莲叶何田田",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "远看山有色，______。",
+    "options": [],
+    "answer": "近听水无声",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，人来鸟不惊。",
+    "options": [],
+    "answer": "春去花还在",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "桃花潭水深千尺，______。",
+    "options": [],
+    "answer": "不及汪伦送我情",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "______，不及汪伦送我情。",
+    "options": [],
+    "answer": "桃花潭水深千尺",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "松下问童子，______。",
+    "options": [],
+    "answer": "言师采药去",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "fill",
+    "content": "只在此山中，______。",
+    "options": [],
+    "answer": "云深不知处",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "（ ）苗助长",
+    "options": [],
+    "answer": "拔",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "守（ ）待兔",
+    "options": [],
+    "answer": "株",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "画（ ）添足",
+    "options": [],
+    "answer": "蛇",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "狐（ ）虎威",
+    "options": [],
+    "answer": "假",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "对（ ）弹琴",
+    "options": [],
+    "answer": "牛",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "井底之（ ）",
+    "options": [],
+    "answer": "蛙",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "掩（ ）盗铃",
+    "options": [],
+    "answer": "耳",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "画（ ）点睛",
+    "options": [],
+    "answer": "龙",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "叶公好（ ）",
+    "options": [],
+    "answer": "龙",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "（ ）假虎威",
+    "options": [],
+    "answer": "狐",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "画蛇添（ ）",
+    "options": [],
+    "answer": "足",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "自（ ）自语",
+    "options": [],
+    "answer": "言",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "一（ ）一意",
+    "options": [],
+    "answer": "心",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "五（ ）六色",
+    "options": [],
+    "answer": "颜",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "（ ）颜六色",
+    "options": [],
+    "answer": "五",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "七（ ）八下",
+    "options": [],
+    "answer": "上",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "（ ）上八下",
+    "options": [],
+    "answer": "七",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "万（ ）千红",
+    "options": [],
+    "answer": "紫",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "百（ ）百中",
+    "options": [],
+    "answer": "发",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "成语",
+    "type": "fill",
+    "content": "（ ）发百中",
+    "options": [],
+    "answer": "百",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "小葱拌豆腐——______。",
+    "options": [],
+    "answer": "一清二白",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "竹篮子打水——______。",
+    "options": [],
+    "answer": "一场空",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "芝麻开花——______。",
+    "options": [],
+    "answer": "节节高",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "十五个吊桶打水——______。",
+    "options": [],
+    "answer": "七上八下",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "八仙过海——______。",
+    "options": [],
+    "answer": "各显神通",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "泥菩萨过江——______。",
+    "options": [],
+    "answer": "自身难保",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "铁杵磨成针——______。",
+    "options": [],
+    "answer": "功到自然成",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "猫哭老鼠——______。",
+    "options": [],
+    "answer": "假慈悲",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "老鼠过街——______。",
+    "options": [],
+    "answer": "人人喊打",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "外甥打灯笼——______。",
+    "options": [],
+    "answer": "照旧（舅）",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "黄鼠狼给鸡拜年——______。",
+    "options": [],
+    "answer": "没安好心",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "猪八戒照镜子——______。",
+    "options": [],
+    "answer": "里外不是人",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "哑巴吃黄连——______。",
+    "options": [],
+    "answer": "有苦说不出",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "打破砂锅——______。",
+    "options": [],
+    "answer": "问到底",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "周瑜打黄盖——______。",
+    "options": [],
+    "answer": "一个愿打一个愿挨",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "韩信点兵——______。",
+    "options": [],
+    "answer": "多多益善",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "______——一清二白。",
+    "options": [],
+    "answer": "小葱拌豆腐",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "______——一场空。",
+    "options": [],
+    "answer": "竹篮子打水",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "______——节节高。",
+    "options": [],
+    "answer": "芝麻开花",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "fill",
+    "content": "______——七上八下。",
+    "options": [],
+    "answer": "十五个吊桶打水",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“大”的反义词是______。",
+    "options": [],
+    "answer": "小",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“多”的反义词是______。",
+    "options": [],
+    "answer": "少",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“上”的反义词是______。",
+    "options": [],
+    "answer": "下",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“黑”的反义词是______。",
+    "options": [],
+    "answer": "白",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“高”的反义词是______。",
+    "options": [],
+    "answer": "矮",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“前”的反义词是______。",
+    "options": [],
+    "answer": "后",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“开”的反义词是______。",
+    "options": [],
+    "answer": "关",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“冷”的反义词是______。",
+    "options": [],
+    "answer": "热",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“哭”的反义词是______。",
+    "options": [],
+    "answer": "笑",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“男”的反义词是______。",
+    "options": [],
+    "answer": "女",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“左”的反义词是______。",
+    "options": [],
+    "answer": "右",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“里”的反义词是______。",
+    "options": [],
+    "answer": "外",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“来”的反义词是______。",
+    "options": [],
+    "answer": "去",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“长”的反义词是______。",
+    "options": [],
+    "answer": "短",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）牛",
+    "options": [],
+    "answer": "头",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）猫",
+    "options": [],
+    "answer": "只",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）书",
+    "options": [],
+    "answer": "本",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）花",
+    "options": [],
+    "answer": "朵",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）树",
+    "options": [],
+    "answer": "棵",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）鱼",
+    "options": [],
+    "answer": "条",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）伞",
+    "options": [],
+    "answer": "把",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）笔",
+    "options": [],
+    "answer": "支",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）云",
+    "options": [],
+    "answer": "朵",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "一（ ）刀",
+    "options": [],
+    "answer": "把",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“口”字有______画。",
+    "options": [],
+    "answer": "3",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“日”字有______画。",
+    "options": [],
+    "answer": "4",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“山”字有______画。",
+    "options": [],
+    "answer": "3",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“水”字有______画。",
+    "options": [],
+    "answer": "4",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“火”字有______画。",
+    "options": [],
+    "answer": "4",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "chinese",
+    "type": "fill",
+    "content": "“月”字有______画。",
+    "options": [],
+    "answer": "4",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "9 + 7 = （ ）",
+    "options": [],
+    "answer": "16",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "13 - 6 = （ ）",
+    "options": [],
+    "answer": "7",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "8 + 6 = （ ）",
+    "options": [],
+    "answer": "14",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "15 - 9 = （ ）",
+    "options": [],
+    "answer": "6",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "7 + 8 = （ ）",
+    "options": [],
+    "answer": "15",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "14 - 7 = （ ）",
+    "options": [],
+    "answer": "7",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "6 + 9 = （ ）",
+    "options": [],
+    "answer": "15",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "11 - 4 = （ ）",
+    "options": [],
+    "answer": "7",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "38 + 6 = （ ）",
+    "options": [],
+    "answer": "44",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "27 + 8 = （ ）",
+    "options": [],
+    "answer": "35",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "45 + 7 = （ ）",
+    "options": [],
+    "answer": "52",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "64 - 8 = （ ）",
+    "options": [],
+    "answer": "56",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "52 - 7 = （ ）",
+    "options": [],
+    "answer": "45",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "73 - 9 = （ ）",
+    "options": [],
+    "answer": "64",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "50 + 30 = （ ）",
+    "options": [],
+    "answer": "80",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "90 - 40 = （ ）",
+    "options": [],
+    "answer": "50",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "100 - 30 = （ ）",
+    "options": [],
+    "answer": "70",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "25 + 25 = （ ）",
+    "options": [],
+    "answer": "50",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "3元 = （ ）角",
+    "options": [],
+    "answer": "30",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "6元 = （ ）角",
+    "options": [],
+    "answer": "60",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "1元2角 = （ ）角",
+    "options": [],
+    "answer": "12",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "3元5角 = （ ）角",
+    "options": [],
+    "answer": "35",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "10角 = （ ）元",
+    "options": [],
+    "answer": "1",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "100分 = （ ）角",
+    "options": [],
+    "answer": "10",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "正方形有（ ）个直角",
+    "options": [],
+    "answer": "4",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "一个正方体有（ ）个顶点",
+    "options": [],
+    "answer": "8",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "长方形相对的边（ ）（填“相等”或“不等”）",
+    "options": [],
+    "answer": "相等",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "圆柱上下两个面是（ ）形",
+    "options": [],
+    "answer": "圆",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "找规律：3，6，9，12，（ ）",
+    "options": [],
+    "answer": "15",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "找规律：20，18，16，14，（ ）",
+    "options": [],
+    "answer": "12",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "找规律：1，4，7，10，（ ）",
+    "options": [],
+    "answer": "13",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "找规律：100，90，80，70，（ ）",
+    "options": [],
+    "answer": "60",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "4个十和5个一是（ ）",
+    "options": [],
+    "answer": "45",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "8个十是（ ）",
+    "options": [],
+    "answer": "80",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "一个数十位是3，个位是6，这个数是（ ）",
+    "options": [],
+    "answer": "36",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "小明有15块糖，吃了8块，还剩（ ）块",
+    "options": [],
+    "answer": "7",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "停车场原来有20辆车，开走9辆，还剩（ ）辆",
+    "options": [],
+    "answer": "11",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "妈妈买了14个橘子，小明吃了5个，还剩（ ）个",
+    "options": [],
+    "answer": "9",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "班级有30人，其中女生12人，男生有（ ）人",
+    "options": [],
+    "answer": "18",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "一盒铅笔有10支，3盒共有（ ）支",
+    "options": [],
+    "answer": "30",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "钟面上分针指着12，时针指着7，是（ ）时",
+    "options": [],
+    "answer": "7",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "math",
+    "type": "fill",
+    "content": "钟面上分针指着12，时针指着9，是（ ）时",
+    "options": [],
+    "answer": "9",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "I ___ a boy.",
+    "options": [],
+    "answer": "am",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "He ___ a girl.",
+    "options": [],
+    "answer": "is",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "We ___ friends.",
+    "options": [],
+    "answer": "are",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "This ___ a cat.",
+    "options": [],
+    "answer": "is",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "What ___ your name?",
+    "options": [],
+    "answer": "is",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "My name ___ Tom.",
+    "options": [],
+    "answer": "is",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "I ___ six years old.",
+    "options": [],
+    "answer": "am",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "How ___ you?",
+    "options": [],
+    "answer": "are",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "I ___ fine, thank you.",
+    "options": [],
+    "answer": "am",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "What is this? It is ___ book.",
+    "options": [],
+    "answer": "a",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "___ are you?（询问年龄）",
+    "options": [],
+    "answer": "How old",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "I have ___ apple.",
+    "options": [],
+    "answer": "an",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "She has ___ orange.",
+    "options": [],
+    "answer": "an",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "This is ___ egg.",
+    "options": [],
+    "answer": "an",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "Good ___（早晨）",
+    "options": [],
+    "answer": "morning",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "___（下午好）",
+    "options": [],
+    "answer": "Good afternoon",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "Thank ___ .",
+    "options": [],
+    "answer": "you",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "___（请）",
+    "options": [],
+    "answer": "please",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "Stand ___（站起来）",
+    "options": [],
+    "answer": "up",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "Sit ___（坐下）",
+    "options": [],
+    "answer": "down",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "“猫”的英文是______。",
+    "options": [],
+    "answer": "cat",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "“狗”的英文是______。",
+    "options": [],
+    "answer": "dog",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "“红色”的英文是______。",
+    "options": [],
+    "answer": "red",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "“蓝色”的英文是______。",
+    "options": [],
+    "answer": "blue",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "english",
+    "type": "fill",
+    "content": "“书”的英文是______。",
+    "options": [],
+    "answer": "book",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "地球是我们生活的______。",
+    "options": [],
+    "answer": "星球",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "太阳从______边升起。",
+    "options": [],
+    "answer": "东",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "水烧开时的温度大约是______摄氏度。",
+    "options": [],
+    "answer": "100",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "植物通过______制造养分。",
+    "options": [],
+    "answer": "叶子",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "鱼的呼吸器官是______。",
+    "options": [],
+    "answer": "鳃",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "蜜蜂采集______来酿蜜。",
+    "options": [],
+    "answer": "花蜜",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "磁铁能吸引______做的东西。",
+    "options": [],
+    "answer": "铁",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "一年有______个季节。",
+    "options": [],
+    "answer": "4",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "彩虹有______种主要颜色。",
+    "options": [],
+    "answer": "7",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "青蛙冬天会______（填“冬眠”或“夏眠”）。",
+    "options": [],
+    "answer": "冬眠",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "月亮本身______（填“会”或“不会”）发光。",
+    "options": [],
+    "answer": "不会",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "水变成水蒸气的现象叫______。",
+    "options": [],
+    "answer": "蒸发",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "我们白天能看到太阳，晚上能看到______。",
+    "options": [],
+    "answer": "月亮",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "最大的哺乳动物是______。",
+    "options": [],
+    "answer": "鲸",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "science",
+    "type": "fill",
+    "content": "蜗牛爬过会留下______。",
+    "options": [],
+    "answer": "黏液",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "中华人民共和国的国旗是______。",
+    "options": [],
+    "answer": "五星红旗",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "我们的首都是______。",
+    "options": [],
+    "answer": "北京",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "过马路要走______。",
+    "options": [],
+    "answer": "斑马线",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "见到老师要______。",
+    "options": [],
+    "answer": "问好",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "同学有困难时，我们应该______。",
+    "options": [],
+    "answer": "帮助",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "植树节在每年的______月。",
+    "options": [],
+    "answer": "3",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "自己的事情要______做。",
+    "options": [],
+    "answer": "自己",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "少先队员胸前佩戴______。",
+    "options": [],
+    "answer": "红领巾",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "答应别人的事要______。",
+    "options": [],
+    "answer": "做到",
+    "difficulty": 1,
+    "grade": 1
+  },
+  {
+    "subject": "moral",
+    "type": "fill",
+    "content": "在图书馆里要______。",
+    "options": [],
+    "answer": "安静",
+    "difficulty": 1,
+    "grade": 1
+  }
+]

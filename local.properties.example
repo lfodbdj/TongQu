@@ -1,0 +1,17 @@
+# Copy this file to `local.properties` and fill in your own values.
+# `local.properties` is gitignored -- NEVER commit real credentials.
+# Android Studio writes `sdk.dir` automatically when you open the project;
+# for command-line builds you can also set the ANDROID_HOME environment variable.
+# sdk.dir=/path/to/Android/Sdk
+
+# Parent master password. Leave EMPTY to disable this unlock path entirely
+# (only the date-derived password will work). Use a strong value of your own
+# for real deployments, and never commit it.
+ANTI_ADDICTION_MASTER_PASSWORD=
+
+# Optional: release signing. Without these, release builds are unsigned and
+# cannot be installed; use `./gradlew assembleDebug` for sideloading.
+# RELEASE_STORE_FILE=/absolute/path/your-keystore.jks
+# RELEASE_STORE_PASSWORD=
+# RELEASE_KEY_ALIAS=
+# RELEASE_KEY_PASSWORD=

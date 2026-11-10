@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 仅用于可信局域网题库服务器：产品决策 #2 允许局域网 HTTP 明文下载。
+     设置页允许把 KEY_QUIZ_DOWNLOAD_URL 改成任意 LAN IP/域名，因此这里用
+     base-config 全局放行 cleartext，而非限定单一 domain（否则「可配置」形同虚设）。
+     公网部署必须改 HTTPS 并移除本放行配置；此配置仅适用于侧载自用场景。 -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

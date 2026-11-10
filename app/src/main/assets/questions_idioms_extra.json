@@ -1,0 +1,1042 @@
+[
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“守株待兔”比喻（ ）。",
+    "options": [
+      "团结互助",
+      "妄想不劳而获",
+      "勤奋努力",
+      "随机应变"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“亡羊补牢”比喻（ ）。",
+    "options": [
+      "已经无可救药",
+      "出问题后及时补救还来得及",
+      "羊丢失了",
+      "牢房很坚固"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "下列表示“高兴、喜悦”的成语是（ ）。",
+    "options": [
+      "痛哭流涕",
+      "愁眉苦脸",
+      "兴高采烈",
+      "垂头丧气"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“杯弓蛇影”比喻（ ）。",
+    "options": [
+      "弓箭很厉害",
+      "饮酒过量",
+      "蛇很可怕",
+      "疑神疑鬼、自相惊扰"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“滥竽充数”比喻（ ）。",
+    "options": [
+      "竞争激烈",
+      "吹竽很好听",
+      "没有真本领的人混在行家里充数",
+      "人数众多"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“画蛇添足”比喻（ ）。",
+    "options": [
+      "添上脚更好看",
+      "蛇本来有脚",
+      "画得很好",
+      "多此一举、弄巧成拙"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“狐假虎威”比喻（ ）。",
+    "options": [
+      "老虎很凶猛",
+      "倚仗别人的权势欺压人",
+      "动物之间很友好",
+      "狐狸很聪明"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“掩耳盗铃”比喻（ ）。",
+    "options": [
+      "铃铛很响",
+      "把声音藏起来",
+      "偷铃铛",
+      "自己欺骗自己"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“刻舟求剑”比喻（ ）。",
+    "options": [
+      "水性很好",
+      "在船上刻字",
+      "剑掉进水里",
+      "拘泥成法、不知变通"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“叶公好龙”比喻（ ）。",
+    "options": [
+      "会画龙",
+      "非常喜欢龙",
+      "口头上爱好而并非真爱",
+      "真龙降临"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“愚公移山”比喻（ ）。",
+    "options": [
+      "愚笨",
+      "搬山很容易",
+      "山很小",
+      "坚持不懈、不畏艰难"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“胸有成竹”比喻（ ）。",
+    "options": [
+      "胸口里有竹子",
+      "是画竹的高手",
+      "竹子很大",
+      "做事之前已有通盘考虑"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“雪中送炭”比喻（ ）。",
+    "options": [
+      "天气寒冷",
+      "送礼物",
+      "在别人困难时给予帮助",
+      "下雪天送煤"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“对牛弹琴”比喻（ ）。",
+    "options": [
+      "牛喜欢音乐",
+      "弹琴给牛听",
+      "对不懂道理的人讲道理",
+      "琴声很优美"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“井底之蛙”比喻（ ）。",
+    "options": [
+      "青蛙",
+      "见识狭小的人",
+      "井很深",
+      "水很多"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“画龙点睛”比喻（ ）。",
+    "options": [
+      "点上眼睛",
+      "画了一条龙",
+      "龙会飞",
+      "在关键处加一笔使内容生动"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“一鸣惊人”比喻（ ）。",
+    "options": [
+      "声音很大",
+      "鸟叫",
+      "把人吓到",
+      "平时默默无闻，一下子做出惊人成绩"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“百发百中”形容（ ）。",
+    "options": [
+      "速度很快",
+      "射箭或射击非常准",
+      "数量很多",
+      "力气很大"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“千钧一发”比喻（ ）。",
+    "options": [
+      "重量很重",
+      "情况万分危急",
+      "头发",
+      "绳子"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“风驰电掣”形容（ ）。",
+    "options": [
+      "风很大",
+      "速度极快",
+      "闪电",
+      "汽车"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“五颜六色”形容（ ）。",
+    "options": [
+      "很亮",
+      "色彩繁多",
+      "单一颜色",
+      "数字五和六"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“争先恐后”形容（ ）。",
+    "options": [
+      "很害怕",
+      "很安静",
+      "排好队",
+      "争着向前，唯恐落后"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“兴风作浪”比喻（ ）。",
+    "options": [
+      "天气不好",
+      "海浪很大",
+      "刮大风",
+      "煽动事端、制造麻烦"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“自相矛盾”比喻（ ）。",
+    "options": [
+      "有矛盾",
+      "互相打架",
+      "言行前后抵触",
+      "争论不休"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“邯郸学步”比喻（ ）。",
+    "options": [
+      "练习步法",
+      "盲目模仿别人，反而丢了自己的本事",
+      "邯郸这个地名",
+      "学习走路"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“卧薪尝胆”比喻（ ）。",
+    "options": [
+      "品尝苦胆",
+      "忍受吃苦",
+      "刻苦自励、发愤图强",
+      "睡觉"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“闻鸡起舞”形容（ ）。",
+    "options": [
+      "起得很早",
+      "听到鸡叫",
+      "起来跳舞",
+      "有志者及时奋发"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“入木三分”形容（ ）。",
+    "options": [
+      "刻字很深",
+      "三分长",
+      "木头很深",
+      "书法笔力遒劲或分析深刻"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“水落石出”比喻（ ）。",
+    "options": [
+      "石头露出来",
+      "水退下去",
+      "下过雨",
+      "事情的真相完全显露"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“完璧归赵”比喻（ ）。",
+    "options": [
+      "东西完好",
+      "一块玉璧",
+      "把原物完好地归还",
+      "赵国"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“负荆请罪”比喻（ ）。",
+    "options": [
+      "背着荆条",
+      "请求治罪",
+      "主动认错、赔礼道歉",
+      "打架之后"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“纸上谈兵”比喻（ ）。",
+    "options": [
+      "写兵书",
+      "上阵打仗",
+      "空谈理论而不切实际",
+      "谈论兵法"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“三顾茅庐”比喻（ ）。",
+    "options": [
+      "拜访朋友",
+      "去了三次",
+      "一座茅草屋",
+      "真心诚意地反复邀请贤才"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“四面楚歌”比喻（ ）。",
+    "options": [
+      "楚地的歌声",
+      "四面八方",
+      "唱歌",
+      "陷入四面受敌、孤立无援的境地"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“指鹿为马”比喻（ ）。",
+    "options": [
+      "鹿和马",
+      "故意颠倒黑白、混淆是非",
+      "指着鹿",
+      "骑着马"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“望梅止渴”比喻（ ）。",
+    "options": [
+      "非常口渴",
+      "看梅子",
+      "止渴",
+      "用空想来安慰自己"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“草木皆兵”比喻（ ）。",
+    "options": [
+      "打仗",
+      "惊慌时疑神疑鬼",
+      "草和树木",
+      "当兵"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“名落孙山”比喻（ ）。",
+    "options": [
+      "考中了",
+      "名字排在孙山之后",
+      "考试或选拔没有被录取",
+      "孙山这个人"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“青出于蓝”比喻（ ）。",
+    "options": [
+      "蓝色的",
+      "青色的",
+      "学生超过老师或后人胜过前人",
+      "染布"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "成语",
+    "type": "choice",
+    "content": "“班门弄斧”比喻（ ）。",
+    "options": [
+      "班门",
+      "木匠",
+      "摆弄斧头",
+      "在行家面前卖弄本领"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：泥菩萨过江——（ ）。",
+    "options": [
+      "大显身手",
+      "一举两得",
+      "平安无事",
+      "自身难保"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：外甥打灯笼——（ ）。",
+    "options": [
+      "自不量力",
+      "名落孙山",
+      "自投罗网",
+      "照旧（照舅）"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：竹篮打水——（ ）。",
+    "options": [
+      "水到渠成",
+      "稳操胜券",
+      "满载而归",
+      "一场空"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：小葱拌豆腐——（ ）。",
+    "options": [
+      "色香味全",
+      "清汤寡水",
+      "一清（青）二白",
+      "又香又脆"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：周瑜打黄盖——（ ）。",
+    "options": [
+      "同仇敌忾",
+      "两败俱伤",
+      "一个愿打一个愿挨",
+      "将相不和"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：门缝里看人——（ ）。",
+    "options": [
+      "看不清",
+      "看得远",
+      "看得清楚",
+      "把人看扁了"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：骑驴看唱本——（ ）。",
+    "options": [
+      "骑着驴",
+      "边走边唱",
+      "走着瞧",
+      "看戏"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：黄鼠狼给鸡拜年——（ ）。",
+    "options": [
+      "真心祝福",
+      "拜早年",
+      "送礼物",
+      "没安好心"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：十五个吊桶打水——（ ）。",
+    "options": [
+      "满满当当",
+      "空空如也",
+      "高低不平",
+      "七上八下"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：八仙过海——（ ）。",
+    "options": [
+      "掀起风波",
+      "神仙",
+      "各显神通",
+      "过海"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：哑巴吃黄连——（ ）。",
+    "options": [
+      "很甜",
+      "很苦",
+      "有苦说不出",
+      "说得出来"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：猫哭老鼠——（ ）。",
+    "options": [
+      "吃老鼠",
+      "真伤心",
+      "哭得很好",
+      "假慈悲"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：千里送鹅毛——（ ）。",
+    "options": [
+      "路途遥远",
+      "礼轻情意重",
+      "礼物很大",
+      "鹅毛很轻"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：芝麻开花——（ ）。",
+    "options": [
+      "不开花",
+      "节节高",
+      "花很小",
+      "节节低"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：丈二和尚——（ ）。",
+    "options": [
+      "是个和尚",
+      "很高",
+      "摸不着头脑",
+      "光头"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：姜太公钓鱼——（ ）。",
+    "options": [
+      "钓到了鱼",
+      "直钩钓鱼",
+      "愿者上钩",
+      "钓鱼"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：孔夫子搬家——（ ）。",
+    "options": [
+      "赢了",
+      "尽是输（书）",
+      "搬家",
+      "搬了很多书"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：打破砂锅——（ ）。",
+    "options": [
+      "砂锅",
+      "没破",
+      "碎了",
+      "问（纹）到底"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：飞蛾扑火——（ ）。",
+    "options": [
+      "扑火",
+      "飞蛾",
+      "奔向光明",
+      "自取灭亡"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：韩信点兵——（ ）。",
+    "options": [
+      "韩信",
+      "在点兵",
+      "多多益善",
+      "兵很少"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：兔子的尾巴——（ ）。",
+    "options": [
+      "很长",
+      "长不了",
+      "毛很多",
+      "白色的"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：王婆卖瓜——（ ）。",
+    "options": [
+      "卖瓜",
+      "自卖自夸",
+      "王婆",
+      "瓜很甜"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：竹筒倒豆子——（ ）。",
+    "options": [
+      "倒了一地豆子",
+      "竹筒破了",
+      "没倒出来",
+      "直来直去"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：老鼠过街——（ ）。",
+    "options": [
+      "偷偷摸摸",
+      "跑得很快",
+      "人人喊打",
+      "无人理睬"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：猪八戒照镜子——（ ）。",
+    "options": [
+      "照镜子",
+      "镜子破了",
+      "里外不是人",
+      "猪八戒"
+    ],
+    "answer": "C",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：东施效颦——（ ）。",
+    "options": [
+      "东施",
+      "效颦",
+      "很漂亮",
+      "盲目模仿别人反而出丑"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：和尚打伞——（ ）。",
+    "options": [
+      "下雨了",
+      "和尚",
+      "无法（发）无天",
+      "打伞"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：螳臂当车——（ ）。",
+    "options": [
+      "螳螂",
+      "自不量力",
+      "很勇敢",
+      "挡住车"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：聋子的耳朵——（ ）。",
+    "options": [
+      "听不见",
+      "摆设",
+      "聋子",
+      "耳朵"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "歇后语",
+    "type": "choice",
+    "content": "歇后语：秋后的蚂蚱——（ ）。",
+    "options": [
+      "蹦得很高",
+      "蚂蚱",
+      "秋天",
+      "蹦跶不了几天"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“床前明月光”的下一句是（ ）。",
+    "options": [
+      "月是故乡明",
+      "疑是地上霜",
+      "举头望明月",
+      "低头思故乡"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“春眠不觉晓”出自哪首诗？（ ）。",
+    "options": [
+      "《登鹳雀楼》",
+      "《悯农》",
+      "《静夜思》",
+      "《春晓》"
+    ],
+    "answer": "D",
+    "difficulty": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“谁知盘中餐，粒粒皆辛苦”教育我们要（ ）。",
+    "options": [
+      "学做饭",
+      "珍惜粮食",
+      "多吃饭",
+      "种庄稼"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“白日依山尽，黄河入海流”的作者是（ ）。",
+    "options": [
+      "杜甫",
+      "孟浩然",
+      "王之涣",
+      "李白"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“欲穷千里目，更上一层楼”告诉我们（ ）。",
+    "options": [
+      "楼很高",
+      "站得高才能看得远",
+      "想看远处",
+      "要爬楼"
+    ],
+    "answer": "B",
+    "difficulty": 1
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“小荷才露尖尖角”的下一句是（ ）。",
+    "options": [
+      "映日荷花别样红",
+      "接天莲叶无穷碧",
+      "早有蜻蜓立上头",
+      "荷花真美丽"
+    ],
+    "answer": "C",
+    "difficulty": 2
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“锄禾日当午，汗滴禾下土”出自《悯农》，作者是（ ）。",
+    "options": [
+      "白居易",
+      "李绅",
+      "王维",
+      "李白"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“两岸猿声啼不住，轻舟已过万重山”的作者是（ ）。",
+    "options": [
+      "白居易",
+      "杜甫",
+      "王维",
+      "李白"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“桃花潭水深千尺，不及汪伦送我情”中“汪伦”是（ ）。",
+    "options": [
+      "潭水",
+      "李白的朋友",
+      "桃花",
+      "船夫"
+    ],
+    "answer": "B",
+    "difficulty": 2
+  },
+  {
+    "subject": "古诗",
+    "type": "choice",
+    "content": "“接天莲叶无穷碧，映日荷花别样红”描写的是（ ）的景色。",
+    "options": [
+      "黄河",
+      "高山",
+      "雪景",
+      "西湖"
+    ],
+    "answer": "D",
+    "difficulty": 2
+  }
+]
