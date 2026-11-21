@@ -15,3 +15,7 @@ ANTI_ADDICTION_MASTER_PASSWORD=
 # RELEASE_STORE_PASSWORD=
 # RELEASE_KEY_ALIAS=
 # RELEASE_KEY_PASSWORD=
+
+# NOTE: The Phase 1 LLM / DeepSeek API key is entered in-app on the Settings
+# page (parent-gated) and stored in SharedPreferences — it is NOT injected at
+# build time, so no DEEPSEEK_API_KEY entry is needed here.

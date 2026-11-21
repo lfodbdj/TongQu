@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 图标：选中 = 白色（深绿胶囊内），未选中 = 灰蓝 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#FFFFFF" android:state_checked="true" />
+    <item android:color="#8A9AA0" />
+</selector>

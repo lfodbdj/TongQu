@@ -125,6 +125,9 @@ class ScreenMonitorService : Service() {
 
         registerScreenReceiver()
         registerQuizResultReceiver()
+        // V2.2: persisted keepalive job (survives reboots) — last-line fallback
+        // for OEM autostart managers that swallow BOOT_COMPLETED.
+        com.antidip.KeepAliveJobService.schedule(this)
         // Batch 3 (A29): declare the foreground-service type explicitly. On
         // API 34+ the specialUse type MUST be passed to startForeground(),
         // otherwise the system raises a MissingForegroundServiceTypeException;

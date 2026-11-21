@@ -1,1462 +1,1066 @@
 [
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「一心一意」的意思是（ ）。",
-    "options": [
-      "非常生气",
-      "形容做事专心，没有别的念头",
-      "做事马虎",
-      "非常高兴"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「三心二意」的意思是（ ）。",
-    "options": [
-      "很有力气",
-      "形容犹豫不决、做事不专心",
-      "非常专心",
-      "非常高兴"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「五颜六色」的意思是（ ）。",
-    "options": [
-      "没有颜色",
-      "只有一种颜色",
-      "形容色彩繁多、非常好看",
-      "非常安静"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「四面八方」的意思是（ ）。",
-    "options": [
-      "上面和下面",
-      "只有一个方向",
-      "左边和右边",
-      "指各个方向、各个地方"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「七上八下」的意思是（ ）。",
-    "options": [
-      "形容心里慌乱、不安",
-      "心里很平静",
-      "非常有把握",
-      "非常高兴"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「九牛一毛」的意思是（ ）。",
-    "options": [
-      "很多毛",
-      "很大的一头牛",
-      "比喻极大数量中极小的一部分",
-      "非常重要"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「百发百中」的意思是（ ）。",
-    "options": [
-      "形容射击或做事非常有把握",
-      "一次也打不中",
-      "从不射击",
-      "打得不准"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「万紫千红」的意思是（ ）。",
-    "options": [
-      "非常安静",
-      "没有花",
-      "只有一种颜色",
-      "形容百花齐放、色彩绚丽"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「春暖花开」的意思是（ ）。",
-    "options": [
-      "形容春天气候温暖、百花盛开",
-      "秋天落叶",
-      "夏天炎热",
-      "冬天很冷"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「鸟语花香」的意思是（ ）。",
-    "options": [
-      "冬天雪景",
-      "形容春天鸟儿叫、花儿香的美好景象",
-      "吵闹的集市",
-      "荒凉的沙漠"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「百花齐放」的意思是（ ）。",
-    "options": [
-      "没有花",
-      "花都谢了",
-      "只有一朵花",
-      "形容各种花一起开放"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「春回大地」的意思是（ ）。",
-    "options": [
-      "夏天来了",
-      "秋天来了",
-      "冬天来了",
-      "指春天又来到了人间"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「柳绿花红」的意思是（ ）。",
-    "options": [
-      "冬天雪白",
-      "秋天落叶",
-      "形容春天柳树绿、花儿红的美丽景色",
-      "夏天炎热"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「莺歌燕舞」的意思是（ ）。",
-    "options": [
-      "寒冷的冬天",
-      "安静的夜晚",
-      "荒凉的沙漠",
-      "形容春天黄莺唱歌、燕子飞舞的热闹景象"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「和风细雨」的意思是（ ）。",
-    "options": [
-      "大雪纷飞",
-      "非常炎热",
-      "狂风暴雨",
-      "形容风温和、雨细小，也比喻方式和缓"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「万里无云」的意思是（ ）。",
-    "options": [
-      "下着大雨",
-      "雪花飞舞",
-      "形容天空晴朗，没有一丝云",
-      "乌云密布"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「古往今来」的意思是（ ）。",
-    "options": [
-      "只指将来",
-      "只指古代",
-      "指从古代一直到现在",
-      "只指今天"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「自言自语」的意思是（ ）。",
-    "options": [
-      "和别人聊天",
-      "指自己跟自己说话",
-      "大声喊叫",
-      "安静不说话"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「井井有条」的意思是（ ）。",
-    "options": [
-      "非常安静",
-      "乱七八糟",
-      "没有顺序",
-      "形容条理分明、整齐有序"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「欢声笑语」的意思是（ ）。",
-    "options": [
-      "哭哭啼啼",
-      "安静无声",
-      "非常生气",
-      "形容又说又笑、气氛欢乐"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「书声琅琅」的意思是（ ）。",
-    "options": [
-      "很吵闹",
-      "形容读书的声音响亮",
-      "很安静",
-      "没有读书"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「五光十色」的意思是（ ）。",
-    "options": [
-      "没有颜色",
-      "形容色彩鲜艳、花样繁多",
-      "只有一种颜色",
-      "非常黑暗"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「千军万马」的意思是（ ）。",
-    "options": [
-      "很安静",
-      "形容雄壮的队伍或浩大的声势",
-      "很少的人",
-      "空无一人"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「守株待兔」的意思是（ ）。",
-    "options": [
-      "很有本领",
-      "比喻不主动努力，心存侥幸",
-      "非常聪明",
-      "勤劳努力"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「亡羊补牢」的意思是（ ）。",
-    "options": [
-      "比喻出了问题及时补救还来得及",
-      "从不犯错",
-      "非常懒惰",
-      "出了问题不补救"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「画蛇添足」的意思是（ ）。",
-    "options": [
-      "比喻多此一举，反而把事情弄糟",
-      "雪中送炭",
-      "恰到好处",
-      "锦上添花"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「狐假虎威」的意思是（ ）。",
-    "options": [
-      "自己很有本领",
-      "很勇敢",
-      "非常善良",
-      "比喻依仗别人的势力欺压人"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「对牛弹琴」的意思是（ ）。",
-    "options": [
-      "牛很聪明",
-      "弹琴很好听",
-      "对人说真话",
-      "比喻对不懂道理的人讲道理，白费口舌"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「井底之蛙」的意思是（ ）。",
-    "options": [
-      "比喻见识狭小、目光短浅的人",
-      "见识广阔",
-      "非常勇敢",
-      "本领高强"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「拔苗助长」的意思是（ ）。",
-    "options": [
-      "按规律办事",
-      "很有耐心",
-      "比喻违反事物规律，急于求成",
-      "慢慢等待"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「掩耳盗铃」的意思是（ ）。",
-    "options": [
-      "非常聪明",
-      "比喻自己欺骗自己",
-      "告诉别人",
-      "诚实做人"
-    ],
-    "answer": "B",
-    "difficulty": 2,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「画龙点睛」的意思是（ ）。",
-    "options": [
-      "多此一举",
-      "毫无作用",
-      "比喻在关键处点明实质，使内容更生动",
-      "画蛇添足"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「叶公好龙」的意思是（ ）。",
-    "options": [
-      "很诚实",
-      "真心喜欢",
-      "勇敢面对",
-      "比喻口头爱好而实际并不真爱好"
-    ],
-    "answer": "D",
-    "difficulty": 2,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「鹏程万里」的意思是（ ）。",
-    "options": [
-      "没有希望",
-      "非常短暂",
-      "前途渺茫",
-      "比喻前程非常远大"
-    ],
-    "answer": "D",
-    "difficulty": 2,
-    "grade": 1
-  },
-  {
-    "subject": "成语",
-    "type": "choice",
-    "content": "成语「一帆风顺」的意思是（ ）。",
-    "options": [
-      "非常曲折",
-      "困难重重",
-      "总失败",
-      "比喻事情非常顺利，没有阻碍"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《静夜思》的作者是（ ）。",
-    "options": [
-      "王维",
-      "杜甫",
-      "李白",
-      "白居易"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“床前明月光”的下一句是（ ）。",
-    "options": [
-      "低头思故乡",
-      "举头望明月",
-      "疑是地上霜",
-      "春眠不觉晓"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《咏鹅》中“白毛浮绿水”的下一句是（ ）。",
-    "options": [
-      "曲项向天歌",
-      "人来鸟不惊",
-      "红掌拨清波",
-      "入竹万竿斜"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“锄禾日当午，汗滴禾下土”出自（ ）。",
-    "options": [
-      "小池",
-      "静夜思",
-      "春晓",
-      "悯农"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《登鹳雀楼》中“欲穷千里目”的下一句是（ ）。",
-    "options": [
-      "白日依山尽",
-      "黄河入海流",
-      "不及汪伦送我情",
-      "更上一层楼"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“春眠不觉晓”出自（ ）。",
-    "options": [
-      "咏鹅",
-      "春晓",
-      "村居",
-      "小池"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《春晓》的作者是（ ）。",
-    "options": [
-      "杜甫",
-      "李白",
-      "白居易",
-      "孟浩然"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“小荷才露尖尖角”出自（ ）。",
-    "options": [
-      "江南",
-      "小池",
-      "池上",
-      "村居"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“儿童散学归来早，忙趁东风放纸鸢”出自（ ）。",
-    "options": [
-      "池上",
-      "所见",
-      "村居",
-      "小池"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“谁知盘中餐，粒粒皆辛苦”告诉我们要（ ）。",
-    "options": [
-      "多玩游戏",
-      "不写作业",
-      "爱惜粮食",
-      "挑食"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《悯农》的作者是（ ）。",
-    "options": [
-      "李白",
-      "白居易",
-      "孟浩然",
-      "李绅"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“小时不识月，呼作白玉盘”出自（ ）。",
-    "options": [
-      "古朗月行",
-      "画",
-      "静夜思",
-      "风"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《风》中“解落三秋叶”的下一句是（ ）。",
-    "options": [
-      "疑是地上霜",
-      "入竹万竿斜",
-      "过江千尺浪",
-      "能开二月花"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“江南可采莲，莲叶何田田”描写的是（ ）。",
-    "options": [
-      "下雪的景象",
-      "丰收的庄稼",
-      "下雨的景象",
-      "采莲的景象"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《画》中“远看山有色”的下一句是（ ）。",
-    "options": [
-      "白毛浮绿水",
-      "人来鸟不惊",
-      "春去花还在",
-      "近听水无声"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“桃花潭水深千尺，不及汪伦送我情”出自（ ）。",
-    "options": [
-      "赠汪伦",
-      "静夜思",
-      "登鹳雀楼",
-      "村居"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《寻隐者不遇》中“只在此山中”的下一句是（ ）。",
-    "options": [
-      "春眠不觉晓",
-      "松下问童子",
-      "云深不知处",
-      "言师采药去"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“牧童骑黄牛，歌声振林樾”出自（ ）。",
-    "options": [
-      "所见",
-      "村居",
-      "池上",
-      "小池"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "《池上》中“小娃撑小艇”的下一句是（ ）。",
-    "options": [
-      "红掌拨清波",
-      "浮萍一道开",
-      "偷采白莲回",
-      "不解藏踪迹"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "古诗",
-    "type": "choice",
-    "content": "“白日依山尽，黄河入海流”出自（ ）。",
-    "options": [
-      "画",
-      "江南",
-      "风",
-      "登鹳雀楼"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“小葱拌豆腐”的后半句是（ ）。",
-    "options": [
-      "一清（青）二白",
-      "节节高",
-      "各显神通",
-      "一场空"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“竹篮子打水”的后半句是（ ）。",
-    "options": [
-      "一场空",
-      "一清二白",
-      "节节高",
-      "多多益善"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“芝麻开花”的后半句是（ ）。",
-    "options": [
-      "一清二白",
-      "七上八下",
-      "节节高",
-      "一场空"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“十五个吊桶打水”的后半句是（ ）。",
-    "options": [
-      "一场空",
-      "一清二白",
-      "节节高",
-      "七上八下"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“八仙过海”的后半句是（ ）。",
-    "options": [
-      "七上八下",
-      "一清二白",
-      "一场空",
-      "各显神通"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“泥菩萨过江”的后半句是（ ）。",
-    "options": [
-      "各显神通",
-      "一场空",
-      "自身难保",
-      "节节高"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“铁杵磨成针”的后半句是（ ）。",
-    "options": [
-      "多此一举",
-      "七上八下",
-      "功到自然成",
-      "一场空"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“张飞穿针”的后半句是（ ）。",
-    "options": [
-      "大眼瞪小眼",
-      "自身难保",
-      "节节高",
-      "一场空"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“猫哭老鼠”的后半句是（ ）。",
-    "options": [
-      "一场空",
-      "各显神通",
-      "真开心",
-      "假慈悲"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“老鼠过街”的后半句是（ ）。",
-    "options": [
-      "七上八下",
-      "人人喊打",
-      "一场空",
-      "人人喜爱"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“门缝里看人”的后半句是（ ）。",
-    "options": [
-      "七上八下",
-      "把人看扁了",
-      "把人看高了",
-      "一场空"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“外甥打灯笼”的后半句是（ ）。",
-    "options": [
-      "一场空",
-      "照新",
-      "照旧（舅）",
-      "节节高"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“孔夫子搬家”的后半句是（ ）。",
-    "options": [
-      "尽是书（输）",
-      "尽是钱",
-      "一场空",
-      "节节高"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“黄鼠狼给鸡拜年”的后半句是（ ）。",
-    "options": [
-      "真心实意",
-      "一场空",
-      "没安好心",
-      "七上八下"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“猪八戒照镜子”的后半句是（ ）。",
-    "options": [
-      "节节高",
-      "里外不是人",
-      "一场空",
-      "里外都是人"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“哑巴吃黄连”的后半句是（ ）。",
-    "options": [
-      "一场空",
-      "七上八下",
-      "有甜说不出",
-      "有苦说不出"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“打破砂锅”的后半句是（ ）。",
-    "options": [
-      "答到底",
-      "一场空",
-      "七上八下",
-      "问到底"
-    ],
-    "answer": "D",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“骑驴看唱本”的后半句是（ ）。",
-    "options": [
-      "走着瞧",
-      "站着瞧",
-      "一场空",
-      "节节高"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“周瑜打黄盖”的后半句是（ ）。",
-    "options": [
-      "七上八下",
-      "一个愿打两个愿挨",
-      "一个愿打一个愿挨",
-      "一场空"
-    ],
-    "answer": "C",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“韩信点兵”的后半句是（ ）。",
-    "options": [
-      "越少越好",
-      "多多益善",
-      "一场空",
-      "七上八下"
-    ],
-    "answer": "B",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "歇后语",
-    "type": "choice",
-    "content": "歇后语“坐井观天”的后半句是（ ）。",
-    "options": [
-      "目光短浅",
-      "非常勇敢",
-      "见识广阔",
-      "本领高强"
-    ],
-    "answer": "A",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "15 - 8 = （ ）",
-    "options": [],
-    "answer": "7",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "13 - 7 = （ ）",
-    "options": [],
-    "answer": "6",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "12 - 5 = （ ）",
-    "options": [],
-    "answer": "7",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "11 - 6 = （ ）",
-    "options": [],
-    "answer": "5",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "14 - 9 = （ ）",
-    "options": [],
-    "answer": "5",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "16 - 8 = （ ）",
-    "options": [],
-    "answer": "8",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "17 - 9 = （ ）",
-    "options": [],
-    "answer": "8",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "13 - 4 = （ ）",
-    "options": [],
-    "answer": "9",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "28 + 5 = （ ）",
-    "options": [],
-    "answer": "33",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "36 + 7 = （ ）",
-    "options": [],
-    "answer": "43",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "47 + 6 = （ ）",
-    "options": [],
-    "answer": "53",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "19 + 8 = （ ）",
-    "options": [],
-    "answer": "27",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "25 + 9 = （ ）",
-    "options": [],
-    "answer": "34",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "32 - 8 = （ ）",
-    "options": [],
-    "answer": "24",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "41 - 5 = （ ）",
-    "options": [],
-    "answer": "36",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "53 - 7 = （ ）",
-    "options": [],
-    "answer": "46",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "60 - 24 = （ ）",
-    "options": [],
-    "answer": "36",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "72 - 9 = （ ）",
-    "options": [],
-    "answer": "63",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "30 + 40 = （ ）",
-    "options": [],
-    "answer": "70",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "80 - 50 = （ ）",
-    "options": [],
-    "answer": "30",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "100 - 60 = （ ）",
-    "options": [],
-    "answer": "40",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "1元 = （ ）角",
-    "options": [],
-    "answer": "10",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "1角 = （ ）分",
-    "options": [],
-    "answer": "10",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "5元 = （ ）角",
-    "options": [],
-    "answer": "50",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "2元3角 = （ ）角",
-    "options": [],
-    "answer": "23",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "1元5角 = （ ）角",
-    "options": [],
-    "answer": "15",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "长方形有（ ）条边",
-    "options": [],
-    "answer": "4",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "正方形有（ ）条边",
-    "options": [],
-    "answer": "4",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "正方体有（ ）个面",
-    "options": [],
-    "answer": "6",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "长方体有（ ）个面",
-    "options": [],
-    "answer": "6",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "三角形有（ ）条边",
-    "options": [],
-    "answer": "3",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "球能（ ）着滚动（填“滚”或“立”）",
-    "options": [],
-    "answer": "滚",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "找规律：1，3，5，7，（ ）",
-    "options": [],
-    "answer": "9",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "找规律：2，4，6，8，（ ）",
-    "options": [],
-    "answer": "10",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "找规律：5，10，15，20，（ ）",
-    "options": [],
-    "answer": "25",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "找规律：10，20，30，（ ）",
-    "options": [],
-    "answer": "40",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "100里面有（ ）个十",
-    "options": [],
-    "answer": "10",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "7个十和2个一合起来是（ ）",
-    "options": [],
-    "answer": "72",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "35里面有（ ）个十和5个一",
-    "options": [],
-    "answer": "3",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "小明有12颗糖，吃了5颗，还剩（ ）颗",
-    "options": [],
-    "answer": "7",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "树上有18只鸟，飞走9只，还剩（ ）只",
-    "options": [],
-    "answer": "9",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "妈妈买了20个苹果，送给奶奶8个，还剩（ ）个",
-    "options": [],
-    "answer": "12",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "小红有9支铅笔，妈妈又给她7支，现在共有（ ）支",
-    "options": [],
-    "answer": "16",
-    "difficulty": 1,
-    "grade": 1
-  },
-  {
-    "subject": "math",
-    "type": "fill",
-    "content": "一本书有36页，小华看了20页，还有（ ）页没看",
-    "options": [],
-    "answer": "16",
-    "difficulty": 1,
-    "grade": 1
-  }
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「一心一意」的意思是（ ）。",
+  "options": [
+   "非常生气",
+   "形容做事专心，没有别的念头",
+   "做事马虎",
+   "非常高兴"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「三心二意」的意思是（ ）。",
+  "options": [
+   "很有力气",
+   "形容犹豫不决、做事不专心",
+   "非常专心",
+   "非常高兴"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「五颜六色」的意思是（ ）。",
+  "options": [
+   "没有颜色",
+   "只有一种颜色",
+   "形容色彩繁多、非常好看",
+   "非常安静"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「四面八方」的意思是（ ）。",
+  "options": [
+   "上面和下面",
+   "只有一个方向",
+   "左边和右边",
+   "指各个方向、各个地方"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「七上八下」的意思是（ ）。",
+  "options": [
+   "形容心里慌乱、不安",
+   "心里很平静",
+   "非常有把握",
+   "非常高兴"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「九牛一毛」的意思是（ ）。",
+  "options": [
+   "很多毛",
+   "很大的一头牛",
+   "比喻极大数量中极小的一部分",
+   "非常重要"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「百发百中」的意思是（ ）。",
+  "options": [
+   "形容射击或做事非常有把握",
+   "一次也打不中",
+   "从不射击",
+   "打得不准"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「万紫千红」的意思是（ ）。",
+  "options": [
+   "非常安静",
+   "没有花",
+   "只有一种颜色",
+   "形容百花齐放、色彩绚丽"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「春暖花开」的意思是（ ）。",
+  "options": [
+   "形容春天气候温暖、百花盛开",
+   "秋天落叶",
+   "夏天炎热",
+   "冬天很冷"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「鸟语花香」的意思是（ ）。",
+  "options": [
+   "冬天雪景",
+   "形容春天鸟儿叫、花儿香的美好景象",
+   "吵闹的集市",
+   "荒凉的沙漠"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「百花齐放」的意思是（ ）。",
+  "options": [
+   "没有花",
+   "花都谢了",
+   "只有一朵花",
+   "形容各种花一起开放"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「春回大地」的意思是（ ）。",
+  "options": [
+   "夏天来了",
+   "秋天来了",
+   "冬天来了",
+   "指春天又来到了人间"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「柳绿花红」的意思是（ ）。",
+  "options": [
+   "冬天雪白",
+   "秋天落叶",
+   "形容春天柳树绿、花儿红的美丽景色",
+   "夏天炎热"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「莺歌燕舞」的意思是（ ）。",
+  "options": [
+   "寒冷的冬天",
+   "安静的夜晚",
+   "荒凉的沙漠",
+   "形容春天黄莺唱歌、燕子飞舞的热闹景象"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「和风细雨」的意思是（ ）。",
+  "options": [
+   "大雪纷飞",
+   "非常炎热",
+   "狂风暴雨",
+   "形容风温和、雨细小，也比喻方式和缓"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「万里无云」的意思是（ ）。",
+  "options": [
+   "下着大雨",
+   "雪花飞舞",
+   "形容天空晴朗，没有一丝云",
+   "乌云密布"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「古往今来」的意思是（ ）。",
+  "options": [
+   "只指将来",
+   "只指古代",
+   "指从古代一直到现在",
+   "只指今天"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「自言自语」的意思是（ ）。",
+  "options": [
+   "和别人聊天",
+   "指自己跟自己说话",
+   "大声喊叫",
+   "安静不说话"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「井井有条」的意思是（ ）。",
+  "options": [
+   "非常安静",
+   "乱七八糟",
+   "没有顺序",
+   "形容条理分明、整齐有序"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「欢声笑语」的意思是（ ）。",
+  "options": [
+   "哭哭啼啼",
+   "安静无声",
+   "非常生气",
+   "形容又说又笑、气氛欢乐"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「书声琅琅」的意思是（ ）。",
+  "options": [
+   "很吵闹",
+   "形容读书的声音响亮",
+   "很安静",
+   "没有读书"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「五光十色」的意思是（ ）。",
+  "options": [
+   "没有颜色",
+   "形容色彩鲜艳、花样繁多",
+   "只有一种颜色",
+   "非常黑暗"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「千军万马」的意思是（ ）。",
+  "options": [
+   "很安静",
+   "形容雄壮的队伍或浩大的声势",
+   "很少的人",
+   "空无一人"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「守株待兔」的意思是（ ）。",
+  "options": [
+   "很有本领",
+   "比喻不主动努力，心存侥幸",
+   "非常聪明",
+   "勤劳努力"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「亡羊补牢」的意思是（ ）。",
+  "options": [
+   "比喻出了问题及时补救还来得及",
+   "从不犯错",
+   "非常懒惰",
+   "出了问题不补救"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「画蛇添足」的意思是（ ）。",
+  "options": [
+   "比喻多此一举，反而把事情弄糟",
+   "雪中送炭",
+   "恰到好处",
+   "锦上添花"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「狐假虎威」的意思是（ ）。",
+  "options": [
+   "自己很有本领",
+   "很勇敢",
+   "非常善良",
+   "比喻依仗别人的势力欺压人"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「对牛弹琴」的意思是（ ）。",
+  "options": [
+   "牛很聪明",
+   "弹琴很好听",
+   "对人说真话",
+   "比喻对不懂道理的人讲道理，白费口舌"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「井底之蛙」的意思是（ ）。",
+  "options": [
+   "比喻见识狭小、目光短浅的人",
+   "见识广阔",
+   "非常勇敢",
+   "本领高强"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「拔苗助长」的意思是（ ）。",
+  "options": [
+   "按规律办事",
+   "很有耐心",
+   "比喻违反事物规律，急于求成",
+   "慢慢等待"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「掩耳盗铃」的意思是（ ）。",
+  "options": [
+   "非常聪明",
+   "比喻自己欺骗自己",
+   "告诉别人",
+   "诚实做人"
+  ],
+  "answer": "B",
+  "difficulty": 2,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「画龙点睛」的意思是（ ）。",
+  "options": [
+   "多此一举",
+   "毫无作用",
+   "比喻在关键处点明实质，使内容更生动",
+   "画蛇添足"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「叶公好龙」的意思是（ ）。",
+  "options": [
+   "很诚实",
+   "真心喜欢",
+   "勇敢面对",
+   "比喻口头爱好而实际并不真爱好"
+  ],
+  "answer": "D",
+  "difficulty": 2,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「鹏程万里」的意思是（ ）。",
+  "options": [
+   "没有希望",
+   "非常短暂",
+   "前途渺茫",
+   "比喻前程非常远大"
+  ],
+  "answer": "D",
+  "difficulty": 2,
+  "grade": 1
+ },
+ {
+  "subject": "成语",
+  "type": "choice",
+  "content": "成语「一帆风顺」的意思是（ ）。",
+  "options": [
+   "非常曲折",
+   "困难重重",
+   "总失败",
+   "比喻事情非常顺利，没有阻碍"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《静夜思》的作者是（ ）。",
+  "options": [
+   "王维",
+   "杜甫",
+   "李白",
+   "白居易"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“床前明月光”的下一句是（ ）。",
+  "options": [
+   "低头思故乡",
+   "举头望明月",
+   "疑是地上霜",
+   "春眠不觉晓"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《咏鹅》中“白毛浮绿水”的下一句是（ ）。",
+  "options": [
+   "曲项向天歌",
+   "人来鸟不惊",
+   "红掌拨清波",
+   "入竹万竿斜"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“锄禾日当午，汗滴禾下土”出自（ ）。",
+  "options": [
+   "小池",
+   "静夜思",
+   "春晓",
+   "悯农"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《登鹳雀楼》中“欲穷千里目”的下一句是（ ）。",
+  "options": [
+   "白日依山尽",
+   "黄河入海流",
+   "不及汪伦送我情",
+   "更上一层楼"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“春眠不觉晓”出自（ ）。",
+  "options": [
+   "咏鹅",
+   "春晓",
+   "村居",
+   "小池"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《春晓》的作者是（ ）。",
+  "options": [
+   "杜甫",
+   "李白",
+   "白居易",
+   "孟浩然"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“小荷才露尖尖角”出自（ ）。",
+  "options": [
+   "江南",
+   "小池",
+   "池上",
+   "村居"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“儿童散学归来早，忙趁东风放纸鸢”出自（ ）。",
+  "options": [
+   "池上",
+   "所见",
+   "村居",
+   "小池"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“谁知盘中餐，粒粒皆辛苦”告诉我们要（ ）。",
+  "options": [
+   "多玩游戏",
+   "不写作业",
+   "爱惜粮食",
+   "挑食"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《悯农》的作者是（ ）。",
+  "options": [
+   "李白",
+   "白居易",
+   "孟浩然",
+   "李绅"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“小时不识月，呼作白玉盘”出自（ ）。",
+  "options": [
+   "古朗月行",
+   "画",
+   "静夜思",
+   "风"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《风》中“解落三秋叶”的下一句是（ ）。",
+  "options": [
+   "疑是地上霜",
+   "入竹万竿斜",
+   "过江千尺浪",
+   "能开二月花"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“江南可采莲，莲叶何田田”描写的是（ ）。",
+  "options": [
+   "下雪的景象",
+   "丰收的庄稼",
+   "下雨的景象",
+   "采莲的景象"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《画》中“远看山有色”的下一句是（ ）。",
+  "options": [
+   "白毛浮绿水",
+   "人来鸟不惊",
+   "春去花还在",
+   "近听水无声"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“桃花潭水深千尺，不及汪伦送我情”出自（ ）。",
+  "options": [
+   "赠汪伦",
+   "静夜思",
+   "登鹳雀楼",
+   "村居"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《寻隐者不遇》中“只在此山中”的下一句是（ ）。",
+  "options": [
+   "春眠不觉晓",
+   "松下问童子",
+   "云深不知处",
+   "言师采药去"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“牧童骑黄牛，歌声振林樾”出自（ ）。",
+  "options": [
+   "所见",
+   "村居",
+   "池上",
+   "小池"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "《池上》中“小娃撑小艇”的下一句是（ ）。",
+  "options": [
+   "红掌拨清波",
+   "浮萍一道开",
+   "偷采白莲回",
+   "不解藏踪迹"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "古诗",
+  "type": "choice",
+  "content": "“白日依山尽，黄河入海流”出自（ ）。",
+  "options": [
+   "画",
+   "江南",
+   "风",
+   "登鹳雀楼"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“小葱拌豆腐”的后半句是（ ）。",
+  "options": [
+   "一清（青）二白",
+   "节节高",
+   "各显神通",
+   "一场空"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“竹篮子打水”的后半句是（ ）。",
+  "options": [
+   "一场空",
+   "一清二白",
+   "节节高",
+   "多多益善"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“芝麻开花”的后半句是（ ）。",
+  "options": [
+   "一清二白",
+   "七上八下",
+   "节节高",
+   "一场空"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“十五个吊桶打水”的后半句是（ ）。",
+  "options": [
+   "一场空",
+   "一清二白",
+   "节节高",
+   "七上八下"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“八仙过海”的后半句是（ ）。",
+  "options": [
+   "七上八下",
+   "一清二白",
+   "一场空",
+   "各显神通"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“泥菩萨过江”的后半句是（ ）。",
+  "options": [
+   "各显神通",
+   "一场空",
+   "自身难保",
+   "节节高"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“铁杵磨成针”的后半句是（ ）。",
+  "options": [
+   "多此一举",
+   "七上八下",
+   "功到自然成",
+   "一场空"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“张飞穿针”的后半句是（ ）。",
+  "options": [
+   "大眼瞪小眼",
+   "自身难保",
+   "节节高",
+   "一场空"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“猫哭老鼠”的后半句是（ ）。",
+  "options": [
+   "一场空",
+   "各显神通",
+   "真开心",
+   "假慈悲"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“老鼠过街”的后半句是（ ）。",
+  "options": [
+   "七上八下",
+   "人人喊打",
+   "一场空",
+   "人人喜爱"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“门缝里看人”的后半句是（ ）。",
+  "options": [
+   "七上八下",
+   "把人看扁了",
+   "把人看高了",
+   "一场空"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“外甥打灯笼”的后半句是（ ）。",
+  "options": [
+   "一场空",
+   "照新",
+   "照旧（舅）",
+   "节节高"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“孔夫子搬家”的后半句是（ ）。",
+  "options": [
+   "尽是书（输）",
+   "尽是钱",
+   "一场空",
+   "节节高"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“黄鼠狼给鸡拜年”的后半句是（ ）。",
+  "options": [
+   "真心实意",
+   "一场空",
+   "没安好心",
+   "七上八下"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“猪八戒照镜子”的后半句是（ ）。",
+  "options": [
+   "节节高",
+   "里外不是人",
+   "一场空",
+   "里外都是人"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“哑巴吃黄连”的后半句是（ ）。",
+  "options": [
+   "一场空",
+   "七上八下",
+   "有甜说不出",
+   "有苦说不出"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“打破砂锅”的后半句是（ ）。",
+  "options": [
+   "答到底",
+   "一场空",
+   "七上八下",
+   "问到底"
+  ],
+  "answer": "D",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“骑驴看唱本”的后半句是（ ）。",
+  "options": [
+   "走着瞧",
+   "站着瞧",
+   "一场空",
+   "节节高"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“周瑜打黄盖”的后半句是（ ）。",
+  "options": [
+   "七上八下",
+   "一个愿打两个愿挨",
+   "一个愿打一个愿挨",
+   "一场空"
+  ],
+  "answer": "C",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“韩信点兵”的后半句是（ ）。",
+  "options": [
+   "越少越好",
+   "多多益善",
+   "一场空",
+   "七上八下"
+  ],
+  "answer": "B",
+  "difficulty": 1,
+  "grade": 1
+ },
+ {
+  "subject": "歇后语",
+  "type": "choice",
+  "content": "歇后语“坐井观天”的后半句是（ ）。",
+  "options": [
+   "目光短浅",
+   "非常勇敢",
+   "见识广阔",
+   "本领高强"
+  ],
+  "answer": "A",
+  "difficulty": 1,
+  "grade": 1
+ }
 ]

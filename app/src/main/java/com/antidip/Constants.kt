@@ -46,6 +46,35 @@ object Constants {
     const val KEY_SELECTED_GRADE = "selected_grade"
     const val KEY_EXEMPT_PACKAGES = "exempt_packages"
 
+    /** V2.2: child's display nickname (growth banner + backup file name). */
+    const val KEY_USER_NICKNAME = "user_nickname"
+
+    // ---- 积分扣减（物品兑换/手动扣减）：独立扣减密码，仅存 SHA-256 哈希。
+    // 修改授权=旧扣减密码 或 家长全局密码（DeductionAuth，防遗忘）。
+    const val KEY_DEDUCTION_HASH = "deduction_password_hash"
+
+    // ---- AI 判题（填空语义判分）：端点/Key/模型由家长在设置页提供
+    // （OpenAI 兼容 chat/completions），开关控制启停；fail-closed。
+    const val KEY_AI_ENABLED = "ai_enabled"
+    const val KEY_AI_ENDPOINT = "ai_endpoint"
+    const val KEY_AI_KEY = "ai_key"
+    const val KEY_AI_MODEL = "ai_model"
+
+    /**
+     * 每题 3 次机会中的第 2/3 次作答间隔（用户要求 2026-11-21）：上一答错后
+     * 锁定 30 秒；重试答对不计积分/连对（见 UI 层 lastSubmitAttemptsBefore）。
+     */
+    const val RETRY_INTERVAL_MS = 30_000L
+
+    /**
+     * WeChat package. V2.2 semantics (requirement 2026-11-10): the parent
+     * whitelist covers WeChat CHAT/contact PAGES only — Channels (视频号),
+     * official accounts (公众号), mini-programs/games and Moments still
+     * trigger quizzes (page-level check in ForegroundAppDetector via the
+     * resumed Activity class name).
+     */
+    const val WECHAT_PACKAGE = "com.tencent.mm"
+
     // ------------------------------------------------------------------
     // Intent actions
     // ------------------------------------------------------------------
@@ -56,6 +85,13 @@ object Constants {
 
     /** Kept for the settings page "start service" button (fixes S1). */
     const val ACTION_RESUME = "com.antidip.ACTION_RESUME"
+
+    /**
+     * V2.2: watchdog keepalive action. BootReceiver schedules 3 alarms
+     * (+2/+10/+30 min) after every boot; each firing restarts the service if
+     * it died (EMUI 自启动管理 sometimes swallows the first BOOT start).
+     */
+    const val ACTION_SERVICE_KEEPALIVE = "com.antidip.ACTION_SERVICE_KEEPALIVE"
 
     /** QuizActivity -> ScreenMonitorService outcome report. */
     const val ACTION_QUIZ_RESULT = "com.antidip.ACTION_QUIZ_RESULT"

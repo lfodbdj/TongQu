@@ -28,20 +28,27 @@ interface QuestionDao {
     @Query("SELECT COUNT(*) FROM questions")
     suspend fun getTotalCount(): Int
 
-    @Query("SELECT * FROM questions ORDER BY RANDOM() LIMIT 1")
-    suspend fun getRandomQuestion(): QuestionEntity?
-
     /**
-     * Get a random question, avoiding recently asked ones (within last 50 questions).
+     * 2026-11-21 开放式题库：type = 'open' 的题目没有标准答案，全部由 AI
+     * 判分。[includeOpen] = false（AI 未配置）时从随机池中屏蔽开放题。
      */
-    @Query("""
-        SELECT * FROM questions
-        WHERE id NOT IN (
-            SELECT id FROM questions ORDER BY last_asked DESC LIMIT 50
-        )
-        ORDER BY RANDOM() LIMIT 1
-    """)
-    suspend fun getRandomQuestionAvoidingRecent(): QuestionEntity?
+    @Query(
+        "SELECT * FROM questions " +
+            "WHERE (:includeOpen = 1 OR type != 'open') " +
+            "ORDER BY RANDOM() LIMIT 1"
+    )
+    suspend fun getRandomQuestion(includeOpen: Boolean): QuestionEntity?
+
+    /** Get a random question, avoiding recently asked ones (within last 50). */
+    @Query(
+        "SELECT * FROM questions " +
+            "WHERE (:includeOpen = 1 OR type != 'open') AND id NOT IN (" +
+            "SELECT id FROM questions " +
+            "WHERE (:includeOpen = 1 OR type != 'open') " +
+            "ORDER BY last_asked DESC LIMIT 50" +
+            ") ORDER BY RANDOM() LIMIT 1"
+    )
+    suspend fun getRandomQuestionAvoidingRecent(includeOpen: Boolean): QuestionEntity?
 
     @Query("UPDATE questions SET last_asked = :timestamp WHERE id = :id")
     suspend fun updateLastAsked(id: Long, timestamp: Long)
@@ -53,8 +60,12 @@ interface QuestionDao {
     // Batch 2-c: grade-scoped quiz bank
     // ------------------------------------------------------------------
 
-    @Query("SELECT * FROM questions WHERE grade = :grade ORDER BY RANDOM() LIMIT 1")
-    suspend fun getRandomQuestionByGrade(grade: Int): QuestionEntity?
+    @Query(
+        "SELECT * FROM questions " +
+            "WHERE grade = :grade AND (:includeOpen = 1 OR type != 'open') " +
+            "ORDER BY RANDOM() LIMIT 1"
+    )
+    suspend fun getRandomQuestionByGrade(grade: Int, includeOpen: Boolean): QuestionEntity?
 
     @Query("SELECT COUNT(*) FROM questions WHERE grade = :grade")
     suspend fun getCountByGrade(grade: Int): Int
@@ -62,6 +73,12 @@ interface QuestionDao {
     /** Real per-grade row counts for the parent-console grade spinner. */
     @Query("SELECT grade, COUNT(*) AS count FROM questions GROUP BY grade ORDER BY grade")
     suspend fun getGradeCounts(): List<GradeCount>
+
+    /** 错题"重做这道题"：按内容 + 年级定位原题（WrongEntry 不带 id）。 */
+    @Query(
+        "SELECT * FROM questions WHERE content = :content AND grade = :grade LIMIT 1"
+    )
+    suspend fun getByContentAndGrade(content: String, grade: Int): QuestionEntity?
 }
 
 data class SubjectStats(

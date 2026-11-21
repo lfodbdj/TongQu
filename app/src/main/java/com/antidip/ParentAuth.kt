@@ -94,6 +94,11 @@ object ParentAuth {
         dialog.setCanceledOnTouchOutside(false)
 
         dialog.setOnShowListener {
+            // 深色 UI 定版：对话框按钮用亮绿强调色（Material3.Light 默认灰字
+            // 在深色布局上发灰，真机反馈 2026-11-21）。
+            val accent = activity.getColor(R.color.accent)
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(accent)
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(accent)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                 // Clear the previous error on every attempt.
                 tvError.visibility = View.GONE
@@ -102,7 +107,7 @@ object ParentAuth {
                     dialog.dismiss()
                     onSuccess()
                 } else {
-                    // Keep the dialog open: no dismiss, no finish, no callback.
+                    // Keep the dialog open: no dismiss, no callback.
                     tvError.visibility = View.VISIBLE
                 }
             }

@@ -1,0 +1,1253 @@
+{
+ "grade": 3,
+ "version": "2026.11.21",
+ "questions": [
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "345 + 267 = ？",
+   "options": [
+    "612",
+    "602",
+    "512",
+    "622"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1000 - 458 = ？",
+   "options": [
+    "542",
+    "552",
+    "452",
+    "642"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "703 - 369 = ？",
+   "options": [
+    "334",
+    "344",
+    "324",
+    "346"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "456 + 344 = ？",
+   "options": [
+    "790",
+    "800",
+    "780",
+    "810"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈带 500 元买东西用了 368 元，还剩多少元？",
+   "options": [
+    "132 元",
+    "142 元",
+    "232 元",
+    "122 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一篇稿子 900 字，已经打了 645 字，还差多少字？",
+   "options": [
+    "255 字",
+    "265 字",
+    "245 字",
+    "345 字"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "果园有 326 棵苹果树，梨树比苹果树多 145 棵，梨树有多少棵？",
+   "options": [
+    "471 棵",
+    "181 棵",
+    "461 棵",
+    "481 棵"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "300 + 200 - 150 = ？",
+   "options": [
+    "350",
+    "400",
+    "250",
+    "450"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "98 + 99 = ？",
+   "options": [
+    "197",
+    "198",
+    "199",
+    "196"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "402 - 198 = ？",
+   "options": [
+    "204",
+    "214",
+    "200",
+    "194"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "500 减去 250 再加上 150，结果是多少？",
+   "options": [
+    "400",
+    "350",
+    "450",
+    "300"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "比 1000 少 250 的数是多少？",
+   "options": [
+    "750",
+    "850",
+    "1250",
+    "700"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "与 999 相邻的两个数是（　）。",
+   "options": [
+    "998 和 1000",
+    "997 和 999",
+    "1000 和 1001",
+    "998 和 999"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "765 中的“7”表示（　）。",
+   "options": [
+    "7 个百",
+    "7 个十",
+    "7 个一",
+    "7 个千"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "最大的三位数与最小的四位数的和是多少？",
+   "options": [
+    "1999",
+    "1000",
+    "999",
+    "2000"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "用 0、1、2 三张数字卡片组成最大的三位数是（　）。",
+   "options": [
+    "210",
+    "201",
+    "120",
+    "102"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "用 0、1、2 三张数字卡片组成最小的三位数是（　）。",
+   "options": [
+    "102",
+    "120",
+    "12",
+    "201"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "123×3 = ？",
+   "options": [
+    "369",
+    "329",
+    "363",
+    "396"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "508×7 = ？",
+   "options": [
+    "3556",
+    "3506",
+    "3566",
+    "3356"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "309×4 = ？",
+   "options": [
+    "1236",
+    "1206",
+    "1276",
+    "1226"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "450×6 = ？",
+   "options": [
+    "2700",
+    "2400",
+    "2760",
+    "2706"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "125×8 = ？",
+   "options": [
+    "1000",
+    "100",
+    "10000",
+    "1250"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "250×4 = ？",
+   "options": [
+    "1000",
+    "100",
+    "800",
+    "1250"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校买 5 盒粉笔，每盒 48 支，一共买了多少支？",
+   "options": [
+    "240 支",
+    "248 支",
+    "250 支",
+    "238 支"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一台机器每小时生产 206 个零件，5 小时生产多少个？",
+   "options": [
+    "1030 个",
+    "1035 个",
+    "1006 个",
+    "1206 个"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一节火车车厢能坐 112 人，8 节这样的车厢一共能坐多少人？",
+   "options": [
+    "896 人",
+    "816 人",
+    "986 人",
+    "1006 人"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "84÷9 = 几余几？",
+   "options": [
+    "9 余 3",
+    "9 余 2",
+    "8 余 12",
+    "10 余 3"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "63÷8 = 几余几？",
+   "options": [
+    "7 余 7",
+    "8 余 7",
+    "7 余 6",
+    "8 余 1"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "47÷5 = 几余几？",
+   "options": [
+    "8 余 7",
+    "9 余 2",
+    "9 余 3",
+    "8 余 2"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把 36 个球平均分给 4 个班，每个班分到多少个？",
+   "options": [
+    "8 个",
+    "9 个",
+    "10 个",
+    "12 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "46 个同学去坐车，每辆车坐 8 人，需要几辆车？",
+   "options": [
+    "5 辆",
+    "6 辆",
+    "7 辆",
+    "8 辆"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一份盒饭 12 元，50 元最多可以买几份？",
+   "options": [
+    "4 份",
+    "5 份",
+    "3 份",
+    "6 份"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一支钢笔 8 元，56 元可以买几支钢笔？",
+   "options": [
+    "6 支",
+    "7 支",
+    "8 支",
+    "9 支"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个星期有 7 天，11 月有 30 天，是几个星期还多几天？",
+   "options": [
+    "4 个星期多 2 天",
+    "4 个星期多 3 天",
+    "3 个星期多 9 天",
+    "5 个星期"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个长方形长 8 厘米，宽 5 厘米，周长是多少厘米？",
+   "options": [
+    "26 厘米",
+    "13 厘米",
+    "40 厘米",
+    "36 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个正方形的边长是 6 米，周长是多少米？",
+   "options": [
+    "24 米",
+    "12 米",
+    "36 米",
+    "30 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个长方形的周长是 20 厘米，长是 6 厘米，宽是多少厘米？",
+   "options": [
+    "4 厘米",
+    "14 厘米",
+    "8 厘米",
+    "6 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个正方形花坛的边长是 12 米，周长是多少米？",
+   "options": [
+    "48 米",
+    "24 米",
+    "36 米",
+    "144 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把一个蛋糕平均分成 8 份，每份是这个蛋糕的几分之几？",
+   "options": [
+    "八分之一",
+    "八分之三",
+    "一分之八",
+    "四分之一"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一张纸平均分成 4 份，其中的 3 份是这张纸的（　）。",
+   "options": [
+    "四分之三",
+    "四分之一",
+    "三分之四",
+    "三分之一"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 吨 = 多少千克？",
+   "options": [
+    "100 千克",
+    "1000 千克",
+    "10000 千克",
+    "10 千克"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3 千克 = 多少克？",
+   "options": [
+    "300 克",
+    "3000 克",
+    "30 克",
+    "30000 克"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6000 千克 = 多少吨？",
+   "options": [
+    "6 吨",
+    "60 吨",
+    "600 吨",
+    "6000 吨"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一头大象约重 4 吨，合多少千克？",
+   "options": [
+    "400 千克",
+    "4000 千克",
+    "40 千克",
+    "40000 千克"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 分 = 多少秒？",
+   "options": [
+    "60 秒",
+    "100 秒",
+    "24 秒",
+    "12 秒"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "2 时 = 多少分？",
+   "options": [
+    "100 分",
+    "120 分",
+    "60 分",
+    "240 分"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明 7:50 到校，8:20 上第一节课，他早到了多少分钟？",
+   "options": [
+    "20 分钟",
+    "30 分钟",
+    "40 分钟",
+    "50 分钟"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一场电影 14:30 开始，16:10 结束，电影一共放映了多长时间？",
+   "options": [
+    "1 时 20 分",
+    "1 时 40 分",
+    "2 时 20 分",
+    "2 时"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "商店从早上 8:00 营业到晚上 8:00，一天营业多少小时？",
+   "options": [
+    "10 小时",
+    "11 小时",
+    "12 小时",
+    "13 小时"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3 千米 = 多少米？",
+   "options": [
+    "300 米",
+    "3000 米",
+    "30 米",
+    "30000 米"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5000 米 = 多少千米？",
+   "options": [
+    "5 千米",
+    "50 千米",
+    "500 千米",
+    "5000 千米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "大客车每小时行 60 千米，4 小时行多少千米？",
+   "options": [
+    "240 千米",
+    "180 千米",
+    "260 千米",
+    "300 千米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校买了 5 盒彩色笔，每盒 48 支，一共买了多少支？",
+   "options": [
+    "240 支",
+    "248 支",
+    "250 支",
+    "238 支"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "三年级同学做了 156 面小旗，送给幼儿园 98 面，还剩多少面？",
+   "options": [
+    "58 面",
+    "68 面",
+    "48 面",
+    "78 面"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "三年级有 240 名学生，平均分成 4 批参观科技馆，每批去多少人？",
+   "options": [
+    "60 人",
+    "80 人",
+    "40 人",
+    "120 人"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一本练习本 3 元，一支钢笔 12 元，买 5 本练习本和 1 支钢笔一共多少元？",
+   "options": [
+    "27 元",
+    "15 元",
+    "12 元",
+    "20 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校食堂买来 1000 千克大米，吃了 6 天，每天吃 120 千克，还剩多少千克？",
+   "options": [
+    "280 千克",
+    "720 千克",
+    "380 千克",
+    "400 千克"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "同学们做了 250 朵纸花，其中红花 120 朵、黄花 80 朵，剩下的是粉花，粉花有多少朵？",
+   "options": [
+    "50 朵",
+    "60 朵",
+    "130 朵",
+    "70 朵"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一架飞机每小时飞行 900 千米，6 小时飞行多少千米？",
+   "options": [
+    "5400 千米",
+    "5600 千米",
+    "5000 千米",
+    "540 千米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈买了 2 袋大米，每袋 65 元，付了 150 元应找回多少元？",
+   "options": [
+    "20 元",
+    "25 元",
+    "30 元",
+    "15 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "125 减去 25，再减去 25，还剩多少？",
+   "options": [
+    "100",
+    "75",
+    "125",
+    "50"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 个百加 8 个百是（　）。",
+   "options": [
+    "14 个百",
+    "48 个百",
+    "68 个百",
+    "140 个百"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 个百加 4 个百是 10 个百，也就是（　）。",
+   "options": [
+    "100",
+    "1000",
+    "10000",
+    "10"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一只小鸡 2 条腿，一只小兔 4 条腿，3 只小鸡和 2 只小兔一共有几条腿？",
+   "options": [
+    "14 条",
+    "12 条",
+    "10 条",
+    "16 条"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "三(1)班图书角有故事书 120 本，科技书的本数是故事书的 2 倍，科技书有多少本？",
+   "options": [
+    "240 本",
+    "122 本",
+    "360 本",
+    "60 本"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一头牛约重 500 千克，几头这样的牛约重 1 吨？",
+   "options": [
+    "2 头",
+    "3 头",
+    "4 头",
+    "5 头"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校食堂每天用水 250 千克，4 天一共用水多少千克？",
+   "options": [
+    "1000 千克",
+    "1000 吨",
+    "250 千克",
+    "425 千克"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "456 + 288 = ____。",
+   "options": null,
+   "answer": "744",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "812 - 467 = ____。",
+   "options": null,
+   "answer": "345",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "623 + 177 = ____。",
+   "options": null,
+   "answer": "800",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1000 - 625 = ____。",
+   "options": null,
+   "answer": "375",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "213×4 = ____。",
+   "options": null,
+   "answer": "852",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "328×3 = ____。",
+   "options": null,
+   "answer": "984",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "706×5 = ____。",
+   "options": null,
+   "answer": "3530",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "125×4 = ____。",
+   "options": null,
+   "answer": "500",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "45÷5 = ____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "63÷7 = ____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "40÷8 = ____。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个长方形长 9 厘米，宽 4 厘米，周长是____厘米。",
+   "options": null,
+   "answer": "26",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个正方形的边长是 7 分米，周长是____分米。",
+   "options": null,
+   "answer": "28",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个长方形的周长是 24 厘米，长是 8 厘米，宽是____厘米。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "把一张纸平均分成 4 份，1 份是四分之一，3 份是____（用文字回答）。",
+   "options": null,
+   "answer": "四分之三",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 吨 = ____ 千克。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4000 千克 = ____ 吨。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5 千米 = ____ 米。",
+   "options": null,
+   "answer": "5000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 时 = ____ 分。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3 分 = ____ 秒。",
+   "options": null,
+   "answer": "180",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "2 时 30 分 = ____ 分。",
+   "options": null,
+   "answer": "150",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "电影院 15:20 开场，17:00 结束，一共放映了____分钟。",
+   "options": null,
+   "answer": "100",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一辆汽车每小时行 80 千米，3 小时行____千米。",
+   "options": null,
+   "answer": "240",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "学校买来 6 箱图书，每箱 55 本，一共____本。",
+   "options": null,
+   "answer": "330",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "三年级捐款 208 元，四年级比三年级多捐 92 元，四年级捐了____元。",
+   "options": null,
+   "answer": "300",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "900 - 436 = ____。",
+   "options": null,
+   "answer": "464",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "388 + 262 = ____。",
+   "options": null,
+   "answer": "650",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4 箱橘子每箱 25 千克，一共____千克。",
+   "options": null,
+   "answer": "100",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一头大象重 3 吨，一头小象重 500 千克，大象比小象重____千克。",
+   "options": null,
+   "answer": "2500",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "停车场停了 6 排车，每排 32 辆，一共停了____辆。",
+   "options": null,
+   "answer": "192",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个正方形花坛的边长是 15 米，周长是____米。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "三(1)班有 42 人，平均分成 6 组做游戏，每组____人。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 千克 = ____ 克。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一袋盐 500 克，两袋盐一共____克。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "300×5 = ____。",
+   "options": null,
+   "answer": "1500",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "601×3 = ____。",
+   "options": null,
+   "answer": "1803",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "950 - 275 = ____。",
+   "options": null,
+   "answer": "675",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 500 多 250 的数是____。",
+   "options": null,
+   "answer": "750",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 812 少 312 的数是____。",
+   "options": null,
+   "answer": "500",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6 个百加 4 个百是 10 个百，也就是____。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "钟面上秒针走一圈是____秒。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小华上午 8:00 到校，11:30 放学，上午在校 3 小时____分。",
+   "options": null,
+   "answer": "30",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一本故事书 250 页，每天看 50 页，____天可以看完。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "200 + 300 + 150 = ____。",
+   "options": null,
+   "answer": "650",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一盒乒乓球 8 个，5 盒一共____个。",
+   "options": null,
+   "answer": "40",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "果园有 350 棵梨树，苹果树的棵数是梨树的 2 倍，苹果树有____棵。",
+   "options": null,
+   "answer": "700",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "妈妈买了 18 个苹果，吃掉的个数是剩下的 2 倍，吃掉了____个。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  }
+ ]
+}

@@ -1,0 +1,1305 @@
+{
+ "grade": 6,
+ "version": "2026.11.21",
+ "questions": [
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1/2 × 1/3 = ？",
+   "options": [
+    "1/6",
+    "2/5",
+    "1/5",
+    "2/3"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3/4 × 2/3 = ？",
+   "options": [
+    "1/2",
+    "5/7",
+    "9/8",
+    "1/6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 × 2/5 = ？",
+   "options": [
+    "2",
+    "3",
+    "5",
+    "10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3/5 × 5/6 = ？",
+   "options": [
+    "1/2",
+    "5/11",
+    "3/11",
+    "15/6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数（0 除外）乘真分数，积比这个数（　）。",
+   "options": [
+    "小",
+    "大",
+    "相等",
+    "可能更大"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4 米的 1/2 是多少米？",
+   "options": [
+    "2 米",
+    "1 米",
+    "4 米",
+    "8 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1/2 小时 = 多少分钟？",
+   "options": [
+    "30 分钟",
+    "20 分钟",
+    "15 分钟",
+    "45 分钟"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 个 2/3 相加的和是多少？",
+   "options": [
+    "4",
+    "18",
+    "12",
+    "2"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3/4 ÷ 1/2 = ？",
+   "options": [
+    "3/2",
+    "3/8",
+    "2/3",
+    "1"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 ÷ 1/4 = ？",
+   "options": [
+    "4",
+    "1/4",
+    "1/2",
+    "8"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5/6 ÷ 5 = ？",
+   "options": [
+    "1/6",
+    "25/6",
+    "1",
+    "5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数（0 除外）除以真分数，商比这个数（　）。",
+   "options": [
+    "大",
+    "小",
+    "相等",
+    "可能更小"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "2 米的 1/5 是多少米？",
+   "options": [
+    "2/5 米",
+    "1/5 米",
+    "5 米",
+    "10 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "甲数是 20，是乙数的 4/5，乙数是多少？",
+   "options": [
+    "25",
+    "16",
+    "5",
+    "100"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12 的 3/4 是多少？",
+   "options": [
+    "9",
+    "8",
+    "16",
+    "3"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "40 千克减少 1/4 后是多少千克？",
+   "options": [
+    "30 千克",
+    "10 千克",
+    "32 千克",
+    "20 千克"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把 5 米长的绳子平均截成 8 段，每段占全长的（　）。",
+   "options": [
+    "1/8",
+    "5/8",
+    "1/5",
+    "8/5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数的 1/4 是 15，这个数是多少？",
+   "options": [
+    "60",
+    "30",
+    "45",
+    "3.75"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "60 的 1/2 比 60 的 2/5 多多少？",
+   "options": [
+    "6",
+    "24",
+    "12",
+    "4"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一根 6 米长的绳子截成两段，第一段占全长的 2/3，第一段长多少米？",
+   "options": [
+    "4 米",
+    "2 米",
+    "3 米",
+    "6 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "男生 20 人，女生 10 人，男生与女生人数的最简比是（　）。",
+   "options": [
+    "2:1",
+    "1:2",
+    "1:1",
+    "20:10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3:5 的前项加上 3（变成 6），要使比值不变，后项应（　）。",
+   "options": [
+    "加上 5",
+    "加上 3",
+    "乘 3",
+    "不变"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个比的后项是 8，比值是 1/2，前项是多少？",
+   "options": [
+    "4",
+    "16",
+    "2",
+    "10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把 10 克盐溶入 100 克水中，盐与盐水的比是（　）。",
+   "options": [
+    "1:11",
+    "1:10",
+    "10:1",
+    "1:100"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "比可以用（　）表示。",
+   "options": [
+    "分数、小数或整数",
+    "只能是分数",
+    "只能是小数",
+    "只能是整数"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6:4 化成最简整数比是（　）。",
+   "options": [
+    "3:2",
+    "2:3",
+    "6:4",
+    "1:2"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一辆汽车 3 小时行驶 180 千米，路程与时间的比化简后是（　）。",
+   "options": [
+    "60:1",
+    "1:60",
+    "3:180",
+    "20:1"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "25% 化成分数是（　）。",
+   "options": [
+    "1/4",
+    "1/2",
+    "1/3",
+    "1/5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0.6 化成百分数是多少？",
+   "options": [
+    "60%",
+    "6%",
+    "0.6%",
+    "600%"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "50 的 20% 是多少？",
+   "options": [
+    "10",
+    "20",
+    "25",
+    "5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个班有 40 人，今天的出勤率是 95%，今天出勤多少人？",
+   "options": [
+    "38 人",
+    "39 人",
+    "36 人",
+    "40 人"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "100 元的商品打八折出售，售价是多少元？",
+   "options": [
+    "80 元",
+    "8 元",
+    "20 元",
+    "88 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "六(1)班有 50 人，其中 30 人是女生，女生占全班的（　）。",
+   "options": [
+    "60%",
+    "50%",
+    "30%",
+    "40%"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "发芽率、出勤率最高可以达到（　）。",
+   "options": [
+    "100%",
+    "101%",
+    "99%",
+    "没有上限"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一件衣服原价 200 元，降价 10% 出售，现价是多少元？",
+   "options": [
+    "180 元",
+    "190 元",
+    "20 元",
+    "210 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 是 4 的百分之多少？",
+   "options": [
+    "125%",
+    "80%",
+    "120%",
+    "20%"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一件工作已经完成了 60%，还剩（　）没有完成。",
+   "options": [
+    "40%",
+    "60%",
+    "20%",
+    "一半"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "某商品打七折出售是 140 元，这件商品的原价是多少元？",
+   "options": [
+    "200 元",
+    "140 元",
+    "98 元",
+    "210 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一种树苗的成活率是 90%，栽 200 棵能成活多少棵？",
+   "options": [
+    "180 棵",
+    "190 棵",
+    "200 棵",
+    "20 棵"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "六(1)班今天有 2 人请假，出勤率是 96%，全班有多少人？",
+   "options": [
+    "50 人",
+    "48 人",
+    "52 人",
+    "46 人"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数的 25% 是 12，这个数是多少？",
+   "options": [
+    "48",
+    "3",
+    "24",
+    "12"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "甲数比乙数多 25%，乙数比甲数少（　）。",
+   "options": [
+    "20%",
+    "25%",
+    "15%",
+    "30%"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "圆的周长公式是（　）（d 表示直径）。",
+   "options": [
+    "π×d",
+    "2×d",
+    "π×d×d",
+    "d+d"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的半径是 3 厘米，直径是多少厘米？",
+   "options": [
+    "6 厘米",
+    "3 厘米",
+    "9 厘米",
+    "1.5 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的周长是 18.84 厘米，直径是多少厘米（π 取 3.14）？",
+   "options": [
+    "6 厘米",
+    "3 厘米",
+    "9 厘米",
+    "18.84 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "圆的面积公式是（　）。",
+   "options": [
+    "π×r×r",
+    "2×π×r",
+    "π×d",
+    "r+r"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的半径是 2 厘米，面积是多少平方厘米（π 取 3.14）？",
+   "options": [
+    "12.56 平方厘米",
+    "6.28 平方厘米",
+    "4 平方厘米",
+    "25.12 平方厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "在同一个圆里，半径有（　）条。",
+   "options": [
+    "无数条",
+    "1 条",
+    "2 条",
+    "100 条"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "两端都在圆上的线段中，最长的一条是（　）。",
+   "options": [
+    "直径",
+    "半径",
+    "弦中较短的一条",
+    "弧"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的直径扩大到原来的 2 倍，周长（　）。",
+   "options": [
+    "扩大到原来的 2 倍",
+    "不变",
+    "扩大到原来的 4 倍",
+    "缩小到原来的一半"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的直径是 10 米，周长是多少米（π 取 3.14）？",
+   "options": [
+    "31.4 米",
+    "314 米",
+    "15.7 米",
+    "20 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的周长是 31.4 厘米，它的面积是多少平方厘米（π 取 3.14）？",
+   "options": [
+    "78.5 平方厘米",
+    "31.4 平方厘米",
+    "314 平方厘米",
+    "15.7 平方厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的直径扩大到原来的 3 倍，面积扩大到原来的（　）倍。",
+   "options": [
+    "9 倍",
+    "3 倍",
+    "6 倍",
+    "12 倍"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "零下 5℃ 记作（　）。",
+   "options": [
+    "-5℃",
+    "5℃",
+    "0.5℃",
+    "+5℃"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪个数比 -3 大？",
+   "options": [
+    "-1",
+    "-5",
+    "-7",
+    "-10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0 是（　）。",
+   "options": [
+    "正数和负数的分界",
+    "正数",
+    "负数",
+    "最小的数"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "冬天某地气温是 -8℃，比 0℃ 低多少摄氏度？",
+   "options": [
+    "8℃",
+    "0℃",
+    "-8℃",
+    "16℃"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "在 -2、0、1.5、-10 四个数中，最小的是（　）。",
+   "options": [
+    "-10",
+    "-2",
+    "0",
+    "1.5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一袋米重 25 千克，吃了它的 1/5，吃了多少千克？",
+   "options": [
+    "5 千克",
+    "20 千克",
+    "1/5 千克",
+    "4 千克"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "修一条 12 千米的路，已经修了全长的 3/4，修了多少千米？",
+   "options": [
+    "9 千米",
+    "3 千米",
+    "4 千米",
+    "8 千米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一批零件共 200 个，合格率是 98%，合格的零件有多少个？",
+   "options": [
+    "196 个",
+    "198 个",
+    "98 个",
+    "4 个"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "六(1)班订报纸 24 份，六(2)班与六(1)班订阅数量的比是 3:4，六(2)班订了多少份？",
+   "options": [
+    "18 份",
+    "32 份",
+    "16 份",
+    "36 份"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "打一份稿件，甲单独做要 4 小时，乙单独做要 6 小时，两人合作每小时完成这份稿件的（　）。",
+   "options": [
+    "5/12",
+    "10/6",
+    "2/10",
+    "1/10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个圆的半径由 2 厘米增加到 4 厘米，周长增加多少厘米（π 取 3.14）？",
+   "options": [
+    "12.56 厘米",
+    "6.28 厘米",
+    "25.12 厘米",
+    "18.84 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "男生比女生多 1/4，女生有 20 人，男生有多少人？",
+   "options": [
+    "25 人",
+    "24 人",
+    "5 人",
+    "16 人"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一辆汽车每行驶 1 千米耗油 0.08 升，行驶 50 千米耗油多少升？",
+   "options": [
+    "4 升",
+    "0.4 升",
+    "8 升",
+    "40 升"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5/8 的分子加上 5（变成 10），要使分数大小不变，分母应（　）。",
+   "options": [
+    "乘 2",
+    "加上 5",
+    "加上 8",
+    "除以 2"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈把 1000 元存入银行一年，年利率是 2%，到期后利息是多少元？",
+   "options": [
+    "20 元",
+    "200 元",
+    "2 元",
+    "1020 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "40 是 50 的百分之多少？",
+   "options": [
+    "80%",
+    "50%",
+    "90%",
+    "110%"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数的 30% 是 21，这个数是多少？",
+   "options": [
+    "70",
+    "63",
+    "6.3",
+    "140"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一段路，甲 4 小时走完，乙 3 小时走完，甲与乙速度的比是（　）。",
+   "options": [
+    "3:4",
+    "4:3",
+    "1:2",
+    "2:1"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1/2 × 1/4 = ____。",
+   "options": null,
+   "answer": "1/8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "2/3 × 3/4 = ____。",
+   "options": null,
+   "answer": "1/2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3/5 ÷ 3 = ____。",
+   "options": null,
+   "answer": "1/5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5/6 ÷ 5/12 = ____。",
+   "options": null,
+   "answer": "2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4 米的 3/4 是____米。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个数的 1/3 是 6，这个数是____。",
+   "options": null,
+   "answer": "18",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "12:18 化成最简整数比是____。",
+   "options": null,
+   "answer": "2:3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "男生 24 人，女生 16 人，男生与女生人数的最简比是____。",
+   "options": null,
+   "answer": "3:2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个比的比值是 5，后项是 2，前项是____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "0.35 化成百分数是____。",
+   "options": null,
+   "answer": "35%",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "75% 化成最简分数是____。",
+   "options": null,
+   "answer": "3/4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "80 的 25% 是____。",
+   "options": null,
+   "answer": "20",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个圆的半径是 5 厘米，直径是____厘米。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "半径 3 厘米的圆，周长是____厘米（π 取 3.14）。",
+   "options": null,
+   "answer": "18.84",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "直径 4 厘米的圆，面积是____平方厘米（π 取 3.14）。",
+   "options": null,
+   "answer": "12.56",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "零下 3℃ 记作____℃。",
+   "options": null,
+   "answer": "-3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 -6 大、比 -4 小的数是____（写一个）。",
+   "options": null,
+   "answer": "-5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "六(1)班 40 人全部出勤，出勤率是____%。",
+   "options": null,
+   "answer": "100",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "打九折就是按原价的____%出售。",
+   "options": null,
+   "answer": "90",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "60 千克增加它的 1/6 后是____千克。",
+   "options": null,
+   "answer": "70",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5/8 的分母乘 2，要使分数大小不变，分子应变为____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3/4 时 = ____ 分钟。",
+   "options": null,
+   "answer": "45",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5/8 千克 = ____ 克。",
+   "options": null,
+   "answer": "625",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个数的 2/5 是 14，这个数是____。",
+   "options": null,
+   "answer": "35",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "甲数是乙数的 4/5，乙数是 25，甲数是____。",
+   "options": null,
+   "answer": "20",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1/2 + 1/3 = ____。",
+   "options": null,
+   "answer": "5/6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 - 3/4 = ____。",
+   "options": null,
+   "answer": "1/4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "2/5 + 1/5 = ____。",
+   "options": null,
+   "answer": "3/5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "7/10 - 2/5 = ____。",
+   "options": null,
+   "answer": "3/10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一段路长 8 千米，走了全长的 1/4，走了____千米。",
+   "options": null,
+   "answer": "2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个圆的周长是 12.56 分米，半径是____分米。",
+   "options": null,
+   "answer": "2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "50 米的 40% 是____米。",
+   "options": null,
+   "answer": "20",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一本书 120 页，看了全书的 3/4，看了____页。",
+   "options": null,
+   "answer": "90",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个比的前项是 12，比值是 3/4，后项是____。",
+   "options": null,
+   "answer": "16",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一台冰箱打八折后卖 1600 元，原价是____元。",
+   "options": null,
+   "answer": "2000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3:4 的后项加 4（变成 8），要使比值不变，前项应变为____。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "在 -5、3、0、-1 四个数中，最大的是____。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "出勤率是 98%，全班 50 人，出勤____人。",
+   "options": null,
+   "answer": "49",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个圆的直径扩大到原来的 3 倍，面积扩大到原来的____倍。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "六年级有 120 人，男生占全班的 3/5，男生有____人。",
+   "options": null,
+   "answer": "72",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一桶油重 10 千克，用去 20%，用去____千克。",
+   "options": null,
+   "answer": "2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1/5 + 1/5 + 1/5 = ____。",
+   "options": null,
+   "answer": "3/5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "圆的位置由____决定，大小由半径决定。",
+   "options": null,
+   "answer": "圆心",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "40 是 50 的____%。",
+   "options": null,
+   "answer": "80",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个数的 30% 是 21，这个数是____。",
+   "options": null,
+   "answer": "70",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8 千克的 1/2 是____千克。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "2/3 的倒数是____。",
+   "options": null,
+   "answer": "3/2",
+   "difficulty": 1
+  }
+ ]
+}

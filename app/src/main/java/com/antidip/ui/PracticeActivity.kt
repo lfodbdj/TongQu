@@ -52,11 +52,24 @@ class PracticeActivity : AppCompatActivity() {
     private var submitted = false
     private var sessionOver = false
 
+    /** UI v3 错题"重做这道题"：单题模式（从错题本点入）。 */
+    private var totalQuestions = PRACTICE_LENGTH
+    private var focusContent: String? = null
+    private var focusGrade = 0
+    private var focusPending = false
+
     private fun dp(v: Int): Int = (resources.displayMetrics.density * v).toInt()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bankManager = QuestionBankManager(this)
+
+        focusContent = intent.getStringExtra("focus_content")
+        focusGrade = intent.getIntExtra("focus_grade", 0)
+        if (!focusContent.isNullOrBlank()) {
+            totalQuestions = 1
+            focusPending = true
+        }
 
         val root = ScrollView(this).apply { setBackgroundColor(getColor(R.color.background)) }
         box = LinearLayout(this).apply {
@@ -82,6 +95,9 @@ class PracticeActivity : AppCompatActivity() {
         box.addView(optionsBox, margin(8))
         fillInput = EditText(this).apply {
             hint = getString(R.string.fill_hint)
+            // 深色背景显式白字 + 灰提示（默认黑字不可见）+ 亮绿聚焦边框。
+            setTextColor(getColor(R.color.on_surface))
+            setHintTextColor(getColor(R.color.text_secondary))
             visibility = android.view.View.GONE
         }
         box.addView(fillInput, margin(8))
@@ -91,10 +107,14 @@ class PracticeActivity : AppCompatActivity() {
             visibility = android.view.View.GONE
         }
         box.addView(feedbackLabel, margin(10))
-        actionButton = Button(this).apply { text = getString(R.string.practice_next) }
+        actionButton = Button(this).apply {
+            text = getString(R.string.practice_next)
+            styleLime()
+        }
         box.addView(actionButton, margin(16))
         box.addView(Button(this).apply {
             text = getString(R.string.practice_done)
+            styleLime()
             setOnClickListener { finish() }
         }, margin(6))
 
@@ -111,7 +131,7 @@ class PracticeActivity : AppCompatActivity() {
             setPadding(dp(18), dp(16), dp(18), dp(16))
             background = GradientDrawable(
                 GradientDrawable.Orientation.TL_BR,
-                intArrayOf(0xFFFFD3A5.toInt(), 0xFFFFAA6B.toInt())
+                intArrayOf(0xFF39862E.toInt(), 0xFF94D411.toInt(), 0xFFFFB400.toInt())
             ).apply { cornerRadius = dp(22).toFloat() }
         }
         val textCol = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
@@ -142,8 +162,20 @@ class PracticeActivity : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         ).apply { topMargin = dp(dpV) }
 
+    /** 主页同款亮绿渐变按钮（Material3.Light 默认灰钮在深色页上发灰）。 */
+    private fun Button.styleLime() {
+        setTextColor(0xFF121212.toInt())
+        textSize = 16f
+        paint.isFakeBoldText = true
+        background = GradientDrawable(
+            GradientDrawable.Orientation.TL_BR,
+            intArrayOf(0xFF9BEA00.toInt(), 0xFFB3EE00.toInt())
+        ).apply { cornerRadius = dp(26).toFloat() }
+        setPadding(dp(16), dp(14), dp(16), dp(14))
+    }
+
     private fun nextQuestion() {
-        if (answeredCount >= PRACTICE_LENGTH) {
+        if (answeredCount >= totalQuestions) {
             showSummary()
             return
         }
@@ -151,12 +183,30 @@ class PracticeActivity : AppCompatActivity() {
         feedbackLabel.visibility = android.view.View.GONE
         actionButton.text = getString(R.string.btn_submit)
         lifecycleScope.launch {
-            currentQuestion = bankManager.getRandomQuestionOrFallback(
-                AppConfig.getSelectedGrade(this@PracticeActivity)
-            )
+            currentQuestion = if (focusPending) {
+                // 错题"重做这道题"：按内容+年级找回原题；找不到退回随机题。
+                focusPending = false
+                val q = focusContent?.let {
+                    bankManager.getQuestionByContentGrade(it, focusGrade)
+                }
+                if (q == null) {
+                    Toast.makeText(this@PracticeActivity, R.string.redo_not_found, Toast.LENGTH_SHORT).show()
+                    bankManager.getRandomQuestionOrFallback(
+                        AppConfig.getSelectedGrade(this@PracticeActivity),
+                        includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
+                    )
+                } else {
+                    q
+                }
+            } else {
+                bankManager.getRandomQuestionOrFallback(
+                    AppConfig.getSelectedGrade(this@PracticeActivity),
+                    includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
+                )
+            }
             val q = currentQuestion ?: return@launch
             progressLabel.text = getString(
-                R.string.practice_progress, answeredCount + 1, PRACTICE_LENGTH
+                R.string.practice_progress, answeredCount + 1, totalQuestions
             )
             questionLabel.text = q.content
             renderQuestion(q)
@@ -175,6 +225,11 @@ class PracticeActivity : AppCompatActivity() {
                         text = "${labels.getOrElse(index) { "$index" }}. $option"
                         tag = labels.getOrElse(index) { "$index" }
                         textSize = 16f
+                        // 深色背景显式白字 + 亮绿选择圈（默认黑字不可见）。
+                        setTextColor(getColor(R.color.on_surface))
+                        buttonTintList = android.content.res.ColorStateList.valueOf(
+                            getColor(R.color.accent)
+                        )
                         setPadding(dp(8), dp(12), dp(8), dp(12))
                     }
                     optionsBox.addView(rb)
@@ -184,6 +239,9 @@ class PracticeActivity : AppCompatActivity() {
                 optionsBox.removeAllViews()
                 fillInput.visibility = android.view.View.VISIBLE
                 fillInput.text?.clear()
+                fillInput.hint = getString(
+                    if (q.type == "open") R.string.open_hint else R.string.fill_hint
+                )
             }
         }
     }
@@ -219,10 +277,38 @@ class PracticeActivity : AppCompatActivity() {
 
         // Pure correctness verdict — practice must not touch the engine's
         // round state machine (attempts/rounds belong to the forced quiz).
-        val correct = engine.isAnswerCorrect(q, userAnswer)
         submitted = true
 
         lifecycleScope.launch {
+            var correct = engine.isAnswerCorrect(q, userAnswer)
+            // 开放式题（无标准答案，2026-11-21）：判分完全交给 AI；AI 不可用
+            // → 本题不计分不扣分，直接进入下一题（练习场景不惩罚）。
+            if (q.type == "open") {
+                val aiOk = try {
+                    com.antidip.AiJudge.judgeOpen(this@PracticeActivity, q, userAnswer)
+                } catch (e: Exception) {
+                    null
+                }
+                if (aiOk == null) {
+                    feedbackLabel.visibility = android.view.View.VISIBLE
+                    feedbackLabel.setTextColor(getColor(R.color.text_secondary))
+                    feedbackLabel.text = "AI 判分暂时不可用，本题不计分"
+                    actionButton.text = getString(R.string.practice_next)
+                    return@launch
+                }
+                correct = aiOk
+            } else {
+                // AI 判题（V2.2，2026-11-21）：填空字面不一致时问 AI 语义是否
+                // 等价；fail-closed，未启用/失败按原字面判分。
+                if (!correct && q.type == "fill" &&
+                    userAnswer != q.answer.trim() &&
+                    com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
+                ) {
+                    if (com.antidip.AiJudge.judgeFill(this@PracticeActivity, q, userAnswer) == true) {
+                        correct = true
+                    }
+                }
+            }
             val (state, newMedals) =
                 ProgressStore.applyAnswer(this@PracticeActivity, correct, q.type == "fill")
             if (correct) correctCount++
@@ -231,7 +317,11 @@ class PracticeActivity : AppCompatActivity() {
                     this@PracticeActivity,
                     ProgressRules.WrongEntry(
                         content = q.content,
-                        answer = q.answer,
+                        // 2026-11-21（用户要求）：选择题写"结果"（选项内容）而非字母。
+                        answer = ProgressRules.answerResultText(
+                            q.answer,
+                            q.options?.split("|") ?: emptyList()
+                        ),
                         subject = q.subject,
                         grade = q.grade,
                         wrongCount = 1,
@@ -243,7 +333,9 @@ class PracticeActivity : AppCompatActivity() {
             feedbackLabel.text = if (correct) {
                 getString(R.string.answer_correct)
             } else {
-                getString(R.string.fill_explain, q.answer)
+                getString(R.string.fill_explain, ProgressRules.answerResultText(
+                    q.answer, q.options?.split("|") ?: emptyList()
+                ))
             }
             feedbackLabel.setTextColor(
                 getColor(if (correct) R.color.success else R.color.error)
@@ -258,7 +350,7 @@ class PracticeActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
             }
-            if (answeredCount + 1 >= PRACTICE_LENGTH) {
+            if (answeredCount + 1 >= totalQuestions) {
                 // last question: the next "next" press shows the summary
                 actionButton.text = getString(R.string.practice_summary_btn)
             }

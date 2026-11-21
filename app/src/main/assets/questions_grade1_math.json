@@ -1,0 +1,1289 @@
+{
+ "grade": 1,
+ "version": "2026.11.21",
+ "questions": [
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明有 8 颗糖，吃了 3 颗，还剩几颗？",
+   "options": [
+    "4 颗",
+    "5 颗",
+    "6 颗",
+    "11 颗"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "9 + 6 = ？",
+   "options": [
+    "14",
+    "15",
+    "16",
+    "17"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "15 - 8 = ？",
+   "options": [
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 + 7 = ？",
+   "options": [
+    "12",
+    "13",
+    "14",
+    "15"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12 - 5 = ？",
+   "options": [
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "8 + 9 = ？",
+   "options": [
+    "15",
+    "16",
+    "17",
+    "18"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "14 - 6 = ？",
+   "options": [
+    "7",
+    "8",
+    "9",
+    "10"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 + 8 - 3 = ？",
+   "options": [
+    "9",
+    "10",
+    "11",
+    "12"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "7 + 7 = ？",
+   "options": [
+    "13",
+    "14",
+    "15",
+    "16"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "16 - 9 = ？",
+   "options": [
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "树上有 12 只鸟，飞走了 5 只，树上还剩几只？",
+   "options": [
+    "6 只",
+    "7 只",
+    "8 只",
+    "9 只"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈买了 10 个苹果，吃了 6 个，还剩几个？",
+   "options": [
+    "3 个",
+    "4 个",
+    "5 个",
+    "6 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小华有 6 支铅笔，爸爸又买了 5 支，现在有几支？",
+   "options": [
+    "10 支",
+    "11 支",
+    "12 支",
+    "13 支"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "桌上有 9 本书，又放上去 8 本，一共几本？",
+   "options": [
+    "16 本",
+    "17 本",
+    "18 本",
+    "19 本"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "车上有 15 人，到站后下去了 8 人，车上还有几人？",
+   "options": [
+    "6 人",
+    "7 人",
+    "8 人",
+    "9 人"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3 + 5 + 4 = ？",
+   "options": [
+    "11",
+    "12",
+    "13",
+    "14"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "18 - 5 - 6 = ？",
+   "options": [
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "10 可以分成 6 和（　）。",
+   "options": [
+    "3",
+    "4",
+    "5",
+    "6"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 + 4 = 10，所以 10 - 4 = ？",
+   "options": [
+    "5",
+    "6",
+    "7",
+    "8"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "比 9 多 5 的数是多少？",
+   "options": [
+    "13",
+    "14",
+    "15",
+    "16"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "8 比 5 多几？",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "7、9、5 三个数中最大的是？",
+   "options": [
+    "5",
+    "7",
+    "9",
+    "一样大"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4、9、6 从小到大排列，排在中间的是？",
+   "options": [
+    "4",
+    "6",
+    "9",
+    "没有"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "2、4、6、8，下一个数是？",
+   "options": [
+    "9",
+    "10",
+    "11",
+    "12"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1、3、5、7，下一个数是？",
+   "options": [
+    "8",
+    "9",
+    "10",
+    "11"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "15 的前面一个数是多少？",
+   "options": [
+    "13",
+    "14",
+    "16",
+    "15"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "和 12 相邻的两个数是（　）。",
+   "options": [
+    "10 和 11",
+    "11 和 13",
+    "13 和 14",
+    "12 和 13"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个星期有几天？",
+   "options": [
+    "5 天",
+    "6 天",
+    "7 天",
+    "8 天"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一年有几个月？",
+   "options": [
+    "10 个月",
+    "11 个月",
+    "12 个月",
+    "13 个月"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "钟面上分针指向 12，时针指向 3，是几点？",
+   "options": [
+    "2 点",
+    "3 点",
+    "4 点",
+    "12 点"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "钟面上分针指向 12，时针指向 7，是几点？",
+   "options": [
+    "6 点",
+    "7 点",
+    "8 点",
+    "7 点半"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 元 = 几角？",
+   "options": [
+    "5 角",
+    "10 角",
+    "20 角",
+    "100 角"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 元 = 几分？",
+   "options": [
+    "10 分",
+    "50 分",
+    "100 分",
+    "1000 分"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "买一支铅笔 5 角，一本本子 1 元，一共要付多少钱？",
+   "options": [
+    "1 元 5 角",
+    "1 元",
+    "6 角",
+    "2 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 角 + 5 角 = ？",
+   "options": [
+    "1 元",
+    "2 元",
+    "10 元",
+    "5 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "冰箱的形状像（　）。",
+   "options": [
+    "长方体",
+    "正方体",
+    "圆柱",
+    "球"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "易拉罐的形状像（　）。",
+   "options": [
+    "长方体",
+    "正方体",
+    "圆柱",
+    "球"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "皮球的形状像（　）。",
+   "options": [
+    "长方体",
+    "圆柱",
+    "正方体",
+    "球"
+   ],
+   "answer": "D",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "魔方的形状像（　）。",
+   "options": [
+    "正方体",
+    "长方体",
+    "圆柱",
+    "球"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "硬币的形状像（　）。",
+   "options": [
+    "长方体",
+    "圆柱",
+    "正方体",
+    "球"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小鸟在大树的（　）面。",
+   "options": [
+    "上",
+    "下",
+    "前",
+    "后"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "上楼时我们向（　）走。",
+   "options": [
+    "上",
+    "下",
+    "左",
+    "右"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "红绿灯的灯在杆子的（　）面。",
+   "options": [
+    "上",
+    "下",
+    "左",
+    "右"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "书包一般背在（　）。",
+   "options": [
+    "背上",
+    "头上",
+    "脚上",
+    "手上"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "上下楼梯靠（　）边走。",
+   "options": [
+    "左",
+    "右",
+    "中",
+    "前"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一组图形：○○△○○△，下一个是（　）。",
+   "options": [
+    "○",
+    "△",
+    "□",
+    "◇"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪一组都是水果？",
+   "options": [
+    "苹果、香蕉、桃",
+    "白菜、萝卜",
+    "书包、铅笔",
+    "狗、猫"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪一个是文具？",
+   "options": [
+    "铅笔",
+    "西瓜",
+    "小狗",
+    "汽车"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "9 和 13 两个数中间（不含它们）的数是？",
+   "options": [
+    "10",
+    "9",
+    "13",
+    "14"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明前面有 4 人，后面有 3 人，这一排一共有几人？",
+   "options": [
+    "7 人",
+    "8 人",
+    "9 人",
+    "10 人"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "从 1 数到 20，一共数了几个数？",
+   "options": [
+    "18 个",
+    "19 个",
+    "20 个",
+    "21 个"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "10 - 3 - 4 = ？",
+   "options": [
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 + 6 - 2 = ？",
+   "options": [
+    "9",
+    "10",
+    "11",
+    "12"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 + 5 + 5 = ？",
+   "options": [
+    "10",
+    "15",
+    "20",
+    "25"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "17 - 8 - 8 = ？",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4 + 9 = ？",
+   "options": [
+    "12",
+    "13",
+    "14",
+    "15"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "11 - 2 = ？",
+   "options": [
+    "8",
+    "9",
+    "10",
+    "11"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "8 + 4 = ？",
+   "options": [
+    "11",
+    "12",
+    "13",
+    "14"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "13 - 4 = ？",
+   "options": [
+    "8",
+    "9",
+    "10",
+    "11"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "7 + 8 = ？",
+   "options": [
+    "14",
+    "15",
+    "16",
+    "17"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12 - 7 = ？",
+   "options": [
+    "4",
+    "5",
+    "6",
+    "7"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "9 + 2 = ？",
+   "options": [
+    "10",
+    "11",
+    "12",
+    "13"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "20 - 10 = ？",
+   "options": [
+    "0",
+    "10",
+    "15",
+    "20"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈买了 2 斤苹果和 1 斤橘子，一共买了几斤水果？",
+   "options": [
+    "2 斤",
+    "3 斤",
+    "4 斤",
+    "5 斤"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "教室里有 8 盏灯，关掉 3 盏，还亮着几盏？",
+   "options": [
+    "4 盏",
+    "5 盏",
+    "6 盏",
+    "11 盏"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一盒彩笔有 12 色，用了 4 色，还剩几色没用？",
+   "options": [
+    "7 色",
+    "8 色",
+    "9 色",
+    "16 色"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3 只小猫和 4 只小狗，一共有几只小动物？",
+   "options": [
+    "6 只",
+    "7 只",
+    "8 只",
+    "9 只"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 个男生和 6 个女生，一共几个同学？",
+   "options": [
+    "10 人",
+    "11 人",
+    "12 人",
+    "13 人"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "9 - 5 + 4 = ？",
+   "options": [
+    "7",
+    "8",
+    "9",
+    "10"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "比 6 大比 10 小的数是？",
+   "options": [
+    "5",
+    "7",
+    "10",
+    "11"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "爸爸买了一盒 10 个包子，全家吃了 7 个，还剩几个？",
+   "options": [
+    "2 个",
+    "3 个",
+    "4 个",
+    "5 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "7 + 5 = ____。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "16 - 9 = ____。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8 + 8 = ____。",
+   "options": null,
+   "answer": "16",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "13 - 5 = ____。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6 + 9 = ____。",
+   "options": null,
+   "answer": "15",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "17 - 8 = ____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4 + 9 = ____。",
+   "options": null,
+   "answer": "13",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "18 - 9 = ____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "7 + 6 = ____。",
+   "options": null,
+   "answer": "13",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "14 - 5 = ____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "9 + 9 = ____。",
+   "options": null,
+   "answer": "18",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "12 - 4 = ____。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5 + 7 = ____。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "11 - 3 = ____。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8 + 5 = ____。",
+   "options": null,
+   "answer": "13",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小明有 6 元，买尺子用了 2 元，还剩____元。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "妈妈买来 15 个橘子，吃了 8 个，还剩____个。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一班有 9 个男生和 8 个女生，一共____人。",
+   "options": null,
+   "answer": "17",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "树上有 5 只鸟，又飞来 6 只，一共____只。",
+   "options": null,
+   "answer": "11",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "10 可以分成 3 和____。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "9 可以分成 5 和____。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 10 少 3 的数是____。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 6 多 4 的数是____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "找规律：2、4、6、8、____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 元 = ____ 角。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 角 = ____ 分。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5 角 + 5 角 = ____ 元。",
+   "options": null,
+   "answer": "1",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "买橡皮 3 角，买铅笔 5 角，一共____角。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "钟面上分针指向 12，时针指向 8，是____点。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "钟面上分针指向 12，时针指向 11，是____点。",
+   "options": null,
+   "answer": "11",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "冰箱的形状像长方____。",
+   "options": null,
+   "answer": "体",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "骰子的形状像正方____。",
+   "options": null,
+   "answer": "体",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "易拉罐的形状像____体。",
+   "options": null,
+   "answer": "圆",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "上下楼梯靠____边走。",
+   "options": null,
+   "answer": "右",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小鸟在大树的____面。",
+   "options": null,
+   "answer": "上",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "找规律：○○△○○△○○____。",
+   "options": null,
+   "answer": "△",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "最大的一位数是____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "最小的两位数是____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "和 9 相邻的两个数是 8 和____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8 比 3 多____。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "10 比 15 少____。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一队小朋友，从前数小红是第 6 个，从后数是第 5 个，这队一共____人。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "教室里有 10 盏灯，关了 4 盏，还亮____盏。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6 + ____ = 10。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "15 - ____ = 8。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  }
+ ]
+}

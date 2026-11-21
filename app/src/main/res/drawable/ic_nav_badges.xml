@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- medal: circle + ribbon -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M12,2L14.5,7L9.5,7L12,2M7,9L17,9L17,11L7,11L7,9M12,20C9.2,20 7,17.8 7,15C7,12.2 9.2,10 12,10C14.8,10 17,12.2 17,15C17,17.8 14.8,20 12,20M12,12C10.3,12 9,13.3 9,15C9,16.7 10.3,18 12,18C13.7,18 15,16.7 15,15C15,13.3 13.7,12 12,12Z" />
+</vector>

@@ -1,0 +1,1365 @@
+{
+ "grade": 4,
+ "version": "2026.11.21",
+ "questions": [
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "文具店一支钢笔 12 元，一本笔记本 5 元。买 3 支钢笔和 2 本笔记本一共要花多少钱？",
+   "options": [
+    "46 元",
+    "41 元",
+    "36 元",
+    "31 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈带了 100 元去超市，买了 2 袋大米，每袋 38 元，还剩多少钱？",
+   "options": [
+    "24 元",
+    "26 元",
+    "34 元",
+    "14 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明有 5 张 10 元和 8 张 5 元，他一共有多少钱？",
+   "options": [
+    "85 元",
+    "90 元",
+    "95 元",
+    "80 元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "水果店苹果每千克 6 元，买 5 千克要 30 元，付给店主 50 元应找回多少钱？",
+   "options": [
+    "20 元",
+    "30 元",
+    "25 元",
+    "15 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "四年级同学去春游，每辆车坐 45 人，5 辆车正好坐满，一共有多少人？",
+   "options": [
+    "205 人",
+    "225 人",
+    "245 人",
+    "250 人"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "电影院一张票 35 元，全班 40 人一起看电影需要多少钱？",
+   "options": [
+    "1400 元",
+    "140 元",
+    "1440 元",
+    "1500 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一箱牛奶 12 盒，每天喝 3 盒，一箱牛奶可以喝几天？",
+   "options": [
+    "3 天",
+    "4 天",
+    "5 天",
+    "6 天"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小华每天读 25 页书，一个星期（7 天）一共能读多少页？",
+   "options": [
+    "150 页",
+    "165 页",
+    "175 页",
+    "185 页"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小丽 8:05 出发上学，8:35 到校，她在路上用了多少分钟？",
+   "options": [
+    "20 分钟",
+    "25 分钟",
+    "30 分钟",
+    "40 分钟"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一列火车 9:00 出发，11:30 到站，这列火车一共行驶了多少分钟？",
+   "options": [
+    "120 分钟",
+    "130 分钟",
+    "150 分钟",
+    "180 分钟"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明家到学校 800 米，他每分钟走 80 米，几分钟能走到学校？",
+   "options": [
+    "8 分钟",
+    "10 分钟",
+    "12 分钟",
+    "15 分钟"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "汽车每小时行驶 90 千米，照这样的速度，3 小时行驶多少千米？",
+   "options": [
+    "240 千米",
+    "270 千米",
+    "300 千米",
+    "330 千米"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一辆公交车每 10 分钟发一班，7:30 发出第一班，第 4 班是几点几分发出？",
+   "options": [
+    "7:40",
+    "8:00",
+    "8:10",
+    "8:20"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小红下午 3:20 放学，路上要走 25 分钟，她几点几分到家？",
+   "options": [
+    "3:40",
+    "3:45",
+    "3:50",
+    "4:00"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "火车 14:40 开车，小刚从家到车站要走 30 分钟，他最晚几点几分从家出发？",
+   "options": [
+    "14:00",
+    "14:10",
+    "14:20",
+    "14:30"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "四年级有 96 名同学去参观博物馆，每 8 人分一组，可以分成几组？",
+   "options": [
+    "10 组",
+    "11 组",
+    "12 组",
+    "14 组"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4 个小组一共采集了 96 个标本，平均每个小组采集多少个？",
+   "options": [
+    "20 个",
+    "22 个",
+    "24 个",
+    "26 个"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "图书角有 85 本书，平均放在 5 个书架上，每个书架放多少本？",
+   "options": [
+    "15 本",
+    "16 本",
+    "17 本",
+    "18 本"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "三年级植树 120 棵，四年级植树 150 棵，两个年级一共植树多少棵？",
+   "options": [
+    "250 棵",
+    "260 棵",
+    "270 棵",
+    "280 棵"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校买来 200 支铅笔，平均分给 8 个班，每个班分到多少支？",
+   "options": [
+    "20 支",
+    "22 支",
+    "25 支",
+    "28 支"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "全班 42 人去划船，每条船最多坐 6 人，至少要租几条船？",
+   "options": [
+    "6 条",
+    "7 条",
+    "8 条",
+    "9 条"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "45 个苹果每 4 个装一袋，最多能装满几袋？",
+   "options": [
+    "10 袋",
+    "11 袋",
+    "12 袋",
+    "13 袋"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个长方形花坛长 12 米，宽 8 米，它的周长是多少米？",
+   "options": [
+    "40 米",
+    "44 米",
+    "48 米",
+    "96 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个正方形手帕的边长是 25 厘米，它的周长是多少厘米？",
+   "options": [
+    "75 厘米",
+    "100 厘米",
+    "125 厘米",
+    "625 厘米"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一块长方形菜地长 15 米，宽 6 米，它的面积是多少平方米？",
+   "options": [
+    "21 平方米",
+    "42 平方米",
+    "90 平方米",
+    "96 平方米"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个正方形桌面的边长是 8 分米，它的面积是多少平方分米？",
+   "options": [
+    "16 平方分米",
+    "32 平方分米",
+    "64 平方分米",
+    "72 平方分米"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个长方形操场长 60 米，宽 40 米，沿操场跑一圈是多少米？",
+   "options": [
+    "100 米",
+    "200 米",
+    "240 米",
+    "2000 米"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个长方形的长是 10 厘米，宽是长的一半，宽是多少厘米？",
+   "options": [
+    "4 厘米",
+    "5 厘米",
+    "6 厘米",
+    "8 厘米"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一头大象每天吃 300 千克食物，一头牛每天吃 50 千克，大象每天比牛多吃多少千克？",
+   "options": [
+    "200 千克",
+    "250 千克",
+    "300 千克",
+    "350 千克"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 箱梨共 96 千克，平均每箱梨重多少千克？",
+   "options": [
+    "16 千克",
+    "18 千克",
+    "20 千克",
+    "24 千克"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "商店上午卖出 25 瓶饮料，下午卖出的是上午的 3 倍，下午卖出多少瓶？",
+   "options": [
+    "50 瓶",
+    "60 瓶",
+    "75 瓶",
+    "80 瓶"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小刚买了 8 本练习本一共 32 元，一本练习本多少元？",
+   "options": [
+    "3 元",
+    "4 元",
+    "5 元",
+    "6 元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一本故事书 180 页，小芳每天看 30 页，几天能看完？",
+   "options": [
+    "5 天",
+    "6 天",
+    "7 天",
+    "8 天"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校有 1985 名学生，用整百数估算，大约是多少人？",
+   "options": [
+    "1900 人",
+    "1980 人",
+    "2000 人",
+    "2100 人"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一台电视 2999 元，一台冰箱 4008 元，买这两样大约需要多少元？",
+   "options": [
+    "6000 元",
+    "7000 元",
+    "8000 元",
+    "9000 元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "十万里面有（　）个一万。",
+   "options": [
+    "10 个",
+    "100 个",
+    "1000 个",
+    "10000 个"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数由 5 个万和 3 个千组成，这个数是多少？",
+   "options": [
+    "53000",
+    "50300",
+    "5300",
+    "35000"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "最小的五位数是多少？",
+   "options": [
+    "9999",
+    "10000",
+    "10001",
+    "100000"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "25×4 的积的末尾有几个 0？",
+   "options": [
+    "1 个",
+    "2 个",
+    "3 个",
+    "没有 0"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "480 里面有（　）个 60。",
+   "options": [
+    "6 个",
+    "7 个",
+    "8 个",
+    "9 个"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "两个数相乘的积是 60，如果一个因数乘 2，另一个因数不变，积是多少？",
+   "options": [
+    "30",
+    "60",
+    "120",
+    "240"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "被除数是 720，除数是 90，商是多少？",
+   "options": [
+    "7",
+    "8",
+    "9",
+    "80"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 平方米 = （　）平方分米。",
+   "options": [
+    "10",
+    "100",
+    "1000",
+    "10000"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个三角尺上有（　）个直角。",
+   "options": [
+    "1 个",
+    "2 个",
+    "3 个",
+    "没有直角"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个平角等于（　）个直角。",
+   "options": [
+    "1 个",
+    "2 个",
+    "3 个",
+    "4 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "长方形相对的两条边（　）。",
+   "options": [
+    "互相平行且相等",
+    "互相垂直",
+    "既不平行也不垂直",
+    "一样长但相交"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "钟面上 3 点整，时针和分针成（　）。",
+   "options": [
+    "锐角",
+    "直角",
+    "钝角",
+    "平角"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一条射线有（　）个端点。",
+   "options": [
+    "0 个",
+    "1 个",
+    "2 个",
+    "3 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "四(1)班图书角星期一借出 9 本，星期二借出 12 本，星期三借出 8 本，三天一共借出多少本？",
+   "options": [
+    "27 本",
+    "28 本",
+    "29 本",
+    "30 本"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪个数最接近 5000？",
+   "options": [
+    "4998",
+    "5009",
+    "5100",
+    "4900"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小军 4 次跳绳的成绩分别是 120、115、125、140 下，他一共跳了多少下？",
+   "options": [
+    "480 下",
+    "490 下",
+    "500 下",
+    "520 下"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈买 3 千克苹果花了 24 元，每千克苹果多少元？",
+   "options": [
+    "6 元",
+    "7 元",
+    "8 元",
+    "9 元"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一本字典 45 元，买 6 本这样的字典需要多少元？",
+   "options": [
+    "250 元",
+    "260 元",
+    "270 元",
+    "280 元"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "果园里有 48 棵桃树，梨树的棵数是桃树的 5 倍，梨树有多少棵？",
+   "options": [
+    "53 棵",
+    "240 棵",
+    "248 棵",
+    "250 棵"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一辆货车每次运货 8 吨，运 6 次一共运多少吨？",
+   "options": [
+    "40 吨",
+    "44 吨",
+    "48 吨",
+    "56 吨"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明家有 24 只鸡，鸭的只数是鸡的 3 倍，鸡和鸭一共有多少只？",
+   "options": [
+    "72 只",
+    "96 只",
+    "84 只",
+    "100 只"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "学校买了 4 盒钢笔，每盒 10 支，一共花了 160 元，每支钢笔多少元？",
+   "options": [
+    "4 元",
+    "8 元",
+    "16 元",
+    "40 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一本书有 245 页，小红看了 5 天，每天看 40 页，还剩多少页没有看？",
+   "options": [
+    "45 页",
+    "55 页",
+    "200 页",
+    "245 页"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "运动会上 15 名同学参加跳远比赛，每 5 人一组，可以分成几组？",
+   "options": [
+    "2 组",
+    "3 组",
+    "4 组",
+    "5 组"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "超市运来 8 箱可乐，每箱 24 瓶，卖出一半后还剩多少瓶？",
+   "options": [
+    "24 瓶",
+    "40 瓶",
+    "48 瓶",
+    "96 瓶"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "停车场有 35 辆小汽车，大客车的数量比小汽车的 2 倍少 5 辆，大客车有多少辆？",
+   "options": [
+    "60 辆",
+    "65 辆",
+    "70 辆",
+    "75 辆"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一根绳子长 48 米，剪成 6 米一段的短绳，可以剪成几段？",
+   "options": [
+    "6 段",
+    "7 段",
+    "8 段",
+    "9 段"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个星期有 7 天，一年按 52 个星期计算，一年有多少天？",
+   "options": [
+    "360 天",
+    "364 天",
+    "365 天",
+    "366 天"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小丽买 5 支铅笔花了 10 元，小刚买同样的铅笔 8 支要花多少元？",
+   "options": [
+    "12 元",
+    "14 元",
+    "16 元",
+    "20 元"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一台洗衣机 1999 元，比一台冰箱便宜 2001 元，一台冰箱多少元？",
+   "options": [
+    "3999 元",
+    "4000 元",
+    "4001 元",
+    "5000 元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "全班同学做了 160 朵花，送给 8 位老师，平均每位老师得到多少朵？",
+   "options": [
+    "18 朵",
+    "20 朵",
+    "22 朵",
+    "25 朵"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一头鲸鱼重 50 吨，一头大象重 5 吨，鲸鱼的体重是大象的几倍？",
+   "options": [
+    "5 倍",
+    "10 倍",
+    "15 倍",
+    "45 倍"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4 个同学一次搬 12 块砖，照这样计算，7 个同学一次能搬多少块砖？",
+   "options": [
+    "18 块",
+    "21 块",
+    "24 块",
+    "28 块"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "25×4 = ？",
+   "options": [
+    "80",
+    "100",
+    "125",
+    "50"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "125×8 = ？",
+   "options": [
+    "100",
+    "1000",
+    "10000",
+    "1250"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "360÷60 = ？",
+   "options": [
+    "5",
+    "6",
+    "7",
+    "60"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "102×3 = ？",
+   "options": [
+    "306",
+    "360",
+    "206",
+    "316"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "99+98+97 的结果最接近多少？",
+   "options": [
+    "200",
+    "300",
+    "400",
+    "500"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12×25 用 12×100÷4 来算更简便，结果是？",
+   "options": [
+    "250",
+    "300",
+    "1200",
+    "4800"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "比 1000 少 1 的数是多少？",
+   "options": [
+    "998",
+    "999",
+    "1001",
+    "900"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "文具店一本笔记本 5 元，小明买了 4 本，一共花了____元。",
+   "options": null,
+   "answer": "20",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小红家到学校 600 米，她每分钟走 75 米，____分钟能走到学校。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一箱苹果重 15 千克，6 箱苹果一共重____千克。",
+   "options": null,
+   "answer": "90",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一节课 40 分钟，上午上了 4 节课，上午一共上课____分钟。",
+   "options": null,
+   "answer": "160",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一辆汽车 2 小时行驶 180 千米，平均每小时行驶____千米。",
+   "options": null,
+   "answer": "90",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "学校买了 3 台电风扇，每台 85 元，一共花了____元。",
+   "options": null,
+   "answer": "255",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "四年级 5 个班一共捐书 480 本，平均每个班捐书____本。",
+   "options": null,
+   "answer": "96",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个长方形花坛长 20 米，宽 10 米，它的周长是____米。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个正方形水池的边长是 6 米，占地面积是____平方米。",
+   "options": null,
+   "answer": "36",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小军买 5 支钢笔用了 45 元，每支钢笔____元。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一辆三轮车一次运 12 袋大米，运 5 次一共运____袋。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一本故事书 320 页，小明每天看 40 页，____天可以看完。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "30 名同学排队做操，每 6 人一排，可以站____排。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "妈妈买了 4 千克鸡蛋，每千克 9 元，一共用了____元。",
+   "options": null,
+   "answer": "36",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "商店有 240 瓶矿泉水，每 8 瓶装一箱，可以装____箱。",
+   "options": null,
+   "answer": "30",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个长方形的长是 12 厘米，宽是 5 厘米，面积是____平方厘米。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一头牛重 400 千克，5 头这样的牛一共重____千克。",
+   "options": null,
+   "answer": "2000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小丽 7 天写了 84 个大字，平均每天写____个大字。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一台冰箱 2999 元，一台电视 1999 元，冰箱比电视贵____元。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "每本相册可以放 30 张照片，120 张照片正好需要____本相册。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "客车每小时行驶 60 千米，从甲城到乙城用了 5 小时，甲乙两城相距____千米。",
+   "options": null,
+   "answer": "300",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "果园收了 960 个西瓜，每 6 个装一箱，可以装____箱。",
+   "options": null,
+   "answer": "160",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "学校食堂每天用水 250 千克，4 天一共用水____千克。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一段路长 720 米，修路队每天修 80 米，____天可以修完。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小华有 100 元，买书包花了 68 元，还剩____元。",
+   "options": null,
+   "answer": "32",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "每 4 人坐一张桌子，56 名同学需要____张桌子。",
+   "options": null,
+   "answer": "14",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个星期存 35 元零花钱，8 个星期可以存____元。",
+   "options": null,
+   "answer": "280",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "妈妈买 6 盒酸奶一共 48 元，每盒酸奶____元。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一辆自行车 288 元，一辆电动车的价格是自行车的 3 倍，电动车____元。",
+   "options": null,
+   "answer": "864",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "全班 48 人分组做实验，每组 4 人，可以分成____组。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "16×5 = ____。",
+   "options": null,
+   "answer": "80",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "24×4 = ____。",
+   "options": null,
+   "answer": "96",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "84÷7 = ____。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "300×3 = ____。",
+   "options": null,
+   "answer": "900",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "720÷90 = ____。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "15×6 = ____。",
+   "options": null,
+   "answer": "90",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "25×8 = ____。",
+   "options": null,
+   "answer": "200",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "12×500 = ____。",
+   "options": null,
+   "answer": "6000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 平方米 = ____ 平方分米。",
+   "options": null,
+   "answer": "100",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 平方分米 = ____ 平方厘米。",
+   "options": null,
+   "answer": "100",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "80000 里面有____个一万。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个数由 3 个万和 6 个千组成，这个数是____。",
+   "options": null,
+   "answer": "36000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "最大的四位数是____。",
+   "options": null,
+   "answer": "9999",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 9999 大 1 的数是____。",
+   "options": null,
+   "answer": "10000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "25×4×10 = ____。",
+   "options": null,
+   "answer": "1000",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "40×50 的积的末尾有____个 0。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3 平方米 = ____ 平方分米。",
+   "options": null,
+   "answer": "300",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个直角是 90°，一个平角是____度。",
+   "options": null,
+   "answer": "180",
+   "difficulty": 1
+  }
+ ]
+}

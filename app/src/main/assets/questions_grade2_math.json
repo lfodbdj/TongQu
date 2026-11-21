@@ -1,0 +1,1329 @@
+{
+ "grade": 2,
+ "version": "2026.11.21",
+ "questions": [
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一本故事书 68 页，看了 29 页，还剩多少页？",
+   "options": [
+    "39 页",
+    "38 页",
+    "49 页",
+    "29 页"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "商店上午卖出 32 瓶酱油，下午卖出 28 瓶，一天共卖出多少瓶？",
+   "options": [
+    "50 瓶",
+    "60 瓶",
+    "59 瓶",
+    "61 瓶"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明有 45 张卡片，比小红多 12 张，小红有多少张？",
+   "options": [
+    "57 张",
+    "33 张",
+    "43 张",
+    "35 张"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "63 - 28 = ？",
+   "options": [
+    "35",
+    "34",
+    "36",
+    "45"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "45 + 37 = ？",
+   "options": [
+    "72",
+    "82",
+    "73",
+    "71"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "100 - 46 = ？",
+   "options": [
+    "54",
+    "56",
+    "64",
+    "46"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "38 + 25 = ？",
+   "options": [
+    "53",
+    "63",
+    "62",
+    "73"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "71 - 35 = ？",
+   "options": [
+    "36",
+    "37",
+    "46",
+    "26"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一件上衣 45 元，一条裤子 35 元，买一套要多少元？",
+   "options": [
+    "70 元",
+    "75 元",
+    "80 元",
+    "85 元"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "62 比 28 多多少？",
+   "options": [
+    "34",
+    "44",
+    "90",
+    "36"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小华做了 36 道题，小丽比小华多 8 道，小丽做了多少道？",
+   "options": [
+    "28 道",
+    "44 道",
+    "38 道",
+    "46 道"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "29 + 38 的结果大约是多少？（估算到整十数）",
+   "options": [
+    "50",
+    "60",
+    "70",
+    "80"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "81 - 47 的结果大约是多少？（估算到整十数）",
+   "options": [
+    "30",
+    "40",
+    "50",
+    "130"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "二(1)班有男生 25 人，女生 23 人，全班多少人？",
+   "options": [
+    "45 人",
+    "46 人",
+    "47 人",
+    "48 人"
+   ],
+   "answer": "D",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "50 - 24 - 16 = ？",
+   "options": [
+    "10",
+    "12",
+    "14",
+    "8"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "28 + 9 - 15 = ？",
+   "options": [
+    "20",
+    "21",
+    "22",
+    "23"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小小有 8 元，想买 15 元的书，还差几元？",
+   "options": [
+    "6 元",
+    "7 元",
+    "8 元",
+    "23 元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6×7 = ？",
+   "options": [
+    "42",
+    "36",
+    "48",
+    "49"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "8×9 = ？",
+   "options": [
+    "72",
+    "63",
+    "81",
+    "64"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "9×6 = ？",
+   "options": [
+    "54",
+    "45",
+    "56",
+    "63"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "7×8 = ？",
+   "options": [
+    "54",
+    "56",
+    "63",
+    "48"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5×9 = ？",
+   "options": [
+    "45",
+    "40",
+    "50",
+    "54"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4×8 = ？",
+   "options": [
+    "28",
+    "32",
+    "36",
+    "24"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个星期 7 天，6 个星期有多少天？",
+   "options": [
+    "36 天",
+    "42 天",
+    "48 天",
+    "40 天"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每盒有 6 支笔，8 盒一共有多少支？",
+   "options": [
+    "42 支",
+    "46 支",
+    "48 支",
+    "54 支"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一辆三轮车 3 个轮子，5 辆三轮车有几个轮子？",
+   "options": [
+    "12 个",
+    "15 个",
+    "18 个",
+    "8 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一双筷子 2 根，9 双筷子一共几根？",
+   "options": [
+    "16 根",
+    "18 根",
+    "20 根",
+    "11 根"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈买了 4 袋糖，每袋 9 块，一共有多少块？",
+   "options": [
+    "32 块",
+    "36 块",
+    "40 块",
+    "45 块"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一只青蛙 4 条腿，8 只青蛙几条腿？",
+   "options": [
+    "16 条",
+    "24 条",
+    "32 条",
+    "40 条"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一只螃蟹 8 条腿，3 只螃蟹几条腿？",
+   "options": [
+    "16 条",
+    "20 条",
+    "24 条",
+    "32 条"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一张桌子 4 条腿，10 张桌子几条腿？",
+   "options": [
+    "14 条",
+    "24 条",
+    "40 条",
+    "44 条"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一辆自行车 2 个轮子，6 辆自行车几个轮子？",
+   "options": [
+    "8 个",
+    "10 个",
+    "12 个",
+    "14 个"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "蜻蜓有 2 对翅膀，3 只蜻蜓有几对翅膀？",
+   "options": [
+    "5 对",
+    "6 对",
+    "8 对",
+    "9 对"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "24÷6 = ？",
+   "options": [
+    "3",
+    "4",
+    "5",
+    "6"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "56÷8 = ？",
+   "options": [
+    "6",
+    "7",
+    "8",
+    "9"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "18÷3 = ？",
+   "options": [
+    "5",
+    "6",
+    "7",
+    "9"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把 20 个苹果平均分成 4 份，每份几个？",
+   "options": [
+    "4 个",
+    "5 个",
+    "6 个",
+    "8 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12 个同学每 3 人一组，可以分几组？",
+   "options": [
+    "3 组",
+    "4 组",
+    "5 组",
+    "6 组"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 米 = 多少厘米？",
+   "options": [
+    "10 厘米",
+    "50 厘米",
+    "100 厘米",
+    "1000 厘米"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小明的身高大约是 120（　）。",
+   "options": [
+    "米",
+    "厘米",
+    "分",
+    "元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一支铅笔长约 18（　）。",
+   "options": [
+    "米",
+    "厘米",
+    "元",
+    "千克"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "教室的门高大约是 2（　）。",
+   "options": [
+    "米",
+    "厘米",
+    "分米",
+    "千米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "量操场的长度用（　）作单位比较合适。",
+   "options": [
+    "厘米",
+    "米",
+    "元",
+    "角"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "课桌的高大约是 70（　）。",
+   "options": [
+    "米",
+    "厘米",
+    "千克",
+    "元"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 米 - 30 厘米 = ？",
+   "options": [
+    "70 厘米",
+    "30 厘米",
+    "130 厘米",
+    "7 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "36 厘米 + 24 厘米 = ？",
+   "options": [
+    "50 厘米",
+    "60 厘米",
+    "62 厘米",
+    "70 厘米"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "红花 5 朵，黄花的朵数是红花的 3 倍，黄花有多少朵？",
+   "options": [
+    "8 朵",
+    "15 朵",
+    "10 朵",
+    "2 朵"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 的 2 倍是多少？",
+   "options": [
+    "8",
+    "12",
+    "3",
+    "18"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "24 是 8 的几倍？",
+   "options": [
+    "3 倍",
+    "4 倍",
+    "16 倍",
+    "32 倍"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "白兔有 7 只，黑兔是白兔的 4 倍，黑兔有多少只？",
+   "options": [
+    "11 只",
+    "21 只",
+    "28 只",
+    "35 只"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "30 是 5 的几倍？",
+   "options": [
+    "5 倍",
+    "6 倍",
+    "25 倍",
+    "7 倍"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "钟面上时针在 3 和 4 之间，分针指向 6，现在是（　）。",
+   "options": [
+    "3:06",
+    "3:30",
+    "4:30",
+    "3:00"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "分针从 12 走到 6，走了几分钟？",
+   "options": [
+    "6 分钟",
+    "15 分钟",
+    "30 分钟",
+    "60 分钟"
+   ],
+   "answer": "C",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 时 = 多少分？",
+   "options": [
+    "30 分",
+    "60 分",
+    "100 分",
+    "24 分"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一节课 40 分钟，课间休息 10 分钟，一共是多少分钟？",
+   "options": [
+    "45 分钟",
+    "50 分钟",
+    "60 分钟",
+    "40 分钟"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "用三角尺可以判断一个角是不是（　）。",
+   "options": [
+    "直角",
+    "锐角",
+    "钝角",
+    "都可以量"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个直角比锐角（　）。",
+   "options": [
+    "大",
+    "小",
+    "一样大",
+    "无法比较"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3 个 5 相加，写成乘法算式是（　）。",
+   "options": [
+    "3+5",
+    "5×3",
+    "5+5",
+    "3×3"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4+4+4+4 写成乘法算式是（　）。",
+   "options": [
+    "4×3",
+    "4×4",
+    "4+4",
+    "3×4"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "找规律：4、8、12、16、（　）。",
+   "options": [
+    "18",
+    "20",
+    "22",
+    "24"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "找规律：1、2、4、8、（　）。",
+   "options": [
+    "10",
+    "12",
+    "14",
+    "16"
+   ],
+   "answer": "D",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "2×6 = ？",
+   "options": [
+    "12",
+    "8",
+    "10",
+    "14"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3×4 = ？",
+   "options": [
+    "7",
+    "12",
+    "10",
+    "14"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6×5 = ？",
+   "options": [
+    "30",
+    "25",
+    "35",
+    "11"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "45 + 18 = ？",
+   "options": [
+    "63",
+    "53",
+    "62",
+    "57"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "53 - 27 = ？",
+   "options": [
+    "26",
+    "36",
+    "27",
+    "25"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每盘 5 个苹果，8 盘一共有多少个？",
+   "options": [
+    "35 个",
+    "40 个",
+    "45 个",
+    "13 个"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 个 6 相加是多少？",
+   "options": [
+    "11",
+    "30",
+    "56",
+    "20"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每人 2 块蛋糕，8 个人需要几块蛋糕？",
+   "options": [
+    "10 块",
+    "12 块",
+    "14 块",
+    "16 块"
+   ],
+   "answer": "D",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "两个数的和是 60，其中一个数是 32，另一个数是多少？",
+   "options": [
+    "28",
+    "32",
+    "38",
+    "92"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "弟弟今年 5 岁，姐姐比弟弟大 9 岁，姐姐今年几岁？",
+   "options": [
+    "4 岁",
+    "14 岁",
+    "13 岁",
+    "45 岁"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "56 + 27 = ____。",
+   "options": null,
+   "answer": "83",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "92 - 48 = ____。",
+   "options": null,
+   "answer": "44",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "34 + 58 = ____。",
+   "options": null,
+   "answer": "92",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "80 - 35 = ____。",
+   "options": null,
+   "answer": "45",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "7×8 = ____。",
+   "options": null,
+   "answer": "56",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6×9 = ____。",
+   "options": null,
+   "answer": "54",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8×8 = ____。",
+   "options": null,
+   "answer": "64",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "9×4 = ____。",
+   "options": null,
+   "answer": "36",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5×7 = ____。",
+   "options": null,
+   "answer": "35",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6×6 = ____。",
+   "options": null,
+   "answer": "36",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3×9 = ____。",
+   "options": null,
+   "answer": "27",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "7×5 = ____。",
+   "options": null,
+   "answer": "35",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "2×9 = ____。",
+   "options": null,
+   "answer": "18",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "9×9 = ____。",
+   "options": null,
+   "answer": "81",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4×7 = ____。",
+   "options": null,
+   "answer": "28",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8×5 = ____。",
+   "options": null,
+   "answer": "40",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "30÷5 = ____。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "18÷6 = ____。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "28÷7 = ____。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "把 15 个梨平均分成 3 份，每份____个。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一本笔记本 4 元，买 6 本要____元。",
+   "options": null,
+   "answer": "24",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 米 = ____ 厘米。",
+   "options": null,
+   "answer": "100",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1 时 = ____ 分。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "教室长约 8____（填单位名称）。",
+   "options": null,
+   "answer": "米",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "铅笔长约 17____（填单位名称）。",
+   "options": null,
+   "answer": "厘米",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "红花 6 朵，黄花的朵数是红花的 5 倍，黄花有____朵。",
+   "options": null,
+   "answer": "30",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "30 是 5 的____倍。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "找规律：3、6、9、12、____。",
+   "options": null,
+   "answer": "15",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "找规律：45、40、35、____、25。",
+   "options": null,
+   "answer": "30",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4+4+4+4+4 写成乘法算式是 4×____。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6+6+6 写成乘法算式是 6×____。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一副手套 2 只，6 副手套一共____只。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一张椅子 4 条腿，9 张椅子一共____条腿。",
+   "options": null,
+   "answer": "36",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一只小猫 4 条腿，7 只小猫一共____条腿。",
+   "options": null,
+   "answer": "28",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "钟面上分针从 12 走到 3，走了____分钟。",
+   "options": null,
+   "answer": "15",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "分针走一圈是____分钟，也就是 1 时。",
+   "options": null,
+   "answer": "60",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "小明有 50 元，买书包用了 32 元，还剩____元。",
+   "options": null,
+   "answer": "18",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一本书 75 页，看了 46 页，还剩____页。",
+   "options": null,
+   "answer": "29",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "二(2)班男生 26 人，女生 24 人，全班一共____人。",
+   "options": null,
+   "answer": "50",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "75 - 38 = ____。",
+   "options": null,
+   "answer": "37",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "46 + 29 = ____。",
+   "options": null,
+   "answer": "75",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "100 - 27 = ____。",
+   "options": null,
+   "answer": "73",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3×8+3 = ____（提示：相当于 3×9）。",
+   "options": null,
+   "answer": "27",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6×7-6 = ____（提示：相当于 6×6）。",
+   "options": null,
+   "answer": "30",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8×5+8 = ____（提示：相当于 8×6）。",
+   "options": null,
+   "answer": "48",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 64 多 18 的数是____。",
+   "options": null,
+   "answer": "82",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "比 90 少 27 的数是____。",
+   "options": null,
+   "answer": "63",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "24 个同学排队，每 4 人一排，一共站____排。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "7 的 3 倍是____。",
+   "options": null,
+   "answer": "21",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6 的 8 倍是____。",
+   "options": null,
+   "answer": "48",
+   "difficulty": 1
+  }
+ ]
+}

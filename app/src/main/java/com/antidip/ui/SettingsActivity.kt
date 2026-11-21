@@ -1,6 +1,5 @@
 package com.antidip.ui
 
-import android.app.admin.DevicePolicyManager
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,18 +8,21 @@ import android.os.Bundle
 import android.os.PowerManager
 import android.provider.Settings
 import android.Manifest
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.antidip.AppConfig
 import com.antidip.Constants
-import com.antidip.DeviceLockHelper
 import com.antidip.ParentAuth
 import com.antidip.QuestionBankManager
 import com.antidip.QuizDownloader
 import com.antidip.R
 import com.antidip.ScreenMonitorService
+import com.antidip.BuildConfig
 import com.antidip.UrlValidator
 import com.antidip.databinding.ActivitySettingsBinding
 import kotlinx.coroutines.launch
@@ -57,28 +59,60 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(wrapWithBottomNav(binding.root))
 
         questionBankManager = QuestionBankManager(this)
         quizDownloader = QuizDownloader(this)
 
         setupUI()
+        setupPointsCard()
         requestNecessaryPermissions()
+    }
+
+    /**
+     * 设置页与成长主页共用同一套自绘底部导航（NavBar.kt，UI v3 胶囊样式）：
+     * 进入时「设置」高亮，点其他 tab 回跳 GrowthActivity 并切到对应页
+     * （pendingTab）。外观与主页完全一致（含 16dp 侧边距）。
+     */
+    private fun wrapWithBottomNav(content: android.view.View): android.view.View {
+        val nav = NavBar.build(this, R.id.nav_settings) { target ->
+            when (target) {
+                R.id.nav_settings -> true
+                else -> {
+                    GrowthActivity.pendingTab = target
+                    finish()
+                    false
+                }
+            }
+        }
+        val dp16 = (resources.displayMetrics.density * 16).toInt()
+        val dp12 = (resources.displayMetrics.density * 12).toInt()
+        val wrap = android.widget.LinearLayout(this).apply {
+            orientation = android.widget.LinearLayout.VERTICAL
+            setBackgroundColor(getColor(R.color.background))
+        }
+        wrap.addView(content, android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f))
+        wrap.addView(nav, android.widget.LinearLayout.LayoutParams(
+            android.widget.LinearLayout.LayoutParams.MATCH_PARENT,
+            android.widget.LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            marginStart = dp16
+            marginEnd = dp16
+            bottomMargin = dp12
+        })
+        return wrap
     }
 
     override fun onResume() {
         super.onResume()
         updateServiceStatus()
         updateQuizStats()
-        updateDeviceAdminStatus()
+        updatePointsCard()
+        updateConfigStatusRows()
     }
 
     private fun setupUI() {
-        // V2.0 童趣: child-facing growth screen (points / medals / wrong book).
-        binding.btnGrowth.setOnClickListener {
-            startActivity(Intent(this, GrowthActivity::class.java))
-        }
-
         binding.btnParentConsole.setOnClickListener {
             // ConsoleActivity is exported=false and re-verifies the parent
             // password on every onResume; the gate lives there, not here.
@@ -142,139 +176,37 @@ class SettingsActivity : AppCompatActivity() {
             importLocalQuestions()
         }
 
-        binding.layoutPermOverlay.setOnClickListener {
-            requestOverlayPermission()
-        }
-
-        binding.layoutPermBattery.setOnClickListener {
-            requestBatteryPermission()
-        }
-
-        binding.layoutPermAutostart.setOnClickListener {
-            // Open Huawei autostart settings
-            try {
-                val intent = Intent()
-                intent.component = android.content.ComponentName(
-                    "com.huawei.systemmanager",
-                    "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity"
-                )
-                startActivity(intent)
-            } catch (e: Exception) {
-                // Fallback: open app settings
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                    data = Uri.fromParts("package", packageName, null)
-                }
-                startActivity(intent)
-            }
-        }
-
-        // Batch 3 (A29): notification permission card. On API 33+ this either
-        // fires the runtime request or jumps to the app notification settings
-        // when the system already answered with "don't ask again"; below 33 it
-        // simply opens the app page (the permission does not exist there).
-        binding.layoutPermNotification.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                val granted = ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED
-                if (granted) {
-                    Toast.makeText(this, R.string.perm_notification, Toast.LENGTH_SHORT).show()
-                } else {
-                    notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
-            } else {
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-                    data = Uri.fromParts("package", packageName, null)
-                }
-                startActivity(intent)
-            }
-        }
+        // 2026-11-21：权限组已移入家长控制台（有密码门，防止误操作）。
+        // 通知权限仍在本页启动时自动请求一次（requestNecessaryPermissions）。
 
         binding.tvImportPath.text = getString(
             R.string.settings_import_path,
             questionBankManager.getImportDirPath()
         )
 
-        // B6: configurable download URL
-        val savedUrl = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE)
-            .getString(Constants.KEY_QUIZ_DOWNLOAD_URL, "") ?: ""
-        // Pre-fill the field with the default LAN server address (the quiz
-        // server rooted at <本地题库目录>/ on the PC) so the parent sees a
-        // concrete, editable value instead of an empty box. Saving an empty
-        // value still falls back to DEFAULT_QUIZ_URL (see QuizDownloader).
-        binding.etServerUrl.setText(savedUrl.ifEmpty { Constants.DEFAULT_QUIZ_URL })
+        // 2026-11-21：AI 配置/题库服务器地址/权限组均已移入家长控制台
+        //（有密码门，防止孩子/误触改动）。设置页只保留状态行，点击跳控制台。
+        binding.layoutOpenAiRow.setOnClickListener {
+            startActivity(Intent(this, ConsoleActivity::class.java))
+        }
+        binding.layoutServerRow.setOnClickListener {
+            startActivity(Intent(this, ConsoleActivity::class.java))
+        }
 
-        binding.btnSaveServerUrl.setOnClickListener {
-            // 2-b (T4): changing the download URL is destructive — a bad URL
-            // can make the bank permanently un-downloadable — so gate it too.
-            ParentAuth.showVerifyDialog(this) {
-                val url = binding.etServerUrl.text?.toString()?.trim() ?: ""
-                // An empty value is still allowed: it means "fall back to the
-                // default LAN address" (see QuizDownloader.getSavedUrl()).
-                // Any non-empty value must pass M4 + the batch-3 transport
-                // policy (http only for private/local hosts, https for public).
-                val urlIsAcceptable = url.isEmpty() || UrlValidator.isAcceptable(url)
-                if (!urlIsAcceptable) {
-                    Toast.makeText(
-                        this@SettingsActivity,
-                        R.string.settings_url_rejected,
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else {
-                    getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE).edit()
-                        .putString(Constants.KEY_QUIZ_DOWNLOAD_URL, url).apply()
-                    Toast.makeText(
-                        this@SettingsActivity,
-                        R.string.settings_server_save,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+        // V2.2: version number at the page bottom.
+        binding.tvVersion.text = getString(R.string.settings_version, BuildConfig.VERSION_NAME)
+
+        // V2.2: user-data backup (parent-gated) — export/import via quiz server.
+        binding.btnBackupServer.setOnClickListener {
+            val nick = com.antidip.data.BackupHelper.getNickname(this)
+            if (nick.isBlank()) {
+                Toast.makeText(this, R.string.backup_nickname_hint, Toast.LENGTH_LONG).show()
+                return@setOnClickListener
             }
+            ParentAuth.showVerifyDialog(this) { backupToServer(nick) }
         }
-
-        // B10: device administration (real lock screen) controls
-        binding.btnEnableAdmin.setOnClickListener { requestDeviceAdmin() }
-        binding.btnDisableAdmin.setOnClickListener {
-            // 2-b (T4): revoking device admin removes the real lock-screen
-            // capability, so require the shared parent gate first.
-            ParentAuth.showVerifyDialog(this) {
-                DeviceLockHelper.removeAdmin(this@SettingsActivity)
-                updateDeviceAdminStatus()
-            }
-        }
-        binding.btnLockNow.setOnClickListener {
-            if (DeviceLockHelper.isAdminActive(this)) {
-                DeviceLockHelper.lockNow(this)
-            } else {
-                Toast.makeText(this, R.string.settings_device_admin_disabled, Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
-    private fun updateDeviceAdminStatus() {
-        binding.tvDeviceAdminStatus.text = if (DeviceLockHelper.isAdminActive(this)) {
-            getString(R.string.settings_device_admin_enabled)
-        } else {
-            getString(R.string.settings_device_admin_disabled)
-        }
-    }
-
-    private fun requestDeviceAdmin() {
-        val context = this
-        val intent = Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN).apply {
-            putExtra(
-                DevicePolicyManager.EXTRA_DEVICE_ADMIN,
-                DeviceLockHelper.component(context)
-            )
-            putExtra(
-                DevicePolicyManager.EXTRA_ADD_EXPLANATION,
-                context.getString(R.string.settings_device_admin_desc)
-            )
-        }
-        try {
-            startActivity(intent)
-        } catch (e: Exception) {
-            Toast.makeText(this, "无法打开设备管理器设置", Toast.LENGTH_SHORT).show()
+        binding.btnRestoreServer.setOnClickListener {
+            ParentAuth.showVerifyDialog(this) { showRestoreDialog() }
         }
     }
 
@@ -335,6 +267,17 @@ class SettingsActivity : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                     updateQuizStats()
+                    // V2.2: every successful bank update also snapshots the
+                    // user profile as {nickname}.json (server PUT best-effort
+                    // + local copy) so a device switch can restore it.
+                    val backupNick = com.antidip.data.BackupHelper.getNickname(this@SettingsActivity)
+                    if (backupNick.isNotBlank()) {
+                        val profile = com.antidip.data.BackupHelper.currentProfile(
+                            this@SettingsActivity, backupNick
+                        )
+                        com.antidip.data.BackupHelper.saveLocal(this@SettingsActivity, profile)
+                        com.antidip.data.BackupHelper.putToServer(this@SettingsActivity, profile)
+                    }
                 },
                 onFailure = { error ->
                     Toast.makeText(
@@ -346,6 +289,71 @@ class SettingsActivity : AppCompatActivity() {
             )
         }
     }
+
+    /**
+     * V2.2: saves the backup locally (always) and HTTP-PUTs it to the quiz
+     * server as `{nickname}.json` (best-effort; plain http.server ignores
+     * PUT — docs/server_put_server.py provides a one-line PUT server).
+     */
+    private fun backupToServer(nick: String) {
+        lifecycleScope.launch {
+            val profile = com.antidip.data.BackupHelper.currentProfile(this@SettingsActivity, nick)
+            val local = com.antidip.data.BackupHelper.saveLocal(this@SettingsActivity, profile)
+            val msg = com.antidip.data.BackupHelper.putToServer(this@SettingsActivity, profile)
+            Toast.makeText(
+                this@SettingsActivity,
+                getString(
+                    R.string.backup_ok,
+                    (local?.name ?: "backup.json") + " · " + msg
+                ),
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
+
+    /** V2.2: nickname prompt then fetch-and-restore from the quiz server. */
+    private fun showRestoreDialog() {
+        val input = com.google.android.material.textfield.TextInputEditText(this).apply {
+            hint = getString(R.string.restore_nickname_hint)
+            setSingleLine(true)
+        }
+        val wrap = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(20), dp(8), dp(20), 0)
+            addView(input)
+        }
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.restore_btn_server))
+            .setView(wrap)
+            .setPositiveButton(R.string.parent_mode_confirm) { _, _ ->
+                val nick = input.text?.toString()?.trim().orEmpty()
+                if (nick.isEmpty()) return@setPositiveButton
+                lifecycleScope.launch {
+                    com.antidip.data.BackupHelper.fetchFromServer(this@SettingsActivity, nick)
+                        .fold(
+                            onSuccess = { profile ->
+                                com.antidip.data.BackupHelper.restore(this@SettingsActivity, profile)
+                                Toast.makeText(
+                                    this@SettingsActivity,
+                                    getString(R.string.restore_ok, profile.nickname),
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            },
+                            onFailure = { e ->
+                                Toast.makeText(
+                                    this@SettingsActivity,
+                                    getString(R.string.restore_fail, e.message ?: ""),
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        )
+                }
+            }
+            .setNegativeButton(R.string.parent_mode_cancel, null)
+            .show()
+    }
+
+    private fun dp(v: Int): Int = (resources.displayMetrics.density * v).toInt()
 
     private fun requestNecessaryPermissions() {
         requestOverlayPermission()
@@ -421,6 +429,287 @@ class SettingsActivity : AppCompatActivity() {
                     startActivity(fallbackIntent)
                 }
             }
+        }
+    }
+
+    // ================= 积分管理（扣减 + 独立扣减密码，2026-11-21） =================
+
+    private fun setupPointsCard() {
+        binding.btnDeduct.setOnClickListener { showDeductDialog() }
+        binding.btnSetDeductionPw.setOnClickListener { showSetDeductionPwDialog() }
+        binding.btnViewDeductionLog.setOnClickListener { showDeductionLogDialog() }
+    }
+
+    /** 全部扣减记录（含原因），新→旧，最多 50 条。 */
+    private fun showDeductionLogDialog() {
+        lifecycleScope.launch {
+            val log = com.antidip.data.ProgressStore.getDeductionLog(this@SettingsActivity)
+            val body = if (log.isEmpty()) {
+                getString(R.string.deduction_log_empty)
+            } else {
+                val fmt = java.text.SimpleDateFormat("MM-dd HH:mm", java.util.Locale.ROOT)
+                log.joinToString("\n") { line ->
+                    val parts = line.split("|", limit = 4)
+                    if (parts.size < 4) return@joinToString line
+                    val ts = try {
+                        fmt.format(java.util.Date(parts[0].toLong()))
+                    } catch (e: Exception) {
+                        parts[0]
+                    }
+                    val type = parts[2]
+                    val reason = parts[3]
+                    getString(
+                        R.string.deduction_log_line_fmt, ts,
+                        parts[1].toIntOrNull() ?: 0,
+                        if (reason.isBlank()) type else "$type · $reason"
+                    )
+                }
+            }
+            val tv = android.widget.TextView(this@SettingsActivity).apply {
+                text = body
+                textSize = 13f
+                setTextColor(getColor(R.color.on_surface))
+                setPadding(48, 32, 48, 8)
+                movementMethod = android.text.method.LinkMovementMethod.getInstance()
+            }
+            val scroller = android.widget.ScrollView(this@SettingsActivity).apply { addView(tv) }
+            AlertDialog.Builder(this@SettingsActivity)
+                .setTitle(R.string.deduction_log_dialog_title)
+                .setView(scroller)
+                .setPositiveButton(R.string.parent_mode_confirm, null)
+                .create()
+                .show()
+        }
+    }
+
+    private fun updatePointsCard() {
+        lifecycleScope.launch {
+            val st = com.antidip.data.ProgressStore.getState(this@SettingsActivity)
+            binding.tvPointsSummary.text = getString(R.string.points_summary_fmt, st.points)
+            val log = com.antidip.data.ProgressStore.getDeductionLog(this@SettingsActivity)
+                .take(3)
+            binding.tvDeductionLog.text = if (log.isEmpty()) {
+                getString(R.string.deduction_log_empty)
+            } else {
+                val fmt = java.text.SimpleDateFormat("MM-dd HH:mm", java.util.Locale.ROOT)
+                getString(R.string.deduction_log_title) + "\n" + log.joinToString("\n") { line ->
+                    val parts = line.split("|", limit = 4)
+                    if (parts.size < 4) return@joinToString line
+                    val ts = try {
+                        fmt.format(java.util.Date(parts[0].toLong()))
+                    } catch (e: Exception) {
+                        parts[0]
+                    }
+                    val type = parts[2]
+                    val reason = parts[3]
+                    getString(
+                        R.string.deduction_log_line_fmt, ts,
+                        parts[1].toIntOrNull() ?: 0,
+                        if (reason.isBlank()) type else "$type · $reason"
+                    )
+                }
+            }
+        }
+    }
+
+    private fun dialogInput(hint: String, password: Boolean = false, number: Boolean = false):
+        android.widget.EditText = android.widget.EditText(this).apply {
+            this.hint = hint
+            setSingleLine(true)
+            inputType = when {
+                password -> android.text.InputType.TYPE_CLASS_TEXT or
+                    android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
+                number -> android.text.InputType.TYPE_CLASS_NUMBER
+                else -> android.text.InputType.TYPE_CLASS_TEXT or
+                    android.text.InputType.TYPE_TEXT_VARIATION_NORMAL
+            }
+        }
+
+    private fun dialogError(box: android.widget.LinearLayout, text: String): android.widget.TextView {
+        val err = android.widget.TextView(this).apply {
+            this.text = text
+            textSize = 13f
+            setTextColor(getColor(R.color.error))
+            setPadding(0, 12, 0, 0)
+            visibility = android.view.View.GONE
+        }
+        box.addView(err)
+        return err
+    }
+
+    private fun showDeductDialog() {
+        if (!com.antidip.DeductionAuth.isSet(this)) {
+            Toast.makeText(this, R.string.deduct_pw_not_set, Toast.LENGTH_LONG).show()
+            showSetDeductionPwDialog()
+            return
+        }
+        lifecycleScope.launch {
+            val st = com.antidip.data.ProgressStore.getState(this@SettingsActivity)
+            val box = LinearLayout(this@SettingsActivity).apply {
+                orientation = LinearLayout.VERTICAL
+                setPadding(64, 40, 64, 0)
+            }
+            box.addView(android.widget.TextView(this@SettingsActivity).apply {
+                text = getString(R.string.points_summary_fmt, st.points)
+                textSize = 14f
+                setTextColor(getColor(R.color.text_secondary))
+            })
+            val etAmount = dialogInput(getString(R.string.deduct_hint_amount), number = true)
+            box.addView(etAmount)
+
+            val rg = android.widget.RadioGroup(this@SettingsActivity).apply {
+                orientation = android.widget.RadioGroup.HORIZONTAL
+            }
+            val rbExchange = android.widget.RadioButton(this@SettingsActivity).apply {
+                text = getString(R.string.deduct_type_exchange)
+                id = android.view.View.generateViewId()
+                isChecked = true
+            }
+            val rbManual = android.widget.RadioButton(this@SettingsActivity).apply {
+                text = getString(R.string.deduct_type_manual)
+                id = android.view.View.generateViewId()
+            }
+            rg.addView(rbExchange)
+            rg.addView(rbManual)
+            box.addView(rg)
+
+            val etReason = dialogInput(getString(R.string.deduct_hint_reason))
+            box.addView(etReason)
+            val etPw = dialogInput(getString(R.string.deduct_hint_pw), password = true)
+            box.addView(etPw)
+            val err = dialogError(box, getString(R.string.deduct_pw_wrong))
+
+            val dialog = AlertDialog.Builder(this@SettingsActivity)
+                .setTitle(R.string.deduct_dialog_title)
+                .setView(box)
+                .setPositiveButton(R.string.parent_mode_confirm, null)
+                .setNegativeButton(R.string.parent_mode_cancel, null)
+                .create()
+            dialog.setOnShowListener {
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getColor(R.color.accent))
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getColor(R.color.accent))
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    err.visibility = android.view.View.GONE
+                    val amount = etAmount.text?.toString()?.trim()?.toIntOrNull() ?: 0
+                    if (amount !in 1..999) {
+                        err.text = getString(R.string.deduct_amount_invalid)
+                        err.visibility = android.view.View.VISIBLE
+                        return@setOnClickListener
+                    }
+                    if (!com.antidip.DeductionAuth.verify(
+                            this@SettingsActivity, etPw.text?.toString().orEmpty())
+                    ) {
+                        err.text = getString(R.string.deduct_pw_wrong)
+                        err.visibility = android.view.View.VISIBLE
+                        return@setOnClickListener
+                    }
+                    val type = getString(
+                        if (rbExchange.isChecked) R.string.deduct_type_exchange
+                        else R.string.deduct_type_manual
+                    )
+                    lifecycleScope.launch {
+                        val (before, actual) = com.antidip.data.ProgressStore.deductPoints(
+                            this@SettingsActivity, amount, type, etReason.text?.toString().orEmpty()
+                        )
+                        dialog.dismiss()
+                        Toast.makeText(
+                            this@SettingsActivity,
+                            getString(R.string.deduct_ok_fmt, actual, before - actual),
+                            Toast.LENGTH_LONG
+                        ).show()
+                        updatePointsCard()
+                    }
+                }
+            }
+            dialog.show()
+        }
+    }
+
+    /**
+     * 设置/重置扣减密码（用户要求 2026-11-21）：授权 = 旧扣减密码 或
+     * 家长全局密码（ParentAuth.verify，防止扣减密码遗忘后无法重置）。
+     */
+    private fun showSetDeductionPwDialog() {
+        val alreadySet = com.antidip.DeductionAuth.isSet(this)
+        val box = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(64, 40, 64, 0)
+        }
+        val etOld = dialogInput(
+            getString(
+                if (alreadySet) R.string.setpw_hint_old else R.string.setpw_hint_old_first
+            ),
+            password = true
+        )
+        box.addView(etOld)
+        val etNew = dialogInput(getString(R.string.setpw_hint_new), password = true)
+        box.addView(etNew)
+        val etConfirm = dialogInput(getString(R.string.setpw_hint_confirm), password = true)
+        box.addView(etConfirm)
+        val err = dialogError(box, getString(R.string.setpw_auth_wrong))
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle(R.string.setpw_dialog_title)
+            .setView(box)
+            .setPositiveButton(R.string.parent_mode_confirm, null)
+            .setNegativeButton(R.string.parent_mode_cancel, null)
+            .create()
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getColor(R.color.accent))
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getColor(R.color.accent))
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                err.visibility = android.view.View.GONE
+                val auth = etOld.text?.toString().orEmpty()
+                val authorized = if (alreadySet) {
+                    com.antidip.DeductionAuth.verify(this, auth) || ParentAuth.verify(auth)
+                } else {
+                    ParentAuth.verify(auth)
+                }
+                if (!authorized) {
+                    err.text = getString(R.string.setpw_auth_wrong)
+                    err.visibility = android.view.View.VISIBLE
+                    return@setOnClickListener
+                }
+                val newPw = etNew.text?.toString()?.trim().orEmpty()
+                if (newPw.length < 4) {
+                    err.text = getString(R.string.setpw_too_short)
+                    err.visibility = android.view.View.VISIBLE
+                    return@setOnClickListener
+                }
+                if (newPw != etConfirm.text?.toString()?.trim().orEmpty()) {
+                    err.text = getString(R.string.setpw_mismatch)
+                    err.visibility = android.view.View.VISIBLE
+                    return@setOnClickListener
+                }
+                if (com.antidip.DeductionAuth.set(this, newPw)) {
+                    dialog.dismiss()
+                    Toast.makeText(this, R.string.setpw_ok, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+        dialog.show()
+    }
+
+    // ================= AI / 服务器状态行（配置在家长控制台内） =================
+
+    private fun updateConfigStatusRows() {
+        val prefs = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE)
+        binding.tvAiStatus.text = if (
+            prefs.getBoolean(Constants.KEY_AI_ENABLED, false)
+        ) {
+            getString(
+                R.string.settings_ai_status_fmt,
+                prefs.getString(Constants.KEY_AI_MODEL, "")?.trim().orEmpty()
+                    .ifEmpty { "gpt-4o-mini" }
+            )
+        } else {
+            getString(R.string.settings_ai_status_off)
+        }
+        val url = prefs.getString(Constants.KEY_QUIZ_DOWNLOAD_URL, "")?.trim().orEmpty()
+        binding.tvServerStatus.text = if (url.isEmpty()) {
+            getString(R.string.settings_server_status_default)
+        } else {
+            getString(R.string.settings_server_status_fmt, url)
         }
     }
 

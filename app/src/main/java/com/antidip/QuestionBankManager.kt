@@ -107,7 +107,16 @@ class QuestionBankManager(private val context: Context) {
 
     /**
      * Import questions from local directory.
-     * Looks for JSON files in /sdcard/AntiAddiction/questions/
+     * Looks for JSON AND CSV files in /sdcard/AntiAddiction/questions/
+     *
+     * V2.2 CSV support (requirement 2026-11-10: "Excel 文件制作导入，文件名以
+     * 年级命名"): parents edit questions in Excel and save each grade as
+     * `grade-<N>.csv` (Excel: 另存为 CSV UTF-8). Column layout:
+     *   fill:   题干,答案                          (2 columns)
+     *   choice: 题干,选项A,选项B,选项C,选项D,答案    (6 columns)
+     * The type is decided by column count; the answer for choice may be the
+     * letter (A-D) or the option text itself. Rows are inserted with the
+     * grade parsed from the file name (default 4).
      *
      * Returns the number of rows ACTUALLY inserted (idempotent: duplicates are
      * ignored via the unique (content, grade) index); 0 is a successful no-op.
@@ -128,12 +137,22 @@ class QuestionBankManager(private val context: Context) {
                 return@withContext 0
             }
 
-            val jsonFiles = dir.listFiles { file -> file.extension == "json" } ?: emptyArray()
+            val files = dir.listFiles { file ->
+                file.extension.equals("json", true) || file.extension.equals("csv", true)
+            } ?: emptyArray()
             var totalImported = 0
 
-            for (file in jsonFiles) {
-                val jsonStr = file.readText(Charsets.UTF_8)
-                totalImported += parseAndImport(jsonStr)
+            for (file in files) {
+                val text = file.readText(Charsets.UTF_8)
+                val imported = if (file.extension.equals("csv", true)) {
+                    // 2026-11-21 开放式题库：`grade-<N>-open.csv`（每行一条题干，
+                    // 可选第二列科目）。没有标准答案，全部由 AI 判分。
+                    val isOpenBank = file.name.contains("-open", ignoreCase = true)
+                    importCsvText(text, gradeFromFileName(file.name), isOpenBank)
+                } else {
+                    parseAndImport(text)
+                }
+                totalImported += imported
                 // Move processed file to .processed subfolder
                 val processedDir = File(dir, ".processed")
                 processedDir.mkdirs()
@@ -146,6 +165,143 @@ class QuestionBankManager(private val context: Context) {
             Log.e(TAG, "Failed to import from local directory", e)
             -1
         }
+    }
+
+    /** Parses the grade out of `grade-<N>.csv` / `grade-<N>.json`; default 4. */
+    private fun gradeFromFileName(name: String): Int {
+        val m = Regex("grade[-_](\\d+)").find(name)
+        return m?.groupValues?.get(1)?.toIntOrNull() ?: DEFAULT_GRADE
+    }
+
+    /**
+     * V2.2: parses CSV question text (see [importFromLocalDirectory]) and
+     * inserts the rows. Lines starting with '#' are comments; a header line
+     * containing 题干 is skipped automatically.
+     */
+    suspend fun importCsvText(csvText: String, grade: Int, openBank: Boolean = false): Int =
+        withContext(Dispatchers.IO) {
+        var total = 0
+        val mastered: Set<String> = context.getSharedPreferences(
+            Constants.PREFS_NAME, Context.MODE_PRIVATE
+        ).getStringSet(Constants.KEY_MASTERED_FINGERPRINTS, emptySet()) ?: emptySet()
+
+        val entities = mutableListOf<QuestionEntity>()
+        csvText.lineSequence().forEach { rawLine ->
+            val line = rawLine.trim().trimStart('\uFEFF')
+            if (line.isEmpty() || line.startsWith("#")) return@forEach
+            if (openBank) {
+                // 开放式题库 CSV：`题干` 或 `题干,科目`（语文/数学/英语/科学/道法，
+                // 缺省按关键词猜测）。answer 留空——判分完全交给 AI。
+                if (line.contains("题干") && !line.contains("，")) return@forEach // header
+                val cols = splitCsvLine(line)
+                if (cols.isEmpty() || cols[0].isBlank()) return@forEach
+                val subject = if (cols.size >= 2) mapSubjectName(cols[1]) else subjectForCsv(cols[0])
+                entities.add(
+                    QuestionEntity(
+                        subject = subject,
+                        grade = grade,
+                        type = "open",
+                        content = cols[0],
+                        options = null,
+                        answer = "",
+                        difficulty = 1
+                    )
+                )
+                return@forEach
+            }
+            if (line.contains("题干") && line.contains("答案")) return@forEach // header
+            val cols = splitCsvLine(line)
+            when (cols.size) {
+                2 -> entities.add(
+                    QuestionEntity(
+                        subject = subjectForCsv(cols[0]),
+                        grade = grade,
+                        type = "fill",
+                        content = cols[0],
+                        options = null,
+                        answer = cols[1],
+                        difficulty = 1
+                    )
+                )
+                6 -> {
+                    val options = listOf(cols[1], cols[2], cols[3], cols[4]).joinToString("|")
+                    entities.add(
+                        QuestionEntity(
+                            subject = subjectForCsv(cols[0]),
+                            grade = grade,
+                            type = "choice",
+                            content = cols[0],
+                            options = options,
+                            answer = normalizeChoiceAnswer(cols[5], listOf(cols[1], cols[2], cols[3], cols[4])),
+                            difficulty = 1
+                        )
+                    )
+                }
+                else -> Log.w(TAG, "CSV line skipped (${cols.size} cols): ${line.take(30)}")
+            }
+        }
+        val filtered = entities.filter {
+            fingerprint(it.content, it.grade) !in mastered
+        }
+        if (filtered.isNotEmpty()) {
+            total = dao.insertAll(filtered).count { it != -1L }
+        }
+        Log.d(TAG, "CSV grade $grade: parsed ${entities.size}, inserted $total")
+        total
+    }
+
+    /** CSV split honoring quoted fields ("a,b" stays one column). */
+    private fun splitCsvLine(line: String): List<String> {
+        val out = mutableListOf<String>()
+        val cur = StringBuilder()
+        var inQuotes = false
+        var i = 0
+        while (i < line.length) {
+            val c = line[i]
+            when {
+                c == '"' -> inQuotes = !inQuotes
+                c == ',' && !inQuotes -> { out.add(cur.toString().trim()); cur.clear() }
+                else -> cur.append(c)
+            }
+            i++
+        }
+        out.add(cur.toString().trim())
+        return out
+    }
+
+    /** Naive subject guess for CSV rows: keyword-based, default moral-free math. */
+    private fun subjectForCsv(content: String): String {
+        val c = content.lowercase()
+        return when {
+            listOf("english", "单词", "翻译", "apple").any { c.contains(it) } -> "english"
+            listOf("古诗", "成语", "作者", "朝代", "笔画", "拼音").any { c.contains(it) } -> "chinese"
+            listOf("星球", "动物", "植物", "常识", "安全", "交通").any { c.contains(it) } -> "science"
+            else -> "math"
+        }
+    }
+
+    /** 开放式题库 CSV 第二列科目名（中/英）→ subject key；缺省常识。 */
+    private fun mapSubjectName(raw: String): String {
+        val t = raw.trim().lowercase()
+        return when {
+            t.contains("语") || t == "chinese" -> "chinese"
+            t.contains("数") || t == "math" -> "math"
+            t.contains("英") || t == "english" -> "english"
+            t.contains("科") || t == "science" -> "science"
+            t.contains("道") || t.contains("德") || t == "moral" -> "moral"
+            else -> "common"
+        }
+    }
+
+    /** Choice CSV answer may be a letter (A-D) or the option text. */
+    private fun normalizeChoiceAnswer(raw: String, options: List<String>): String {
+        val t = raw.trim()
+        if (t.length == 1) {
+            val idx = "ABCD".indexOf(t.uppercase())
+            if (idx in 0..3) return "ABCD"[idx].toString()
+        }
+        val idx = options.indexOfFirst { it == t }
+        return if (idx in 0..3) "ABCD"[idx].toString() else t
     }
 
     /**
@@ -275,12 +431,15 @@ class QuestionBankManager(private val context: Context) {
 
     /**
      * Get a random question, avoiding recently asked.
+     *
+     * 2026-11-21 开放式题库：[includeOpen] = false（AI 未配置）时，type='open'
+     * 的开放题（无标准答案，须 AI 判分）从随机池屏蔽。
      */
-    suspend fun getRandomQuestion(): QuestionEntity? {
-        var question = dao.getRandomQuestionAvoidingRecent()
+    suspend fun getRandomQuestion(includeOpen: Boolean = false): QuestionEntity? {
+        var question = dao.getRandomQuestionAvoidingRecent(includeOpen)
         if (question == null) {
             // Fallback: if not enough questions to avoid recent, get any random
-            question = dao.getRandomQuestion()
+            question = dao.getRandomQuestion(includeOpen)
         }
         // Update last asked time
         question?.let {
@@ -306,14 +465,15 @@ class QuestionBankManager(private val context: Context) {
      * The default [grade] keeps existing callers (and the 2-b tests) compiling.
      */
     suspend fun getRandomQuestionOrFallback(
-        grade: Int = Constants.ALL_GRADES
+        grade: Int = Constants.ALL_GRADES,
+        includeOpen: Boolean = false
     ): QuestionEntity {
         // V2.0 (requirement 2026-11-10: 确认年级选择后出题对应年级题库):
         // request + resolution are logged so the parent can verify on-device
         // that the console grade selection drives the question bank.
-        Log.d(TAG, "Question request for grade=$grade")
+        Log.d(TAG, "Question request for grade=$grade includeOpen=$includeOpen")
         if (grade != Constants.ALL_GRADES) {
-            val byGrade = dao.getRandomQuestionByGrade(grade)
+            val byGrade = dao.getRandomQuestionByGrade(grade, includeOpen)
             if (byGrade != null) {
                 dao.updateLastAsked(byGrade.id, System.currentTimeMillis())
                 Log.d(TAG, "Grade-scoped question served (grade=${byGrade.grade})")
@@ -321,7 +481,7 @@ class QuestionBankManager(private val context: Context) {
             }
             Log.d(TAG, "No questions for grade $grade, falling back to all grades")
         }
-        return getRandomQuestion() ?: QuestionEntity(
+        return getRandomQuestion(includeOpen) ?: QuestionEntity(
             subject = "math",
             grade = 4,
             type = "fill",
@@ -331,6 +491,10 @@ class QuestionBankManager(private val context: Context) {
             difficulty = 1
         )
     }
+
+    /** 错题"重做这道题"：按内容 + 年级找回原题（WrongEntry 不带 id）。 */
+    suspend fun getQuestionByContentGrade(content: String, grade: Int): QuestionEntity? =
+        dao.getByContentAndGrade(content, grade)
 
     /**
      * Get the import directory path for display.

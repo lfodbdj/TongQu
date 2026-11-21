@@ -89,4 +89,70 @@ object ProgressStore {
             )
         }
     }
+
+    /**
+     * V2.2 backup/restore: writes a FULL state snapshot (device switch).
+     * Deliberately separate from applyAnswer — restore is a parent action.
+     */
+    suspend fun restoreState(
+        context: Context,
+        points: Int,
+        streak: Int,
+        bestStreak: Int,
+        medals: Set<String>
+    ) {
+        context.progressDataStore.edit { prefs ->
+            prefs[POINTS_KEY] = points
+            prefs[STREAK_KEY] = streak
+            prefs[BEST_STREAK_KEY] = bestStreak
+            prefs[MEDALS_KEY] = medals
+        }
+    }
+
+    /** V2.2 backup/restore: replaces the whole wrong book with [book]. */
+    suspend fun replaceWrongBook(context: Context, book: List<ProgressRules.WrongEntry>) {
+        context.progressDataStore.edit { prefs ->
+            prefs[WRONG_BOOK_KEY] = ProgressRules.encodeWrongBook(book)
+        }
+    }
+
+    // ---------------- 积分扣减（2026-11-21：物品兑换 / 手动扣减） ----------------
+
+    private val DEDUCTION_LOG_KEY = stringPreferencesKey("deduction_log")
+
+    /**
+     * 家长扣减积分。积分不为负（实际扣减= min(amount, 当前)）；
+     * 连对、最高连对与已得勋章不受影响。返回 (扣减前积分, 实际扣减分)。
+     * 每次扣减写入一条记录（ts|实际扣减|用途|原因），最多保留 50 条。
+     */
+    suspend fun deductPoints(
+        context: Context,
+        amount: Int,
+        type: String,
+        reason: String
+    ): Pair<Int, Int> {
+        val safeReason = reason.replace("\n", " ").replace("|", "，").trim()
+        var before = 0
+        var actual = 0
+        context.progressDataStore.edit { prefs ->
+            before = prefs[POINTS_KEY] ?: 0
+            actual = minOf(amount, before).coerceAtLeast(0)
+            prefs[POINTS_KEY] = before - actual
+            val lines = prefs[DEDUCTION_LOG_KEY].orEmpty()
+                .split("\n")
+                .filter { it.isNotBlank() }
+                .toMutableList()
+            lines.add("${System.currentTimeMillis()}|$actual|$type|$safeReason")
+            while (lines.size > 50) lines.removeAt(0)
+            prefs[DEDUCTION_LOG_KEY] = lines.joinToString("\n")
+        }
+        return before to actual
+    }
+
+    /** 最近扣减记录（新→旧），行格式 ts|实际扣减|用途|原因。 */
+    suspend fun getDeductionLog(context: Context): List<String> =
+        context.progressDataStore.data.first()[DEDUCTION_LOG_KEY].orEmpty()
+            .split("\n")
+            .filter { it.isNotBlank() }
+            .asReversed()
 }

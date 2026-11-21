@@ -64,27 +64,37 @@ class QuizEngine {
     }
 
     /**
-     * Submit an answer for the current question.
-     * Returns the result of the submission.
+     * Submit an answer (pure + synchronous, no network).
      */
     fun submitAnswer(userAnswer: String): AnswerResult {
         val question = getCurrentQuestion() ?: return AnswerResult.Error("No active question")
-
-        val isCorrect = checkAnswer(question, userAnswer)
-
-        if (isCorrect) {
-            consecutiveFailures = 0
-            isRoundActive = false
-            return AnswerResult.Correct
+        if (checkAnswer(question, userAnswer)) {
+            return markCorrect()
         }
+        return applyLocalWrong()
+    }
 
+    /**
+     * 开放式题（2026-11-21 新增，无标准答案）：UI 先拿到 AI 判定，再把
+     * true/false 交给引擎走同一套状态机（尝试次数/追加题/轮次/锁定不变）。
+     * 引擎本身不做任何语义判断，保持纯 JVM。
+     */
+    fun submitOpenAnswer(aiCorrect: Boolean): AnswerResult {
+        getCurrentQuestion() ?: return AnswerResult.Error("No active question")
+        return if (aiCorrect) markCorrect() else applyLocalWrong()
+    }
+
+    private fun markCorrect(): AnswerResult.Correct {
+        consecutiveFailures = 0
+        isRoundActive = false
+        return AnswerResult.Correct
+    }
+
+    private fun applyLocalWrong(): AnswerResult {
         currentAttemptsLeft--
-
-        // Check if we should add next question
         if (currentAttemptsLeft <= 0) {
             return handleQuestionFailed()
         }
-
         return AnswerResult.Wrong(attemptsLeft = currentAttemptsLeft)
     }
 

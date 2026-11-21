@@ -20,3 +20,6 @@ captures/
 # 操作系统
 .DS_Store
 Thumbs.db
+
+# 本地构建日志
+_*.log

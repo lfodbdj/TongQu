@@ -1,7 +1,7 @@
 # API 29 真机运行时兼容性评审（结项）
 
 - 评审对象：AntiAddiction `com.antidip`，`minSdk=24 / targetSdk=34`，基线 APK `app-debug.apk`（md5 `e9d18a60ef2be9e0def5925109ffb19c`，2026-11-08 14:28）
-- 真机：HUAWEI `CDY-AN00` / `<DEVICE_SERIAL>` / Android 10 / API 29 / EMUI / 补丁 2020-11-01
+- 真机：HUAWEI `<device-model>` / `<DEVICE_SERIAL>` / Android 10 / API 29 / EMUI / 补丁 2020-11-01
 - 结论日期：2026-11-08
 - 结项方式：team-lead 直接采证（原定只读评审 worker 的报告未回传，见 §0）
 
@@ -27,7 +27,7 @@
 
 | 项 | 采集命令 | 实测结果 |
 |---|---|---|
-| 机型 / 版本 | `getprop ro.product.model / release / sdk` | `CDY-AN00` / `10` / `29` |
+| 机型 / 版本 | `getprop ro.product.model / release / sdk` | `<device-model>` / `10` / `29` |
 | 安装状态 | `pm path com.antidip` | `/data/app/com.antidip-vH2FskVRMx5bIll0aQhjPA==/base.apk` |
 | 目标 SDK | `dumpsys package` | `minSdk=24 targetSdk=34 versionCode=1` |
 | 前台服务 | `dumpsys activity services com.antidip` | `ServiceRecord{... ScreenMonitorService}`，`isForeground=true`、`foregroundId=1`、`foregroundNoti=Notification(channel=anti_addiction_service ...)`、`startRequested=true`、`stopIfKilled=false`、`lastStartId=3` |

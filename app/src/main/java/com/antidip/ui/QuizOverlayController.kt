@@ -1,4 +1,4 @@
-package com.antidip.ui
+﻿package com.antidip.ui
 
 import android.content.Context
 import android.content.Intent
@@ -83,10 +83,11 @@ class QuizOverlayController private constructor(
     private var lockTimer: CountDownTimer? = null
     private var autoFinishRunnable: Runnable? = null
 
-    /** V2.0 fill-in throttle (requirement 2026-11-10): submissions of fill-in
-     * answers must be at least one minute apart. Per-overlay-instance state:
-     * a rebuilt quiz restarts the question anyway. */
-    private var lastFillSubmitMs: Long = 0L
+    /** V2.0 fill-in throttle field removed 2026-11-21: replaced by the
+     * uniform 30s retry interval (user requirement — see RETRY_INTERVAL_MS). */
+
+    /** 第 2/3 次作答的解锁时间戳：答错后 30 秒内禁止再次提交。 */
+    private var retryBlockUntil: Long = 0L
 
     /** V2.0: engine attempts-left BEFORE the last submit (1 = this submit was
      * the question's third wrong answer, even when the engine answers
@@ -100,6 +101,9 @@ class QuizOverlayController private constructor(
 
     /** Guards terminal outcomes exactly like QuizActivity (defect M2). */
     private var terminalOutcomeSent = false
+
+    /** AI 判分进行中（防止重复提交，2026-11-21）。 */
+    private var aiJudging = false
 
     /** Batch 2-b (A10): id of the question actually submitted (B14 bookkeeping). */
     private var lastSubmittedQuestionId: Long? = null
@@ -285,10 +289,14 @@ class QuizOverlayController private constructor(
         b.tvFeedback.visibility = android.view.View.GONE
         b.layoutLocked.visibility = android.view.View.GONE
         b.cardQuiz.visibility = android.view.View.VISIBLE
+        // 新题首答不受 30 秒重试锁限制。
+        retryBlockUntil = 0L
 
         scope.launch {
+            // AI 未配置时开放题（type='open'）从题库屏蔽（用户要求 2026-11-21）。
             val question = questionBankManager.getRandomQuestionOrFallback(
-                AppConfig.getSelectedGrade(appContext)
+                AppConfig.getSelectedGrade(appContext),
+                includeOpen = com.antidip.AiJudge.loadConfig(appContext) != null
             )
             quizEngine.startRound(question)
             displayQuestion()
@@ -320,15 +328,23 @@ class QuizOverlayController private constructor(
                         id = android.view.View.generateViewId()
                         tag = labels.getOrElse(index) { "$index" }
                         textSize = 16f
+                        // 浅色卡片上显式深字（默认黑字即可读，颜色保持统一）。
+                        setTextColor(viewContext.getColor(R.color.on_surface))
+                        buttonTintList = android.content.res.ColorStateList.valueOf(
+                            viewContext.getColor(R.color.accent)
+                        )
                         setPadding(8, 16, 8, 16)
                     }
                     b.rgOptions.addView(rb)
                 }
             }
-            "fill" -> {
+            "fill", "open" -> {
                 b.rgOptions.visibility = android.view.View.GONE
                 b.tilFillAnswer.visibility = android.view.View.VISIBLE
                 b.etFillAnswer.text?.clear()
+                b.etFillAnswer.hint = appContext.getString(
+                    if (question.type == "open") R.string.open_hint else R.string.fill_hint
+                )
             }
         }
 
@@ -373,7 +389,7 @@ class QuizOverlayController private constructor(
                 val selectedRb = b.rgOptions.findViewById<RadioButton>(selectedId)
                 selectedRb.tag?.toString() ?: ""
             }
-            "fill" -> b.etFillAnswer.text?.toString()?.trim() ?: ""
+            "fill", "open" -> b.etFillAnswer.text?.toString()?.trim() ?: ""
             else -> ""
         }
 
@@ -382,26 +398,91 @@ class QuizOverlayController private constructor(
             return
         }
 
-        // V2.0: fill-in submissions must be at least one minute apart.
-        if (question.type == "fill") {
-            val now = System.currentTimeMillis()
-            val since = now - lastFillSubmitMs
-            if (lastFillSubmitMs > 0 && since < FILL_SUBMIT_INTERVAL_MS) {
-                val remainSec = ((FILL_SUBMIT_INTERVAL_MS - since) / 1000) + 1
+        // 开放式题（无标准答案，2026-11-21）：判分完全交给 AI。
+        //  - AI 判对 → 引擎按正确结算（首答计 +2 分，重试不计分规则同前）；
+        //  - AI 判错 → 引擎按错误结算（-1 分 / 30 秒重试锁）；
+        //  - AI 不可用 → 本题不计分不扣分，清空输入原地重试（防循环换题）。
+        if (question.type == "open") {
+            if (aiJudging) return
+            aiJudging = true
+            b.btnSubmit.isEnabled = false
+            b.tvFeedback.visibility = android.view.View.VISIBLE
+            b.tvFeedback.text = appContext.getString(R.string.ai_judging)
+            scope.launch {
+                val aiOk = try {
+                    com.antidip.AiJudge.judgeOpen(appContext, question, userAnswer)
+                } catch (e: Exception) {
+                    null
+                }
+                aiJudging = false
+                b.btnSubmit.isEnabled = true
+                if (aiOk == null) {
+                    b.tvFeedback.visibility = android.view.View.GONE
+                    b.etFillAnswer.text?.clear()
+                    Toast.makeText(
+                        appContext,
+                        "AI 判分暂时不可用，本题不计分，请稍后再试",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    return@launch
+                }
+                lastSubmittedQuestionId = question.id
+                lastSubmittedQuestion = question
+                lastSubmitAttemptsBefore = quizEngine.currentAttemptsLeft
+                handleAnswerResult(quizEngine.submitOpenAnswer(aiOk))
+            }
+            return
+        }
+
+        // 每题 3 次机会，第 2/3 次作答需间隔 30 秒（用户要求 2026-11-21）：
+        // 首答错后锁定 30s，解锁后才能重试。
+        if (quizEngine.currentAttemptsLeft < Constants.MAX_ATTEMPTS) {
+            val remain = retryBlockUntil - System.currentTimeMillis()
+            if (remain > 0) {
                 Toast.makeText(
                     appContext,
-                    appContext.getString(R.string.fill_submit_throttle, remainSec.toInt()),
+                    appContext.getString(R.string.retry_wait_fmt, ((remain + 999) / 1000).toInt()),
                     Toast.LENGTH_LONG
                 ).show()
                 return
             }
-            lastFillSubmitMs = now
+        }
+
+        // AI 判题（V2.2，2026-11-21）：填空答案与标准答案字面不一致时，先问
+        // AI 语义是否等价（如 0.5 = 1/2）；等价则以标准答案提交（引擎自然判
+        // 对）。fail-closed：未启用/网络失败按原答案提交，绝不因 AI 放水。
+        if (question.type == "fill" &&
+            userAnswer != question.answer.trim() &&
+            com.antidip.AiJudge.loadConfig(appContext) != null
+        ) {
+            if (aiJudging) return
+            aiJudging = true
+            b.btnSubmit.isEnabled = false
+            b.tvFeedback.visibility = android.view.View.VISIBLE
+            b.tvFeedback.text = appContext.getString(R.string.ai_judging)
+            scope.launch {
+                val aiOk = try {
+                    com.antidip.AiJudge.judgeFill(appContext, question, userAnswer)
+                } catch (e: Exception) {
+                    null
+                }
+                aiJudging = false
+                b.btnSubmit.isEnabled = true
+                lastSubmittedQuestionId = question.id
+                lastSubmittedQuestion = question
+                lastSubmitAttemptsBefore = quizEngine.currentAttemptsLeft
+                val finalAnswer = if (aiOk == true) question.answer.trim() else userAnswer
+                handleAnswerResult(quizEngine.submitAnswer(finalAnswer))
+            }
+            return
         }
 
         lastSubmittedQuestionId = question.id
         lastSubmittedQuestion = question
         lastSubmitAttemptsBefore = quizEngine.currentAttemptsLeft
-        handleAnswerResult(quizEngine.submitAnswer(userAnswer))
+
+        val result = quizEngine.submitAnswer(userAnswer)
+        handleAnswerResult(result)
     }
 
     private fun handleAnswerResult(result: AnswerResult) {
@@ -415,11 +496,18 @@ class QuizOverlayController private constructor(
         when (result) {
             is AnswerResult.Correct -> {
                 b.tvFeedback.visibility = android.view.View.VISIBLE
-                b.tvFeedback.text = appContext.getString(R.string.answer_correct)
                 b.tvFeedback.setBackgroundResource(R.color.correct_bg)
 
-                // V2.0: points (+1 choice / +2 fill), streak and medals.
-                updateProgress(isCorrect = true, isFill = lastSubmittedQuestion?.type == "fill")
+                // 每题 3 次机会（用户要求 2026-11-21）：仅首答正确计积分/连对；
+                // 第 2/3 次重试答对不加分（也不涨连对，防反复试到对）。仍按
+                // OUTCOME_CORRECT 结算计时，错题本/讲解路径不变。
+                val firstTry = lastSubmitAttemptsBefore >= Constants.MAX_ATTEMPTS
+                b.tvFeedback.text = appContext.getString(
+                    if (firstTry) R.string.answer_correct else R.string.answer_correct_retry
+                )
+                if (firstTry) {
+                    updateProgress(isCorrect = true, isFill = lastSubmittedQuestion?.type == "fill")
+                }
 
                 scope.launch {
                     QuizStateStore.setConsecutiveFailures(
@@ -448,6 +536,9 @@ class QuizOverlayController private constructor(
                 b.tvFeedback.setBackgroundResource(R.color.wrong_bg)
                 b.tvAttempts.text =
                     appContext.getString(R.string.attempts_left, result.attemptsLeft)
+
+                // 答错 → 30 秒后才可再次作答（第 2/3 次机会）。
+                retryBlockUntil = System.currentTimeMillis() + Constants.RETRY_INTERVAL_MS
 
                 // V2.0: wrong answer -> -1 point, streak reset. On the THIRD
                 // wrong fill-in answer also explain the answer and record the
@@ -497,7 +588,8 @@ class QuizOverlayController private constructor(
                 }
                 scope.launch {
                     val nextQ = questionBankManager.getRandomQuestionOrFallback(
-                        AppConfig.getSelectedGrade(appContext)
+                        AppConfig.getSelectedGrade(appContext),
+                        includeOpen = com.antidip.AiJudge.loadConfig(appContext) != null
                     )
                     quizEngine.addQuestion(nextQ)
                     displayQuestion()
@@ -590,21 +682,27 @@ class QuizOverlayController private constructor(
 
     /** V2.0: +points / streak / medals through [com.antidip.data.ProgressStore]. */
     private fun updateProgress(isCorrect: Boolean, isFill: Boolean) {
-        scope.launch {
+        // 计分写入必须在 dismiss() 之后仍能落盘：dismiss 会 cancel 本控制器
+        // 的 scope（见 dismiss()），用独立的 IO scope 保证 +1/-1 不被取消丢失。
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             val (state, newMedals) =
                 com.antidip.data.ProgressStore.applyAnswer(appContext, isCorrect, isFill)
-            binding?.tvProgress?.text =
-                appContext.getString(R.string.progress_line, state.points, state.streak)
+            mainHandler.post {
+                binding?.tvProgress?.text =
+                    appContext.getString(R.string.progress_line, state.points, state.streak)
+            }
             newMedals.forEach { id ->
                 val medal = com.antidip.ProgressRules.MEDALS.firstOrNull { it.first == id }
-                Toast.makeText(
-                    appContext,
-                    appContext.getString(
-                        R.string.medal_earned,
-                        medal?.second ?: "🏅", medal?.third ?: id
-                    ),
-                    Toast.LENGTH_LONG
-                ).show()
+                mainHandler.post {
+                    Toast.makeText(
+                        appContext,
+                        appContext.getString(
+                            R.string.medal_earned,
+                            medal?.second ?: "🏅", medal?.third ?: id
+                        ),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
         }
     }
@@ -613,12 +711,17 @@ class QuizOverlayController private constructor(
     private fun recordWrongAndExplain(
         question: com.antidip.db.QuestionEntity
     ) {
-        scope.launch {
+        // 错题本落盘同样走独立 scope：第三错触发时可能紧跟着 dismiss 取消。
+        // 2026-11-21（用户要求）：选择题写"结果"（选项内容）而非选项字母。
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             com.antidip.data.ProgressStore.addWrongEntry(
                 appContext,
                 com.antidip.ProgressRules.WrongEntry(
                     content = question.content,
-                    answer = question.answer,
+                    answer = com.antidip.ProgressRules.answerResultText(
+                        question.answer,
+                        question.options?.split("|") ?: emptyList()
+                    ),
                     subject = question.subject,
                     grade = question.grade,
                     wrongCount = 1,
@@ -645,9 +748,6 @@ class QuizOverlayController private constructor(
 
     companion object {
         private const val TAG = "QuizOverlay"
-
-        /** V2.0: minimum interval between two fill-in submissions (1 minute). */
-        private const val FILL_SUBMIT_INTERVAL_MS = 60_000L
 
         @Volatile
         private var active: QuizOverlayController? = null

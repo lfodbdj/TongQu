@@ -60,6 +60,36 @@ object ProgressRules {
         else -> ""
     }
 
+    /**
+     * 勋章进度（2026-11-21 UI v3）：返回 ("points"|"streak", 目标值)；
+     * first_quiz 无量化进度 → null。供首页"下一枚勋章"进度条使用。
+     */
+    fun conditionTarget(id: String): Pair<String, Int>? = when (id) {
+        "points_10" -> "points" to 10
+        "points_50" -> "points" to 50
+        "points_100" -> "points" to 100
+        "points_200" -> "points" to 200
+        "streak_5" -> "streak" to 5
+        "streak_10" -> "streak" to 10
+        "streak_20" -> "streak" to 20
+        else -> null
+    }
+
+    /**
+     * 错题本"写结果不写选项"（用户要求 2026-11-21）：选择题答案字母（A–D）
+     * 换成对应选项内容（如 B → 84）；填空/非字母原样返回。
+     */
+    fun answerResultText(answer: String, options: List<String>): String {
+        val t = answer.trim()
+        if (t.length == 1) {
+            val idx = "ABCD".indexOf(t.uppercase())
+            if (idx in 0..3 && idx < options.size && options[idx].isNotBlank()) {
+                return options[idx]
+            }
+        }
+        return t
+    }
+
     fun initial(): State = State(points = 0, streak = 0, bestStreak = 0, medals = emptySet())
 
     /**

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>童趣 · UI v3 设计稿（浅色主题）</title>
+<style>
+  :root{
+    --bg:#F6F7F2; --card:#FFFFFF; --ink:#1F1F1F; --sub:#6E6E6E;
+    --green:#3E9B1E; --lime1:#9BEA00; --lime2:#B3EE00;
+    --g1:#39862E; --g2:#94D411; --orange:#FFB400; --line:#E8E8E4;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:#ECEEE7; font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif; color:var(--ink); padding:28px 20px 48px;}
+  .doc-header{max-width:1560px; margin:0 auto 8px;}
+  .doc-header h1{font-size:26px; margin-bottom:6px;}
+  .doc-header .sub{color:var(--sub); font-size:14px; margin-bottom:14px;}
+  .tokens{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .token{display:inline-flex; align-items:center; gap:6px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size:12px; color:var(--sub);}
+  .token i{width:14px; height:14px; border-radius:4px; display:inline-block;}
+  .frames{display:flex; flex-wrap:wrap; gap:28px; max-width:1560px; margin:0 auto; align-items:flex-start;}
+  .frame{flex:0 0 372px;}
+  .phone{width:372px; height:760px; background:var(--bg); border:10px solid #20242B; border-radius:38px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 18px 40px rgba(0,0,0,.18);}
+  .statusbar{height:30px; background:var(--g1); color:#fff; font-size:11px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; flex:0 0 auto;}
+  .screen{flex:1 1 auto; overflow:hidden; padding:12px 14px 8px; display:flex; flex-direction:column; gap:10px;}
+  .notes{margin-top:14px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px;}
+  .notes h3{font-size:15px; margin-bottom:8px; color:var(--green);}
+  .notes li{font-size:13px; color:var(--ink); line-height:1.75; list-style:none; padding-left:18px; position:relative;}
+  .notes li::before{content:"•"; position:absolute; left:4px; color:var(--green);}
+  /* 通用 */
+  .banner{border-radius:22px; padding:16px 16px 14px; color:#fff;
+    background:linear-gradient(135deg,var(--g1) 0%,var(--g2) 58%,var(--orange) 120%);
+    display:flex; align-items:center; gap:10px;}
+  .banner .txt{flex:1;}
+  .banner .hi{font-size:19px; font-weight:800;}
+  .banner .sub2{font-size:12px; opacity:.95; margin-top:2px;}
+  .banner .grade{display:inline-block; margin-top:8px; background:rgba(255,255,255,.22); border-radius:999px; padding:3px 10px; font-size:12px; font-weight:700;}
+  .fox{width:52px; height:52px; border-radius:14px; background:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; box-shadow:inset 0 0 0 2px rgba(255,255,255,.6);}
+  .card{background:var(--card); border-radius:18px; padding:14px; box-shadow:0 2px 6px rgba(31,31,31,.05);}
+  .sec{font-size:16px; font-weight:800; color:var(--green); display:flex; align-items:center; gap:6px; margin:2px 0 0;}
+  .sec .cnt{font-size:11px; font-weight:600; color:#fff; background:var(--green); border-radius:999px; padding:1px 8px;}
+  /* 首页统计 pills */
+  .stats{display:flex; gap:8px;}
+  .pill{flex:1; background:#F3F4EC; border-radius:14px; text-align:center; padding:10px 4px;}
+  .pill b{display:block; font-size:20px;}
+  .pill span{font-size:11px; color:var(--sub);}
+  /* 大按钮 */
+  .cta{background:linear-gradient(135deg,var(--lime1),var(--lime2)); border-radius:18px; padding:14px; text-align:center; color:#121212;}
+  .cta .t{font-size:17px; font-weight:800;}
+  .cta .s{font-size:12px; margin-top:3px; opacity:.85;}
+  .mini-cta{background:var(--card); border:1.5px solid var(--green); border-radius:18px; padding:12px 14px; display:flex; align-items:center; gap:10px;}
+  .mini-cta .ic{font-size:22px;}
+  .mini-cta .tt{flex:1; font-size:14px; font-weight:700;}
+  .mini-cta .tt small{display:block; font-weight:500; font-size:11px; color:var(--sub); margin-top:2px;}
+  .arrow{color:var(--green); font-weight:800;}
+  /* 成就卡 */
+  .achv .row1{display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700;}
+  .achv .next{font-size:11px; color:var(--sub); margin-top:8px;}
+  .bar{height:8px; background:#EFF1E8; border-radius:999px; margin-top:5px; overflow:hidden;}
+  .bar i{display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,var(--g2),var(--green));}
+  /* hero 等级卡 */
+  .hero{border-radius:22px; padding:18px; text-align:center; color:#12240B;
+    background:linear-gradient(160deg,var(--lime1) 0%,var(--g2) 45%,var(--g1) 100%);}
+  .hero .lv{font-size:30px; font-weight:900; letter-spacing:1px;}
+  .hero .pts{font-size:13px; font-weight:700; opacity:.9; margin-top:2px;}
+  .hero .bar{background:rgba(255,255,255,.35); margin-top:10px;}
+  .hero .bar i{background:#FFFBEB;}
+  .hero .cap{font-size:11px; margin-top:6px; font-weight:700; opacity:.95;}
+  /* 勋章墙 */
+  .medals{display:grid; grid-template-columns:repeat(4,1fr); gap:8px;}
+  .medal{background:var(--card); border-radius:14px; padding:10px 4px; text-align:center; border:1.5px solid var(--line);}
+  .medal.on{border-color:var(--green); background:#F4FAEF;}
+  .medal .e{font-size:20px;}
+  .medal .n{font-size:10.5px; font-weight:700; margin-top:3px;}
+  .medal .c{font-size:9px; color:var(--sub); margin-top:2px;}
+  .medal.lock .e{filter:grayscale(1); opacity:.45;}
+  .medal.lock .n{color:var(--sub); font-weight:500;}
+  /* 规则 */
+  .rules li{list-style:none; font-size:12.5px; padding:5px 0; color:var(--ink); display:flex; gap:6px;}
+  .rules li::before{content:"✦"; color:var(--green);}
+  /* 错题 */
+  .chips{display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{font-size:12px; padding:6px 12px; border-radius:999px; background:#EDEDE8; color:var(--sub); font-weight:600;}
+  .chip.on{background:var(--green); color:#fff;}
+  .wrong{background:#FBFDF7; border:1px solid var(--line); border-left:4px solid var(--green); border-radius:14px; padding:12px;}
+  .wrong .tag{display:inline-block; font-size:10px; font-weight:700; color:var(--green); background:#EAF4E3; border-radius:6px; padding:2px 8px;}
+  .wrong .q{font-size:14px; font-weight:600; margin-top:8px; line-height:1.5;}
+  .wrong .a{font-size:12px; color:var(--green); font-weight:700; margin-top:8px;}
+  .wrong .meta{font-size:11px; color:var(--sub); margin-top:4px;}
+  .wrong .btn2{margin-top:10px; font-size:12px; font-weight:700; color:var(--green); border:1.5px solid var(--green); border-radius:999px; display:inline-block; padding:6px 14px;}
+  /* 设置 */
+  .group{font-size:12px; font-weight:800; color:var(--sub); letter-spacing:1px; margin:2px 0 -2px;}
+  .srow{display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid #F1F2EC; font-size:13.5px;}
+  .srow:last-child{border-bottom:none;}
+  .srow .ic{font-size:16px;}
+  .srow .tt{flex:1;}
+  .srow .tt small{display:block; color:var(--sub); font-size:11px; margin-top:1px;}
+  .ok{color:var(--green); font-weight:700; font-size:12px;}
+  .warn{color:#C77700; font-weight:700; font-size:12px;}
+  .btnrow{display:flex; gap:8px; margin-top:10px;}
+  .gbtn{flex:1; text-align:center; font-size:12.5px; font-weight:700; border-radius:999px; padding:8px 0;}
+  .gbtn.filled{background:var(--green); color:#fff;}
+  .gbtn.ghost{border:1.5px solid var(--green); color:var(--green);}
+  .gbtn.lime{background:linear-gradient(135deg,var(--lime1),var(--lime2)); color:#121212;}
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--green); display:inline-block; margin-right:4px;}
+  .switch{width:40px; height:22px; border-radius:999px; background:var(--green); position:relative; flex:0 0 auto;}
+  .switch::after{content:""; position:absolute; right:2px; top:2px; width:18px; height:18px; border-radius:50%; background:#fff;}
+  /* 底部导航 */
+  .navbar{flex:0 0 auto; background:#fff; border-radius:20px 20px 0 0; margin:6px -14px -8px; padding:8px 10px 14px; display:flex; box-shadow:0 -4px 14px rgba(31,31,31,.06);}
+  .nitem{flex:1; text-align:center; font-size:10.5px; color:#8A9AA0; font-weight:600;}
+  .nitem .ie{font-size:19px; display:block; margin:0 auto 2px; width:44px; height:26px; line-height:26px; border-radius:999px;}
+  .nitem.on{color:var(--green);}
+  .nitem.on .ie{background:var(--green); color:#fff;}
+  .version{font-size:10px; color:var(--sub); text-align:center; padding:4px 0 2px;}
+  .spacer{flex:1 0 auto;}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>童趣 · UI v3 设计稿（浅色主题）</h1>
+  <div class="sub">四个底部导航页的整体重设计 · 手机上从左到右依次为：首页 / 积分徽章 / 错题 / 设置 · 确认后按此实现</div>
+  <div class="tokens">
+    <span class="token"><i style="background:#F6F7F2;border:1px solid #E8E8E4"></i>页面底 #F6F7F2</span>
+    <span class="token"><i style="background:#FFFFFF;border:1px solid #E8E8E4"></i>卡片 #FFFFFF</span>
+    <span class="token"><i style="background:#3E9B1E"></i>主绿 #3E9B1E</span>
+    <span class="token"><i style="background:linear-gradient(135deg,#9BEA00,#B3EE00)"></i>亮绿按钮（深字）</span>
+    <span class="token"><i style="background:linear-gradient(135deg,#39862E,#94D411 58%,#FFB400)"></i>横幅渐变</span>
+    <span class="token"><i style="background:#1F1F1F"></i>正文 #1F1F1F</span>
+    <span class="token"><i style="background:#6E6E6E"></i>次级 #6E6E6E</span>
+  </div>
+</div>
+
+<div class="frames">
+
+  <!-- ================= 1 首页 ================= -->
+  <div class="frame">
+    <div class="phone">
+      <div class="statusbar"><span>13:20</span><span>📶 电池</span></div>
+      <div class="screen">
+        <div class="banner">
+          <div class="txt">
+            <div class="hi">嗨，朵朵 👋</div>
+            <div class="sub2">今天也要加油答题哦～</div>
+            <div class="grade">📚 4 年级</div>
+          </div>
+          <div class="fox">🦊</div>
+        </div>
+
+        <div class="card stats">
+          <div class="pill"><b>12</b><span>⭐ 积分</span></div>
+          <div class="pill"><b>11</b><span>🔥 连对</span></div>
+          <div class="pill"><b>1</b><span>📕 错题</span></div>
+        </div>
+
+        <div class="cta">
+          <div class="t">🎯 开始主动答题</div>
+          <div class="s">每题都算积分 · 练出好成绩</div>
+        </div>
+
+        <div class="mini-cta">
+          <div class="ic">📕</div>
+          <div class="tt">错题复习<small>1 题待巩固 · 趁热打铁</small></div>
+          <div class="arrow">›</div>
+        </div>
+
+        <div class="card achv">
+          <div class="row1">🏅 最新成就：十连对</div>
+          <div class="next">下一枚：二十连对 · 11/20 题</div>
+          <div class="bar"><i style="width:55%"></i></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="navbar">
+          <div class="nitem on"><span class="ie">🏠</span>首页</div>
+          <div class="nitem"><span class="ie">🏅</span>积分徽章</div>
+          <div class="nitem"><span class="ie">📕</span>错题</div>
+          <div class="nitem"><span class="ie">⚙️</span>设置</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h3>首页 —— 孩子一打开就知道"现在做什么"</h3>
+      <li>结构固定为 4 块：横幅 → 今日三格 → 大按钮"开始主动答题" → 错题复习入口；一屏放下、不用长滚动</li>
+      <li>去掉荣誉长列表与"成长概况"文字卡，改为一枚"最新成就 + 进度条"，孩子看得懂离下一枚勋章还差多少</li>
+      <li>错题待巩固从统计格里提出来，做成可点击的行动卡（比数字更直接）</li>
+      <li>三个数字保持可点击跳转：积分/连对→积分徽章页，错题→错题页</li>
+    </div>
+  </div>
+
+  <!-- ================= 2 积分徽章 ================= -->
+  <div class="frame">
+    <div class="phone">
+      <div class="statusbar"><span>13:20</span><span>📶 电池</span></div>
+      <div class="screen">
+        <div class="sec">⭐ 积分与徽章</div>
+        <div class="hero">
+          <div class="lv">等级 LV2</div>
+          <div class="pts">累计 12 分 · 每 10 分升一级</div>
+          <div class="bar"><i style="width:20%"></i></div>
+          <div class="cap">距 LV3 还差 8 分</div>
+        </div>
+
+        <div class="sec">🏅 勋章墙</div>
+        <div class="medals">
+          <div class="medal on"><div class="e">🌟</div><div class="n">初露锋芒</div><div class="c">首次答对</div></div>
+          <div class="medal on"><div class="e">🥉</div><div class="n">小试牛刀</div><div class="c">积分 10</div></div>
+          <div class="medal on"><div class="e">🔥</div><div class="n">五连对</div><div class="c">连对 5 题</div></div>
+          <div class="medal on"><div class="e">⚡</div><div class="n">十连对</div><div class="c">连对 10 题</div></div>
+          <div class="medal lock"><div class="e">🥈</div><div class="n">崭露头角</div><div class="c">积分 50</div></div>
+          <div class="medal lock"><div class="e">🥇</div><div class="n">百分达人</div><div class="c">积分 100</div></div>
+          <div class="medal lock"><div class="e">👑</div><div class="n">学霸之星</div><div class="c">积分 200</div></div>
+          <div class="medal lock"><div class="e">🚀</div><div class="n">二十连对</div><div class="c">连对 20 题</div></div>
+        </div>
+
+        <div class="sec">⭐ 积分规则</div>
+        <div class="card">
+          <ul class="rules">
+            <li>选择题答对 +1 分</li>
+            <li>填空题答对 +2 分</li>
+            <li>答错一次 -1 分</li>
+            <li>每题 3 次机会，重试间隔 30 秒，重试答对不计分</li>
+          </ul>
+        </div>
+        <div class="spacer"></div>
+        <div class="navbar">
+          <div class="nitem"><span class="ie">🏠</span>首页</div>
+          <div class="nitem on"><span class="ie">🏅</span>积分徽章</div>
+          <div class="nitem"><span class="ie">📕</span>错题</div>
+          <div class="nitem"><span class="ie">⚙️</span>设置</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h3>积分徽章 —— 从"文字列表"变成"勋章墙"</h3>
+      <li>等级 hero 卡：大字号 LV + 进度条，一眼看到"还差 8 分升级"</li>
+      <li>8 枚勋章改成 4×2 墙格：已解锁 = 绿边绿底亮显，未解锁 = 灰显 + 条件；比文字列表直观得多</li>
+      <li>积分规则卡同步本轮新规则（重试间隔 30 秒 / 重试答对不计分），家长孩子都有数</li>
+    </div>
+  </div>
+
+  <!-- ================= 3 错题 ================= -->
+  <div class="frame">
+    <div class="phone">
+      <div class="statusbar"><span>13:20</span><span>📶 电池</span></div>
+      <div class="screen">
+        <div class="sec">📕 错题本 <span class="cnt">1</span></div>
+        <div class="chips">
+          <div class="chip on">全部</div><div class="chip">语文</div><div class="chip">数学</div>
+          <div class="chip">英语</div><div class="chip">科学</div><div class="chip">道法</div><div class="chip">常识</div>
+        </div>
+        <div class="wrong">
+          <span class="tag">数学</span>
+          <div class="q">计算：7/8 - 3/8 = ____（用最简分数表示）</div>
+          <div class="a">✓ 正确答案：1/2</div>
+          <div class="meta">已错 1 次 · 最近 11-21</div>
+          <div class="btn2">🔄 重做这道题</div>
+        </div>
+        <div class="card" style="background:#F3F4EC; color:var(--sub); font-size:12px;">
+          💡 全部答对的错题会自动从错题本移除；做对同题 2 次的题也会自动划掉。
+        </div>
+        <div class="spacer"></div>
+        <div class="navbar">
+          <div class="nitem"><span class="ie">🏠</span>首页</div>
+          <div class="nitem"><span class="ie">🏅</span>积分徽章</div>
+          <div class="nitem on"><span class="ie">📕</span>错题</div>
+          <div class="nitem"><span class="ie">⚙️</span>设置</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h3>错题 —— 从"文字行"变成"错题卡"</h3>
+      <li>每道错题一张卡：科目标签、题干、正确答案（绿色）、错误次数</li>
+      <li>新增"重做这道题"按钮（第二期可接同类题推荐），让错题本从"看"变成"练"</li>
+      <li>底部提示卡告诉孩子错题的消除规则，形成正向预期</li>
+      <li>科目筛选 chips 保留，选中态为深绿</li>
+    </div>
+  </div>
+
+  <!-- ================= 4 设置 ================= -->
+  <div class="frame">
+    <div class="phone">
+      <div class="statusbar"><span>13:20</span><span>📶 电池</span></div>
+      <div class="screen">
+        <div class="sec">🎈 家长设置</div>
+
+        <div class="group">服务</div>
+        <div class="card">
+          <div class="srow"><div class="ic">👨‍👩‍👧</div><div class="tt">家长控制台<small>间隔 / 年级 / 白名单，需家长密码</small></div><div class="arrow">›</div></div>
+          <div class="srow"><div class="ic">🛡️</div><div class="tt">守护服务<small><span class="dot"></span>运行中 · 每 5 分钟一次挑战</small></div></div>
+          <div class="btnrow"><div class="gbtn lime">启动服务</div><div class="gbtn ghost">暂停服务</div></div>
+        </div>
+
+        <div class="group">题库与 AI</div>
+        <div class="card">
+          <div class="srow"><div class="ic">📚</div><div class="tt">题库 1143 题（语 261 / 数 326 / 英 128 / 科 139 / 道 63）</div><div class="arrow">›</div></div>
+          <div class="srow"><div class="ic">🤖</div><div class="tt">AI 判题<small>填空语义判分 · 端点与 Key 家长提供</small></div><div class="switch"></div></div>
+          <div class="btnrow"><div class="gbtn ghost">更新题库</div><div class="gbtn ghost">导入本地</div><div class="gbtn ghost">测试 AI</div></div>
+        </div>
+
+        <div class="group">权限</div>
+        <div class="card">
+          <div class="srow"><div class="ic">🪟</div><div class="tt">悬浮窗权限<small>答题弹窗的关键能力</small></div><div class="ok">已开启</div></div>
+          <div class="srow"><div class="ic">🔋</div><div class="tt">电池优化白名单<small>防止服务被系统关闭</small></div><div class="ok">已开启</div></div>
+          <div class="srow"><div class="ic">🚀</div><div class="tt">自启动权限<small>开机守护服务自动启动</small></div><div class="warn">去开启 ›</div></div>
+          <div class="srow"><div class="ic">🔔</div><div class="tt">通知与媒体会话<small>答题时暂停快手等播放</small></div><div class="ok">已开启</div></div>
+        </div>
+
+        <div class="group">数据</div>
+        <div class="card">
+          <div class="btnrow"><div class="gbtn lime">备份到服务器</div><div class="gbtn ghost">从服务器导入</div></div>
+        </div>
+        <div class="version">童趣 v2.2 · 家长设置项集中在此，孩子界面不出现任何管理入口</div>
+        <div class="spacer"></div>
+        <div class="navbar">
+          <div class="nitem"><span class="ie">🏠</span>首页</div>
+          <div class="nitem"><span class="ie">🏅</span>积分徽章</div>
+          <div class="nitem"><span class="ie">📕</span>错题</div>
+          <div class="nitem on"><span class="ie">⚙️</span>设置</div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h3>设置 —— 从"卡片堆"变成"分组清单"</h3>
+      <li>四个分组：服务 / 题库与 AI / 权限 / 数据，每组一个白卡，扫一眼能定位</li>
+      <li>每行"图标 + 名称 + 一行说明 + 状态"，状态用绿（已开）/橙（去开启）区分</li>
+      <li>AI 判题收进"题库与 AI"组为一行 + 开关，配置详情点行展开，不再占整卡</li>
+      <li>底部导航在设置页常驻（已实现），状态色与本页一致</li>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

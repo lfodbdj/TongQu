@@ -39,7 +39,7 @@
 ---
 
 > 版本基线：`app-debug.apk` md5 `53cfcd80f937389a305ec4bdf448101c`（128/128 单测全绿）
-> 真机：华为 nova7 SE（CDY-AN00，EMUI / Android 10 / API 29），USB 调试安装，覆盖安装走华为安装网关（风险提示 → 勾选风险 → 锁屏密码）
+> 真机：华为 <phone-model> SE（<device-model>，EMUI / Android 10 / API 29），USB 调试安装，覆盖安装走华为安装网关（风险提示 → 勾选风险 → 锁屏密码）
 > 详细技术记录见 `docs/architecture_review.md` §10（批次3）与 §11（通话优先）
 
 ---

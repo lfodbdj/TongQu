@@ -1,0 +1,1365 @@
+{
+ "grade": 5,
+ "version": "2026.11.21",
+ "questions": [
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0.5 + 0.25 = ？",
+   "options": [
+    "0.75",
+    "0.7",
+    "0.3",
+    "0.85"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1.2 + 0.8 = ？",
+   "options": [
+    "2",
+    "1",
+    "0.2",
+    "20"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3.6 - 1.4 = ？",
+   "options": [
+    "2.2",
+    "2.4",
+    "1.2",
+    "2.6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1 元 5 角用小数表示是多少元？",
+   "options": [
+    "1.5 元",
+    "0.5 元",
+    "15 元",
+    "1.05 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一支笔 2.5 元，一块橡皮 1.2 元，买这两样一共多少元？",
+   "options": [
+    "3.7 元",
+    "3.2 元",
+    "2.7 元",
+    "4.7 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3.05 中的“5”表示（　）。",
+   "options": [
+    "5 个 0.01",
+    "5 个 0.1",
+    "5 个 1",
+    "5 个 10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0.8 里面有（　）个 0.1。",
+   "options": [
+    "8 个",
+    "80 个",
+    "0.8 个",
+    "10 个"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把 1 米平均分成 100 份，其中 1 份是多少米？",
+   "options": [
+    "0.01 米",
+    "0.1 米",
+    "1 米",
+    "0.001 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "10 个 0.1 是多少？",
+   "options": [
+    "1",
+    "0.1",
+    "10",
+    "0.01"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6.5 - 2 = ？",
+   "options": [
+    "4.5",
+    "6.3",
+    "4.3",
+    "6.5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0.6 + 0.6 + 0.6 = ？",
+   "options": [
+    "1.8",
+    "0.18",
+    "1.6",
+    "2.4"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3.8 + 2.02 = ？",
+   "options": [
+    "5.82",
+    "5.2",
+    "5.28",
+    "6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "10 - 0.86 = ？",
+   "options": [
+    "9.14",
+    "9.86",
+    "8.14",
+    "1.14"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "2.03 中的“3”表示（　）。",
+   "options": [
+    "3 个 0.01",
+    "3 个 0.1",
+    "3 个 1",
+    "3 个 0.001"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数的小数点向右移动一位，这个数就（　）。",
+   "options": [
+    "扩大到原来的 10 倍",
+    "不变",
+    "扩大到原来的 100 倍",
+    "缩小到原来的十分之一"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "把 3.14 缩小到原来的十分之一是多少？",
+   "options": [
+    "0.314",
+    "31.4",
+    "3.014",
+    "0.0314"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "大于 0.4 而小于 0.5 的小数有几个？",
+   "options": [
+    "无数个",
+    "1 个",
+    "9 个",
+    "0 个"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1.35 去掉小数点变成 135，原来的数就扩大到（　）倍。",
+   "options": [
+    "100 倍",
+    "10 倍",
+    "1000 倍",
+    "10000 倍"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4.9 保留整数（四舍五入到个位）约是多少？",
+   "options": [
+    "5",
+    "4",
+    "4.9",
+    "4.0"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6.8 + 3.2 - 6.8 + 3.2 = ？",
+   "options": [
+    "6.4",
+    "10",
+    "0",
+    "3.2"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1.2×4 = ？",
+   "options": [
+    "4.8",
+    "4.2",
+    "48",
+    "0.48"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "2.5×4 = ？",
+   "options": [
+    "10",
+    "1",
+    "0.1",
+    "100"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每千克苹果 3.6 元，买 2 千克要多少元？",
+   "options": [
+    "7.2 元",
+    "6.2 元",
+    "7.6 元",
+    "3.6 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每千克苹果 4.8 元，买 2.5 千克要多少元？",
+   "options": [
+    "12 元",
+    "7.3 元",
+    "9.6 元",
+    "1.2 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "100 张纸叠起来厚 1 厘米，1 张纸厚多少厘米？",
+   "options": [
+    "0.01 厘米",
+    "0.1 厘米",
+    "1 厘米",
+    "0.001 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一根绳子长 10.5 米，用去 3.6 米，还剩多少米？",
+   "options": [
+    "6.9 米",
+    "7.1 米",
+    "13.9 米",
+    "6.1 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "50 米赛跑：小明用 8.6 秒，小军用 8.2 秒，谁跑得快？",
+   "options": [
+    "小军",
+    "小明",
+    "一样快",
+    "无法判断"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "7.2÷8 = ？",
+   "options": [
+    "0.9",
+    "9",
+    "0.09",
+    "1.2"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "9.9÷9 = ？",
+   "options": [
+    "1.1",
+    "1.01",
+    "0.11",
+    "11"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3.6÷4 = ？",
+   "options": [
+    "0.9",
+    "9",
+    "0.09",
+    "1.2"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0.4×5 = ？",
+   "options": [
+    "2",
+    "0.2",
+    "20",
+    "1"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "0.25×4 = ？",
+   "options": [
+    "1",
+    "0.1",
+    "10",
+    "100"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "1.25×8 = ？",
+   "options": [
+    "10",
+    "1",
+    "100",
+    "0.1"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "x + 3.5 = 10，x = ？",
+   "options": [
+    "6.5",
+    "13.5",
+    "7.5",
+    "3.5"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "x - 4 = 12，x = ？",
+   "options": [
+    "16",
+    "8",
+    "3",
+    "48"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "3x = 27，x = ？",
+   "options": [
+    "9",
+    "24",
+    "30",
+    "81"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "x÷5 = 8，x = ？",
+   "options": [
+    "40",
+    "3",
+    "13",
+    "1.6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每支铅笔 2 元，买 x 支花了 10 元，x = ？",
+   "options": [
+    "5",
+    "8",
+    "12",
+    "20"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数减 6 等于 14，这个数是多少？",
+   "options": [
+    "20",
+    "8",
+    "14",
+    "6"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "每本笔记本 x 元，买 5 本一共花了 15 元，每本多少元？",
+   "options": [
+    "3 元",
+    "5 元",
+    "10 元",
+    "20 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "方程 2x - 1 = 9 的解是多少？",
+   "options": [
+    "x = 5",
+    "x = 4",
+    "x = 10",
+    "x = 16"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "x - 2.5 = 5，x = ？",
+   "options": [
+    "7.5",
+    "2.5",
+    "3.5",
+    "10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6x = 4.2，x = ？",
+   "options": [
+    "0.7",
+    "7",
+    "1.2",
+    "0.6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "平行四边形的底是 6 米，高是 4 米，面积是多少平方米？",
+   "options": [
+    "24 平方米",
+    "10 平方米",
+    "20 平方米",
+    "36 平方米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "三角形的底是 8 厘米，高是 5 厘米，面积是多少平方厘米？",
+   "options": [
+    "20 平方厘米",
+    "40 平方厘米",
+    "13 平方厘米",
+    "16 平方厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "梯形的上底是 4 厘米，下底是 6 厘米，高是 5 厘米，面积是多少平方厘米？",
+   "options": [
+    "25 平方厘米",
+    "50 平方厘米",
+    "10 平方厘米",
+    "24 平方厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个平行四边形的面积是 36 平方米，底是 9 米，高是多少米？",
+   "options": [
+    "4 米",
+    "27 米",
+    "324 米",
+    "6 米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "两个完全一样的三角形一定可以拼成一个（　）。",
+   "options": [
+    "平行四边形",
+    "长方形",
+    "正方形",
+    "梯形"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "等底等高的三角形面积是平行四边形面积的（　）。",
+   "options": [
+    "一半",
+    "2 倍",
+    "4 倍",
+    "一样大"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个三角形的面积是 15 平方厘米，底是 6 厘米，高是多少厘米？",
+   "options": [
+    "5 厘米",
+    "2.5 厘米",
+    "3 厘米",
+    "10 厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一块平行四边形菜地，底 20 米，高 10 米，面积是多少平方米？",
+   "options": [
+    "200 平方米",
+    "30 平方米",
+    "100 平方米",
+    "400 平方米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个梯形的上底 10 厘米、下底 10 厘米、高 6 厘米，面积是多少平方厘米？",
+   "options": [
+    "60 平方厘米",
+    "30 平方厘米",
+    "120 平方厘米",
+    "36 平方厘米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "平行四边形的高不变，底扩大到原来的 2 倍，面积（　）。",
+   "options": [
+    "扩大到原来的 2 倍",
+    "不变",
+    "扩大到原来的 4 倍",
+    "缩小到原来的一半"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个三角形的底不变，高扩大到原来的 3 倍，面积（　）。",
+   "options": [
+    "扩大到原来的 3 倍",
+    "不变",
+    "扩大到原来的 6 倍",
+    "缩小到原来的三分之一"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个平行四边形框架拉成长方形后（周长不变），面积（　）。",
+   "options": [
+    "变大",
+    "不变",
+    "变小",
+    "无法确定"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "两个完全一样的梯形一定可以拼成一个（　）。",
+   "options": [
+    "平行四边形",
+    "长方形",
+    "正方形",
+    "三角形"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12 的因数有（　）。",
+   "options": [
+    "1、2、3、4、6、12",
+    "1、2、4、8",
+    "1、3、6、12",
+    "2、3、6"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪个是 6 的倍数？",
+   "options": [
+    "18",
+    "8",
+    "3",
+    "20"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "4 和 6 的最小公倍数是多少？",
+   "options": [
+    "12",
+    "24",
+    "2",
+    "8"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "12 和 18 的最大公因数是多少？",
+   "options": [
+    "6",
+    "3",
+    "2",
+    "36"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪个数是 3 的倍数？",
+   "options": [
+    "123",
+    "124",
+    "125",
+    "122"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一个数只有 1 和它本身两个因数，这个数叫（　）。",
+   "options": [
+    "质数",
+    "合数",
+    "偶数",
+    "奇数"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪个数是质数？",
+   "options": [
+    "7",
+    "9",
+    "15",
+    "21"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "下面哪个数是偶数？",
+   "options": [
+    "26",
+    "27",
+    "29",
+    "31"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "两个连续偶数的和是 26，这两个数分别是（　）。",
+   "options": [
+    "12 和 14",
+    "10 和 16",
+    "13 和 13",
+    "11 和 15"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "20 的所有因数中最大的是（　）。",
+   "options": [
+    "10",
+    "20",
+    "2",
+    "5"
+   ],
+   "answer": "B",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "24 的因数一共有（　）个。",
+   "options": [
+    "8 个",
+    "6 个",
+    "7 个",
+    "10 个"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "6 和 9 的最大公因数是多少？",
+   "options": [
+    "3",
+    "6",
+    "9",
+    "18"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "5 的倍数的末位数字可能是（　）。",
+   "options": [
+    "0 或 5",
+    "只能是 5",
+    "只能是 0",
+    "任何数字"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "三个连续偶数的和是 36，其中最大的一个是（　）。",
+   "options": [
+    "14",
+    "12",
+    "16",
+    "10"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一支钢笔 8.5 元，一支圆珠笔 2.5 元，钢笔比圆珠笔贵多少元？",
+   "options": [
+    "6 元",
+    "11 元",
+    "5.5 元",
+    "7 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "妈妈买了 3 千克苹果，每千克 4.5 元，一共要付多少元？",
+   "options": [
+    "13.5 元",
+    "7.5 元",
+    "12.5 元",
+    "14.5 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "小丽有 24 元，是小刚的 3 倍，小刚有多少元？",
+   "options": [
+    "8 元",
+    "72 元",
+    "6 元",
+    "12 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一间教室长 8.4 米，宽 5 米，教室的面积是多少平方米？",
+   "options": [
+    "42 平方米",
+    "13.4 平方米",
+    "40 平方米",
+    "26.4 平方米"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "choice",
+   "content": "一支圆珠笔 2.5 元，买 4 支要多少元？",
+   "options": [
+    "10 元",
+    "2.5 元",
+    "8 元",
+    "5 元"
+   ],
+   "answer": "A",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "0.7 + 0.3 = ____。",
+   "options": null,
+   "answer": "1",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "2.5 + 1.5 = ____。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5.6 - 2.1 = ____。",
+   "options": null,
+   "answer": "3.5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8 - 3.5 = ____。",
+   "options": null,
+   "answer": "4.5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1.25×8 = ____。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "0.4×5 = ____。",
+   "options": null,
+   "answer": "2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "9.9÷9 = ____。",
+   "options": null,
+   "answer": "1.1",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3.6÷4 = ____。",
+   "options": null,
+   "answer": "0.9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1.5×2 = ____。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "0.25×4 = ____。",
+   "options": null,
+   "answer": "1",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "x + 8 = 15，x = ____。",
+   "options": null,
+   "answer": "7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "x - 6 = 9，x = ____。",
+   "options": null,
+   "answer": "15",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5x = 45，x = ____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "x÷3 = 7，x = ____。",
+   "options": null,
+   "answer": "21",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4x - 2 = 18，x = ____。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "平行四边形的底是 8 米，高是 5 米，面积是____平方米。",
+   "options": null,
+   "answer": "40",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "三角形的底是 6 厘米，高是 4 厘米，面积是____平方厘米。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "梯形的上底 3 厘米、下底 7 厘米、高 4 厘米，面积是____平方厘米。",
+   "options": null,
+   "answer": "20",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个平行四边形的面积是 60 平方分米，底是 12 分米，高是____分米。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个三角形的面积是 24 平方厘米，底是 8 厘米，高是____厘米。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "12 的因数有 1、2、3、4、6、____。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "8 和 12 的最大公因数是____。",
+   "options": null,
+   "answer": "4",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "6 和 8 的最小公倍数是____。",
+   "options": null,
+   "answer": "24",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "9 的最大因数是____。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "最小的质数是____。",
+   "options": null,
+   "answer": "2",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "15、18、21 三个数都是____的倍数。",
+   "options": null,
+   "answer": "3",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一支钢笔 8.5 元，一支笔芯 0.5 元，钢笔比笔芯贵____元。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "买 2.5 千克香蕉，每千克 4 元，一共要付____元。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一根 3.5 米的绳子比 5 米的绳子短____米。",
+   "options": null,
+   "answer": "1.5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "1.5 小时 = ____ 分钟。",
+   "options": null,
+   "answer": "90",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "0.05 米 = ____ 厘米。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4.06 中的“6”表示 6 个____。",
+   "options": null,
+   "answer": "0.01",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "10 个 0.01 是____。",
+   "options": null,
+   "answer": "0.1",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一间教室长 8.4 米、宽 5 米，面积是____平方米。",
+   "options": null,
+   "answer": "42",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一本练习本 1.8 元，买 5 本要____元。",
+   "options": null,
+   "answer": "9",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "20 元买了 2 支 4.5 元的笔，还剩____元。",
+   "options": null,
+   "answer": "11",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "两个数的和是 12.5，其中一个数是 4.8，另一个数是____。",
+   "options": null,
+   "answer": "7.7",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "100 个 0.01 是____。",
+   "options": null,
+   "answer": "1",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个数乘 4 得 10，这个数是____。",
+   "options": null,
+   "answer": "2.5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "20 减去 x 等于 8，x = ____。",
+   "options": null,
+   "answer": "12",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "3x + 2 = 17，x = ____。",
+   "options": null,
+   "answer": "5",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个三角形的面积是 30 平方厘米，高是 6 厘米，底是____厘米。",
+   "options": null,
+   "answer": "10",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一个梯形的面积是 45 平方厘米，上底 5 厘米、下底 10 厘米，高是____厘米。",
+   "options": null,
+   "answer": "6",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "16 和 24 的最大公因数是____。",
+   "options": null,
+   "answer": "8",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "5 和 7 的最小公倍数是____。",
+   "options": null,
+   "answer": "35",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "4.9、5.01、5.1 三个数中最接近 5 的是____。",
+   "options": null,
+   "answer": "5.01",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "妈妈买了 1.2 千克糖，每千克 15 元，一共花了____元。",
+   "options": null,
+   "answer": "18",
+   "difficulty": 1
+  },
+  {
+   "subject": "math",
+   "type": "fill",
+   "content": "一辆汽车 0.5 小时行驶 40 千米，照这样的速度，1 小时行驶____千米。",
+   "options": null,
+   "answer": "80",
+   "difficulty": 1
+  }
+ ]
+}

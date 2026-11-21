@@ -1,7 +1,7 @@
 # AntiAddiction（学习守护 APP）架构评审与任务分解
 
 > 评审人：高见远（Architect）｜范围：已实现的代码库（稳定 + 加固 + 增强路线图）
-> 目标设备：华为 nova7 se 5G｜compileSdk/targetSdk=34，minSdk=24
+> 目标设备：华为 <phone-model>｜compileSdk/targetSdk=34，minSdk=24
 > 技术栈：Kotlin 1.9.20 + Jetpack（Room 2.6.1、Coroutines 1.7.3、AndroidX Startup 1.1.1、ViewBinding、Material 1.11.0）
 
 > 说明：本评审所有 12 条疑点均已**亲自读源码核对**（路径 `app/src/main/java/com/antidip/` 及 `app/build.gradle.kts`、`AndroidManifest.xml`、`README.md`）。核对结论在每一条中标注「已核实」。新增发现以「★ 新发现」标出。
@@ -327,7 +327,7 @@ sequenceDiagram
 | A8 | 不回归 2-a 状态机 / START_STICKY 重弹 / M1 窗口起点 / B1 无双重累加 / 家长退出 2h / B14 / 空库兜底 | JVM 单测 + 真机 |
 | A9 | 覆盖安装走华为三道确认后功能可用 | 真机 |
 
-### 9.5 真机验收结果（2026-11-08，CDY-AN00 / API 29）
+### 9.5 真机验收结果（2026-11-08，<device-model> / API 29）
 
 新 APK md5 `1bf8645c078244acce7fbcae76652dfb`（设备上 `base.apk` md5 完全一致，`lastUpdateTime=2026-11-08 17:20:09`）；构建 `./gradlew testDebugUnitTest assembleDebug --offline` 一次通过，**114 tests / 0 failures / 0 errors**。
 

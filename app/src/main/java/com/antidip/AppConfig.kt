@@ -2,6 +2,7 @@ package com.antidip
 
 import android.content.Context
 import android.content.Intent
+import com.antidip.UrlValidator
 
 /**
  * Single source of truth for the parent-console configuration (2-c, C1).

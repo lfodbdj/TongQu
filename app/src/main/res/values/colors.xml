@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- V2.0 童趣 child-friendly palette: warm orange + sky blue -->
-    <color name="primary">#FF7043</color>
-    <color name="primary_dark">#F4511E</color>
-    <color name="primary_light">#FFE0B2</color>
-    <color name="accent">#039BE5</color>
-    <color name="error">#E53935</color>
-    <color name="warning">#FFC107</color>
-    <color name="success">#43A047</color>
-    <color name="background">#FFF8E1</color>
+    <!-- V2.2 浅色主题（用户要求：浅底深字，替换原深黑底）：
+         米白背景 + 纯白卡片 + 深绿强调 + 亮绿渐变按钮保留（深字） -->
+    <color name="primary">#3E9B1E</color>
+    <color name="primary_dark">#39862E</color>
+    <color name="primary_light">#FFFFFF</color>
+    <color name="accent">#3E9B1E</color>
+    <color name="error">#D32F2F</color>
+    <color name="warning">#F59E00</color>
+    <color name="success">#3E9B1E</color>
+    <color name="background">#F6F7F2</color>
     <color name="surface">#FFFFFF</color>
-    <color name="on_primary">#FFFFFF</color>
-    <color name="on_background">#37474F</color>
-    <color name="on_surface">#37474F</color>
-    <color name="text_secondary">#78909C</color>
-    <color name="locked_background">#263238</color>
-    <color name="locked_text">#FFFFFF</color>
+    <color name="on_primary">#121212</color>
+    <color name="on_background">#1F1F1F</color>
+    <color name="on_surface">#1F1F1F</color>
+    <color name="text_secondary">#6E6E6E</color>
+    <color name="locked_background">#FFF8E1</color>
+    <color name="locked_text">#3F3F3F</color>
     <color name="overlay_dim">#E6000000</color>
-    <color name="correct_bg">#C8E6C9</color>
-    <color name="wrong_bg">#FFCDD2</color>
+    <color name="correct_bg">#E0F3CF</color>
+    <color name="wrong_bg">#FADEDE</color>
+    <color name="divider">#E8E8E4</color>
+    <color name="banner_grad_start">#39862E</color>
+    <color name="banner_grad_mid">#94D411</color>
+    <color name="banner_grad_end">#FFB400</color>
+    <color name="btn_grad_start">#9BEA00</color>
+    <color name="btn_grad_end">#B3EE00</color>
+    <color name="lock_orange">#EA6900</color>
 </resources>

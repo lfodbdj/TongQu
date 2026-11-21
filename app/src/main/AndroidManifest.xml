@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -58,35 +58,41 @@
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout|smallestScreenSize|uiMode|fontScale|density"
             tools:ignore="ConfigChanges" />
 
-        <!-- V2.0 童趣 growth screen (child-facing, read-only). Not exported. -->
+
+
+        <!-- V2.2: 童趣 growth screen is now the LAUNCHER — the app opens
+             directly into the child-friendly KEEP-style home. -->
         <activity
             android:name=".ui.GrowthActivity"
-            android:exported="false"
-            android:theme="@style/Theme.AntiAddiction" />
+            android:exported="true"
+            android:theme="@style/Theme.AntiAddiction.Growth">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!-- V2.1 主动答题: voluntary practice, decoupled from the forced-quiz
              pipeline (no service state, no media mute, no lock task). -->
         <activity
             android:name=".ui.PracticeActivity"
             android:exported="false"
-            android:theme="@style/Theme.AntiAddiction" />
+            android:theme="@style/Theme.AntiAddiction.Growth" />
 
         <!-- Parent console: no intent-filter and NOT exported. Every onResume
              re-runs the parent password gate (batch 2-c). -->
         <activity
             android:name=".ui.ConsoleActivity"
             android:exported="false"
-            android:theme="@style/Theme.AntiAddiction" />
+            android:theme="@style/Theme.AntiAddiction.Growth" />
 
+        <!-- Settings (parent): entered from the growth home header; all
+             management features (quiz update, permissions, parent console,
+             service, lock screen, version) live here. -->
         <activity
             android:name=".ui.SettingsActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AntiAddiction">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"
+            android:theme="@style/Theme.AntiAddiction.Growth" />
 
         <receiver
             android:name=".BootReceiver"
@@ -95,6 +101,17 @@
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 2026-11-21: 覆盖安装后自动重启守护服务（MY_PACKAGE_REPLACED 是
+             受保护广播，仅系统可发；exported=false 即可收到）。修复"装完
+             新版服务被杀且不弹题"的问题。 -->
+        <receiver
+            android:name=".AppUpdateReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
 
@@ -113,6 +130,27 @@
                 <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
             </intent-filter>
         </receiver>
+
+        <!-- V2.2: notification-listener stub — its "notification access" grant
+             unlocks MediaSessionManager.getActiveSessions so MediaPauseHelper
+             can PAUSE background players during a quiz. Parent grants it once
+             from the settings page. -->
+        <service
+            android:name=".MediaSessionPauseService"
+            android:exported="true"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- V2.2: persisted keepalive job — reboot-surviving fallback that
+             restarts the foreground service if an OEM autostart manager
+             suppressed the BOOT_COMPLETED start. -->
+        <service
+            android:name=".KeepAliveJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
             android:name=".ScreenMonitorService"

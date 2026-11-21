@@ -49,15 +49,17 @@ class QuizActivity : AppCompatActivity() {
     // CORRECT result and the service timer would never restart (defect M2).
     private var terminalOutcomeSent = false
 
+    /** AI 判分进行中（防止重复提交，2026-11-21）。 */
+    private var aiJudging = false
+
     // Batch 2-b (A10): id of the question that was actually submitted. The
     // engine moves currentQuestionIndex on NextQuestion / NeedsNextQuestion,
     // so getCurrentQuestion() cannot be used for B14 bookkeeping afterwards.
     private var lastSubmittedQuestionId: Long? = null
 
-    // V2.0 (requirement 2026-11-10): fill-in submissions must be at least one
-    // minute apart. Per-activity-instance state; a rebuilt quiz restarts the
-    // question anyway.
-    private var lastFillSubmitMs: Long = 0L
+    // 2026-11-21: 原填空 60 秒节流被统一的 30 秒重试间隔取代（用户要求，
+    // 见 Constants.RETRY_INTERVAL_MS）。第 2/3 次作答解锁时间戳。
+    private var retryBlockUntil: Long = 0L
 
     /** V2.0: attempts-left before the last submit (1 = third wrong answer). */
     private var lastSubmitAttemptsBefore: Int = 0
@@ -75,8 +77,8 @@ class QuizActivity : AppCompatActivity() {
         const val TAG = "QuizActivity"
         private const val KEY_SHOW_WHEN_LOCKED = "show_when_locked"
 
-        /** V2.0: minimum interval between two fill-in submissions (1 minute). */
-        private const val FILL_SUBMIT_INTERVAL_MS = 60_000L
+        // 2026-11-21: FILL_SUBMIT_INTERVAL_MS（填空 60 秒节流）被统一的
+        // Constants.RETRY_INTERVAL_MS（第 2/3 次作答间隔 30 秒）取代。
 
         // Batch 3 (A12): in-round state, so a rebuilt Activity (process death
         // while backgrounded) continues the SAME question with the SAME
@@ -279,13 +281,17 @@ class QuizActivity : AppCompatActivity() {
         binding.tvFeedback.visibility = View.GONE
         binding.layoutLocked.visibility = View.GONE
         binding.cardQuiz.visibility = View.VISIBLE
+        // 新题首答不受 30 秒重试锁限制。
+        retryBlockUntil = 0L
 
         lifecycleScope.launch {
             // A04: an empty/exhausted bank must never release the child. The
             // manager returns an in-memory fallback question (id = 0) when the
             // database cannot supply one, so the quiz always continues.
+            // AI 未配置时开放题（type='open'）从题库屏蔽（2026-11-21）。
             val question = questionBankManager.getRandomQuestionOrFallback(
-                AppConfig.getSelectedGrade(this@QuizActivity)
+                AppConfig.getSelectedGrade(this@QuizActivity),
+                includeOpen = com.antidip.AiJudge.loadConfig(this@QuizActivity) != null
             )
             quizEngine.startRound(question)
             displayQuestion()
@@ -314,15 +320,23 @@ class QuizActivity : AppCompatActivity() {
                         id = View.generateViewId()
                         tag = labels.getOrElse(index) { "$index" }
                         textSize = 16f
+                        // 显式深字 + 深绿选择圈（浅色主题统一）。
+                        setTextColor(getColor(R.color.on_surface))
+                        buttonTintList = android.content.res.ColorStateList.valueOf(
+                            getColor(R.color.accent)
+                        )
                         setPadding(8, 16, 8, 16)
                     }
                     binding.rgOptions.addView(rb)
                 }
             }
-            "fill" -> {
+            "fill", "open" -> {
                 binding.rgOptions.visibility = View.GONE
                 binding.tilFillAnswer.visibility = View.VISIBLE
                 binding.etFillAnswer.text?.clear()
+                binding.etFillAnswer.hint = getString(
+                    if (question.type == "open") R.string.open_hint else R.string.fill_hint
+                )
             }
         }
 
@@ -368,7 +382,7 @@ class QuizActivity : AppCompatActivity() {
                 val selectedRb = findViewById<RadioButton>(selectedId)
                 selectedRb.tag?.toString() ?: ""
             }
-            "fill" -> {
+            "fill", "open" -> {
                 binding.etFillAnswer.text?.toString()?.trim() ?: ""
             }
             else -> ""
@@ -379,19 +393,79 @@ class QuizActivity : AppCompatActivity() {
             return
         }
 
-        // V2.0: fill-in submissions must be at least one minute apart.
-        if (question.type == "fill") {
-            val now = System.currentTimeMillis()
-            val since = now - lastFillSubmitMs
-            if (lastFillSubmitMs > 0 && since < FILL_SUBMIT_INTERVAL_MS) {
-                val remainSec = ((FILL_SUBMIT_INTERVAL_MS - since) / 1000).toInt() + 1
+        // 开放式题（无标准答案，2026-11-21）：判分完全交给 AI（与悬浮窗
+        // 同一套三态处理）；AI 不可用 → 本题不计分，原地重试。
+        if (question.type == "open") {
+            if (aiJudging) return
+            aiJudging = true
+            binding.btnSubmit.isEnabled = false
+            binding.tvFeedback.visibility = View.VISIBLE
+            binding.tvFeedback.text = getString(R.string.ai_judging)
+            lifecycleScope.launch {
+                val aiOk = try {
+                    com.antidip.AiJudge.judgeOpen(this@QuizActivity, question, userAnswer)
+                } catch (e: Exception) {
+                    null
+                }
+                aiJudging = false
+                binding.btnSubmit.isEnabled = true
+                if (aiOk == null) {
+                    binding.tvFeedback.visibility = View.GONE
+                    binding.etFillAnswer.text?.clear()
+                    Toast.makeText(
+                        this@QuizActivity,
+                        "AI 判分暂时不可用，本题不计分，请稍后再试",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    return@launch
+                }
+                lastSubmittedQuestionId = question.id
+                lastSubmittedQuestion = question
+                lastSubmitAttemptsBefore = quizEngine.currentAttemptsLeft
+                handleAnswerResult(quizEngine.submitOpenAnswer(aiOk))
+            }
+            return
+        }
+
+        // 每题 3 次机会，第 2/3 次作答需间隔 30 秒（用户要求 2026-11-21）。
+        if (quizEngine.currentAttemptsLeft < Constants.MAX_ATTEMPTS) {
+            val remain = retryBlockUntil - System.currentTimeMillis()
+            if (remain > 0) {
                 Toast.makeText(
-                    this, getString(R.string.fill_submit_throttle, remainSec),
+                    this,
+                    getString(R.string.retry_wait_fmt, ((remain + 999) / 1000).toInt()),
                     Toast.LENGTH_LONG
                 ).show()
                 return
             }
-            lastFillSubmitMs = now
+        }
+
+        // AI 判题（V2.2，2026-11-21）：填空答案与标准答案字面不一致时先问 AI
+        // 语义是否等价；fail-closed，未启用/失败按原答案提交。
+        if (question.type == "fill" &&
+            userAnswer != question.answer.trim() &&
+            com.antidip.AiJudge.loadConfig(this) != null
+        ) {
+            if (aiJudging) return
+            aiJudging = true
+            binding.btnSubmit.isEnabled = false
+            binding.tvFeedback.visibility = View.VISIBLE
+            binding.tvFeedback.text = getString(R.string.ai_judging)
+            lifecycleScope.launch {
+                val aiOk = try {
+                    com.antidip.AiJudge.judgeFill(this@QuizActivity, question, userAnswer)
+                } catch (e: Exception) {
+                    null
+                }
+                aiJudging = false
+                binding.btnSubmit.isEnabled = true
+                lastSubmittedQuestionId = question.id
+                lastSubmittedQuestion = question
+                lastSubmitAttemptsBefore = quizEngine.currentAttemptsLeft
+                val finalAnswer = if (aiOk == true) question.answer.trim() else userAnswer
+                handleAnswerResult(quizEngine.submitAnswer(finalAnswer))
+            }
+            return
         }
 
         // A10: record the id BEFORE submitAnswer() may advance
@@ -399,6 +473,7 @@ class QuizActivity : AppCompatActivity() {
         lastSubmittedQuestionId = question.id
         lastSubmittedQuestion = question
         lastSubmitAttemptsBefore = quizEngine.currentAttemptsLeft
+
         val result = quizEngine.submitAnswer(userAnswer)
         handleAnswerResult(result)
     }
@@ -420,11 +495,18 @@ class QuizActivity : AppCompatActivity() {
         when (result) {
             is AnswerResult.Correct -> {
                 binding.tvFeedback.visibility = View.VISIBLE
-                binding.tvFeedback.text = getString(R.string.answer_correct)
                 binding.tvFeedback.setBackgroundResource(R.color.correct_bg)
 
-                // V2.0: points (+1 choice / +2 fill), streak and medals.
-                updateProgress(isCorrect = true, isFill = lastSubmittedQuestion?.type == "fill")
+                // 每题 3 次机会（用户要求 2026-11-21）：仅首答正确计积分/连对；
+                // 第 2/3 次重试答对不加分（也不涨连对）。仍按 OUTCOME_CORRECT
+                // 结算计时。
+                val firstTry = lastSubmitAttemptsBefore >= Constants.MAX_ATTEMPTS
+                binding.tvFeedback.text = getString(
+                    if (firstTry) R.string.answer_correct else R.string.answer_correct_retry
+                )
+                if (firstTry) {
+                    updateProgress(isCorrect = true, isFill = lastSubmittedQuestion?.type == "fill")
+                }
 
                 // Persist cleared failure counter (B2) and report the terminal
                 // outcome to the service, which restarts its own timer (batch 2-a).
@@ -456,6 +538,9 @@ class QuizActivity : AppCompatActivity() {
                 binding.tvFeedback.visibility = View.VISIBLE
                 binding.tvFeedback.text = getString(R.string.answer_wrong, result.attemptsLeft)
                 binding.tvFeedback.setBackgroundResource(R.color.wrong_bg)
+
+                // 答错 → 30 秒后才可再次作答（第 2/3 次机会）。
+                retryBlockUntil = System.currentTimeMillis() + Constants.RETRY_INTERVAL_MS
 
                 // V2.0: wrong answer -> -1 point, streak reset. On the THIRD
                 // wrong fill-in answer also explain + record the wrong book.
@@ -507,7 +592,8 @@ class QuizActivity : AppCompatActivity() {
                     // stays as the engine's own public API for QA coverage, but
                     // is intentionally not called from main/.
                     val nextQ = questionBankManager.getRandomQuestionOrFallback(
-                        AppConfig.getSelectedGrade(this@QuizActivity)
+                        AppConfig.getSelectedGrade(this@QuizActivity),
+                        includeOpen = com.antidip.AiJudge.loadConfig(this@QuizActivity) != null
                     )
                     quizEngine.addQuestion(nextQ)
                     displayQuestion()
@@ -567,7 +653,8 @@ class QuizActivity : AppCompatActivity() {
             setLockScreenVisibilityCompat(false)
             val locked = DeviceLockHelper.lockNow(this)
             if (!locked) {
-                // M5: device admin is inactive (e.g. CDY-AN00), so the screen
+                // M5: device admin is inactive (common on non-owner devices),
+                // so the screen
                 // was NOT actually locked. Leaving SHOW/TURN/KEEP cleared would
                 // hide the penalty overlay for the full 600s with no way back.
                 // Roll back immediately: keep the quiz visible and let the
@@ -658,7 +745,11 @@ class QuizActivity : AppCompatActivity() {
                 this@QuizActivity,
                 com.antidip.ProgressRules.WrongEntry(
                     content = question.content,
-                    answer = question.answer,
+                    // 2026-11-21（用户要求）：选择题写"结果"（选项内容）而非字母。
+                    answer = com.antidip.ProgressRules.answerResultText(
+                        question.answer,
+                        question.options?.split("|") ?: emptyList()
+                    ),
                     subject = question.subject,
                     grade = question.grade,
                     wrongCount = 1,
@@ -694,8 +785,12 @@ class QuizActivity : AppCompatActivity() {
         lockTimer?.cancel()
         // Batch 2-b (A21): drop any pending auto-finish callback.
         autoFinishHandler.removeCallbacks(autoFinishRunnable)
-        // V2.0: release the media mute.
-        com.antidip.MediaPauseHelper.resume(this)
+        // V2.0: release the media mute — only when THIS surface owns it (the
+        // overlay may be the active muter; a stale QuizActivity onDestroy must
+        // not clear the overlay's mute state, V2.2 device finding).
+        if (com.antidip.MediaPauseHelper.isMuting()) {
+            com.antidip.MediaPauseHelper.resume(this)
+        }
         // Batch 2-a last-resort unblock: Home / process death / any finish()
         // that did not already report a terminal outcome must never leave the
         // service stuck in WAITING_QUIZ_RESULT. Configuration changes recreate

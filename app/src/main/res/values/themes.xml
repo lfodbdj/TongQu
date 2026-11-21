@@ -13,4 +13,12 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    <!-- V2.2: growth home — no title bar (APP 打开首页不显示"童趣") -->
+    <style name="Theme.AntiAddiction.Growth" parent="Theme.AntiAddiction">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
 </resources>
