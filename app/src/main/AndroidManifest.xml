@@ -16,6 +16,11 @@
          FLAG_KEEP_SCREEN_ON is likewise no longer used anywhere. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <!-- V2.3 拍照录题：仅拍照时需要相机，声明为可选（无相机设备仍可装）。 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
     <!-- Signature|privileged permission; only AppOps MODE_ALLOWED matters at runtime.
          Needed for the parent console "exempt apps" foreground detection (2-c). -->
     <uses-permission
@@ -76,6 +81,13 @@
              pipeline (no service state, no media mute, no lock task). -->
         <activity
             android:name=".ui.PracticeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AntiAddiction.Growth" />
+
+        <!-- V2.3 拍照录题：家长从控制台进入，拍照（系统相机）+ AI 识别后入库。
+             不导出；拍照由系统相机应用完成，本应用无需 CAMERA 权限。 -->
+        <activity
+            android:name=".ui.PhotoQuizActivity"
             android:exported="false"
             android:theme="@style/Theme.AntiAddiction.Growth" />
 
@@ -169,6 +181,17 @@
             <meta-data
                 android:name="com.antidip.AppInitializer"
                 android:value="androidx.startup" />
+        </provider>
+
+        <!-- V2.3 拍照录题：临时题目图片通过 FileProvider 交给系统相机写入。 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
 
     </application>

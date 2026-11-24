@@ -58,6 +58,12 @@ class PracticeActivity : AppCompatActivity() {
     private var focusGrade = 0
     private var focusPending = false
 
+    /**
+     * V2.3（用户要求 2026-11-24）：退出重进保持原题。当 [resumingPending] 为 true
+     * 时，当前题是上次退出未作答/未推进恢复出来的，必须作答后才能推进（不可跳过）。
+     */
+    private var resumingPending = false
+
     private fun dp(v: Int): Int = (resources.displayMetrics.density * v).toInt()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,11 +72,57 @@ class PracticeActivity : AppCompatActivity() {
 
         focusContent = intent.getStringExtra("focus_content")
         focusGrade = intent.getIntExtra("focus_grade", 0)
-        if (!focusContent.isNullOrBlank()) {
-            totalQuestions = 1
-            focusPending = true
-        }
 
+        lifecycleScope.launch {
+            // V2.3（用户要求 2026-11-24）：恢复上次未完成的练习会话——
+            // 退出时若当前题未作答/未推进，则其 id 存于 practice_pending_id；
+            // 再次进入时优先恢复同一道题（保持原题），并恢复已作答题数/答对数/总数。
+            val pendingId = ProgressStore.getPracticePending(this@PracticeActivity)
+            val savedAnswered = ProgressStore.getPracticeAnswered(this@PracticeActivity)
+            val savedCorrect = ProgressStore.getPracticeCorrect(this@PracticeActivity)
+            val savedTotal = ProgressStore.getPracticeTotal(this@PracticeActivity)
+            val savedIsFocus = ProgressStore.getPracticeIsFocus(this@PracticeActivity)
+
+            when {
+                // 本次 intent 明确指定了"错题重做"（内容+年级）→ 单题重做模式。
+                !focusContent.isNullOrBlank() -> {
+                    totalQuestions = 1
+                    focusPending = true
+                    focusContentToRestore = focusContent
+                    focusGradeToRestore = focusGrade
+                }
+                // 退出时处于重做模式且未作答 → 按保存的焦点题 id 恢复同一题。
+                savedIsFocus && pendingId > 0L -> {
+                    totalQuestions = 1
+                    focusPending = true
+                    focusIdToRestore = pendingId
+                }
+                // 退出时处于普通模式且当前题未作答 → 恢复同一道题与进度。
+                pendingId > 0L -> {
+                    totalQuestions = savedTotal.coerceAtLeast(1)
+                    answeredCount = savedAnswered.coerceIn(0, totalQuestions)
+                    correctCount = savedCorrect.coerceIn(0, totalQuestions)
+                    pendingIdToRestore = pendingId
+                    resumingPending = true
+                }
+                // 全新会话。
+                else -> {
+                    totalQuestions = PRACTICE_LENGTH
+                }
+            }
+            buildUi()
+            nextQuestion()
+        }
+    }
+
+    // 会话恢复用字段（lifecycleScope 内赋值，buildUi/nextQuestion 读取）。
+    private var focusContentToRestore: String? = null
+    private var focusGradeToRestore = 0
+    private var focusIdToRestore: Long? = null
+    private var pendingIdToRestore: Long? = null
+
+    /** 构建练习界面（从 onCreate 抽出，便于先恢复会话再渲染）。 */
+    private fun buildUi() {
         val root = ScrollView(this).apply { setBackgroundColor(getColor(R.color.background)) }
         box = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -108,7 +160,7 @@ class PracticeActivity : AppCompatActivity() {
         }
         box.addView(feedbackLabel, margin(10))
         actionButton = Button(this).apply {
-            text = getString(R.string.practice_next)
+            text = getString(R.string.btn_submit)
             styleLime()
         }
         box.addView(actionButton, margin(16))
@@ -119,7 +171,6 @@ class PracticeActivity : AppCompatActivity() {
         }, margin(6))
 
         actionButton.setOnClickListener { onAction() }
-        nextQuestion()
     }
 
     /** Kawaii gradient banner with the fox mascot (mockup growth banner). */
@@ -183,23 +234,54 @@ class PracticeActivity : AppCompatActivity() {
         feedbackLabel.visibility = android.view.View.GONE
         actionButton.text = getString(R.string.btn_submit)
         lifecycleScope.launch {
-            currentQuestion = if (focusPending) {
-                // 错题"重做这道题"：按内容+年级找回原题；找不到退回随机题。
-                focusPending = false
-                val q = focusContent?.let {
-                    bankManager.getQuestionByContentGrade(it, focusGrade)
+            currentQuestion = when {
+                // V2.3：恢复上次退出未作答的同一道题（普通模式）——保持原题。
+                pendingIdToRestore != null -> {
+                    val id = pendingIdToRestore!!
+                    pendingIdToRestore = null
+                    bankManager.getQuestionById(id) ?: run {
+                        // 原题已从题库移除（如已掌握）→ 退回随机题。
+                        bankManager.getRandomQuestionOrFallback(
+                            AppConfig.getSelectedGrade(this@PracticeActivity),
+                            includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
+                        )
+                    }
                 }
-                if (q == null) {
-                    Toast.makeText(this@PracticeActivity, R.string.redo_not_found, Toast.LENGTH_SHORT).show()
-                    bankManager.getRandomQuestionOrFallback(
-                        AppConfig.getSelectedGrade(this@PracticeActivity),
-                        includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
-                    )
-                } else {
-                    q
+                // V2.3：恢复重做模式（按保存的焦点题 id）。
+                focusIdToRestore != null -> {
+                    val id = focusIdToRestore!!
+                    focusIdToRestore = null
+                    bankManager.getQuestionById(id) ?: run {
+                        Toast.makeText(
+                            this@PracticeActivity, R.string.redo_not_found, Toast.LENGTH_SHORT
+                        ).show()
+                        bankManager.getRandomQuestionOrFallback(
+                            AppConfig.getSelectedGrade(this@PracticeActivity),
+                            includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
+                        )
+                    }
                 }
-            } else {
-                bankManager.getRandomQuestionOrFallback(
+                // 本次进入时的"错题重做"（按内容+年级找回原题）。
+                focusPending || focusContentToRestore != null -> {
+                    focusPending = false
+                    val content = focusContentToRestore ?: focusContent
+                    val grade = if (focusContentToRestore != null) focusGradeToRestore else focusGrade
+                    focusContentToRestore = null
+                    val q = content?.let { bankManager.getQuestionByContentGrade(it, grade) }
+                    if (q == null) {
+                        Toast.makeText(
+                            this@PracticeActivity, R.string.redo_not_found, Toast.LENGTH_SHORT
+                        ).show()
+                        bankManager.getRandomQuestionOrFallback(
+                            AppConfig.getSelectedGrade(this@PracticeActivity),
+                            includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
+                        )
+                    } else {
+                        q
+                    }
+                }
+                // 常规：随机抽题。
+                else -> bankManager.getRandomQuestionOrFallback(
                     AppConfig.getSelectedGrade(this@PracticeActivity),
                     includeOpen = com.antidip.AiJudge.loadConfig(this@PracticeActivity) != null
                 )
@@ -255,8 +337,47 @@ class PracticeActivity : AppCompatActivity() {
         if (!submitted) {
             submit(q)
         } else {
+            // V2.3：作答完毕、推进到下一题 → 清除待作答题（原题已作废）。
             answeredCount++
+            resumingPending = false
+            lifecycleScope.launch {
+                ProgressStore.clearPracticePending(this@PracticeActivity)
+                ProgressStore.savePracticeSession(
+                    this@PracticeActivity, answeredCount, correctCount,
+                    totalQuestions, isFocus = totalQuestions == 1
+                )
+            }
             nextQuestion()
+        }
+    }
+
+    /**
+     * V2.3（用户要求 2026-11-24：退出重来保持原题）：离开页面时若当前题尚未
+     * 作答（!submitted），把当前题 id 存为待作答题，下次进入时恢复同一道题。
+     * 已作答但未推进的题同样保存（保证"已出题目无法跳过"）。
+     */
+    override fun onStop() {
+        super.onStop()
+        val q = currentQuestion
+        if (!sessionOver && q != null && q.id > 0) {
+            val isFocus = totalQuestions == 1
+            val app = applicationContext
+            val answered = answeredCount
+            val correct = correctCount
+            val total = totalQuestions
+            // 用独立于生命周期的 scope 落盘：activity 即将 finish 时 lifecycleScope
+            // 会在 ON_DESTROY 被取消，导致"退出重进保持原题"失效。
+            kotlinx.coroutines.CoroutineScope(
+                kotlinx.coroutines.SupervisorJob() + kotlinx.coroutines.Dispatchers.IO
+            ).launch {
+                ProgressStore.savePracticePending(app, q.id)
+                ProgressStore.savePracticeSession(app, answered, correct, total, isFocus = isFocus)
+                if (isFocus) {
+                    ProgressStore.savePracticeFocus(app, q.id)
+                } else {
+                    ProgressStore.clearPracticeFocus(app)
+                }
+            }
         }
     }
 
@@ -310,7 +431,10 @@ class PracticeActivity : AppCompatActivity() {
                 }
             }
             val (state, newMedals) =
-                ProgressStore.applyAnswer(this@PracticeActivity, correct, q.type == "fill")
+                ProgressStore.applyAnswer(
+                    this@PracticeActivity, correct, q.type == "fill",
+                    fingerprint = ProgressRules.questionFingerprint(q.content, q.grade)
+                )
             if (correct) correctCount++
             if (!correct && q.type == "fill") {
                 ProgressStore.addWrongEntry(
@@ -367,6 +491,14 @@ class PracticeActivity : AppCompatActivity() {
         feedbackLabel.visibility = android.view.View.GONE
         progressLabel.visibility = android.view.View.GONE
         actionButton.text = getString(R.string.practice_done)
+        // V2.3：会话结束 → 清除练习会话态，下次进入开新会话。
+        lifecycleScope.launch {
+            ProgressStore.clearPracticePending(this@PracticeActivity)
+            ProgressStore.clearPracticeFocus(this@PracticeActivity)
+            ProgressStore.savePracticeSession(
+                this@PracticeActivity, 0, 0, PRACTICE_LENGTH, isFocus = false
+            )
+        }
     }
 
     private companion object {

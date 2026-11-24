@@ -121,4 +121,77 @@ class V2ProgressRulesTest {
         assertEquals("q", decoded[0].content)
         assertEquals(4, decoded[0].grade)
     }
+
+    // ===== V2.3（2026-11-24）：按题递增扣减 + 每题最多 2 次答对加分 =====
+
+    @Test
+    fun escalatingWrongDeduction_matchesOneTwoFiveTen() {
+        assertEquals(1, ProgressRules.escalatingWrongDeduction(1))
+        assertEquals(2, ProgressRules.escalatingWrongDeduction(2))
+        assertEquals(5, ProgressRules.escalatingWrongDeduction(3))
+        assertEquals(10, ProgressRules.escalatingWrongDeduction(4))
+        assertEquals(10, ProgressRules.escalatingWrongDeduction(5))
+        assertEquals(1, ProgressRules.escalatingWrongDeduction(0)) // 防御：<1 按 1
+    }
+
+    @Test
+    fun questionFingerprint_isStablePerContentAndGrade() {
+        assertEquals(
+            ProgressRules.questionFingerprint("2+2=?", 4),
+            ProgressRules.questionFingerprint("2+2=?", 4)
+        )
+        assertFalse(
+            ProgressRules.questionFingerprint("2+2=?", 4) ==
+                ProgressRules.questionFingerprint("2+2=?", 5)
+        )
+    }
+
+    /**
+     * 递增扣减：某题第 N 次答错时扣 1/2/5/10 分。
+     * 传入 fingerprint + wrongCount（答题前已累计次数）。
+     */
+    @Test
+    fun wrongAnswer_withFingerprint_escalatesDeduction() {
+        var st = ProgressRules.State(points = 100, streak = 0, bestStreak = 0, medals = emptySet())
+        val fp = ProgressRules.questionFingerprint("难题", 4)
+
+        st = ProgressRules.applyAnswer(st, isCorrect = false, isFill = false, wrongCount = 0, fingerprint = fp)
+        assertEquals(99, st.points)   // 第 1 次错 -1
+        st = ProgressRules.applyAnswer(st, isCorrect = false, isFill = false, wrongCount = 1, fingerprint = fp)
+        assertEquals(97, st.points)   // 第 2 次错 -2
+        st = ProgressRules.applyAnswer(st, isCorrect = false, isFill = false, wrongCount = 2, fingerprint = fp)
+        assertEquals(92, st.points)   // 第 3 次错 -5
+        st = ProgressRules.applyAnswer(st, isCorrect = false, isFill = false, wrongCount = 3, fingerprint = fp)
+        assertEquals(82, st.points)   // 第 4 次错 -10
+        st = ProgressRules.applyAnswer(st, isCorrect = false, isFill = false, wrongCount = 4, fingerprint = fp)
+        assertEquals(72, st.points)   // 第 5 次起仍 -10
+    }
+
+    @Test
+    fun wrongAnswer_withoutFingerprint_keepsFlatOne() {
+        val st = ProgressRules.State(points = 10, streak = 0, bestStreak = 0, medals = emptySet())
+        val after = ProgressRules.applyAnswer(st, isCorrect = false, isFill = false, wrongCount = 3)
+        assertEquals(9, after.points) // 无指纹 → 固定 -1（向后兼容）
+    }
+
+    @Test
+    fun correctAnswer_cappedAfterTwoBonuses() {
+        var st = ProgressRules.State(points = 0, streak = 0, bestStreak = 0, medals = emptySet())
+        val fp = ProgressRules.questionFingerprint("易题", 4)
+
+        st = ProgressRules.applyAnswer(st, true, isFill = false, bonusCapped = false, fingerprint = fp)
+        assertEquals(1, st.points) // 第 1 次答对 +1
+        st = ProgressRules.applyAnswer(st, true, isFill = false, bonusCapped = false, fingerprint = fp)
+        assertEquals(2, st.points) // 第 2 次答对 +1
+        st = ProgressRules.applyAnswer(st, true, isFill = false, bonusCapped = true, fingerprint = fp)
+        assertEquals(2, st.points) // 第 3 次起封顶 +0（不扣也不加）
+    }
+
+    @Test
+    fun correctFillAnswer_cappedGivesZero() {
+        val st = ProgressRules.State(points = 10, streak = 3, bestStreak = 3, medals = emptySet())
+        val after = ProgressRules.applyAnswer(st, true, isFill = true, bonusCapped = true)
+        assertEquals(10, after.points) // 封顶后填空答对也不加分
+        assertEquals(4, after.streak) // 连对仍 +1（只是不加分）
+    }
 }

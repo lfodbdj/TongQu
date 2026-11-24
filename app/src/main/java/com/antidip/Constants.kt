@@ -60,6 +60,23 @@ object Constants {
     const val KEY_AI_KEY = "ai_key"
     const val KEY_AI_MODEL = "ai_model"
 
+    // ---- V2.3 按题答题台账（用户要求 2026-11-24）：
+    //  1) 同一题累计答错次数 → 递增扣减（1/2/5/10），按内容+年级指纹持久化；
+    //  2) 同一题已获答对加分次数（question_bonus_tally）→ 满 2 次后答对只得 0 分。
+    // 两表都存在 DataStore 的 quiz_progress 中，跨进程/重装存活。
+    const val KEY_QUESTION_WRONG_COUNTS = "question_wrong_counts" // "fp|count\nfp|count"
+    const val KEY_QUESTION_BONUS_TALLY = "question_bonus_tally"   // "fp|count\nfp|count"
+
+    // ---- V2.3 主动练习会话态（用户要求 2026-11-24：已出题不可跳过 + 退出重进
+    // 保持原题）。退出练习时若当前题尚未作答，则持久化其 id；再次进入时恢复
+    // 同一道题（必须作答后才能推进）。focus 模式额外持久化焦点题 id。
+    const val KEY_PRACTICE_PENDING_ID = "practice_pending_id"   // Long, 0 = 无待作答题
+    const val KEY_PRACTICE_FOCUS_ID = "practice_focus_id"       // Long, 0 = 非重做模式
+    const val KEY_PRACTICE_ANSWERED = "practice_answered"       // Int 已作答题数
+    const val KEY_PRACTICE_CORRECT = "practice_correct"         // Int 答对数
+    const val KEY_PRACTICE_TOTAL = "practice_total"             // Int 本会话总题数
+    const val KEY_PRACTICE_IS_FOCUS = "practice_is_focus"       // Boolean 重做模式
+
     /**
      * 每题 3 次机会中的第 2/3 次作答间隔（用户要求 2026-11-21）：上一答错后
      * 锁定 30 秒；重试答对不计积分/连对（见 UI 层 lastSubmitAttemptsBefore）。

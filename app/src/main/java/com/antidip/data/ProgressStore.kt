@@ -2,12 +2,16 @@ package com.antidip.data
 
 import android.content.Context
 import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.MutablePreferences
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.antidip.Constants
 import com.antidip.ProgressRules
 import kotlinx.coroutines.flow.first
 
@@ -46,11 +50,20 @@ object ProgressStore {
      * Applies one answer atomically and persists the new state. Returns the
      * newly earned medal ids so the caller can celebrate them, and the fresh
      * state for UI refresh.
+     *
+     * V2.3（用户要求 2026-11-24）：传入 [fingerprint]（题目内容+年级指纹）时
+     * 启用按题台账——
+     *  - 答错：按本题累计答错次数递增扣减（-1/-2/-5/-10），并累加台账；
+     *  - 答对：若本题已拿满 [ProgressRules.MAX_CORRECT_BONUS_PER_QUESTION] 次加分
+     *    （封顶集合命中）则只得 0 分；否则按题型加分，并在本次为第 2 次加分时
+     *    写入封顶集合。
+     * fingerprint 为空时退回旧的固定 -1 / 按题型加分行为（兼容无题面场景）。
      */
     suspend fun applyAnswer(
         context: Context,
         isCorrect: Boolean,
-        isFill: Boolean
+        isFill: Boolean,
+        fingerprint: String? = null
     ): Pair<ProgressRules.State, List<String>> {
         var newMedals: Set<String> = emptySet()
         var newState = ProgressRules.initial()
@@ -64,7 +77,31 @@ object ProgressStore {
             // first_quiz = "has ever answered correctly": awarded once, keyed
             // off the medal set itself (not points, which can return to 0).
             val firstCorrect = isCorrect && "first_quiz" !in current.medals
-            val st = ProgressRules.applyAnswer(current, isCorrect, isFill, firstCorrect)
+
+            var wrongCount = 0
+            var bonusTally = 0
+            if (fingerprint != null) {
+                wrongCount = parseWrongCounts(prefs[WRONG_COUNTS_KEY].orEmpty())[fingerprint] ?: 0
+                bonusTally = readTally(prefs, fingerprint)
+            }
+            val bonusCapped = bonusTally >= ProgressRules.MAX_CORRECT_BONUS_PER_QUESTION
+
+            val st = ProgressRules.applyAnswer(
+                current, isCorrect, isFill, firstCorrect,
+                wrongCount = wrongCount, bonusCapped = bonusCapped, fingerprint = fingerprint
+            )
+
+            // 落台账：答错累加累计次数；答对且本次计入加分 → 累加加分次数。
+            if (fingerprint != null) {
+                if (!isCorrect) {
+                    val counts = parseWrongCounts(prefs[WRONG_COUNTS_KEY].orEmpty()).toMutableMap()
+                    counts[fingerprint] = wrongCount + 1
+                    prefs[WRONG_COUNTS_KEY] = encodeWrongCounts(counts)
+                } else if (!bonusCapped) {
+                    putTally(prefs, fingerprint, bonusTally + 1)
+                }
+            }
+
             prefs[POINTS_KEY] = st.points
             prefs[STREAK_KEY] = st.streak
             prefs[BEST_STREAK_KEY] = st.bestStreak
@@ -73,6 +110,33 @@ object ProgressStore {
             newState = st
         }
         return newState to newMedals.toList()
+    }
+
+    /**
+     * 按题"已获答对加分次数"的持久化（行格式 "fp|count"）。用于判断是否达到
+     * [ProgressRules.MAX_CORRECT_BONUS_PER_QUESTION] 次加分上限（防刷分）。
+     */
+    private val BONUS_TALLY_KEY = stringPreferencesKey("question_bonus_tally")
+
+    private fun readTally(prefs: Preferences, fingerprint: String): Int {
+        val raw = prefs[BONUS_TALLY_KEY].orEmpty()
+        for (line in raw.split("\n")) {
+            if (line.isBlank()) continue
+            val idx = line.lastIndexOf('|')
+            if (idx > 0 && line.substring(0, idx) == fingerprint) {
+                return line.substring(idx + 1).toIntOrNull() ?: 0
+            }
+        }
+        return 0
+    }
+
+    private fun putTally(prefs: MutablePreferences, fingerprint: String, count: Int) {
+        val lines = prefs[BONUS_TALLY_KEY].orEmpty()
+            .split("\n").filter { it.isNotBlank() }.toMutableList()
+        val idx = lines.indexOfFirst { it.substringBeforeLast('|') == fingerprint }
+        val entry = "$fingerprint|$count"
+        if (idx >= 0) lines[idx] = entry else lines.add(entry)
+        prefs[BONUS_TALLY_KEY] = lines.joinToString("\n")
     }
 
     suspend fun getWrongBook(context: Context): List<ProgressRules.WrongEntry> =
@@ -119,6 +183,124 @@ object ProgressStore {
     // ---------------- 积分扣减（2026-11-21：物品兑换 / 手动扣减） ----------------
 
     private val DEDUCTION_LOG_KEY = stringPreferencesKey("deduction_log")
+
+    // ---------------- V2.3 按题答题台账（2026-11-24） ----------------
+
+    private val WRONG_COUNTS_KEY = stringPreferencesKey(Constants.KEY_QUESTION_WRONG_COUNTS)
+
+    /** 读取某题累计答错次数（0 = 从未答错）。 */
+    suspend fun getWrongCount(context: Context, fingerprint: String): Int {
+        val raw = context.progressDataStore.data.first()[WRONG_COUNTS_KEY].orEmpty()
+        return parseWrongCounts(raw)[fingerprint] ?: 0
+    }
+
+    /** 递增某题累计答错次数并返回递增后的值。 */
+    suspend fun incrementWrongCount(context: Context, fingerprint: String): Int {
+        var newest = 1
+        context.progressDataStore.edit { prefs ->
+            val map = parseWrongCounts(prefs[WRONG_COUNTS_KEY].orEmpty()).toMutableMap()
+            val n = (map[fingerprint] ?: 0) + 1
+            map[fingerprint] = n
+            newest = n
+            prefs[WRONG_COUNTS_KEY] = encodeWrongCounts(map)
+        }
+        return newest
+    }
+
+    private fun parseWrongCounts(raw: String): Map<String, Int> {
+        if (raw.isBlank()) return emptyMap()
+        val out = mutableMapOf<String, Int>()
+        for (line in raw.split("\n")) {
+            if (line.isBlank()) continue
+            val idx = line.lastIndexOf('|')
+            if (idx <= 0) continue
+            val fp = line.substring(0, idx)
+            val n = line.substring(idx + 1).toIntOrNull() ?: continue
+            out[fp] = n
+        }
+        return out
+    }
+
+    private fun encodeWrongCounts(map: Map<String, Int>): String =
+        map.entries.joinToString("\n") { "${it.key}|${it.value}" }
+
+    // ---------------- V2.3 主动练习会话态（2026-11-24） ----------------
+
+    private val PRACTICE_PENDING_ID_KEY = longPreferencesKey(Constants.KEY_PRACTICE_PENDING_ID)
+    private val PRACTICE_FOCUS_ID_KEY = longPreferencesKey(Constants.KEY_PRACTICE_FOCUS_ID)
+    private val PRACTICE_ANSWERED_KEY = intPreferencesKey(Constants.KEY_PRACTICE_ANSWERED)
+    private val PRACTICE_CORRECT_KEY = intPreferencesKey(Constants.KEY_PRACTICE_CORRECT)
+    private val PRACTICE_TOTAL_KEY = intPreferencesKey(Constants.KEY_PRACTICE_TOTAL)
+    private val PRACTICE_IS_FOCUS_KEY = booleanPreferencesKey(Constants.KEY_PRACTICE_IS_FOCUS)
+
+    private const val PRACTICE_DEFAULT_TOTAL = 10
+
+    /** 退出练习时保存"待作答的当前题"id（0 = 无待作答题）。 */
+    suspend fun savePracticePending(context: Context, questionId: Long) {
+        context.progressDataStore.edit { prefs ->
+            prefs[PRACTICE_PENDING_ID_KEY] = questionId
+        }
+    }
+
+    /** 读取上次退出时未作答的当前题 id（0 = 无）。 */
+    suspend fun getPracticePending(context: Context): Long =
+        context.progressDataStore.data.first()[PRACTICE_PENDING_ID_KEY] ?: 0L
+
+    /** 清除待作答题（已作答并推进后调用）。 */
+    suspend fun clearPracticePending(context: Context) {
+        context.progressDataStore.edit { prefs -> prefs[PRACTICE_PENDING_ID_KEY] = 0L }
+    }
+
+    /** 错题重做模式的焦点题 id（0 = 非重做模式）。 */
+    suspend fun savePracticeFocus(context: Context, questionId: Long) {
+        context.progressDataStore.edit { prefs -> prefs[PRACTICE_FOCUS_ID_KEY] = questionId }
+    }
+
+    suspend fun getPracticeFocus(context: Context): Long =
+        context.progressDataStore.data.first()[PRACTICE_FOCUS_ID_KEY] ?: 0L
+
+    suspend fun clearPracticeFocus(context: Context) {
+        context.progressDataStore.edit { prefs -> prefs[PRACTICE_FOCUS_ID_KEY] = 0L }
+    }
+
+    /** 主动练习会话进度（已作答题数 / 答对数 / 总题数 / 是否重做模式）。 */
+    suspend fun savePracticeSession(
+        context: Context,
+        answered: Int,
+        correct: Int,
+        total: Int,
+        isFocus: Boolean
+    ) {
+        context.progressDataStore.edit { prefs ->
+            prefs[PRACTICE_ANSWERED_KEY] = answered
+            prefs[PRACTICE_CORRECT_KEY] = correct
+            prefs[PRACTICE_TOTAL_KEY] = total
+            prefs[PRACTICE_IS_FOCUS_KEY] = isFocus
+        }
+    }
+
+    suspend fun getPracticeAnswered(context: Context): Int =
+        context.progressDataStore.data.first()[PRACTICE_ANSWERED_KEY] ?: 0
+
+    suspend fun getPracticeCorrect(context: Context): Int =
+        context.progressDataStore.data.first()[PRACTICE_CORRECT_KEY] ?: 0
+
+    suspend fun getPracticeTotal(context: Context): Int =
+        context.progressDataStore.data.first()[PRACTICE_TOTAL_KEY] ?: PRACTICE_DEFAULT_TOTAL
+
+    suspend fun getPracticeIsFocus(context: Context): Boolean =
+        context.progressDataStore.data.first()[PRACTICE_IS_FOCUS_KEY] ?: false
+
+    /** 清除全部练习会话态（会话结束/推进到下一题时调用）。 */
+    suspend fun clearPracticeSession(context: Context) {
+        context.progressDataStore.edit { prefs ->
+            prefs[PRACTICE_PENDING_ID_KEY] = 0L
+            prefs[PRACTICE_ANSWERED_KEY] = 0
+            prefs[PRACTICE_CORRECT_KEY] = 0
+            prefs[PRACTICE_TOTAL_KEY] = PRACTICE_DEFAULT_TOTAL
+            prefs[PRACTICE_IS_FOCUS_KEY] = false
+        }
+    }
 
     /**
      * 家长扣减积分。积分不为负（实际扣减= min(amount, 当前)）；

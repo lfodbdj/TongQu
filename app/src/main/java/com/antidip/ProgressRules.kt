@@ -16,6 +16,32 @@ object ProgressRules {
     const val POINTS_FILL_CORRECT = 2
     const val POINTS_WRONG = -1
 
+    /**
+     * V2.3（用户要求 2026-11-24）：同一道题累计答对加分次数上限。一道题最多
+     * 通过 [MAX_CORRECT_BONUS_PER_QUESTION] 次「答对」获得加分；达到上限后再次
+     * 答对只得 0 分（不加分也不扣分），防止同一题反复刷分。
+     */
+    const val MAX_CORRECT_BONUS_PER_QUESTION = 2
+
+    /**
+     * V2.3（用户要求 2026-11-24）：同一道题第 N 次「答错」时的递增扣减分值。
+     * 第 1 次答错 -1、第 2 次 -2、第 3 次 -5、第 4 次及以后 -10。
+     * [wrongCount] 为本题累计答错次数（1 起算）；按「错误次数」而非「出现次数」
+     * 计（用户原话"第四次错误扣 10 分"）。累计不随答对重置。
+     */
+    fun escalatingWrongDeduction(wrongCount: Int): Int = when (wrongCount.coerceAtLeast(1)) {
+        1 -> 1
+        2 -> 2
+        3 -> 5
+        else -> 10
+    }
+
+    /**
+     * 题目的稳定指纹（按内容 + 年级），用于跨进程/重装追踪同一道题的累计答错
+     * 次数与已获加分次数。与 [QuestionBankManager] 的 mastered 指纹同义。
+     */
+    fun questionFingerprint(content: String, grade: Int): String = "$grade|${content.hashCode()}"
+
     /** Wrong-question book capacity (oldest entries dropped). */
     const val MAX_WRONG_BOOK = 200
 
@@ -97,17 +123,34 @@ object ProgressRules {
      * [firstCorrectAnswer] marks the very first correct answer ever (medal
      * first_quiz); it is a separate flag because points alone cannot express
      * it (a first answer that is wrong earns no points).
+     *
+     * V2.3（用户要求 2026-11-24）：新增按题台账参数——
+     *  - [wrongCount]：本题在本次答题前已累计答错次数（用于递增扣减，1 起算；
+     *    仅当 [isCorrect]=false 且 [fingerprint] 非空时生效）；
+     *  - [bonusCapped]：本题已拿满 [MAX_CORRECT_BONUS_PER_QUESTION] 次加分（true 时
+     *    再次答对只得 0 分，不加分也不扣分）。
+     * [fingerprint] 非空时调用方负责在调用前后读写累计答错次数 / 加分次数台账
+     * （见 [com.antidip.data.ProgressStore]）。fingerprint 为空时退回旧的"固定
+     * -1 / 按题型加分"行为，保证既有单测与无题面场景兼容。
      */
     fun applyAnswer(
         state: State,
         isCorrect: Boolean,
         isFill: Boolean,
-        firstCorrectAnswer: Boolean = false
+        firstCorrectAnswer: Boolean = false,
+        wrongCount: Int = 0,
+        bonusCapped: Boolean = false,
+        fingerprint: String? = null
     ): State {
         val delta = when {
+            isCorrect && bonusCapped -> 0
             isCorrect && isFill -> POINTS_FILL_CORRECT
             isCorrect -> POINTS_CHOICE_CORRECT
-            else -> POINTS_WRONG
+            else -> {
+                // 有题面指纹 → 按本题累计答错次数递增扣减；否则固定 -1。
+                if (fingerprint != null) -escalatingWrongDeduction(wrongCount + 1)
+                else POINTS_WRONG
+            }
         }
         val points = (state.points + delta).coerceAtLeast(0)
         val streak = if (isCorrect) state.streak + 1 else 0

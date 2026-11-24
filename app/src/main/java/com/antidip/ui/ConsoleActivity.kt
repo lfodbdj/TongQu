@@ -74,6 +74,10 @@ class ConsoleActivity : AppCompatActivity() {
         binding.btnAiSave.setOnClickListener { saveAiConfig() }
         binding.btnAiTest.setOnClickListener { testAi() }
         binding.btnSaveServerUrl.setOnClickListener { saveServerUrl() }
+        // V2.3 拍照录题（2026-11-24）：进入拍照 + AI 识别 + 复核入库。
+        binding.btnPhotoQuiz.setOnClickListener {
+            startActivity(Intent(this@ConsoleActivity, PhotoQuizActivity::class.java))
+        }
 
         // 2026-11-21 第二批：权限组从设置页移入控制台（同防误操作）。
         binding.layoutPermOverlay.setOnClickListener { requestOverlayPermission() }

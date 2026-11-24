@@ -497,6 +497,35 @@ class QuestionBankManager(private val context: Context) {
         dao.getByContentAndGrade(content, grade)
 
     /**
+     * V2.3 拍照录题（用户要求 2026-11-24）：把家长复核后的单道题加入题库。
+     * 去重键为 (content, grade)（Room 唯一索引，重复返回 false）。
+     * 返回 true = 新增成功；false = 已存在或参数非法。
+     */
+    suspend fun addSingleQuestion(
+        subject: String,
+        grade: Int,
+        type: String,
+        content: String,
+        options: List<String>,
+        answer: String
+    ): Boolean = withContext(Dispatchers.IO) {
+        val text = content.trim()
+        if (text.isEmpty()) return@withContext false
+        val isChoice = type == "choice" && options.size >= 2
+        val entity = QuestionEntity(
+            subject = subject,
+            grade = grade.coerceIn(Constants.GRADE_MIN, Constants.GRADE_MAX),
+            type = if (isChoice) "choice" else "fill",
+            content = text,
+            options = if (isChoice) options.joinToString("|") else null,
+            answer = answer.trim(),
+            difficulty = 1
+        )
+        val ids = dao.insertAll(listOf(entity))
+        ids.any { it != -1L }
+    }
+
+    /**
      * Get the import directory path for display.
      */
     fun getImportDirPath(): String {

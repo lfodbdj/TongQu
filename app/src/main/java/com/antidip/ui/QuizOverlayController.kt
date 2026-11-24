@@ -506,7 +506,15 @@ class QuizOverlayController private constructor(
                     if (firstTry) R.string.answer_correct else R.string.answer_correct_retry
                 )
                 if (firstTry) {
-                    updateProgress(isCorrect = true, isFill = lastSubmittedQuestion?.type == "fill")
+                    updateProgress(
+                        isCorrect = true,
+                        isFill = lastSubmittedQuestion?.type == "fill",
+                        fingerprint = lastSubmittedQuestion?.let {
+                            com.antidip.ProgressRules.questionFingerprint(
+                                it.content, it.grade
+                            )
+                        }
+                    )
                 }
 
                 scope.launch {
@@ -543,7 +551,13 @@ class QuizOverlayController private constructor(
                 // V2.0: wrong answer -> -1 point, streak reset. On the THIRD
                 // wrong fill-in answer also explain the answer and record the
                 // question in the wrong-question book.
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                     b.tvFeedback.text = appContext.getString(
@@ -561,7 +575,13 @@ class QuizOverlayController private constructor(
                 // instead of returning Wrong) — still costs a point, and a
                 // fill-in question is explained + recorded (device finding:
                 // the Wrong-branch-only check missed this path).
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                     b.tvFeedback.text = appContext.getString(
@@ -579,7 +599,13 @@ class QuizOverlayController private constructor(
                 // V2.0: same third-wrong handling as NextQuestion (this is the
                 // branch the third wrong fill-in answer actually takes when
                 // the next question must be loaded from the bank).
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                     b.tvFeedback.text = appContext.getString(
@@ -600,7 +626,13 @@ class QuizOverlayController private constructor(
                 // V2.0: a fill-in question exhausted at the ROUND-3 position
                 // lands here (handleQuestionFailed else-branch) instead of
                 // NeedsNextQuestion — apply the same third-wrong handling.
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                 }
@@ -681,12 +713,14 @@ class QuizOverlayController private constructor(
     }
 
     /** V2.0: +points / streak / medals through [com.antidip.data.ProgressStore]. */
-    private fun updateProgress(isCorrect: Boolean, isFill: Boolean) {
+    private fun updateProgress(isCorrect: Boolean, isFill: Boolean, fingerprint: String? = null) {
         // 计分写入必须在 dismiss() 之后仍能落盘：dismiss 会 cancel 本控制器
         // 的 scope（见 dismiss()），用独立的 IO scope 保证 +1/-1 不被取消丢失。
         CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             val (state, newMedals) =
-                com.antidip.data.ProgressStore.applyAnswer(appContext, isCorrect, isFill)
+                com.antidip.data.ProgressStore.applyAnswer(
+                    appContext, isCorrect, isFill, fingerprint
+                )
             mainHandler.post {
                 binding?.tvProgress?.text =
                     appContext.getString(R.string.progress_line, state.points, state.streak)

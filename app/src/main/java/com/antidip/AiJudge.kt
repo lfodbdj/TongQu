@@ -148,4 +148,158 @@ object AiJudge {
             "题目：1 + 1 = ？（填空）\n标准答案：2\n学生答案：2"
         )
     }
+
+    // ------------------------------------------------------------------
+    // V2.3 拍照录题（用户要求 2026-11-24）：把题目照片交给视觉模型（多模态
+    // chat/completions），抽取结构化题目（题型/题干/选项/答案/科目），家长复核
+    // 后入库。仅当家长配置了支持图片的模型（如 Qwen2-VL / Qwen2.5-VL）时可用；
+    // 任何失败返回 null，由 UI 提示改用「手动录入」。
+    // ------------------------------------------------------------------
+
+    /** 视觉模型抽题结果（家长复核表单的初始值）。 */
+    data class ParsedQuestion(
+        val type: String,          // choice / fill
+        val content: String,
+        val options: List<String>, // choice 时 4 个；fill 时为空
+        val answer: String,        // choice 时字母 A-D；fill 时为答案文本
+        val subject: String        // chinese/math/english/science/moral
+    )
+
+    private fun extractSystemPrompt(): String =
+        "你是小学题目的录入助手。用户会给你一张题目照片，请你识别其中的题目并" +
+            "输出严格的 JSON（不要输出任何其他文字、不要 Markdown 代码块）。格式：" +
+            "{\"type\":\"choice\"或\"fill\",\"content\":\"题干原文\"," +
+            "\"options\":[\"A选项\",\"B选项\",\"C选项\",\"D选项\"]," +
+            "\"answer\":\"标准答案\",\"subject\":\"chinese/math/english/science/moral\"}。" +
+            "规则：选择题 type=choice，answer 填正确选项的字母 A/B/C/D；" +
+            "填空题 type=fill，options 留空数组，answer 填答案原文；" +
+            "若照片含多道题，只录入第一道题；无法识别时仍尽力给出最接近的内容。"
+
+    /**
+     * 从题目照片抽取结构化题目。[jpegBase64] 为图片的 Base64（不含 data URL 前缀）。
+     * 返回 null 表示未配置视觉模型 / 网络失败 / 解析失败（调用方引导手动录入）。
+     */
+    suspend fun extractQuestionFromImage(
+        context: Context,
+        jpegBase64: String
+    ): ParsedQuestion? {
+        val cfg = loadConfig(context) ?: return null
+        val sys = extractSystemPrompt()
+        val userContent = JSONArray().apply {
+            put(JSONObject().put("type", "text").put("text", "请识别这张图片中的题目并按约定 JSON 输出。"))
+            put(
+                JSONObject().put("type", "image_url").put(
+                    "image_url",
+                    JSONObject().put("url", "data:image/jpeg;base64,$jpegBase64")
+                )
+            )
+        }
+        val body = JSONObject().apply {
+            put("model", cfg.model)
+            put("temperature", 0.0)
+            put("max_tokens", 512)
+            put("messages", JSONArray().apply {
+                put(JSONObject().put("role", "system").put("content", sys))
+                put(JSONObject().put("role", "user").put("content", userContent))
+            })
+        }
+        val raw = requestContent(cfg, body) ?: return null
+        return parseParsedQuestion(raw)
+    }
+
+    /** 发起请求并返回 assistant 的 content 文本；失败返回 null。 */
+    private suspend fun requestContent(cfg: Config, body: JSONObject): String? =
+        withTimeout(TIMEOUT_MS) {
+            withContext(Dispatchers.IO) {
+                try {
+                    val conn = URL(cfg.endpoint).openConnection() as HttpURLConnection
+                    conn.requestMethod = "POST"
+                    conn.connectTimeout = 8_000
+                    conn.readTimeout = 20_000
+                    conn.doOutput = true
+                    conn.setRequestProperty("Content-Type", "application/json")
+                    conn.setRequestProperty("Authorization", "Bearer ${cfg.key}")
+                    conn.outputStream.use {
+                        it.write(body.toString().toByteArray(Charsets.UTF_8))
+                    }
+                    val code = conn.responseCode
+                    val text = if (code in 200..299) {
+                        conn.inputStream.readBytes().toString(Charsets.UTF_8)
+                    } else {
+                        conn.errorStream?.readBytes()?.toString(Charsets.UTF_8).orEmpty()
+                    }
+                    conn.disconnect()
+                    if (code !in 200..299) return@withContext null
+                    JSONObject(text).optJSONArray("choices")?.optJSONObject(0)
+                        ?.optJSONObject("message")?.optString("content").orEmpty()
+                        .ifBlank { null }
+                } catch (e: Exception) {
+                    null
+                }
+            }
+        }
+
+    /** 解析抽题 JSON（容忍 ```json 包裹与前后杂字）。 */
+    private fun parseParsedQuestion(content: String): ParsedQuestion? {
+        var c = content.trim()
+        // 去掉 ```json ... ``` 包裹
+        if (c.startsWith("```")) {
+            val firstNl = c.indexOf('\n')
+            if (firstNl >= 0) c = c.substring(firstNl + 1)
+            if (c.endsWith("```")) c = c.removeSuffix("```")
+            c = c.trim()
+        }
+        val start = c.indexOf('{')
+        val end = c.lastIndexOf('}')
+        if (start < 0 || end <= start) return null
+        return try {
+            val obj = JSONObject(c.substring(start, end + 1))
+            val type = obj.optString("type", "fill").let {
+                if (it == "choice" || it == "fill") it else "fill"
+            }
+            val contentText = obj.optString("content", "").trim()
+            if (contentText.isEmpty()) return null
+            val optionsArr = obj.optJSONArray("options")
+            val options = mutableListOf<String>()
+            if (optionsArr != null) {
+                for (i in 0 until optionsArr.length()) {
+                    val v = optionsArr.optString(i, "").trim()
+                    if (v.isNotEmpty()) options.add(v)
+                }
+            }
+            var answer = obj.optString("answer", "").trim()
+            // 选择题答案规范成字母 A-D（允许模型给出选项原文）。
+            if (type == "choice") {
+                answer = normalizeChoice(answer, options)
+            }
+            val subject = obj.optString("subject", "").trim().lowercase().let {
+                when {
+                    it.contains("语") || it == "chinese" -> "chinese"
+                    it.contains("数") || it == "math" -> "math"
+                    it.contains("英") || it == "english" -> "english"
+                    it.contains("科") || it == "science" -> "science"
+                    it.contains("道") || it.contains("德") || it == "moral" -> "moral"
+                    else -> "math"
+                }
+            }
+            if (type == "choice" && options.size < 2) {
+                // 选项不足 → 退化为填空（答案用原文/字母）
+                ParsedQuestion("fill", contentText, emptyList(), answer, subject)
+            } else {
+                ParsedQuestion(type, contentText, options, answer, subject)
+            }
+        } catch (e: Exception) {
+            null
+        }
+    }
+
+    private fun normalizeChoice(raw: String, options: List<String>): String {
+        val t = raw.trim()
+        if (t.length == 1) {
+            val idx = "ABCD".indexOf(t.uppercase())
+            if (idx in 0..3) return "ABCD"[idx].toString()
+        }
+        val idx = options.indexOfFirst { it.trim() == t || it.trim().equals(t, ignoreCase = true) }
+        return if (idx in 0..3) "ABCD"[idx].toString() else t
+    }
 }

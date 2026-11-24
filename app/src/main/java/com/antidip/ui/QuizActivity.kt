@@ -505,7 +505,13 @@ class QuizActivity : AppCompatActivity() {
                     if (firstTry) R.string.answer_correct else R.string.answer_correct_retry
                 )
                 if (firstTry) {
-                    updateProgress(isCorrect = true, isFill = lastSubmittedQuestion?.type == "fill")
+                    updateProgress(
+                        isCorrect = true,
+                        isFill = lastSubmittedQuestion?.type == "fill",
+                        fingerprint = lastSubmittedQuestion?.let {
+                            com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                        }
+                    )
                 }
 
                 // Persist cleared failure counter (B2) and report the terminal
@@ -544,7 +550,13 @@ class QuizActivity : AppCompatActivity() {
 
                 // V2.0: wrong answer -> -1 point, streak reset. On the THIRD
                 // wrong fill-in answer also explain + record the wrong book.
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && result.attemptsLeft == 0) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                     binding.tvFeedback.text = getString(R.string.fill_explain, lastSubmittedQuestion!!.answer)
@@ -560,7 +572,13 @@ class QuizActivity : AppCompatActivity() {
                 binding.tvFeedback.setBackgroundResource(R.color.wrong_bg)
                 // V2.0: third wrong fill-in answer may land here (engine moved
                 // on) — same handling as the Wrong branch.
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                     binding.tvFeedback.text = getString(R.string.fill_explain, lastSubmittedQuestion!!.answer)
@@ -577,7 +595,13 @@ class QuizActivity : AppCompatActivity() {
                 // V2.0: same third-wrong handling as NextQuestion (this is the
                 // branch the third wrong fill-in answer actually takes when the
                 // next question must be loaded from the bank).
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                     binding.tvFeedback.text = getString(R.string.fill_explain, lastSubmittedQuestion!!.answer)
@@ -603,7 +627,13 @@ class QuizActivity : AppCompatActivity() {
             is AnswerResult.RoundFailed -> {
                 // V2.0: a fill-in question exhausted at the ROUND-3 position
                 // lands here instead of NeedsNextQuestion — same handling.
-                updateProgress(isCorrect = false, isFill = lastSubmittedQuestion?.type == "fill")
+                updateProgress(
+                    isCorrect = false,
+                    isFill = lastSubmittedQuestion?.type == "fill",
+                    fingerprint = lastSubmittedQuestion?.let {
+                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
+                    }
+                )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
                 }
@@ -721,10 +751,12 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /** V2.0: +points / streak / medals through [com.antidip.data.ProgressStore]. */
-    private fun updateProgress(isCorrect: Boolean, isFill: Boolean) {
+    private fun updateProgress(isCorrect: Boolean, isFill: Boolean, fingerprint: String? = null) {
         lifecycleScope.launch {
             val (state, newMedals) =
-                com.antidip.data.ProgressStore.applyAnswer(this@QuizActivity, isCorrect, isFill)
+                com.antidip.data.ProgressStore.applyAnswer(
+                    this@QuizActivity, isCorrect, isFill, fingerprint
+                )
             binding.tvProgress.text =
                 getString(R.string.progress_line, state.points, state.streak)
             newMedals.forEach { id ->

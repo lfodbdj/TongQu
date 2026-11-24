@@ -242,4 +242,35 @@
     <string name="growth_summary_title">📋 成长概况</string>
     <string name="growth_home_brief">🏅 最高连对 %1$d 题　📕 错题本 %2$d 题待巩固（点我开始复习）</string>
     <string name="growth_badges_summary">已点亮 %1$d / %2$d 枚徽章</string>
+
+    <!-- V2.3 拍照录题（2026-11-24） -->
+    <string name="photo_title">📷 拍照录题</string>
+    <string name="photo_sub">拍一张题目照片，AI 自动识别成题目，家长复核后存入题库</string>
+    <string name="photo_hint_capture">先拍一张清晰的题目照片</string>
+    <string name="photo_capture">📷 拍照</string>
+    <string name="photo_capture_ok">照片已拍摄，可点「AI 识别」自动填表，或直接手动填写</string>
+    <string name="photo_capture_cancel">已取消拍照</string>
+    <string name="photo_extract">🤖 AI 识别题目</string>
+    <string name="photo_extracting">🤖 AI 识别中，请稍候…</string>
+    <string name="photo_extract_ok">识别完成，请核对下方内容后保存</string>
+    <string name="photo_extract_fail_manual">AI 未能识别，请手动填写下方表单</string>
+    <string name="photo_ai_not_configured">未配置支持图片的视觉模型，请手动填写下方表单（或在控制台配置）</string>
+    <string name="photo_read_fail">图片读取失败，请手动填写下方表单</string>
+    <string name="photo_no_camera">无法打开相机</string>
+    <string name="photo_form_title">核对并保存</string>
+    <string name="photo_type">题型</string>
+    <string name="photo_subject">科目</string>
+    <string name="photo_content">题干</string>
+    <string name="photo_content_hint">请输入题目内容</string>
+    <string name="photo_options">选项（选择题填写）</string>
+    <string name="photo_answer">答案（选择题填 A/B/C/D 或选项内容；填空填答案）</string>
+    <string name="photo_answer_hint">标准答案</string>
+    <string name="photo_save">保存到题库</string>
+    <string name="photo_saved">已保存到题库！</string>
+    <string name="photo_duplicate">该题已存在题库，未重复添加</string>
+    <string name="photo_need_content">请填写题干</string>
+    <string name="photo_need_options">选择题至少填写 2 个选项</string>
+    <string name="photo_need_answer">请填写答案</string>
+    <string name="console_photo_entry">📷 拍照录题</string>
+    <string name="console_photo_entry_desc">拍题目照片，AI 识别后存入题库（需视觉模型）</string>
 </resources>
