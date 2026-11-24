@@ -73,15 +73,23 @@ class PracticeActivity : AppCompatActivity() {
         focusContent = intent.getStringExtra("focus_content")
         focusGrade = intent.getIntExtra("focus_grade", 0)
 
+        // 先同步搭建界面（避免 DataStore 读取期间白屏），再异步恢复会话。
+        buildUi()
+
         lifecycleScope.launch {
             // V2.3（用户要求 2026-11-24）：恢复上次未完成的练习会话——
             // 退出时若当前题未作答/未推进，则其 id 存于 practice_pending_id；
             // 再次进入时优先恢复同一道题（保持原题），并恢复已作答题数/答对数/总数。
-            val pendingId = ProgressStore.getPracticePending(this@PracticeActivity)
-            val savedAnswered = ProgressStore.getPracticeAnswered(this@PracticeActivity)
-            val savedCorrect = ProgressStore.getPracticeCorrect(this@PracticeActivity)
-            val savedTotal = ProgressStore.getPracticeTotal(this@PracticeActivity)
-            val savedIsFocus = ProgressStore.getPracticeIsFocus(this@PracticeActivity)
+            val pendingId = runCatching { ProgressStore.getPracticePending(this@PracticeActivity) }
+                .getOrDefault(0L)
+            val savedAnswered = runCatching { ProgressStore.getPracticeAnswered(this@PracticeActivity) }
+                .getOrDefault(0)
+            val savedCorrect = runCatching { ProgressStore.getPracticeCorrect(this@PracticeActivity) }
+                .getOrDefault(0)
+            val savedTotal = runCatching { ProgressStore.getPracticeTotal(this@PracticeActivity) }
+                .getOrDefault(PRACTICE_LENGTH)
+            val savedIsFocus = runCatching { ProgressStore.getPracticeIsFocus(this@PracticeActivity) }
+                .getOrDefault(false)
 
             when {
                 // 本次 intent 明确指定了"错题重做"（内容+年级）→ 单题重做模式。
@@ -110,7 +118,6 @@ class PracticeActivity : AppCompatActivity() {
                     totalQuestions = PRACTICE_LENGTH
                 }
             }
-            buildUi()
             nextQuestion()
         }
     }
