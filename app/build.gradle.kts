@@ -33,8 +33,8 @@ android {
         applicationId = "com.antidip"
         minSdk = 24
         targetSdk = 34
-        versionCode = 15
-        versionName = "2.3"
+        versionCode = 18
+        versionName = "2.4"
 
         buildConfigField("String", "MASTER_PASSWORD", "\"${masterPw}\"")
     }

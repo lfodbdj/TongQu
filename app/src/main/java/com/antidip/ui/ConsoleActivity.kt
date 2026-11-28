@@ -74,10 +74,6 @@ class ConsoleActivity : AppCompatActivity() {
         binding.btnAiSave.setOnClickListener { saveAiConfig() }
         binding.btnAiTest.setOnClickListener { testAi() }
         binding.btnSaveServerUrl.setOnClickListener { saveServerUrl() }
-        // V2.3 拍照录题（2026-11-24）：进入拍照 + AI 识别 + 复核入库。
-        binding.btnPhotoQuiz.setOnClickListener {
-            startActivity(Intent(this@ConsoleActivity, PhotoQuizActivity::class.java))
-        }
 
         // 2026-11-21 第二批：权限组从设置页移入控制台（同防误操作）。
         binding.layoutPermOverlay.setOnClickListener { requestOverlayPermission() }
@@ -275,9 +271,17 @@ class ConsoleActivity : AppCompatActivity() {
         val prefs = getSharedPreferences(Constants.PREFS_NAME, MODE_PRIVATE)
         binding.switchAiEnabled.isChecked =
             prefs.getBoolean(Constants.KEY_AI_ENABLED, false)
-        binding.etAiEndpoint.setText(prefs.getString(Constants.KEY_AI_ENDPOINT, "").orEmpty())
+        // V2.4（用户要求 2026-11-28）：端点与模型预填硅基流动推荐值（支持拍照
+        // 录题的视觉模型）；API Key 留空由家长自己填写，绝不预填/回显占位。
+        binding.etAiEndpoint.setText(
+            prefs.getString(Constants.KEY_AI_ENDPOINT, "").orEmpty()
+                .ifEmpty { Constants.DEFAULT_AI_ENDPOINT }
+        )
         binding.etAiKey.setText(prefs.getString(Constants.KEY_AI_KEY, "").orEmpty())
-        binding.etAiModel.setText(prefs.getString(Constants.KEY_AI_MODEL, "").orEmpty())
+        binding.etAiModel.setText(
+            prefs.getString(Constants.KEY_AI_MODEL, "").orEmpty()
+                .ifEmpty { Constants.DEFAULT_AI_MODEL }
+        )
         // 与设置页一致：空值时预填默认局域网地址（保存空值仍回退默认）。
         val savedUrl = prefs.getString(Constants.KEY_QUIZ_DOWNLOAD_URL, "") ?: ""
         binding.etServerUrl.setText(savedUrl.ifEmpty { Constants.DEFAULT_QUIZ_URL })

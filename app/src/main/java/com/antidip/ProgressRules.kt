@@ -62,15 +62,20 @@ object ProgressRules {
     )
 
     /** All medals with their display metadata (id, emoji, name, condition). */
+    // V2.4（用户要求 2026-11-28）：徽章从 8 枚扩到 12 枚（积分 300/500、连对 30/50）。
     val MEDALS: List<Triple<String, String, String>> = listOf(
         Triple("first_quiz", "🌟", "初露锋芒"),
         Triple("points_10", "🥉", "小试牛刀"),
         Triple("points_50", "🥈", "崭露头角"),
         Triple("points_100", "🥇", "百分达人"),
         Triple("points_200", "👑", "学霸之星"),
+        Triple("points_300", "🏆", "积分大师"),
+        Triple("points_500", "💎", "传奇学霸"),
         Triple("streak_5", "🔥", "五连对"),
         Triple("streak_10", "⚡", "十连对"),
-        Triple("streak_20", "🚀", "二十连对")
+        Triple("streak_20", "🚀", "二十连对"),
+        Triple("streak_30", "🌈", "三十连对"),
+        Triple("streak_50", "💫", "五十连对")
     )
 
     /** Human-readable unlock condition for a medal id (growth screen / tests). */
@@ -80,9 +85,13 @@ object ProgressRules {
         "points_50" -> "积分达到 50"
         "points_100" -> "积分达到 100"
         "points_200" -> "积分达到 200"
+        "points_300" -> "积分达到 300"
+        "points_500" -> "积分达到 500"
         "streak_5" -> "连续答对 5 题"
         "streak_10" -> "连续答对 10 题"
         "streak_20" -> "连续答对 20 题"
+        "streak_30" -> "连续答对 30 题"
+        "streak_50" -> "连续答对 50 题"
         else -> ""
     }
 
@@ -95,9 +104,13 @@ object ProgressRules {
         "points_50" -> "points" to 50
         "points_100" -> "points" to 100
         "points_200" -> "points" to 200
+        "points_300" -> "points" to 300
+        "points_500" -> "points" to 500
         "streak_5" -> "streak" to 5
         "streak_10" -> "streak" to 10
         "streak_20" -> "streak" to 20
+        "streak_30" -> "streak" to 30
+        "streak_50" -> "streak" to 50
         else -> null
     }
 
@@ -171,9 +184,13 @@ object ProgressRules {
         if (points >= 50) s.add("points_50")
         if (points >= 100) s.add("points_100")
         if (points >= 200) s.add("points_200")
+        if (points >= 300) s.add("points_300")
+        if (points >= 500) s.add("points_500")
         if (streak >= 5) s.add("streak_5")
         if (streak >= 10) s.add("streak_10")
         if (streak >= 20) s.add("streak_20")
+        if (streak >= 30) s.add("streak_30")
+        if (streak >= 50) s.add("streak_50")
         return s
     }
 

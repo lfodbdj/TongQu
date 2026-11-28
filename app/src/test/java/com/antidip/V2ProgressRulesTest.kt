@@ -60,6 +60,19 @@ class V2ProgressRulesTest {
         assertFalse(m.contains("streak_10"))
     }
 
+    /** V2.4（2026-11-28）：徽章扩到 12 枚——积分 300/500、连对 30/50。 */
+    @Test
+    fun medals_extendedTwelveBadges() {
+        assertEquals(12, ProgressRules.MEDALS.size)
+        val byPoints = ProgressRules.evaluateMedals(emptySet(), points = 500, streak = 0)
+        assertTrue(byPoints.containsAll(listOf("points_300", "points_500")))
+        val byStreak = ProgressRules.evaluateMedals(emptySet(), points = 0, streak = 50)
+        assertTrue(byStreak.containsAll(listOf("streak_30", "streak_50")))
+        // 条件文案与进度目标齐备（勋章墙/下一枚进度条依赖）
+        assertEquals("积分达到 300", ProgressRules.conditionOf("points_300"))
+        assertEquals("streak" to 50, ProgressRules.conditionTarget("streak_50"))
+    }
+
     @Test
     fun medals_notRevoked_whenPointsDrop() {
         val earned = ProgressRules.evaluateMedals(emptySet(), points = 60, streak = 0)

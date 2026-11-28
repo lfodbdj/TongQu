@@ -24,7 +24,9 @@ object AiJudge {
 
     data class Config(val endpoint: String, val key: String, val model: String)
 
-    private const val DEFAULT_MODEL = "gpt-4o-mini"
+    // V2.4：默认模型改为硅基流动的视觉模型——判题与拍照录题（多模态）共用，
+    // 家长只填 Key 即可两者都可用。旧默认 gpt-4o-mini 不支持图片输入。
+    private const val DEFAULT_MODEL = Constants.DEFAULT_AI_MODEL
     private const val TIMEOUT_MS = 25_000L
 
     /** 读取配置；未启用或配置不全返回 null。 */

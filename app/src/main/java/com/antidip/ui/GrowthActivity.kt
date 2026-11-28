@@ -279,6 +279,53 @@ class GrowthActivity : AppCompatActivity() {
         })
         page.addView(cta, childParams(12))
 
+        // 拍照录题入口（用户要求 2026-11-25：放到首页，不再只在家长控制台）。
+        // 与 CTA 并列，白卡 + 图标 + 双行文案。进入拍照录题页（该页本身做复核）。
+        val photoCard = card().apply {
+            background = GradientDrawable().apply {
+                setColor(0xFFFFFFFF.toInt())
+                cornerRadius = dp(18).toFloat()
+                setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.divider))
+            }
+            setPadding(dp(14), dp(14), dp(14), dp(14))
+            setOnClickListener {
+                startActivity(Intent(this@GrowthActivity, PhotoQuizActivity::class.java))
+            }
+        }
+        val photoRow = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+        }
+        photoRow.addView(TextView(this).apply {
+            text = "📷"
+            textSize = 22f
+        })
+        photoRow.addView(LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+                .apply { marginStart = dp(10) }
+        }.also { col ->
+            col.addView(TextView(this).apply {
+                text = getString(R.string.home_photo_title)
+                textSize = 14.5f
+                setTypeface(null, Typeface.BOLD)
+                setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.on_surface))
+            })
+            col.addView(TextView(this).apply {
+                text = getString(R.string.home_photo_sub)
+                textSize = 11.5f
+                setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.text_secondary))
+                setPadding(0, dp(2), 0, 0)
+            })
+        })
+        photoRow.addView(TextView(this).apply {
+            text = "›"
+            textSize = 20f
+            setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.text_secondary))
+        })
+        photoCard.addView(photoRow)
+        page.addView(photoCard, childParams(10))
+
         // 错题复习行动卡（点击直达错题页）
         val reviewCard = card().apply {
             // UI v3 复习行动卡：绿色描边（设计稿样式）
@@ -430,6 +477,7 @@ class GrowthActivity : AppCompatActivity() {
             getString(R.string.growth_rule_choice),
             getString(R.string.growth_rule_fill),
             getString(R.string.growth_rule_wrong),
+            getString(R.string.growth_rule_bonus),
             getString(R.string.growth_rule_book),
             getString(R.string.growth_rule_retry),
             getString(R.string.growth_rule_retry_score)
@@ -729,123 +777,137 @@ class GrowthActivity : AppCompatActivity() {
                     textSize = 15f
                     setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.success))
                 }, childParams(8))
-            } else {
-                wrongCountBadge?.text = book.size.toString()
-                filtered.asReversed().forEach { e ->
-                    val key = subjectKeyOf(e.subject)
-                    val subjectLabel = if (key == "common") {
-                        getString(R.string.wrong_filter_common)
-                    } else {
-                        schoolSubjects[e.subject] ?: e.subject
+                return@launch
+            }
+            wrongCountBadge?.text = book.size.toString()
+
+            // 2026-11-25 修复"错题本每科只显示一条"：原实现在渲染循环内
+            // 调用 suspend 查库（getQuestionByContentGrade），每次挂起/恢复都
+            // 可能被打断，导致只渲染最后一条。改为先在协程里一次性预解析
+            // 答案文本（顺带按题库解析旧记录里的选项字母），随后同步一次性
+            // 渲染全部条目，循环内不再有挂起点。
+            val oldAnswerLookup = HashMap<String, String>()
+            for (e in filtered) {
+                if (e.answer.trim().length == 1 &&
+                    "ABCD".contains(e.answer.trim().uppercase())
+                ) {
+                    val q = bankManager.getQuestionByContentGrade(e.content, e.grade)
+                    if (q != null) {
+                        oldAnswerLookup[e.content] = ProgressRules.answerResultText(
+                            q.answer, q.options?.split("|") ?: emptyList()
+                        )
                     }
-                    // UI v3：错题卡（左侧绿条 + 科目标签 / 题干 / 正确答案 /
-                    // 错误次数 / 重做按钮），设计稿样式。卡片底由 row 提供。
-                    val item = LinearLayout(this@GrowthActivity).apply {
-                        orientation = LinearLayout.VERTICAL
-                        setPadding(dp(12), dp(12), dp(12), dp(12))
+                }
+            }
+
+            filtered.asReversed().forEach { e ->
+                val key = subjectKeyOf(e.subject)
+                val subjectLabel = if (key == "common") {
+                    getString(R.string.wrong_filter_common)
+                } else {
+                    schoolSubjects[e.subject] ?: e.subject
+                }
+                val answerText = oldAnswerLookup[e.content] ?: e.answer
+
+                // UI v3：错题卡（左侧绿条 + 科目标签 / 题干 / 正确答案 /
+                // 错误次数 / 重做按钮），设计稿样式。卡片底由 row 提供。
+                val item = LinearLayout(this@GrowthActivity).apply {
+                    orientation = LinearLayout.VERTICAL
+                    setPadding(dp(12), dp(12), dp(12), dp(12))
+                }
+                item.addView(TextView(this@GrowthActivity).apply {
+                    text = subjectLabel
+                    textSize = 10.5f
+                    setTypeface(null, Typeface.BOLD)
+                    setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+                    background = GradientDrawable().apply {
+                        setColor(0xFFEAF4E3.toInt())
+                        cornerRadius = dp(6).toFloat()
                     }
+                    setPadding(dp(8), dp(2), dp(8), dp(2))
+                })
+                item.addView(TextView(this@GrowthActivity).apply {
+                    text = e.content
+                    textSize = 14f
+                    setTypeface(null, Typeface.BOLD)
+                    setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.on_surface))
+                    setPadding(0, dp(8), 0, 0)
+                })
+                if (answerText.isNotBlank()) {
                     item.addView(TextView(this@GrowthActivity).apply {
-                        text = subjectLabel
-                        textSize = 10.5f
+                        text = getString(R.string.growth_wrong_answer_fmt, answerText)
+                        textSize = 12f
+                        setTypeface(null, Typeface.BOLD)
+                        setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+                        setPadding(0, dp(8), 0, 0)
+                    })
+                }
+                item.addView(TextView(this@GrowthActivity).apply {
+                    text = getString(
+                        R.string.growth_wrong_meta_fmt, e.wrongCount,
+                        java.text.SimpleDateFormat("MM-dd", java.util.Locale.ROOT)
+                            .format(java.util.Date(e.lastWrongAt))
+                    )
+                    textSize = 11f
+                    setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.text_secondary))
+                    setPadding(0, dp(4), 0, 0)
+                })
+                if (e.answer.isNotBlank()) {
+                    item.addView(TextView(this@GrowthActivity).apply {
+                        text = getString(R.string.redo_question)
+                        textSize = 12.5f
                         setTypeface(null, Typeface.BOLD)
                         setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
                         background = GradientDrawable().apply {
-                            setColor(0xFFEAF4E3.toInt())
-                            cornerRadius = dp(6).toFloat()
+                            setColor(0x00000000)
+                            setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+                            cornerRadius = dp(999).toFloat()
                         }
-                        setPadding(dp(8), dp(2), dp(8), dp(2))
-                    })
-                    item.addView(TextView(this@GrowthActivity).apply {
-                        text = e.content
-                        textSize = 14f
-                        setTypeface(null, Typeface.BOLD)
-                        setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.on_surface))
-                        setPadding(0, dp(8), 0, 0)
-                    })
-                    if (e.answer.isNotBlank()) {
-                        // 显示层兜底：旧记录若存的是选项字母（A–D），按题库
-                        // 解析成选项内容——错题本一律"写结果不写选项"。
-                        var answerText = e.answer
-                        if (e.answer.trim().length == 1 &&
-                            "ABCD".contains(e.answer.trim().uppercase())
-                        ) {
-                            val q = bankManager.getQuestionByContentGrade(e.content, e.grade)
-                            if (q != null) {
-                                answerText = ProgressRules.answerResultText(
-                                    q.answer, q.options?.split("|") ?: emptyList()
-                                )
-                            }
-                        }
-                        item.addView(TextView(this@GrowthActivity).apply {
-                            text = getString(R.string.growth_wrong_answer_fmt, answerText)
-                            textSize = 12f
-                            setTypeface(null, Typeface.BOLD)
-                            setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
-                            setPadding(0, dp(8), 0, 0)
-                        })
-                    }
-                    item.addView(TextView(this@GrowthActivity).apply {
-                        text = getString(
-                            R.string.growth_wrong_meta_fmt, e.wrongCount,
-                            java.text.SimpleDateFormat("MM-dd", java.util.Locale.ROOT)
-                                .format(java.util.Date(e.lastWrongAt))
+                        setPadding(dp(14), dp(6), dp(14), dp(6))
+                        val lp = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
                         )
-                        textSize = 11f
-                        setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.text_secondary))
-                        setPadding(0, dp(4), 0, 0)
-                    })
-                    if (e.answer.isNotBlank()) {
-                        item.addView(TextView(this@GrowthActivity).apply {
-                            text = getString(R.string.redo_question)
-                            textSize = 12.5f
-                            setTypeface(null, Typeface.BOLD)
-                            setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
-                            background = GradientDrawable().apply {
-                                setColor(0x00000000)
-                                setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.primary))
-                                cornerRadius = dp(999).toFloat()
-                            }
-                            setPadding(dp(14), dp(6), dp(14), dp(6))
-                            val lp = LinearLayout.LayoutParams(
-                                LinearLayout.LayoutParams.WRAP_CONTENT,
-                                LinearLayout.LayoutParams.WRAP_CONTENT
-                            )
-                            lp.topMargin = dp(10)
-                            layoutParams = lp
-                            setOnClickListener {
-                                val i = Intent(this@GrowthActivity, PracticeActivity::class.java)
-                                i.putExtra("focus_content", e.content)
-                                i.putExtra("focus_grade", e.grade)
-                                startActivity(i)
-                            }
-                        })
-                    }
-                    // 左侧绿色竖条（设计稿 border-left 4px）
-                    val row = LinearLayout(this@GrowthActivity).apply {
-                        orientation = LinearLayout.HORIZONTAL
-                        background = GradientDrawable().apply {
-                            setColor(0xFFFBFDF7.toInt())
-                            cornerRadius = dp(14).toFloat()
-                            setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.divider))
-                        }
-                    }
-                    row.addView(View(this@GrowthActivity).apply {
-                        layoutParams = LinearLayout.LayoutParams(dp(4), LinearLayout.LayoutParams.MATCH_PARENT)
-                        background = GradientDrawable().apply {
-                            cornerRadii = floatArrayOf(
-                                dp(14).toFloat(), dp(14).toFloat(),
-                                0f, 0f, 0f, 0f,
-                                dp(14).toFloat(), dp(14).toFloat()
-                            )
-                            setColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+                        lp.topMargin = dp(10)
+                        layoutParams = lp
+                        setOnClickListener {
+                            val i = Intent(this@GrowthActivity, PracticeActivity::class.java)
+                            i.putExtra("focus_content", e.content)
+                            i.putExtra("focus_grade", e.grade)
+                            startActivity(i)
                         }
                     })
-                    row.addView(item, LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT, 1f
-                    ))
-                    wrap.addView(row, childParams(8))
                 }
+                // 左侧绿色竖条（设计稿 border-left 4px）
+                val row = LinearLayout(this@GrowthActivity).apply {
+                    orientation = LinearLayout.HORIZONTAL
+                    background = GradientDrawable().apply {
+                        setColor(0xFFFBFDF7.toInt())
+                        cornerRadius = dp(14).toFloat()
+                        setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.divider))
+                    }
+                }
+                row.addView(View(this@GrowthActivity).apply {
+                    layoutParams = LinearLayout.LayoutParams(dp(4), LinearLayout.LayoutParams.MATCH_PARENT)
+                    background = GradientDrawable().apply {
+                        cornerRadii = floatArrayOf(
+                            dp(14).toFloat(), dp(14).toFloat(),
+                            0f, 0f, 0f, 0f,
+                            dp(14).toFloat(), dp(14).toFloat()
+                        )
+                        setColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+                    }
+                })
+                // 2026-11-25 修复"错题本只显示一条"：item 高度必须 WRAP_CONTENT。
+                // 原为 MATCH_PARENT，而外层 row 是 WRAP_CONTENT 高，HORIZONTAL
+                // LinearLayout 对 MATCH_PARENT 高子项在父高度未定时会量成 0，
+                // 导致 41 行全部塌陷、只有首行可见。改为 WRAP_CONTENT 后每行按
+                // 内容自然撑开，左侧竖条仍 MATCH_PARENT 以贴合行高。
+                row.addView(item, LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT, 1f
+                ))
+                wrap.addView(row, childParams(8))
             }
         }
     }

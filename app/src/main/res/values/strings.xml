@@ -115,7 +115,8 @@
     <string name="growth_points_title">⭐ 积分规则</string>
     <string name="growth_rule_choice">选择题答对 +1 分</string>
     <string name="growth_rule_fill">填空题答对 +2 分</string>
-    <string name="growth_rule_wrong">答错一次 -1 分</string>
+    <string name="growth_rule_wrong">答错按本题错误次数递增扣分（1/2/5/10）</string>
+    <string name="growth_rule_bonus">同一题最多 2 次答对加分，之后答对 +0</string>
     <string name="growth_rule_book">填空错题自动记入错题本</string>
     <string name="practice_title">🎯 主动答题</string>
     <string name="points_card_title">💰 积分管理</string>
@@ -168,12 +169,12 @@
     <string name="setpw_auth_wrong">密码错误（扣减密码或家长全局密码）</string>
     <string name="setpw_mismatch">两次输入的新密码不一致</string>
     <string name="setpw_too_short">密码至少 4 位</string>
-    <string name="ai_card_title">🤖 AI 判题（填空语义判分）</string>
-    <string name="ai_card_desc">填空题答案与标准答案字面不一致时，由 AI 判断语义是否等价（如 0.5 = 1/2）。请填写 OpenAI 兼容端点与 Key；未启用或网络失败时按原字面判分。</string>
+    <string name="ai_card_title">🤖 AI 判题（填空语义判分 + 拍照录题）</string>
+    <string name="ai_card_desc">端点与模型已预填硅基流动推荐值（视觉模型，判题与拍照录题通用），只需填入自己的 API Key（cloud.siliconflow.cn 注册获取）。未启用或网络失败时按原字面判分。</string>
     <string name="ai_switch">启用 AI 判题</string>
-    <string name="ai_hint_endpoint">端点 URL（如 https://…/v1/chat/completions）</string>
-    <string name="ai_hint_key">API Key</string>
-    <string name="ai_hint_model">模型名（默认 gpt-4o-mini）</string>
+    <string name="ai_hint_endpoint">端点 URL（已预填硅基流动）</string>
+    <string name="ai_hint_key">API Key（请自行填写，形如 sk-…）</string>
+    <string name="ai_hint_model">模型名（已预填 Qwen2.5-VL，支持拍照录题）</string>
     <string name="ai_save">保存 AI 配置</string>
     <string name="ai_test">测试连接</string>
     <string name="ai_test_ok">连接成功，AI 判分可用</string>
@@ -243,34 +244,38 @@
     <string name="growth_home_brief">🏅 最高连对 %1$d 题　📕 错题本 %2$d 题待巩固（点我开始复习）</string>
     <string name="growth_badges_summary">已点亮 %1$d / %2$d 枚徽章</string>
 
-    <!-- V2.3 拍照录题（2026-11-24） -->
+    <!-- V2.4 拍照录题（裁剪 + 转填空，2026-11-28） -->
     <string name="photo_title">📷 拍照录题</string>
-    <string name="photo_sub">拍一张题目照片，AI 自动识别成题目，家长复核后存入题库</string>
+    <string name="photo_sub">拍题目照片 → 裁剪框选 → AI 识别 → 存为填空题</string>
     <string name="photo_hint_capture">先拍一张清晰的题目照片</string>
     <string name="photo_capture">📷 拍照</string>
-    <string name="photo_capture_ok">照片已拍摄，可点「AI 识别」自动填表，或直接手动填写</string>
+    <string name="photo_capture_ok">照片已拍摄，请拖动边框选取题目区域后点「确认裁剪」</string>
     <string name="photo_capture_cancel">已取消拍照</string>
+    <string name="photo_crop_hint">✂️ 拖动边框或圆点，框住要录入的题目（框选越准，识别越精确）</string>
+    <string name="photo_btn_crop">✅ 确认裁剪</string>
+    <string name="photo_btn_recrop">✂️ 重新裁剪</string>
+    <string name="photo_crop_too_small">裁剪区域太小，请重新调整</string>
+    <string name="photo_crop_ok">裁剪完成，可点「AI 识别题目」自动填表</string>
     <string name="photo_extract">🤖 AI 识别题目</string>
     <string name="photo_extracting">🤖 AI 识别中，请稍候…</string>
     <string name="photo_extract_ok">识别完成，请核对下方内容后保存</string>
     <string name="photo_extract_fail_manual">AI 未能识别，请手动填写下方表单</string>
     <string name="photo_ai_not_configured">未配置支持图片的视觉模型，请手动填写下方表单（或在控制台配置）</string>
-    <string name="photo_read_fail">图片读取失败，请手动填写下方表单</string>
+    <string name="photo_read_fail">图片读取失败，请重新拍照</string>
     <string name="photo_no_camera">无法打开相机</string>
-    <string name="photo_form_title">核对并保存</string>
-    <string name="photo_type">题型</string>
+    <string name="photo_form_title">核对并保存（拍照录题一律存为填空题）</string>
     <string name="photo_subject">科目</string>
     <string name="photo_content">题干</string>
-    <string name="photo_content_hint">请输入题目内容</string>
-    <string name="photo_options">选项（选择题填写）</string>
-    <string name="photo_answer">答案（选择题填 A/B/C/D 或选项内容；填空填答案）</string>
+    <string name="photo_content_hint">请输入题目内容（含 ____ 空格）</string>
+    <string name="photo_answer">答案（识别为选择题时，正确选项自动转为答案）</string>
     <string name="photo_answer_hint">标准答案</string>
-    <string name="photo_save">保存到题库</string>
-    <string name="photo_saved">已保存到题库！</string>
+    <string name="photo_save">保存到题库（填空题）</string>
+    <string name="photo_saved">已保存到题库（填空题）！</string>
     <string name="photo_duplicate">该题已存在题库，未重复添加</string>
     <string name="photo_need_content">请填写题干</string>
-    <string name="photo_need_options">选择题至少填写 2 个选项</string>
     <string name="photo_need_answer">请填写答案</string>
+    <string name="home_photo_title">📷 拍照录题</string>
+    <string name="home_photo_sub">拍题 → 裁剪 → AI 识别 → 存为填空题</string>
     <string name="console_photo_entry">📷 拍照录题</string>
     <string name="console_photo_entry_desc">拍题目照片，AI 识别后存入题库（需视觉模型）</string>
 </resources>

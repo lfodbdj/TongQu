@@ -60,6 +60,11 @@ object Constants {
     const val KEY_AI_KEY = "ai_key"
     const val KEY_AI_MODEL = "ai_model"
 
+    // V2.4（用户要求 2026-11-28）：控制台 AI 卡片预填硅基流动端点与推荐
+    // 视觉模型（支持拍照录题的多模态模型）；API Key 留空由家长自己填写。
+    const val DEFAULT_AI_ENDPOINT = "https://api.siliconflow.cn/v1/chat/completions"
+    const val DEFAULT_AI_MODEL = "Qwen/Qwen2.5-VL-7B-Instruct"
+
     // ---- V2.3 按题答题台账（用户要求 2026-11-24）：
     //  1) 同一题累计答错次数 → 递增扣减（1/2/5/10），按内容+年级指纹持久化；
     //  2) 同一题已获答对加分次数（question_bonus_tally）→ 满 2 次后答对只得 0 分。

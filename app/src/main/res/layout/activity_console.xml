@@ -340,48 +340,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- ===== 拍照录题（V2.3，2026-11-24） ===== -->
-            <androidx.cardview.widget.CardView
-                app:cardBackgroundColor="@color/surface"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="2dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/console_photo_entry"
-                        android:textSize="15sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/on_surface" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="@string/console_photo_entry_desc"
-                        android:textSize="11sp"
-                        android:textColor="@color/text_secondary" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_photo_quiz"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/console_photo_entry"
-                        android:textSize="13sp"
-                        style="@style/Widget.Material3.Button.TonalButton" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
             <!-- ===== 题库服务器地址（从设置页移入控制台，防误操作） ===== -->
             <androidx.cardview.widget.CardView
                 app:cardBackgroundColor="@color/surface"
