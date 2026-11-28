@@ -439,8 +439,7 @@ class PracticeActivity : AppCompatActivity() {
             }
             val (state, newMedals) =
                 ProgressStore.applyAnswer(
-                    this@PracticeActivity, correct, q.type == "fill",
-                    fingerprint = ProgressRules.questionFingerprint(q.content, q.grade)
+                    this@PracticeActivity, correct, q.type == "fill", question = q
                 )
             if (correct) correctCount++
             if (!correct && q.type == "fill") {

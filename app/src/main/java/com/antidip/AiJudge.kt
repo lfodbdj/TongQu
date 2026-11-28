@@ -169,27 +169,29 @@ object AiJudge {
     )
 
     private fun extractSystemPrompt(): String =
-        "你是小学题目的录入助手。用户会给你一张题目照片，请你识别其中的题目并" +
-            "输出严格的 JSON（不要输出任何其他文字、不要 Markdown 代码块）。格式：" +
-            "{\"type\":\"choice\"或\"fill\",\"content\":\"题干原文\"," +
+        "你是小学题目的录入助手。用户会给你一张题目照片，请识别照片中**所有**完整、" +
+            "清晰可读的题目（最多 8 道，模糊/残缺的跳过），输出严格的 JSON" +
+            "（不要输出任何其他文字、不要 Markdown 代码块）。格式：" +
+            "{\"questions\":[{\"type\":\"choice\"或\"fill\",\"content\":\"题干原文\"," +
             "\"options\":[\"A选项\",\"B选项\",\"C选项\",\"D选项\"]," +
-            "\"answer\":\"标准答案\",\"subject\":\"chinese/math/english/science/moral\"}。" +
+            "\"answer\":\"标准答案\",\"subject\":\"chinese/math/english/science/moral\"}]}。" +
             "规则：选择题 type=choice，answer 填正确选项的字母 A/B/C/D；" +
             "填空题 type=fill，options 留空数组，answer 填答案原文；" +
-            "若照片含多道题，只录入第一道题；无法识别时仍尽力给出最接近的内容。"
+            "照片中一道题都识别不出时输出 {\"questions\":[]}。"
 
     /**
-     * 从题目照片抽取结构化题目。[jpegBase64] 为图片的 Base64（不含 data URL 前缀）。
-     * 返回 null 表示未配置视觉模型 / 网络失败 / 解析失败（调用方引导手动录入）。
+     * 从题目照片抽取**所有**结构化题目（V2.5 多题录入，用户要求 2026-11-28）。
+     * [jpegBase64] 为图片的 Base64（不含 data URL 前缀）。返回空列表表示
+     * 未配置视觉模型 / 网络失败 / 无可识别题目（调用方引导手动录入）。
      */
-    suspend fun extractQuestionFromImage(
+    suspend fun extractQuestionsFromImage(
         context: Context,
         jpegBase64: String
-    ): ParsedQuestion? {
-        val cfg = loadConfig(context) ?: return null
+    ): List<ParsedQuestion> {
+        val cfg = loadConfig(context) ?: return emptyList()
         val sys = extractSystemPrompt()
         val userContent = JSONArray().apply {
-            put(JSONObject().put("type", "text").put("text", "请识别这张图片中的题目并按约定 JSON 输出。"))
+            put(JSONObject().put("type", "text").put("text", "请识别这张图片中的所有题目并按约定 JSON 输出。"))
             put(
                 JSONObject().put("type", "image_url").put(
                     "image_url",
@@ -200,15 +202,21 @@ object AiJudge {
         val body = JSONObject().apply {
             put("model", cfg.model)
             put("temperature", 0.0)
-            put("max_tokens", 512)
+            put("max_tokens", 1024)
             put("messages", JSONArray().apply {
                 put(JSONObject().put("role", "system").put("content", sys))
                 put(JSONObject().put("role", "user").put("content", userContent))
             })
         }
-        val raw = requestContent(cfg, body) ?: return null
-        return parseParsedQuestion(raw)
+        val raw = requestContent(cfg, body) ?: return emptyList()
+        return parseParsedQuestions(raw)
     }
+
+    /** 兼容旧调用（单题）。 */
+    suspend fun extractQuestionFromImage(
+        context: Context,
+        jpegBase64: String
+    ): ParsedQuestion? = extractQuestionsFromImage(context, jpegBase64).firstOrNull()
 
     /** 发起请求并返回 assistant 的 content 文本；失败返回 null。 */
     private suspend fun requestContent(cfg: Config, body: JSONObject): String? =
@@ -241,6 +249,72 @@ object AiJudge {
                 }
             }
         }
+
+    /** 解析多题 JSON（{"questions":[…]}，容忍单对象/数组/```json 包裹）。 */
+    private fun parseParsedQuestions(content: String): List<ParsedQuestion> {
+        var c = content.trim()
+        if (c.startsWith("```")) {
+            val firstNl = c.indexOf('\n')
+            if (firstNl >= 0) c = c.substring(firstNl + 1)
+            if (c.endsWith("```")) c = c.removeSuffix("```")
+            c = c.trim()
+        }
+        val start = c.indexOf('{')
+        val end = c.lastIndexOf('}')
+        if (start < 0 || end <= start) return emptyList()
+        return try {
+            val root = JSONObject(c.substring(start, end + 1))
+            val arr = root.optJSONArray("questions")
+            val out = mutableListOf<ParsedQuestion>()
+            if (arr != null) {
+                for (i in 0 until arr.length()) {
+                    parseOneQuestion(arr.optJSONObject(i) ?: continue)?.let { out.add(it) }
+                }
+            } else {
+                // 模型偶尔不按数组输出：退化为单题解析
+                parseParsedQuestion(c)?.let { out.add(it) }
+            }
+            out
+        } catch (e: Exception) {
+            emptyList()
+        }
+    }
+
+    /** 解析一道题（供多题数组复用）。 */
+    private fun parseOneQuestion(obj: JSONObject): ParsedQuestion? {
+        val type = obj.optString("type", "fill").let {
+            if (it == "choice" || it == "fill") it else "fill"
+        }
+        val contentText = obj.optString("content", "").trim()
+        if (contentText.isEmpty()) return null
+        val optionsArr = obj.optJSONArray("options")
+        val options = mutableListOf<String>()
+        if (optionsArr != null) {
+            for (i in 0 until optionsArr.length()) {
+                val v = optionsArr.optString(i, "").trim()
+                if (v.isNotEmpty()) options.add(v)
+            }
+        }
+        var answer = obj.optString("answer", "").trim()
+        if (type == "choice") {
+            answer = normalizeChoice(answer, options)
+        }
+        val subject = obj.optString("subject", "").trim().lowercase().let {
+            when {
+                it.contains("语") || it == "chinese" -> "chinese"
+                it.contains("数") || it == "math" -> "math"
+                it.contains("英") || it == "english" -> "english"
+                it.contains("科") || it == "science" -> "science"
+                it.contains("道") || it.contains("德") || it == "moral" -> "moral"
+                else -> "math"
+            }
+        }
+        return if (type == "choice" && options.size < 2) {
+            ParsedQuestion("fill", contentText, emptyList(), answer, subject)
+        } else {
+            ParsedQuestion(type, contentText, options, answer, subject)
+        }
+    }
 
     /** 解析抽题 JSON（容忍 ```json 包裹与前后杂字）。 */
     private fun parseParsedQuestion(content: String): ParsedQuestion? {

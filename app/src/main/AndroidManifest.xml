@@ -16,6 +16,8 @@
          FLAG_KEEP_SCREEN_ON is likewise no longer used anywhere. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <!-- V2.5 拍照录题改为应用内相机（快门后直接进入裁剪），需要 CAMERA 运行时权限。 -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <!-- V2.3 拍照录题：仅拍照时需要相机，声明为可选（无相机设备仍可装）。 -->
     <uses-feature
@@ -181,17 +183,6 @@
             <meta-data
                 android:name="com.antidip.AppInitializer"
                 android:value="androidx.startup" />
-        </provider>
-
-        <!-- V2.3 拍照录题：临时题目图片通过 FileProvider 交给系统相机写入。 -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
         </provider>
 
     </application>

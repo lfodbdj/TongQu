@@ -79,7 +79,19 @@ interface QuestionDao {
         "SELECT * FROM questions WHERE content = :content AND grade = :grade LIMIT 1"
     )
     suspend fun getByContentAndGrade(content: String, grade: Int): QuestionEntity?
+
+    /** V2.5 本年级各科目的题量（>0 的科目才展示"科目完成徽章"）。 */
+    @Query(
+        "SELECT subject, COUNT(*) AS count FROM questions " +
+            "WHERE grade = :grade GROUP BY subject"
+    )
+    suspend fun getGradeSubjectCounts(grade: Int): List<SubjectCount>
 }
+
+data class SubjectCount(
+    val subject: String,
+    val count: Int
+)
 
 data class SubjectStats(
     val subject: String,

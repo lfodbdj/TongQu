@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- V2.3 拍照录题：FileProvider 暴露的目录（仅应用私有缓存中的临时题目图片）。 -->
-<paths>
-    <cache-path name="question_photos" path="question_photos/" />
-    <external-cache-path name="ext_question_photos" path="question_photos/" />
-</paths>

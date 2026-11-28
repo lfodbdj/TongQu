@@ -51,20 +51,22 @@ object ProgressStore {
      * newly earned medal ids so the caller can celebrate them, and the fresh
      * state for UI refresh.
      *
-     * V2.3（用户要求 2026-11-24）：传入 [fingerprint]（题目内容+年级指纹）时
-     * 启用按题台账——
+     * V2.3/V2.5（用户要求 2026-11-24/28）：传入 [question] 时启用按题台账——
      *  - 答错：按本题累计答错次数递增扣减（-1/-2/-5/-10），并累加台账；
      *  - 答对：若本题已拿满 [ProgressRules.MAX_CORRECT_BONUS_PER_QUESTION] 次加分
-     *    （封顶集合命中）则只得 0 分；否则按题型加分，并在本次为第 2 次加分时
-     *    写入封顶集合。
-     * fingerprint 为空时退回旧的固定 -1 / 按题型加分行为（兼容无题面场景）。
+     *    （封顶）则只得 0 分；否则按题型加分，加分时同时累计
+     *    「年级×科目答对数」（科目徽章用；封顶后的 +0 不计，防刷）。
+     * question 为空时退回旧的固定 -1 / 按题型加分行为（兼容无题面场景）。
      */
     suspend fun applyAnswer(
         context: Context,
         isCorrect: Boolean,
         isFill: Boolean,
-        fingerprint: String? = null
+        question: com.antidip.db.QuestionEntity? = null
     ): Pair<ProgressRules.State, List<String>> {
+        val fingerprint = question?.let {
+            ProgressRules.questionFingerprint(it.content, it.grade)
+        }
         var newMedals: Set<String> = emptySet()
         var newState = ProgressRules.initial()
         context.progressDataStore.edit { prefs ->
@@ -91,7 +93,8 @@ object ProgressStore {
                 wrongCount = wrongCount, bonusCapped = bonusCapped, fingerprint = fingerprint
             )
 
-            // 落台账：答错累加累计次数；答对且本次计入加分 → 累加加分次数。
+            // 落台账：答错累加累计次数；答对且本次计入加分 → 累加加分次数，
+            // 并累计年级×科目答对数（科目徽章，封顶后的 +0 不计）。
             if (fingerprint != null) {
                 if (!isCorrect) {
                     val counts = parseWrongCounts(prefs[WRONG_COUNTS_KEY].orEmpty()).toMutableMap()
@@ -99,6 +102,15 @@ object ProgressStore {
                     prefs[WRONG_COUNTS_KEY] = encodeWrongCounts(counts)
                 } else if (!bonusCapped) {
                     putTally(prefs, fingerprint, bonusTally + 1)
+                    val subject = question?.subject
+                    val grade = question?.grade ?: 0
+                    if (!subject.isNullOrBlank() && grade in 1..9) {
+                        val key = "${grade}_${subject}"
+                        val map = parseWrongCounts(prefs[SUBJECT_CORRECT_KEY].orEmpty())
+                            .toMutableMap()
+                        map[key] = (map[key] ?: 0) + 1
+                        prefs[SUBJECT_CORRECT_KEY] = encodeWrongCounts(map)
+                    }
                 }
             }
 
@@ -110,6 +122,19 @@ object ProgressStore {
             newState = st
         }
         return newState to newMedals.toList()
+    }
+
+    /**
+     * V2.5 年级×科目累计答对数（DataStore，行格式 "g_subject|count"）。
+     * 供本年级科目完成徽章判定与勋章墙进度展示。
+     */
+    private val SUBJECT_CORRECT_KEY = stringPreferencesKey("subject_correct_counts")
+
+    suspend fun getSubjectCorrectCounts(context: Context, grade: Int): Map<String, Int> {
+        val raw = context.progressDataStore.data.first()[SUBJECT_CORRECT_KEY].orEmpty()
+        return parseWrongCounts(raw).mapKeys { it.key }
+            .filterKeys { it.startsWith("${grade}_") }
+            .mapKeys { it.key.removePrefix("${grade}_") }
     }
 
     /**

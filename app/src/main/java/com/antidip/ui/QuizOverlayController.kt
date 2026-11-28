@@ -509,11 +509,7 @@ class QuizOverlayController private constructor(
                     updateProgress(
                         isCorrect = true,
                         isFill = lastSubmittedQuestion?.type == "fill",
-                        fingerprint = lastSubmittedQuestion?.let {
-                            com.antidip.ProgressRules.questionFingerprint(
-                                it.content, it.grade
-                            )
-                        }
+                        question = lastSubmittedQuestion
                     )
                 }
 
@@ -554,9 +550,7 @@ class QuizOverlayController private constructor(
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -578,9 +572,7 @@ class QuizOverlayController private constructor(
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -602,9 +594,7 @@ class QuizOverlayController private constructor(
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -629,9 +619,7 @@ class QuizOverlayController private constructor(
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -713,13 +701,14 @@ class QuizOverlayController private constructor(
     }
 
     /** V2.0: +points / streak / medals through [com.antidip.data.ProgressStore]. */
-    private fun updateProgress(isCorrect: Boolean, isFill: Boolean, fingerprint: String? = null) {
+    private fun updateProgress(isCorrect: Boolean, isFill: Boolean, question: com.antidip.db.QuestionEntity? = null) {
         // 计分写入必须在 dismiss() 之后仍能落盘：dismiss 会 cancel 本控制器
         // 的 scope（见 dismiss()），用独立的 IO scope 保证 +1/-1 不被取消丢失。
+        // V2.5：传完整 question（指纹/科目徽章计数都从中派生）。
         CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             val (state, newMedals) =
                 com.antidip.data.ProgressStore.applyAnswer(
-                    appContext, isCorrect, isFill, fingerprint
+                    appContext, isCorrect, isFill, question
                 )
             mainHandler.post {
                 binding?.tvProgress?.text =

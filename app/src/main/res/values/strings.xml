@@ -162,6 +162,8 @@
     <string name="growth_cta_sub">每题都算积分 · 练出好成绩</string>
     <string name="growth_points_badges_title">⭐ 积分与徽章</string>
     <string name="growth_medal_wall_title">🏅 勋章墙</string>
+    <string name="growth_subject_badges_title">📚 本年级科目徽章（各科答对 20 题解锁）</string>
+    <string name="growth_subject_badges_all_grade">在家长控制台选择年级后，这里会显示各科目完成徽章。</string>
     <string name="growth_wrong_hint">💡 全部答对的错题会自动从错题本移除；做对同题 2 次的题也会自动划掉。</string>
     <string name="growth_banner_grade_chip">📚 %1$d 年级</string>
     <string name="growth_banner_grade_chip_all">📚 全部年级</string>
@@ -244,13 +246,15 @@
     <string name="growth_home_brief">🏅 最高连对 %1$d 题　📕 错题本 %2$d 题待巩固（点我开始复习）</string>
     <string name="growth_badges_summary">已点亮 %1$d / %2$d 枚徽章</string>
 
-    <!-- V2.4 拍照录题（裁剪 + 转填空，2026-11-28） -->
+    <!-- V2.5 拍照录题（应用内相机 + 裁剪 + 多题录入，2026-11-28） -->
     <string name="photo_title">📷 拍照录题</string>
-    <string name="photo_sub">拍题目照片 → 裁剪框选 → AI 识别 → 存为填空题</string>
-    <string name="photo_hint_capture">先拍一张清晰的题目照片</string>
-    <string name="photo_capture">📷 拍照</string>
-    <string name="photo_capture_ok">照片已拍摄，请拖动边框选取题目区域后点「确认裁剪」</string>
-    <string name="photo_capture_cancel">已取消拍照</string>
+    <string name="photo_sub">快门 → 裁剪框选 → AI 识别（可多题）→ 存为填空题</string>
+    <string name="photo_hint_capture">对准题目，按下快门后即可裁剪</string>
+    <string name="photo_capture">📷 快门</string>
+    <string name="photo_perm_needed">拍照录题需要相机权限</string>
+    <string name="photo_perm_denied">未授予相机权限，无法拍照录题</string>
+    <string name="photo_camera_failed">相机启动失败（可能被占用），请重试</string>
+    <string name="photo_retake">🔄 重拍</string>
     <string name="photo_crop_hint">✂️ 拖动边框或圆点，框住要录入的题目（框选越准，识别越精确）</string>
     <string name="photo_btn_crop">✅ 确认裁剪</string>
     <string name="photo_btn_recrop">✂️ 重新裁剪</string>
@@ -258,24 +262,25 @@
     <string name="photo_crop_ok">裁剪完成，可点「AI 识别题目」自动填表</string>
     <string name="photo_extract">🤖 AI 识别题目</string>
     <string name="photo_extracting">🤖 AI 识别中，请稍候…</string>
-    <string name="photo_extract_ok">识别完成，请核对下方内容后保存</string>
-    <string name="photo_extract_fail_manual">AI 未能识别，请手动填写下方表单</string>
-    <string name="photo_ai_not_configured">未配置支持图片的视觉模型，请手动填写下方表单（或在控制台配置）</string>
-    <string name="photo_read_fail">图片读取失败，请重新拍照</string>
+    <string name="photo_found_fmt">识别到 %1$d 道题，请核对下方内容后保存</string>
+    <string name="photo_none_found">AI 未能识别出题目，请手动添加填写</string>
+    <string name="photo_ai_not_configured">未配置支持图片的视觉模型，请手动添加填写（或在控制台配置）</string>
+    <string name="photo_read_fail">图片读取失败，请重拍</string>
     <string name="photo_no_camera">无法打开相机</string>
-    <string name="photo_form_title">核对并保存（拍照录题一律存为填空题）</string>
+    <string name="photo_form_title">核对并保存（一律存为填空题）</string>
     <string name="photo_subject">科目</string>
     <string name="photo_content">题干</string>
     <string name="photo_content_hint">请输入题目内容（含 ____ 空格）</string>
     <string name="photo_answer">答案（识别为选择题时，正确选项自动转为答案）</string>
     <string name="photo_answer_hint">标准答案</string>
-    <string name="photo_save">保存到题库（填空题）</string>
-    <string name="photo_saved">已保存到题库（填空题）！</string>
-    <string name="photo_duplicate">该题已存在题库，未重复添加</string>
+    <string name="photo_add_manual">＋ 手动添加一道</string>
+    <string name="photo_save_selected">💾 保存选中的题目（填空题）</string>
+    <string name="photo_saved_fmt">已保存 %1$d 道题到题库（跳过重复 %2$d 道）</string>
+    <string name="photo_need_checked">请至少勾选一道要保存的题目</string>
     <string name="photo_need_content">请填写题干</string>
-    <string name="photo_need_answer">请填写答案</string>
+    <string name="photo_need_answer">有题目缺少答案，请补齐或取消勾选</string>
     <string name="home_photo_title">📷 拍照录题</string>
-    <string name="home_photo_sub">拍题 → 裁剪 → AI 识别 → 存为填空题</string>
+    <string name="home_photo_sub">拍照 → 裁剪 → AI 识别（可多题）→ 存为填空题</string>
     <string name="console_photo_entry">📷 拍照录题</string>
     <string name="console_photo_entry_desc">拍题目照片，AI 识别后存入题库（需视觉模型）</string>
 </resources>

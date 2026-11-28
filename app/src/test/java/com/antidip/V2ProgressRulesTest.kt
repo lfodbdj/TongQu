@@ -49,35 +49,56 @@ class V2ProgressRulesTest {
     @Test
     fun medals_byPointsMilestones() {
         val m = ProgressRules.evaluateMedals(emptySet(), points = 100, streak = 0)
-        assertTrue(m.containsAll(listOf("points_10", "points_50", "points_100")))
+        assertTrue(m.containsAll(listOf("points_10", "points_100")))
+        // V2.5：积分 50/200/300 档已删除
+        assertFalse(m.contains("points_50"))
         assertFalse(m.contains("points_200"))
+        assertFalse(m.contains("points_500"))
     }
 
     @Test
     fun medals_byStreakMilestones_andFirstAnswer() {
-        val m = ProgressRules.evaluateMedals(emptySet(), points = 0, streak = 5, firstCorrectAnswer = true)
-        assertTrue(m.containsAll(listOf("first_quiz", "streak_5")))
-        assertFalse(m.contains("streak_10"))
+        val m = ProgressRules.evaluateMedals(emptySet(), points = 0, streak = 10, firstCorrectAnswer = true)
+        assertTrue(m.containsAll(listOf("first_quiz", "streak_10")))
+        // V2.5：5/20/30 连对已删除
+        assertFalse(m.contains("streak_5"))
+        assertFalse(m.contains("streak_20"))
+        assertFalse(m.contains("streak_30"))
+        assertFalse(m.contains("streak_50"))
     }
 
-    /** V2.4（2026-11-28）：徽章扩到 12 枚——积分 300/500、连对 30/50。 */
+    /** V2.5（2026-11-28）：静态徽章 9 枚 + 新积分/连对档 + 科目完成徽章。 */
     @Test
-    fun medals_extendedTwelveBadges() {
-        assertEquals(12, ProgressRules.MEDALS.size)
-        val byPoints = ProgressRules.evaluateMedals(emptySet(), points = 500, streak = 0)
-        assertTrue(byPoints.containsAll(listOf("points_300", "points_500")))
-        val byStreak = ProgressRules.evaluateMedals(emptySet(), points = 0, streak = 50)
-        assertTrue(byStreak.containsAll(listOf("streak_30", "streak_50")))
-        // 条件文案与进度目标齐备（勋章墙/下一枚进度条依赖）
-        assertEquals("积分达到 300", ProgressRules.conditionOf("points_300"))
-        assertEquals("streak" to 50, ProgressRules.conditionTarget("streak_50"))
+    fun medals_v5_ladderAndSubjectBadges() {
+        assertEquals(9, ProgressRules.MEDALS.size)
+        val byPoints = ProgressRules.evaluateMedals(emptySet(), points = 5000, streak = 0)
+        assertTrue(
+            byPoints.containsAll(
+                listOf("points_10", "points_100", "points_500", "points_1000", "points_5000")
+            )
+        )
+        val byStreak = ProgressRules.evaluateMedals(emptySet(), points = 0, streak = 100)
+        assertTrue(byStreak.containsAll(listOf("streak_10", "streak_50", "streak_100")))
+        assertEquals("积分达到 1000", ProgressRules.conditionOf("points_1000"))
+        assertEquals("streak" to 100, ProgressRules.conditionTarget("streak_100"))
+
+        // 科目完成徽章：累计答对 20 题解锁，id 按年级区分
+        assertEquals(20, ProgressRules.SUBJECT_BADGE_TARGET)
+        assertEquals(5, ProgressRules.SUBJECT_BADGES.size)
+        assertTrue(ProgressRules.subjectBadgeEarned(20))
+        assertTrue(ProgressRules.subjectBadgeEarned(35))
+        assertFalse(ProgressRules.subjectBadgeEarned(19))
+        assertEquals("g4_math", ProgressRules.subjectBadgeId(4, "math"))
+        assertFalse(
+            ProgressRules.subjectBadgeId(4, "math") == ProgressRules.subjectBadgeId(5, "math")
+        )
     }
 
     @Test
     fun medals_notRevoked_whenPointsDrop() {
-        val earned = ProgressRules.evaluateMedals(emptySet(), points = 60, streak = 0)
+        val earned = ProgressRules.evaluateMedals(emptySet(), points = 600, streak = 0)
         val after = ProgressRules.evaluateMedals(earned, points = 0, streak = 0)
-        assertTrue(after.contains("points_50")) // 已获得荣誉不回退
+        assertTrue(after.contains("points_500")) // 已获得荣誉不回退
     }
 
     @Test

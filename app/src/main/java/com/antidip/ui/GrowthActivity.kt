@@ -89,6 +89,9 @@ class GrowthActivity : AppCompatActivity() {
     private var achvBarFill: View? = null
     private var achvBarEmpty: View? = null
     private var badgesBoxPoints: LinearLayout? = null
+    /** V2.5 本年级科目完成徽章容器。 */
+    private var subjectBadgesBox: LinearLayout? = null
+    private var subjectBadgesEmpty: TextView? = null
     private var wrongCountBadge: TextView? = null
     private var pointsHero: TextView? = null
     private var pointsLevel: TextView? = null
@@ -471,6 +474,19 @@ class GrowthActivity : AppCompatActivity() {
         badgesBoxPoints = box
         page.addView(box, childParams(4))
 
+        // V2.5 本年级科目完成徽章（各科一枚，按累计答对 20 题解锁）
+        page.addView(sectionLabel(getString(R.string.growth_subject_badges_title)))
+        val sbox = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
+        subjectBadgesBox = sbox
+        page.addView(sbox, childParams(4))
+        subjectBadgesEmpty = TextView(this).apply {
+            text = getString(R.string.growth_subject_badges_all_grade)
+            textSize = 12f
+            setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.text_secondary))
+            setPadding(dp(4), dp(2), dp(4), dp(6))
+        }
+        page.addView(subjectBadgesEmpty, childParams(2))
+
         page.addView(sectionLabel(getString(R.string.growth_points_title)))
         val rules = card()
         listOf(
@@ -759,6 +775,84 @@ class GrowthActivity : AppCompatActivity() {
                 }
             }
             if (row.childCount > 0) box.addView(row, childParams(6))
+        }
+
+        // V2.5 本年级科目完成徽章：仅展示该年级题库中实际存在的科目，
+        // 达标（累计答对 20 题）绿显，未达标灰显并显示进度 count/20。
+        val selGrade = AppConfig.getSelectedGrade(this)
+        if (selGrade == Constants.ALL_GRADES) {
+            subjectBadgesBox?.visibility = android.view.View.GONE
+            subjectBadgesEmpty?.visibility = android.view.View.VISIBLE
+        } else {
+            subjectBadgesBox?.visibility = android.view.View.VISIBLE
+            subjectBadgesEmpty?.visibility = android.view.View.GONE
+            val bankCounts = runCatching { bankManager.getGradeSubjectCounts(selGrade) }
+                .getOrDefault(emptyMap())
+            val correctCounts =
+                ProgressStore.getSubjectCorrectCounts(this, selGrade)
+            subjectBadgesBox?.let { sbox ->
+                sbox.removeAllViews()
+                var srow = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+                var sIdx = 0
+                ProgressRules.SUBJECT_BADGES.forEach { (subject, meta) ->
+                    val bankN = bankCounts[subject] ?: 0
+                    if (bankN <= 0) return@forEach
+                    val (emoji, name) = meta
+                    val got = correctCounts[subject] ?: 0
+                    val earned = ProgressRules.subjectBadgeEarned(got)
+                    val cell = LinearLayout(this).apply {
+                        orientation = LinearLayout.VERTICAL
+                        gravity = Gravity.CENTER
+                        setPadding(dp(4), dp(10), dp(4), dp(10))
+                        background = GradientDrawable().apply {
+                            if (earned) {
+                                setColor(0xFFF4FAEF.toInt())
+                                setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+                            } else {
+                                setColor(0xFFFFFFFF.toInt())
+                                setStroke(dp(1), ContextCompat.getColor(this@GrowthActivity, R.color.divider))
+                            }
+                            cornerRadius = dp(14).toFloat()
+                        }
+                    }
+                    cell.addView(TextView(this).apply {
+                        text = if (earned) emoji else "🔒"
+                        textSize = 17f
+                        gravity = Gravity.CENTER
+                        alpha = if (earned) 1f else 0.55f
+                    })
+                    cell.addView(TextView(this).apply {
+                        text = name
+                        textSize = 10.5f
+                        gravity = Gravity.CENTER
+                        setTypeface(null, if (earned) Typeface.BOLD else Typeface.NORMAL)
+                        setTextColor(
+                            ContextCompat.getColor(
+                                this@GrowthActivity,
+                                if (earned) R.color.on_surface else R.color.text_secondary
+                            )
+                        )
+                    })
+                    cell.addView(TextView(this).apply {
+                        text = if (earned) {
+                            "${selGrade}年级完成"
+                        } else {
+                            "$got/${ProgressRules.SUBJECT_BADGE_TARGET}"
+                        }
+                        textSize = 9f
+                        gravity = Gravity.CENTER
+                        setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.text_secondary))
+                    })
+                    srow.addView(cell, LinearLayout.LayoutParams(0,
+                        LinearLayout.LayoutParams.WRAP_CONTENT, 1f).apply { marginEnd = dp(6) })
+                    if (sIdx % 4 == 3) {
+                        sbox.addView(srow, childParams(6))
+                        srow = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
+                    }
+                    sIdx++
+                }
+                if (srow.childCount > 0) sbox.addView(srow, childParams(6))
+            }
         }
 
         refreshWrongList()

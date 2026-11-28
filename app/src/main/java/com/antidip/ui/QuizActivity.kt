@@ -508,9 +508,7 @@ class QuizActivity : AppCompatActivity() {
                     updateProgress(
                         isCorrect = true,
                         isFill = lastSubmittedQuestion?.type == "fill",
-                        fingerprint = lastSubmittedQuestion?.let {
-                            com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                        }
+                        question = lastSubmittedQuestion
                     )
                 }
 
@@ -553,9 +551,7 @@ class QuizActivity : AppCompatActivity() {
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && result.attemptsLeft == 0) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -575,9 +571,7 @@ class QuizActivity : AppCompatActivity() {
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -598,9 +592,7 @@ class QuizActivity : AppCompatActivity() {
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -630,9 +622,7 @@ class QuizActivity : AppCompatActivity() {
                 updateProgress(
                     isCorrect = false,
                     isFill = lastSubmittedQuestion?.type == "fill",
-                    fingerprint = lastSubmittedQuestion?.let {
-                        com.antidip.ProgressRules.questionFingerprint(it.content, it.grade)
-                    }
+                    question = lastSubmittedQuestion
                 )
                 if (lastSubmittedQuestion?.type == "fill" && lastSubmitAttemptsBefore == 1) {
                     recordWrongAndExplain(lastSubmittedQuestion!!)
@@ -751,11 +741,11 @@ class QuizActivity : AppCompatActivity() {
     }
 
     /** V2.0: +points / streak / medals through [com.antidip.data.ProgressStore]. */
-    private fun updateProgress(isCorrect: Boolean, isFill: Boolean, fingerprint: String? = null) {
+    private fun updateProgress(isCorrect: Boolean, isFill: Boolean, question: com.antidip.db.QuestionEntity? = null) {
         lifecycleScope.launch {
             val (state, newMedals) =
                 com.antidip.data.ProgressStore.applyAnswer(
-                    this@QuizActivity, isCorrect, isFill, fingerprint
+                    this@QuizActivity, isCorrect, isFill, question
                 )
             binding.tvProgress.text =
                 getString(R.string.progress_line, state.points, state.streak)

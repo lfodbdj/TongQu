@@ -496,6 +496,10 @@ class QuestionBankManager(private val context: Context) {
     suspend fun getQuestionByContentGrade(content: String, grade: Int): QuestionEntity? =
         dao.getByContentAndGrade(content, grade)
 
+    /** V2.5 本年级各科目题量（>0 的科目才展示"科目完成徽章"）。 */
+    suspend fun getGradeSubjectCounts(grade: Int): Map<String, Int> =
+        dao.getGradeSubjectCounts(grade).associate { it.subject to it.count }
+
     /**
      * V2.3 拍照录题（用户要求 2026-11-24）：把家长复核后的单道题加入题库。
      * 去重键为 (content, grade)（Room 唯一索引，重复返回 false）。

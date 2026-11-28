@@ -62,36 +62,32 @@ object ProgressRules {
     )
 
     /** All medals with their display metadata (id, emoji, name, condition). */
-    // V2.4（用户要求 2026-11-28）：徽章从 8 枚扩到 12 枚（积分 300/500、连对 30/50）。
+    // V2.5（用户要求 2026-11-28）：积分档保留 10/100/500 并新增 1000/5000，
+    // 连对档保留 10/50 并新增 100（删除 5/20/30 连对与积分 50/200/300）。
+    // 另有「本年级各科目完成徽章」（动态，见 SUBJECT_BADGES），不计入本表。
     val MEDALS: List<Triple<String, String, String>> = listOf(
         Triple("first_quiz", "🌟", "初露锋芒"),
         Triple("points_10", "🥉", "小试牛刀"),
-        Triple("points_50", "🥈", "崭露头角"),
         Triple("points_100", "🥇", "百分达人"),
-        Triple("points_200", "👑", "学霸之星"),
-        Triple("points_300", "🏆", "积分大师"),
         Triple("points_500", "💎", "传奇学霸"),
-        Triple("streak_5", "🔥", "五连对"),
+        Triple("points_1000", "👑", "积分王者"),
+        Triple("points_5000", "💖", "积分传奇"),
         Triple("streak_10", "⚡", "十连对"),
-        Triple("streak_20", "🚀", "二十连对"),
-        Triple("streak_30", "🌈", "三十连对"),
-        Triple("streak_50", "💫", "五十连对")
+        Triple("streak_50", "💫", "五十连对"),
+        Triple("streak_100", "🌈", "百连对")
     )
 
     /** Human-readable unlock condition for a medal id (growth screen / tests). */
     fun conditionOf(id: String): String = when (id) {
         "first_quiz" -> "完成第一次答对"
         "points_10" -> "积分达到 10"
-        "points_50" -> "积分达到 50"
         "points_100" -> "积分达到 100"
-        "points_200" -> "积分达到 200"
-        "points_300" -> "积分达到 300"
         "points_500" -> "积分达到 500"
-        "streak_5" -> "连续答对 5 题"
+        "points_1000" -> "积分达到 1000"
+        "points_5000" -> "积分达到 5000"
         "streak_10" -> "连续答对 10 题"
-        "streak_20" -> "连续答对 20 题"
-        "streak_30" -> "连续答对 30 题"
         "streak_50" -> "连续答对 50 题"
+        "streak_100" -> "连续答对 100 题"
         else -> ""
     }
 
@@ -101,18 +97,40 @@ object ProgressRules {
      */
     fun conditionTarget(id: String): Pair<String, Int>? = when (id) {
         "points_10" -> "points" to 10
-        "points_50" -> "points" to 50
         "points_100" -> "points" to 100
-        "points_200" -> "points" to 200
-        "points_300" -> "points" to 300
         "points_500" -> "points" to 500
-        "streak_5" -> "streak" to 5
+        "points_1000" -> "points" to 1000
+        "points_5000" -> "points" to 5000
         "streak_10" -> "streak" to 10
-        "streak_20" -> "streak" to 20
-        "streak_30" -> "streak" to 30
         "streak_50" -> "streak" to 50
+        "streak_100" -> "streak" to 100
         else -> null
     }
+
+    // ------------------------------------------------------------------
+    // V2.5 本年级各科目完成徽章（用户要求 2026-11-28）：五科各一枚，按
+    // 「本年级该科目累计答对题数」解锁。徽章 id = g<grade>_<subject>，
+    // 计数只累计真正加分的一次作答（重试答对/封顶后的 +0 不计，防刷）。
+    // ------------------------------------------------------------------
+
+    /** 解锁一科徽章所需的累计答对题数。 */
+    const val SUBJECT_BADGE_TARGET = 20
+
+    /** 科目 → (emoji, 徽章名)。 */
+    val SUBJECT_BADGES: Map<String, Pair<String, String>> = mapOf(
+        "chinese" to ("📗" to "语文达人"),
+        "math" to ("➗" to "数学达人"),
+        "english" to ("🔤" to "英语达人"),
+        "science" to ("🔬" to "科学达人"),
+        "moral" to ("⚖️" to "品德达人")
+    )
+
+    /** 科目徽章 id（按年级区分）。 */
+    fun subjectBadgeId(grade: Int, subject: String): String = "g${grade}_${subject}"
+
+    /** 科目徽章是否达到解锁条件。 */
+    fun subjectBadgeEarned(correctCount: Int): Boolean =
+        correctCount >= SUBJECT_BADGE_TARGET
 
     /**
      * 错题本"写结果不写选项"（用户要求 2026-11-21）：选择题答案字母（A–D）
@@ -181,16 +199,13 @@ object ProgressRules {
         val s = earned.toMutableSet()
         if (firstCorrectAnswer) s.add("first_quiz")
         if (points >= 10) s.add("points_10")
-        if (points >= 50) s.add("points_50")
         if (points >= 100) s.add("points_100")
-        if (points >= 200) s.add("points_200")
-        if (points >= 300) s.add("points_300")
         if (points >= 500) s.add("points_500")
-        if (streak >= 5) s.add("streak_5")
+        if (points >= 1000) s.add("points_1000")
+        if (points >= 5000) s.add("points_5000")
         if (streak >= 10) s.add("streak_10")
-        if (streak >= 20) s.add("streak_20")
-        if (streak >= 30) s.add("streak_30")
         if (streak >= 50) s.add("streak_50")
+        if (streak >= 100) s.add("streak_100")
         return s
     }
 
