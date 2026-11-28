@@ -208,7 +208,13 @@ class PhotoQuizActivity : AppCompatActivity() {
     }
 
     private fun buildForm(): LinearLayout {
-        val form = LinearLayout(this).apply { visibility = View.GONE }
+        // 修复（真机发现 2026-11-28）：LinearLayout 默认 orientation=HORIZONTAL，
+        // 不显式设 VERTICAL 时表单子项全部横向排列并溢出屏幕右侧（题干/答案/
+        // 保存按钮不可见）。与 v2.3 首版同源问题，装机复测时暴露。
+        val form = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            visibility = View.GONE
+        }
         form.addView(label(R.string.photo_form_title))
         form.addView(label(R.string.photo_subject))
         spSubject = Spinner(this).apply {
@@ -306,6 +312,9 @@ class PhotoQuizActivity : AppCompatActivity() {
     private fun enterCropMode(bmp: Bitmap) {
         currentBitmap = bmp
         preview.setImageBitmap(bmp)
+        // onCreate 时 preview 初始为 GONE（无照片不占位）；进入裁剪必须显式
+        // 恢复 VISIBLE，否则 FrameLayout 高度塌成 0，照片与裁剪浮层都不可见。
+        preview.visibility = View.VISIBLE
         photoWrap.visibility = View.VISIBLE
         cropOverlay.visibility = View.VISIBLE
         cropOverlay.resetRect()

@@ -62,8 +62,10 @@ object Constants {
 
     // V2.4（用户要求 2026-11-28）：控制台 AI 卡片预填硅基流动端点与推荐
     // 视觉模型（支持拍照录题的多模态模型）；API Key 留空由家长自己填写。
+    // 注：Qwen2.5-VL 系列已在硅基流动下线（返回 20012 Model does not exist），
+    // 现役视觉模型为 Qwen3-VL 系列，默认取最小的 8B（快、便宜）。
     const val DEFAULT_AI_ENDPOINT = "https://api.siliconflow.cn/v1/chat/completions"
-    const val DEFAULT_AI_MODEL = "Qwen/Qwen2.5-VL-7B-Instruct"
+    const val DEFAULT_AI_MODEL = "Qwen/Qwen3-VL-8B-Instruct"
 
     // ---- V2.3 按题答题台账（用户要求 2026-11-24）：
     //  1) 同一题累计答错次数 → 递增扣减（1/2/5/10），按内容+年级指纹持久化；

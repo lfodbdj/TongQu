@@ -655,7 +655,10 @@ class GrowthActivity : AppCompatActivity() {
         }
 
         // 最新成就卡（首页）：最近解锁 + 下一枚进度
-        val earnedIdx = ProgressRules.MEDALS.indexOfLast { it.first in st.medals }
+        // V2.4：勋章解锁状态按当前积分/连对**动态判定**——新增徽章无需等下次
+        // 答题触发 applyAnswer 才亮，渲染时立即反映（持久化集合照旧在答题时写）。
+        val dynamicMedals = ProgressRules.evaluateMedals(st.medals, st.points, st.streak)
+        val earnedIdx = ProgressRules.MEDALS.indexOfLast { it.first in dynamicMedals }
         if (earnedIdx >= 0) {
             achvTitle?.text = getString(
                 R.string.achv_latest_fmt, ProgressRules.MEDALS[earnedIdx].second
@@ -663,7 +666,7 @@ class GrowthActivity : AppCompatActivity() {
         } else {
             achvTitle?.text = getString(R.string.achv_empty)
         }
-        val nextMedal = ProgressRules.MEDALS.firstOrNull { it.first !in st.medals }
+        val nextMedal = ProgressRules.MEDALS.firstOrNull { it.first !in dynamicMedals }
         if (nextMedal == null) {
             achvNext?.visibility = android.view.View.GONE
             achvBarBg?.visibility = android.view.View.GONE
@@ -708,7 +711,7 @@ class GrowthActivity : AppCompatActivity() {
             box.removeAllViews()
             var row = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
             ProgressRules.MEDALS.forEachIndexed { idx, (id, emoji, name) ->
-                val earned = id in st.medals
+                val earned = id in dynamicMedals
                 val cell = LinearLayout(this).apply {
                     orientation = LinearLayout.VERTICAL
                     gravity = Gravity.CENTER

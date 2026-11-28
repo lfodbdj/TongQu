@@ -174,7 +174,7 @@
     <string name="ai_switch">启用 AI 判题</string>
     <string name="ai_hint_endpoint">端点 URL（已预填硅基流动）</string>
     <string name="ai_hint_key">API Key（请自行填写，形如 sk-…）</string>
-    <string name="ai_hint_model">模型名（已预填 Qwen2.5-VL，支持拍照录题）</string>
+    <string name="ai_hint_model">模型名（已预填 Qwen3-VL，支持拍照录题）</string>
     <string name="ai_save">保存 AI 配置</string>
     <string name="ai_test">测试连接</string>
     <string name="ai_test_ok">连接成功，AI 判分可用</string>
