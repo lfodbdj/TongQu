@@ -86,6 +86,23 @@ interface QuestionDao {
             "WHERE grade = :grade GROUP BY subject"
     )
     suspend fun getGradeSubjectCounts(grade: Int): List<SubjectCount>
+
+    /** V2.5.1 标记某题曾答对过（幂等，不随答错重置）。 */
+    @Query("UPDATE questions SET answered_correct = 1 WHERE id = :id")
+    suspend fun markAnsweredCorrect(id: Long)
+
+    /** V2.5.1 本年级各科目「曾答对过」的题数（科目过半徽章用）。 */
+    @Query(
+        "SELECT subject, COUNT(*) AS count FROM questions " +
+            "WHERE grade = :grade AND answered_correct = 1 GROUP BY subject"
+    )
+    suspend fun getGradeSubjectCorrectCounts(grade: Int): List<SubjectCount>
+
+    /** V2.5.1 本年级「曾答对过」的题总数（无所不知成就用）。 */
+    @Query(
+        "SELECT COUNT(*) FROM questions WHERE grade = :grade AND answered_correct = 1"
+    )
+    suspend fun getGradeAnsweredTotal(grade: Int): Int
 }
 
 data class SubjectCount(

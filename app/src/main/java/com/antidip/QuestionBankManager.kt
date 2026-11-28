@@ -500,6 +500,22 @@ class QuestionBankManager(private val context: Context) {
     suspend fun getGradeSubjectCounts(grade: Int): Map<String, Int> =
         dao.getGradeSubjectCounts(grade).associate { it.subject to it.count }
 
+    /** V2.5.1 标记某题曾答对过（幂等； mastered 删除的题视为已答对，见成就判定）。 */
+    suspend fun markAnsweredCorrect(id: Long) {
+        if (id > 0) dao.markAnsweredCorrect(id)
+    }
+
+    /** V2.5.1 本年级各科目「曾答对过」的题数。 */
+    suspend fun getGradeSubjectCorrectCounts(grade: Int): Map<String, Int> =
+        dao.getGradeSubjectCorrectCounts(grade).associate { it.subject to it.count }
+
+    /** V2.5.1 本年级「曾答对过」题数 / 总题数（无所不知成就 = 两者相等）。 */
+    suspend fun getGradeAnsweredProgress(grade: Int): Pair<Int, Int> {
+        val answered = dao.getGradeAnsweredTotal(grade)
+        val total = dao.getCountByGrade(grade)
+        return answered to total
+    }
+
     /**
      * V2.3 拍照录题（用户要求 2026-11-24）：把家长复核后的单道题加入题库。
      * 去重键为 (content, grade)（Room 唯一索引，重复返回 false）。

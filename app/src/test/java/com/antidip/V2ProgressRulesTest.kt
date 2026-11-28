@@ -82,12 +82,15 @@ class V2ProgressRulesTest {
         assertEquals("积分达到 1000", ProgressRules.conditionOf("points_1000"))
         assertEquals("streak" to 100, ProgressRules.conditionTarget("streak_100"))
 
-        // 科目完成徽章：累计答对 20 题解锁，id 按年级区分
-        assertEquals(20, ProgressRules.SUBJECT_BADGE_TARGET)
+        // 科目完成徽章（V2.5.1）：答对一半以上解锁，id 按年级区分
         assertEquals(5, ProgressRules.SUBJECT_BADGES.size)
-        assertTrue(ProgressRules.subjectBadgeEarned(20))
-        assertTrue(ProgressRules.subjectBadgeEarned(35))
-        assertFalse(ProgressRules.subjectBadgeEarned(19))
+        assertTrue(ProgressRules.subjectBadgeEarned(62, 123))  // 124 > 123 过半
+        assertFalse(ProgressRules.subjectBadgeEarned(61, 123)) // 122 ≤ 123 未过半
+        assertTrue(ProgressRules.subjectBadgeEarned(2, 3))
+        assertFalse(ProgressRules.subjectBadgeEarned(1, 3))
+        assertFalse(ProgressRules.subjectBadgeEarned(0, 0)) // 空科目不解锁
+        assertEquals(62, ProgressRules.subjectBadgeTarget(123))
+        assertEquals(2, ProgressRules.subjectBadgeTarget(3))
         assertEquals("g4_math", ProgressRules.subjectBadgeId(4, "math"))
         assertFalse(
             ProgressRules.subjectBadgeId(4, "math") == ProgressRules.subjectBadgeId(5, "math")

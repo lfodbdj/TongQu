@@ -162,8 +162,10 @@
     <string name="growth_cta_sub">每题都算积分 · 练出好成绩</string>
     <string name="growth_points_badges_title">⭐ 积分与徽章</string>
     <string name="growth_medal_wall_title">🏅 勋章墙</string>
-    <string name="growth_subject_badges_title">📚 本年级科目徽章（各科答对 20 题解锁）</string>
+    <string name="growth_subject_badges_title">📚 本年级科目徽章（答对该科一半以上解锁）</string>
     <string name="growth_subject_badges_all_grade">在家长控制台选择年级后，这里会显示各科目完成徽章。</string>
+    <string name="growth_omniscient_chip">🏆 无所不知</string>
+    <string name="growth_omniscient_sub">🏆 无所不知 · 今天也要加油答题哦～</string>
     <string name="growth_wrong_hint">💡 全部答对的错题会自动从错题本移除；做对同题 2 次的题也会自动划掉。</string>
     <string name="growth_banner_grade_chip">📚 %1$d 年级</string>
     <string name="growth_banner_grade_chip_all">📚 全部年级</string>

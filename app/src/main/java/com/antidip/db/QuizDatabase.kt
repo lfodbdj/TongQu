@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [QuestionEntity::class], version = 2, exportSchema = true)
+@Database(entities = [QuestionEntity::class], version = 3, exportSchema = true)
 abstract class QuizDatabase : RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
@@ -40,6 +40,21 @@ abstract class QuizDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * Migration v2 -> v3 (V2.5.1, 2026-11-28):
+         *  - add the `answered_correct` column (default 0). Historical answers
+         *    cannot be retro-marked (no per-question history), so every row
+         *    starts at 0 and the "科目过半徽章 / 年级无所不知" progress builds
+         *    from this version onward.
+         */
+        private val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "ALTER TABLE questions ADD COLUMN answered_correct INTEGER NOT NULL DEFAULT 0"
+                )
+            }
+        }
+
         fun getInstance(context: Context): QuizDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -47,7 +62,7 @@ abstract class QuizDatabase : RoomDatabase() {
                     QuizDatabase::class.java,
                     "anti_addiction_quiz.db"
                 )
-                    .addMigrations(MIGRATION_1_2)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
                     .build()
                 INSTANCE = instance
                 instance

@@ -93,8 +93,9 @@ object ProgressStore {
                 wrongCount = wrongCount, bonusCapped = bonusCapped, fingerprint = fingerprint
             )
 
-            // 落台账：答错累加累计次数；答对且本次计入加分 → 累加加分次数，
-            // 并累计年级×科目答对数（科目徽章，封顶后的 +0 不计）。
+            // 落台账：答错累加累计次数；答对且本次计入加分 → 累加加分次数。
+            // V2.5.1：科目/年级完成进度改由 questions.answered_correct 列统计
+            // （每题曾答对过去重），此处不再按事件累计。
             if (fingerprint != null) {
                 if (!isCorrect) {
                     val counts = parseWrongCounts(prefs[WRONG_COUNTS_KEY].orEmpty()).toMutableMap()
@@ -102,15 +103,6 @@ object ProgressStore {
                     prefs[WRONG_COUNTS_KEY] = encodeWrongCounts(counts)
                 } else if (!bonusCapped) {
                     putTally(prefs, fingerprint, bonusTally + 1)
-                    val subject = question?.subject
-                    val grade = question?.grade ?: 0
-                    if (!subject.isNullOrBlank() && grade in 1..9) {
-                        val key = "${grade}_${subject}"
-                        val map = parseWrongCounts(prefs[SUBJECT_CORRECT_KEY].orEmpty())
-                            .toMutableMap()
-                        map[key] = (map[key] ?: 0) + 1
-                        prefs[SUBJECT_CORRECT_KEY] = encodeWrongCounts(map)
-                    }
                 }
             }
 
@@ -122,19 +114,6 @@ object ProgressStore {
             newState = st
         }
         return newState to newMedals.toList()
-    }
-
-    /**
-     * V2.5 年级×科目累计答对数（DataStore，行格式 "g_subject|count"）。
-     * 供本年级科目完成徽章判定与勋章墙进度展示。
-     */
-    private val SUBJECT_CORRECT_KEY = stringPreferencesKey("subject_correct_counts")
-
-    suspend fun getSubjectCorrectCounts(context: Context, grade: Int): Map<String, Int> {
-        val raw = context.progressDataStore.data.first()[SUBJECT_CORRECT_KEY].orEmpty()
-        return parseWrongCounts(raw).mapKeys { it.key }
-            .filterKeys { it.startsWith("${grade}_") }
-            .mapKeys { it.key.removePrefix("${grade}_") }
     }
 
     /**

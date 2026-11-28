@@ -441,7 +441,11 @@ class PracticeActivity : AppCompatActivity() {
                 ProgressStore.applyAnswer(
                     this@PracticeActivity, correct, q.type == "fill", question = q
                 )
-            if (correct) correctCount++
+            if (correct) {
+                correctCount++
+                // V2.5.1：标记该题曾答对过（科目过半徽章/无所不知成就）
+                bankManager.markAnsweredCorrect(q.id)
+            }
             if (!correct && q.type == "fill") {
                 ProgressStore.addWrongEntry(
                     this@PracticeActivity,

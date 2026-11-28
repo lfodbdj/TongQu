@@ -108,13 +108,11 @@ object ProgressRules {
     }
 
     // ------------------------------------------------------------------
-    // V2.5 本年级各科目完成徽章（用户要求 2026-11-28）：五科各一枚，按
-    // 「本年级该科目累计答对题数」解锁。徽章 id = g<grade>_<subject>，
-    // 计数只累计真正加分的一次作答（重试答对/封顶后的 +0 不计，防刷）。
+    // V2.5.1 本年级各科目完成徽章（用户要求 2026-11-28）：五科各一枚，
+    // 「答对该科一半以上」解锁（answered*2 > total）。计数基于
+    // questions.answered_correct（每题曾答对过至少一次，去重）；
+    // 已掌握（连续答对 2 次被移除）的题从两侧同时退出，天然互洽。
     // ------------------------------------------------------------------
-
-    /** 解锁一科徽章所需的累计答对题数。 */
-    const val SUBJECT_BADGE_TARGET = 20
 
     /** 科目 → (emoji, 徽章名)。 */
     val SUBJECT_BADGES: Map<String, Pair<String, String>> = mapOf(
@@ -128,9 +126,12 @@ object ProgressRules {
     /** 科目徽章 id（按年级区分）。 */
     fun subjectBadgeId(grade: Int, subject: String): String = "g${grade}_${subject}"
 
-    /** 科目徽章是否达到解锁条件。 */
-    fun subjectBadgeEarned(correctCount: Int): Boolean =
-        correctCount >= SUBJECT_BADGE_TARGET
+    /** 解锁所需的答对题数（过半：answered*2 > total → target = total/2 + 1）。 */
+    fun subjectBadgeTarget(total: Int): Int = total / 2 + 1
+
+    /** 科目徽章是否达到解锁条件（答对一半以上）。 */
+    fun subjectBadgeEarned(answered: Int, total: Int): Boolean =
+        total > 0 && answered * 2 > total
 
     /**
      * 错题本"写结果不写选项"（用户要求 2026-11-21）：选择题答案字母（A–D）

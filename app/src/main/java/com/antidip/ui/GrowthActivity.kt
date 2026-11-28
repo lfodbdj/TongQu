@@ -78,6 +78,9 @@ class GrowthActivity : AppCompatActivity() {
 
     private lateinit var bannerTitle: TextView
     private lateinit var bannerGrade: TextView
+    /** V2.5.1 横幅副标题（名字下方）+ 无所不知成就 chip（年级后方）。 */
+    private lateinit var bannerSubtitle: TextView
+    private var achvChip: TextView? = null
     private lateinit var pagesRoot: FrameLayout
     private var homePoints: TextView? = null
     private var homeStreak: TextView? = null
@@ -162,12 +165,39 @@ class GrowthActivity : AppCompatActivity() {
         }
         val bannerCol = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         bannerCol.addView(bannerTitle)
-        bannerCol.addView(TextView(this).apply {
+        // V2.5.1：副标题行（名字下方）——解锁「无所不知」后替换为成就文案
+        bannerSubtitle = TextView(this).apply {
             text = getString(R.string.growth_banner_sub)
             textSize = 13f
             setTextColor(0xFFFFFFFF.toInt())
-        })
-        bannerCol.addView(bannerGrade, LinearLayout.LayoutParams(
+        }
+        bannerCol.addView(bannerSubtitle)
+        // 年级 chip 行：成就 chip 排在年级 chip 后方（V2.5.1）
+        val chipRow = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+        }
+        achvChip = TextView(this).apply {
+            text = getString(R.string.growth_omniscient_chip)
+            textSize = 12f
+            setTypeface(null, Typeface.BOLD)
+            setTextColor(ContextCompat.getColor(this@GrowthActivity, R.color.primary))
+            background = GradientDrawable().apply {
+                setColor(0xFFFFFFFF.toInt())
+                cornerRadius = dp(999).toFloat()
+            }
+            setPadding(dp(10), dp(3), dp(10), dp(3))
+            visibility = View.GONE
+        }
+        chipRow.addView(bannerGrade, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ))
+        chipRow.addView(achvChip, LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply { marginStart = dp(6) })
+        bannerCol.addView(chipRow, LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         ).apply { topMargin = dp(6) })
@@ -777,19 +807,19 @@ class GrowthActivity : AppCompatActivity() {
             if (row.childCount > 0) box.addView(row, childParams(6))
         }
 
-        // V2.5 本年级科目完成徽章：仅展示该年级题库中实际存在的科目，
-        // 达标（累计答对 20 题）绿显，未达标灰显并显示进度 count/20。
+        // V2.5.1 本年级科目完成徽章：仅展示该年级题库中实际存在的科目，
+        // 「答对该科一半以上」绿显（V2.5.1，用户要求），未达标灰显并显示进度。
         val selGrade = AppConfig.getSelectedGrade(this)
         if (selGrade == Constants.ALL_GRADES) {
             subjectBadgesBox?.visibility = android.view.View.GONE
-            subjectBadgesEmpty?.visibility = android.view.View.VISIBLE
+            subjectBadgesEmpty?.visibility = View.VISIBLE
         } else {
-            subjectBadgesBox?.visibility = android.view.View.VISIBLE
-            subjectBadgesEmpty?.visibility = android.view.View.GONE
+            subjectBadgesBox?.visibility = View.VISIBLE
+            subjectBadgesEmpty?.visibility = View.GONE
             val bankCounts = runCatching { bankManager.getGradeSubjectCounts(selGrade) }
                 .getOrDefault(emptyMap())
-            val correctCounts =
-                ProgressStore.getSubjectCorrectCounts(this, selGrade)
+            val answeredCounts = runCatching { bankManager.getGradeSubjectCorrectCounts(selGrade) }
+                .getOrDefault(emptyMap())
             subjectBadgesBox?.let { sbox ->
                 sbox.removeAllViews()
                 var srow = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
@@ -798,8 +828,9 @@ class GrowthActivity : AppCompatActivity() {
                     val bankN = bankCounts[subject] ?: 0
                     if (bankN <= 0) return@forEach
                     val (emoji, name) = meta
-                    val got = correctCounts[subject] ?: 0
-                    val earned = ProgressRules.subjectBadgeEarned(got)
+                    val got = answeredCounts[subject] ?: 0
+                    val earned = ProgressRules.subjectBadgeEarned(got, bankN)
+                    val target = ProgressRules.subjectBadgeTarget(bankN)
                     val cell = LinearLayout(this).apply {
                         orientation = LinearLayout.VERTICAL
                         gravity = Gravity.CENTER
@@ -837,7 +868,7 @@ class GrowthActivity : AppCompatActivity() {
                         text = if (earned) {
                             "${selGrade}年级完成"
                         } else {
-                            "$got/${ProgressRules.SUBJECT_BADGE_TARGET}"
+                            "$got/$target"
                         }
                         textSize = 9f
                         gravity = Gravity.CENTER
@@ -854,6 +885,20 @@ class GrowthActivity : AppCompatActivity() {
                 if (srow.childCount > 0) sbox.addView(srow, childParams(6))
             }
         }
+
+        // V2.5.1 无所不知成就：本年级题库全部答对过（answered == total > 0）
+        // → 横幅名字下方副标题 + 年级 chip 后方显示「🏆 无所不知」。
+        runCatching { bankManager.getGradeAnsweredProgress(selGrade) }
+            .getOrDefault(0 to 0)
+            .let { (answered, total) ->
+                val omniscient = selGrade != Constants.ALL_GRADES && total > 0 && answered >= total
+                bannerSubtitle?.text = if (omniscient) {
+                    getString(R.string.growth_omniscient_sub)
+                } else {
+                    getString(R.string.growth_banner_sub)
+                }
+                achvChip?.visibility = if (omniscient) View.VISIBLE else View.GONE
+            }
 
         refreshWrongList()
         highlightChips()

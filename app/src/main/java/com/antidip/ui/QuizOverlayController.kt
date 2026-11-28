@@ -519,6 +519,8 @@ class QuizOverlayController private constructor(
                     )
                     val q = quizEngine.getCurrentQuestion()
                     if (q != null && q.id > 0) {
+                        // V2.5.1：标记该题曾答对过（科目过半徽章/无所不知成就）
+                        questionBankManager.markAnsweredCorrect(q.id)
                         val n = questionBankManager.incrementConsecutiveCorrect(q.id)
                         if (n >= 2) {
                             questionBankManager.removeQuestionIfAboveMinimum(q.id)
